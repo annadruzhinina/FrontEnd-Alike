@@ -2,7 +2,13 @@ import "./App.css";
 
 function App() {
   return (
-    <section className="App">
+    <section className="app">
+      <img
+        src="./image/logo_transparent_bg.png"
+        className="logo_image"
+        alt=""
+      />
+      <img src="./image/logo.png" className="logo_image" alt="" />
       <h1>
         Hello team! Don't worry, this is just an example from which we can
         establish the principles of our development process.{" "}
