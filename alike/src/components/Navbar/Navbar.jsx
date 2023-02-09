@@ -3,8 +3,12 @@ import './navbar.css'
 
 function Navbar() {
   return (
-    <div>Navbar</div>
+    <section>
+
+    </section>
   )
 }
 
 export default Navbar
+
+// Home, Search, Message, Profile, LogOut, Report A Problem,... React-icons
