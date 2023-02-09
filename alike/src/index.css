@@ -12,7 +12,7 @@
 
 :root {
 
-  --color-bg: rgb(213, 216, 197);
+  /* --color-bg: rgb(62, 63, 57);
   --color-bg-variant: #415aa1;
   --color-primary: #91c0dd;
   --color-primary-variant: rgba(77, 181, 255, 0.4);
@@ -20,7 +20,8 @@
   --color-light: rgba(255, 255, 255, 0.6);
   --container-width-lg: 75%;
   --container-width-md: 86%;
-  --container-width-sm: 90%;
+  --container-width-sm: 90%; */
+  --color-landing-bg:blueviolet;
 
   --transition: transition: all 400ms ease;
 
