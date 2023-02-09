@@ -3,10 +3,12 @@ import { Route, Routes } from "react-router-dom";
 // import CSS file for App.jsx
 import "./App.css";
 
+
 //Importing Screens
 import Landing from "./screens/Landing/Landing.jsx";
 import Profile from "./screens/Profile/Profile.jsx";
 import Home from "./screens/Home/Home.jsx";
+
 
 // Import React
 import { useEffect, useState } from "react";
