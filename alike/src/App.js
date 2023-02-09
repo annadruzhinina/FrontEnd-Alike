@@ -7,7 +7,7 @@ import "./App.css";
 import Landing from "./screens/Landing/Landing.jsx";
 import Profile from "./screens/Profile/Profile.jsx";
 import Home from "./screens/Home/Home.jsx";
-import Navbar from "./components/Navbar/Navbar.jsx";
+import RightNavbar from "./components/RightNavbar/RightNavbar.jsx";
 
 // Import React
 import { useEffect, useState } from "react";
@@ -19,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/sign-in" element={<Landing />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/r-navbar" element={<RightNavbar />} />
         <Route path="/" element={<Profile />} />
       </Routes>
     </section>
