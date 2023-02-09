@@ -1,11 +1,12 @@
-import React from 'react'
-import "./landing.css"
+import React from "react";
+import "./landing.css";
 
 function Landing() {
   return (
-    <div>Landing</div>
-
-  )
+    <section className="landing">
+      <div className="landing-container">Landing</div>
+    </section>
+  );
 }
 
-export default Landing
+export default Landing;

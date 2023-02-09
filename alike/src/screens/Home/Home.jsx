@@ -1,16 +1,28 @@
-import React from 'react'
-import './home.css'
-import { Link } from 'react-router-dom'
+// import React from "react";
+// import "./home.css";
+// import { Link } from "react-router-dom";
 
-function Home() {
-  return (
-    <section className='home-container'>
-      <div>
-        <Link to="/sign-in" className="sign-in" />
-        <Link to="/" className="profile" />
-      </div>
-    </section>
-  )
-}
+// function Home() {
+//   return (
+//     <section className="home">
+//       <h1>Hello Im HOME</h1>
+//       <header className="home-header">
+//         <img src="./image/logo.png" className="home-logo" alt="logo" />
+//         <p>
+//           Edit <code>src/App.js</code> and save to reload.
+//         </p>
+//         <a
+//           className="home-link"
+//           href="https://reactjs.org"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           Learn React
+//         </a>
+//       </header>
+//     </section>
+//   );
+// }
 
-export default Home
+// export default Home;
+
