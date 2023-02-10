@@ -38,7 +38,8 @@ function Home() {
       <div className="home-header">
         <img
           className="home-headerImage"
-          src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+          // src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+          src="./image/logo_transparent_bg_new.png"
         />
       </div>
       <h1>Hello here is our app Alike - 1122</h1>
