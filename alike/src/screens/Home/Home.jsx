@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Post from "../../components/Post/Post.jsx";
 import { useState } from "react";
 import "./home.css";
+import Navbar from "../../components/Navbar/Navbar";
 
 function Home() {
   const [posts, setPosts] = useState([
@@ -43,6 +44,7 @@ function Home() {
         />
       </div>
       <h1>Hello here is our app Alike - 1122</h1>
+      <Navbar />
       {/* add id,post */}
       {posts.map((post) => {
         return (

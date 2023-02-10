@@ -1,16 +1,22 @@
-import React from "react";
-import "./navbar.css";
-import { Link } from "react-router-dom";
+import React from 'react'
+import './navbar.css'
+import { Link } from 'react-router-dom'
+import { NavbarData } from './NavbarData'
+
+
 
 function Navbar() {
   return (
-    <section className="navbar">
-      <Link to="/sign-in" className="sign-in">
-        Sign-in
-      </Link>
-      <Link to="/" className="profile">
-        Profile
-      </Link>
+    <section className='navbar-container'>
+        <section>
+        <ul>
+            {NavbarData.map((item, index) => {
+                return (
+                    <li key={index} className={item.cName}><Link to={item.path}>{item.icon} <span>{item.title}</span></Link></li> 
+                )
+            })}
+        </ul>
+        </section>
     </section>
   );
 }
