@@ -45,18 +45,27 @@ function Home() {
         />
       </div>
       <h1>Hello here is our app Alike - 1122</h1>
-      <Navbar />
-      {/* add id,post */}
-      {posts.map((post) => {
-        return (
-          <Post
-            username={post.username}
-            caption={post.caption}
-            imageUrl={post.imageUrl}
-          />
-        );
-      })}
-      <RightNavbar/>
+      <div className="home-global">
+        <div className="home-left">
+          <Navbar />
+        </div>
+        <div className="home-center">
+          {/* add id,post */}
+          {posts.map((post) => {
+            return (
+              <Post
+                username={post.username}
+                caption={post.caption}
+                imageUrl={post.imageUrl}
+              />
+            );
+          })}
+        </div>
+
+        <div className="home-right">
+          <RightNavbar />
+        </div>
+      </div>
     </div>
   );
 }
