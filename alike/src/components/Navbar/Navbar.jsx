@@ -18,9 +18,9 @@ function Navbar() {
         </ul>
         </section>
     </section>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
 
 // Home, Search, Message, Profile, LogOut, Report A Problem,... React-icons
