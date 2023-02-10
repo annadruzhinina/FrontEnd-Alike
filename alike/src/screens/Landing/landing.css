@@ -128,12 +128,16 @@ input[type="submit"]:hover {
   width: 300px;
   position: fixed;
   margin-right: 20px;
+  background: url(iPhone.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 
 .phoneTwo{
   border: solid black;
-  height: 550px;
+  height: 580px;
   width: 300px;
 }
 
