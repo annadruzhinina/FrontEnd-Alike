@@ -1,5 +1,5 @@
 import React from "react";
-import "./post.css";
+import "./profile.css";
 import Avatar from "@mui/material/Avatar";
 
 function Post({ username, caption, imageUrl }) {
@@ -14,6 +14,10 @@ function Post({ username, caption, imageUrl }) {
         <h4>Project name</h4>
         <button className="btn">GitHub</button>
       </div>
+
+      {/* <h4 className="post-text">
+        <strong>{username}</strong> {caption}
+      </h4> */}
     </div>
   );
 }
