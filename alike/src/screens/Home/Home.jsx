@@ -4,6 +4,7 @@ import Post from "../../components/Post/Post.jsx";
 import { useState } from "react";
 import "./home.css";
 import Navbar from "../../components/Navbar/Navbar";
+import RightNavbar from "../../components/RightNavbar/RightNavbar";
 
 function Home() {
   const [posts, setPosts] = useState([
@@ -55,6 +56,7 @@ function Home() {
           />
         );
       })}
+      <RightNavbar/>
     </div>
   );
 }
