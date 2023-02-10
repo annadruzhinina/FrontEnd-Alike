@@ -1,3 +1,39 @@
-.landing-container {
+.landing{
   background-color: var(--color-landing-bg);
+  display: flex;
+
 }
+
+.formContainer{
+  border: solid black;
+  height: 100vh;
+  width: 50vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.landingDesign{
+  border: solid black;
+  height: 100vh;
+  width: 50vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.phoneOne{
+  border: solid black;
+  height: 600px;
+  width: 300px;
+  position: fixed;
+  margin-right: 20px;
+}
+
+
+.phoneTwo{
+  border: solid black;
+  height: 550px;
+  width: 300px;
+}
+

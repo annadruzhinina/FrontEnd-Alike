@@ -1,10 +1,18 @@
 import React from "react";
 import "./landing.css";
+import SignUp from "../../components/SignUp/SignUp.jsx";
 
 function Landing() {
   return (
     <section className="landing">
-      <div className="landing-container">Landing</div>
+      <section className="landingDesign">
+          <section className="phoneOne"></section>
+          <section className="phoneTwo"></section>
+      </section>
+      <section className="formContainer">
+        <SignUp />
+      </section>
+
     </section>
   );
 }
