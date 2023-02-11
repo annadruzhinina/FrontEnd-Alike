@@ -6,6 +6,13 @@ import "./CreatePostModal.css";
 
 //Build CreatePostModal Component
 export default function CreatePostModal() {
+    //Set useState object
+    const [post, setPost] = useState({
+        image: "",
+        username: "",
+        projTitle: "",
+        github: ""
+    });
     //WE WILL NEED TO IMPORT USERNAME TO SET IT
     const [image, setImage] = useState("")
     const [username, setUsername] = useState("")
@@ -17,6 +24,21 @@ export default function CreatePostModal() {
         console.log("Submitted")
         //Prevent Page from Reloading
         e.preventDefault()
+        /*
+        NOTE: WE WILL STILL NEED TO SEND THIS TO DB
+        */       
+        //Update Post with Values
+        setPost({
+            image,
+            username,
+            projTitle,
+            github
+        });
+        //Reset Values to ''
+        setImage('')
+        setUsername('')
+        setProjTitle('')
+        setGithub('')
     }
 
     return (
