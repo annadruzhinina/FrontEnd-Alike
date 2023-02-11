@@ -7,8 +7,15 @@ import Navbar from "../../components/Navbar/Navbar";
 import RightNavbar from "../../components/RightNavbar/RightNavbar";
 import CreatePostModal from "../../components/CreatePostModal/CreatePostModal.jsx";
 
+
+import usePostData from "../../Hooks/usePostData.js";
+
 // username, project, github, imageUrl
 function Home() {
+  const postData = usePostData()
+  console.log(postData)
+
+
   const [posts, setPosts] = useState([
     {
       username: "Anna",
