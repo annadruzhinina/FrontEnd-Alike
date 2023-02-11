@@ -9,9 +9,6 @@ import CreatePostModal from "../../components/CreatePostModal/CreatePostModal.js
 
 // username, project, github, imageUrl
 function Home() {
-  const [modalOpen, setModalOpen] = useState(false);
-  
-
   const [posts, setPosts] = useState([
     {
       username: "Anna",
@@ -73,7 +70,6 @@ function Home() {
           <RightNavbar />
         </div>
       </div>
-      {modalOpen && <CreatePostModal onClose={() => setModalOpen(false)}/>}
     </div>
   );
 }
