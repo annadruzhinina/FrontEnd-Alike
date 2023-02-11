@@ -5,14 +5,14 @@ import { useState } from "react";
 import "./home.css";
 import Navbar from "../../components/Navbar/Navbar";
 import RightNavbar from "../../components/RightNavbar/RightNavbar";
-
+// username, project, github, imageUrl
 function Home() {
   const [posts, setPosts] = useState([
     {
       username: "Anna",
-      caption: "Wow it is work!!!!",
-      imageUrl:
-        "https://t4.ftcdn.net/jpg/00/42/95/67/240_F_42956760_OERs7TCt6TYyChIjSO25Yt9OAff57goM.jpg",
+      project: "Alike",
+      github: "https://github.com/annadruzhinina/FrontEnd-Alike",
+      imageUrl: "../image/project_001.png",
     },
     {
       username: "Masha",
@@ -44,7 +44,7 @@ function Home() {
           src="./image/logo_transparent_bg_new.png"
         />
       </div>
-      <h1>Hello here is our app Alike - 1122</h1>
+      <h1>Alike</h1>
       <div className="home-global">
         <div className="home-left">
           <Navbar />
@@ -54,8 +54,10 @@ function Home() {
           {posts.map((post) => {
             return (
               <Post
+                // username, project, github, imageUrl
                 username={post.username}
-                caption={post.caption}
+                project={post.project}
+                github={post.github}
                 imageUrl={post.imageUrl}
               />
             );
