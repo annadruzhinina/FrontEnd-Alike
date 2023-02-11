@@ -17,10 +17,10 @@ function App() {
     <section className="app">
       {/* <Navbar /> */}
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/sign-in" element={<Landing />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/r-navbar" element={<RightNavbar />} />
-        <Route path="/" element={<Profile />} />
+        {/* <Route path="/" element={<Profile />} /> */}
       </Routes>
     </section>
   );
