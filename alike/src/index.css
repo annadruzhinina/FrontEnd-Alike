@@ -19,14 +19,13 @@
   --color-btn: rgb(207 225 244)
   --color-white: #fff;
   --color-light: #fafafa;
+  --color-light-blue: #fafafa;
   --container-width-lg: 75%;
   --container-width-md: 86%;
   --container-width-sm: 90%;
-
-
   --transition: transition: all 400ms ease;
+  --header-height: 60px;
 
-    margin: 0 1rem;
 
 }
 
@@ -65,10 +64,10 @@ h1 {
   font-size: 2.5rem;
 }
 
-section {
+/* section {
   margin-top: 2px;
-  /* /* height: 100vh; */
-}
+  /* /* height: 100vh;
+} */
 
 section > h2,
 section > h5 {

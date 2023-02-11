@@ -14,15 +14,14 @@ import { useEffect, useState } from "react";
 
 function App() {
   return (
-    <section className="app">
-      {/* <Navbar /> */}
+    <>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sign-in" element={<Landing />} />
         <Route path="/r-navbar" element={<RightNavbar />} />
         {/* <Route path="/" element={<Profile />} /> */}
       </Routes>
-    </section>
+    </>
   );
 }
 
