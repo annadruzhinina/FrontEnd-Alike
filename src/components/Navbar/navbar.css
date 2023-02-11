@@ -1,0 +1,12 @@
+.navbar-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+  border-right: solid rgb(198, 197, 197);
+}
+
+.navbar-item {
+  margin: 3em;
+}

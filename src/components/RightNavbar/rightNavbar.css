@@ -1,0 +1,31 @@
+.team-avatar {
+  display: flex;
+  flex-direction: row;
+}
+
+.r-item {
+  /* display: flex; */
+  /* flex-direction: column; */
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.r-item a {
+  font-weight: 700;
+}
+
+.r-item p {
+  font-size: smaller;
+}
+
+.r-navbar {
+  border: 1px solid lightblue;
+  padding: 10px;
+  height: 70vh;
+  width: 20vw;
+}
+
+.suggestion {
+  font-weight: 100;
+  color: lightgray;
+}
