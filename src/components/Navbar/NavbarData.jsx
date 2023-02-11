@@ -42,7 +42,7 @@ export const NavbarData = [
     },
     {
         title: 'Sign Out',
-        path: '/sign-in',
+        path: '/',
         icon: <FaIcons.FaSignInAlt/>,
         cName: 'navbar-item'
     }

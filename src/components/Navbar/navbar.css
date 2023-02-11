@@ -5,6 +5,7 @@
   justify-content: left;
   align-items: flex-start;
   border-right: solid rgb(198, 197, 197);
+  position: fixed;
 }
 
 .navbar-item {
