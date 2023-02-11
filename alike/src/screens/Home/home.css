@@ -24,6 +24,35 @@
 }
 
 .home-global {
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2.5rem;
+}
+
+/* ==================MEDIA QUERIES (MEDIUM DEVICES)==================== */
+
+@media screen and (max-width: 1010px) {
+  .r-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+/* ==================MEDIA QUERIES (SMALL DEVICES)==================== */
+
+@media screen and (max-width: 600px) {
+  .r-navbar {
+    display: none;
+  }
+  .home-left {
+    display: none;
+  }
+  .home-center {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
 }
