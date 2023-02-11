@@ -23,7 +23,7 @@ export const NavbarData = [
         cName: 'navbar-item',
     },
     {
-        title: 'Messages',
+        title: 'Create Post',
         path: '',
         icon: <AiIcons.AiFillMessage/>,
         cName: 'navbar-item',

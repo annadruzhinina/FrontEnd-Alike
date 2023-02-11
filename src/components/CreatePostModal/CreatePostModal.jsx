@@ -13,7 +13,7 @@ export default function CreatePostModal() {
                 <div className='ModalFrame'>
                     <div className='Modal Content'>
                         <form action="submit">
-                            
+
                         </form>
                     </div>
                 </div>
