@@ -23,6 +23,12 @@ export const NavbarData = [
         cName: 'navbar-item',
     },
     {
+        title: 'Create',
+        path: '',
+        icon: <MdIcons.MdOutlineAddToPhotos/>,
+        cName: 'navbar-item',
+    },
+    {
         title: 'Messages',
         path: '',
         icon: <AiIcons.AiFillMessage/>,
@@ -36,7 +42,7 @@ export const NavbarData = [
     },
     {
         title: 'Sign Out',
-        path: '/sign-in',
+        path: '/',
         icon: <FaIcons.FaSignInAlt/>,
         cName: 'navbar-item'
     }
