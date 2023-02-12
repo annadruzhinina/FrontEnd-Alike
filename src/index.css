@@ -15,7 +15,8 @@
   --color-bg: rgb(62, 63, 57);
   --color-bg-variant: rgb(96,163,234);
   --color-primary: #1a1b1c;
-  --color-primary-variant: rgb(96 163 234 / 69%);
+  /* --color-primary-variant: rgb(96 163 234 / 69%); */
+  --color-primary-variant: rgb(222 236 254);
   --color-btn: rgb(207 225 244)
   --color-white: #fff;
   --color-light: #fafafa;

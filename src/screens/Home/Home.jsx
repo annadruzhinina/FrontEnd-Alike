@@ -11,6 +11,7 @@ function Home() {
     fetch("data.json")
       .then((response) => response.json())
       .then((data) => {
+        // console.log(data);
         setPosts(data);
       })
       .catch((error) => {
@@ -18,34 +19,42 @@ function Home() {
       });
   }, []);
 
+  function handlePostLikeClick(updatedPost) {
+    console.log("Handle Post Update", updatedPost);
+    const newPosts = posts.map((post) => {
+      if (post.id === updatedPost.id) return updatedPost;
+      return post;
+    });
+    setPosts(newPosts);
+  }
+
   return (
     <div className="home">
-      <div className="home-header">
-        <img
-          className="home-headerImage"
-          src="./image/logo_transparent_bg_new.png"
-        />
-      </div>
-      <h1>Alike</h1>
       <div className="home-global">
         <div className="home-left">
           <Navbar />
         </div>
-        <div className="home-center">
-          {posts.map((post, index) => (
-            <Post
-              key={index}
-              username={post.username}
-              project={post.project}
-              github={post.github}
-              imageUrl={post.imageUrl}
-            />
-          ))}
-        </div>
-        <div className="home-right">
-          <RightNavbar />
+        <div className="home-center-right">
+          <div className="home-center">
+            {posts.map((post, index) => {
+              // console.log(post);
+              return (
+                <Post
+                  key={index}
+                  post={post}
+                  onPostLikeClick={handlePostLikeClick}
+                />
+              );
+            })}
+          </div>
+          <div className="home-right">
+            <RightNavbar />
+          </div>
         </div>
       </div>
+      <footer className="home-footer">
+        <h1>hello</h1>
+      </footer>
     </div>
   );
 }
