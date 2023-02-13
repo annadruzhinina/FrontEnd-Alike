@@ -4,7 +4,6 @@ import Post from "../../components/Post/Post.jsx";
 import Navbar from "../../components/Navbar/Navbar";
 import RightNavbar from "../../components/RightNavbar/RightNavbar";
 import CreatePostModal from "../../components/CreatePostModal/CreatePostModal.jsx";
-
 import usePostData from "../../Hooks/usePostData.js";
 
 // username, project, github, imageUrl
@@ -42,9 +41,12 @@ function Home() {
     },
   ]);
 
-function Home() {
-  const [posts, setPosts] = useState([]);
 
+// }
+// function Home() {
+//   const [posts, setPosts] = useState([]);
+
+  // data from json file
   useEffect(() => {
     fetch("data.json")
       .then((response) => response.json())
@@ -56,6 +58,15 @@ function Home() {
         console.error(error);
       });
   }, []);
+  // checking if a post has been liked, here we avoid on multi clicks
+  function handlePostLikeClick(updatedPost) {
+    console.log("Handle Post Update", updatedPost);
+    const newPosts = posts.map((post) => {
+      if (post.id === updatedPost.id) return updatedPost;
+      return post;
+    });
+    setPosts(newPosts);
+  }
 
   function handlePostLikeClick(updatedPost) {
     console.log("Handle Post Update", updatedPost);
