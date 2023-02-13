@@ -12,6 +12,7 @@ export default function usePostData() {
         let allPosts = data.map((post) => {
           //Returns object with data
           return {
+            postID: post.id,
             image: post["image"],
             username: post["username"],
             projTitle: post["project_name"],
