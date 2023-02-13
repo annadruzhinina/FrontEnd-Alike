@@ -1,83 +1,90 @@
-.landing-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgb(0 0 0 / 11%)),
-    url(https://assets.nicepagecdn.com/0240f0ad/4044994/images/9185dc5…_1280.jpg);
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: auto;
-}
-.landing-left {
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .landing {
-  background-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.15),
-      rgba(0, 0, 0, 0.15)
-    ),
-    url(https://assets.nicepagecdn.com/0240f0ad/4044994/images/9185dc5…_1280.jpg);
-  background-position: 50% 50%;
-}
-
-form {
-  width: 300px;
-  height: 400px;
-  margin-top: 20px;
-  margin: 40px auto;
+  height: calc(
+    100vh - var(--header-height)
+  ); /* Set the height to 100% of the viewport */
+  background-image: url("../../../public/image/bg.png"); /* Change the URL to the location of your background image */
+  background-size: cover; /* Scale the background image to cover the entire div */
+  background-repeat: no-repeat; /* Do not repeat the background image */
+  background-position: center; /* Center the background image */
+  display: flex; /* Display the contents as a flex container */
+  align-items: center; /* Align the contents vertically in the center */
+  justify-content: flex-end; /* Align the contents horizontally in the center */
+  padding: 20px;
+ }
+ 
+ 
+ .form {
   padding: 20px;
   background-color: rgb(53 187 235 / 43%);
   color: white;
-  border: 1px solid #ccc;
-  border-radius: 50px;
-}
-
-.form {
+  border: 2px solid white;
   text-align: center;
-  margin-bottom: 20px;
-}
-
-@media screen and (max-width: 560px) {
-  .form {
-    max-width: 360px;
+ }
+ /* For Large screen */
+ @media screen and (min-width: 960px) {
+  .landig-content {
+    margin-right: 100px;
   }
-}
-
-label {
+ }
+ .landing-home-header {
+  display: flex;
+  align-items: center;
+  background-color: #deedfe;
+  color: #636363;
+  padding: 0 20px;
+  height: var(--header-height);
+  white-space: nowrap;
+ }
+ .landing-home-header-image {
+  padding: 5px;
+  width: 60px;
+  height: 60px;
+ }
+ .landig-content {
+  max-width: 400px;
+ }
+ .landing-title {
+  line-height: 1.2;
+  margin: 0 0 20px;
+  padding: 0;
+  text-align: center;
+  color: #636363;
+ }
+ label {
   display: block;
   margin-bottom: 10px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+ }
+ 
+ 
+ input[type="text"],
+ input[type="email"],
+ input[type="password"] {
   width: 100%;
   padding: 12px 20px;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-input[type="submit"] {
+  border: 2px solid white;
+  cursor: pointer;
+ }
+ 
+ 
+ input[type="submit"] {
   width: 100%;
   padding: 12px 20px;
   background-color: #152605;
   color: white;
   border: 1px solid white;
-  border-radius: 5px;
+ 
+ 
   cursor: pointer;
-}
-
-input[type="submit"]:hover {
+ }
+ 
+ 
+ input[type="submit"]:hover {
   background-color: #0a0b0a;
-}
-
-#submitCredentials {
+ }
+ 
+ 
+ #submitCredentials {
   background-color: rgb(53 187 235);
   border: 2px solid rgba(102, 99, 99, 0.191);
   padding: 7px 20px;
@@ -88,14 +95,27 @@ input[type="submit"]:hover {
   font-weight: bold;
   color: white;
   margin: 4px 10px;
-}
-#submitCredentials:hover {
+ }
+ #submitCredentials:hover {
   background-color: rgba(71, 107, 117);
   color: white;
   cursor: pointer;
   transform: scale(0.9);
   transition: 0.3s all ease;
-}
-.SigninLogo {
+ }
+ .SigninLogo {
   padding-bottom: 10px;
-}
+ }
+ 
+ 
+ @media screen and (max-width: 560px) {
+  .form {
+    max-width: 360px;
+  }
+  .landing {
+    justify-content: center;
+  }
+  .landing-home-header {
+    font-size: 12px;
+  }
+ }
