@@ -4,13 +4,13 @@ import Post from "../../components/Post/Post.jsx";
 import Navbar from "../../components/Navbar/Navbar";
 import RightNavbar from "../../components/RightNavbar/RightNavbar";
 import CreatePostModal from "../../components/CreatePostModal/CreatePostModal.jsx";
-
 import usePostData from "../../Hooks/usePostData.js";
 
 // username, project, github, imageUrl
 function Home() {
-  const postData = usePostData();
-  console.log(postData);
+  const postData = usePostData()
+  console.log(postData)
+
 
   const [posts, setPosts] = useState([
     {
@@ -40,6 +40,8 @@ function Home() {
         "https://t4.ftcdn.net/jpg/00/28/04/57/240_F_28045761_hAsTs9W6HZs1RiRiND8QdNoD70paO6Ww.jpg",
     },
   ]);
+
+
 // }
 // function Home() {
 //   const [posts, setPosts] = useState([]);
