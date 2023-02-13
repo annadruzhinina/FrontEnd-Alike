@@ -7,18 +7,18 @@ import RightNavbar from "../../components/RightNavbar/RightNavbar";
 function Home() {
   const [posts, setPosts] = useState([]);
 
+  // data from json file
   useEffect(() => {
     fetch("data.json")
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data);
         setPosts(data);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
-
+  // checking if a post has been liked, here we avoid on multi clicks
   function handlePostLikeClick(updatedPost) {
     console.log("Handle Post Update", updatedPost);
     const newPosts = posts.map((post) => {

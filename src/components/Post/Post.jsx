@@ -1,8 +1,6 @@
 import React from "react";
 import "./post.css";
 import Avatar from "@mui/material/Avatar";
-import { BiLike } from "react-icons/bi";
-import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FcLikePlaceholder, FcLike } from "react-icons/fc";
 
 function Post({ post, onPostLikeClick }) {
