@@ -1,12 +1,9 @@
+import React, { useState, useEffect } from "react";
 import "./home.css";
-import { Link } from "react-router-dom";
 import Post from "../../components/Post/Post.jsx";
-import { useState } from "react";
-import "./home.css";
 import Navbar from "../../components/Navbar/Navbar";
 import RightNavbar from "../../components/RightNavbar/RightNavbar";
 import CreatePostModal from "../../components/CreatePostModal/CreatePostModal.jsx";
-
 
 import usePostData from "../../Hooks/usePostData.js";
 
@@ -44,12 +41,26 @@ function Home() {
         "https://t4.ftcdn.net/jpg/00/28/04/57/240_F_28045761_hAsTs9W6HZs1RiRiND8QdNoD70paO6Ww.jpg",
     },
   ]);
+
+function Home() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("data.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setPosts(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <div className="home">
       <div className="home-header">
         <img
           className="home-headerImage"
-          // src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
           src="./image/logo_transparent_bg_new.png"
         />
       </div>
@@ -59,20 +70,16 @@ function Home() {
           <Navbar />
         </div>
         <div className="home-center">
-          {/* add id,post */}
-          {posts.map((post) => {
-            return (
-              <Post
-                // username, project, github, imageUrl
-                username={post.username}
-                project={post.project}
-                github={post.github}
-                imageUrl={post.imageUrl}
-              />
-            );
-          })}
+          {posts.map((post, index) => (
+            <Post
+              key={index}
+              username={post.username}
+              project={post.project}
+              github={post.github}
+              imageUrl={post.imageUrl}
+            />
+          ))}
         </div>
-
         <div className="home-right">
           <RightNavbar />
         </div>

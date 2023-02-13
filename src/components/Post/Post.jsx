@@ -3,9 +3,9 @@ import "./post.css";
 import Avatar from "@mui/material/Avatar";
 
 function Post({ username, project, github, imageUrl }) {
-  const handleClick = () => {
-    window.location.href = github;
-  };
+  // const handleClick = () => {
+  //   window.location.href = github;
+  // };
 
   return (
     <div className="post">
@@ -19,10 +19,15 @@ function Post({ username, project, github, imageUrl }) {
       </div>
       <img className="post-image" src={imageUrl} alt="" />
       <div className="post-bottom">
-        <h4>{project}</h4>
-        <button className="btn" onClick={handleClick}>
+        <h4>Project: {project}</h4>
+        <a
+          className="btn"
+          // onClick={handleClick}
+          target="_blank"
+          href={github}
+        >
           GitHub
-        </button>
+        </a>
       </div>
     </div>
   );
