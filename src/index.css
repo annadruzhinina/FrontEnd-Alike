@@ -26,6 +26,12 @@
   --container-width-sm: 90%;
   --transition: transition: all 400ms ease;
   --header-height: 60px;
+  --icon-size-base: 24px;
+  --space-base: 20px;
+  --space-base-double: calc(var(--space-base) * 2);
+  --space-base-small: 4px;
+  --space-base-half:calc(var(--space-base) / 2);
+  --navbar-width: 200px;
 
 
 }

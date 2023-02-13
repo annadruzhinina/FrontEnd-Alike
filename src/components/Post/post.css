@@ -8,7 +8,7 @@
   background-color: white;
   max-width: 470px;
   border: 1px solid lightgray;
-  margin-bottom: 45px;
+  margin-bottom: var(--space-base-double);
   min-width: 300px;
 }
 
@@ -32,10 +32,10 @@ strong {
 }
 .post-bottom {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 0 10px 0 10px;
-  align-items: center;
-  margin: 10px;
+  overflow: hidden;
 }
 .post-like-title {
   display: flex;

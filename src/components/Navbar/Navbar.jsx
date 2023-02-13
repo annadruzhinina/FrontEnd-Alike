@@ -5,30 +5,25 @@ import { NavbarData } from "./NavbarData";
 
 function Navbar() {
   return (
-    <section className="navbar-container">
+    <aside className="navbar">
       <div className="navbar-header">
         <img
           className="navbar-logo"
           src="./image/logo_transparent_bg_new.png"
         />
-        <h3>Alike</h3>
+        <span className="navbar-logo-text">Alike</span>
       </div>
-
-      <ul>
+      <div className="navbar-menu">
         {NavbarData.map((item, index) => {
           return (
-            <li key={index} className={item.cName}>
-              <Link to={item.path}>
-                <div className="react-icon">
-                  {item.icon}{" "}
-                  <span className="react-icon-text">{item.title}</span>
-                </div>
-              </Link>
-            </li>
+            <Link key={index} className="navbar-menu__item" to={item.path}>
+              {item.icon}
+              <span className="navbar-menu__text">{item.title}</span>
+            </Link>
           );
         })}
-      </ul>
-    </section>
+      </div>
+    </aside>
   );
 }
 

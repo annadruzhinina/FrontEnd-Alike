@@ -31,23 +31,21 @@ function Home() {
   return (
     <div className="home">
       <div className="home-global">
-        <div className="home-left">
-          <Navbar />
-        </div>
-        <div className="home-center-right">
-          <div className="home-center">
-            {posts.map((post, index) => {
-              // console.log(post);
-              return (
-                <Post
-                  key={index}
-                  post={post}
-                  onPostLikeClick={handlePostLikeClick}
-                />
-              );
-            })}
-          </div>
-          <div className="home-right">
+        <Navbar />
+        <div className="home-content">
+          <div className="home-content_center">
+            <div className="home-center">
+              {posts.map((post, index) => {
+                // console.log(post);
+                return (
+                  <Post
+                    key={index}
+                    post={post}
+                    onPostLikeClick={handlePostLikeClick}
+                  />
+                );
+              })}
+            </div>
             <RightNavbar />
           </div>
         </div>
