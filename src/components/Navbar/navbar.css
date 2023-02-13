@@ -4,9 +4,34 @@
   flex-direction: column;
   justify-content: left;
   align-items: flex-start;
-  border-right: solid rgb(198, 197, 197);
+  border-right: solid rgb(222 236 254);
+  background-color: #deecfe57;
 }
 
 .navbar-item {
   margin: 3em;
+}
+
+.react-icon {
+  font-size: 28px;
+  font-weight: bold;
+}
+.react-icon-text {
+  padding-left: 16px;
+  font-size: 14px;
+}
+
+.navbar-header {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  padding-bottom: 10px;
+  color: gray;
+  border-bottom: 1px solid rgb(222 236 254);
+  width: 100%;
+}
+
+.navbar-logo {
+  width: 50px;
+  height: 50px;
 }

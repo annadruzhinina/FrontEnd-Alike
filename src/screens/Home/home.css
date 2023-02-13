@@ -8,13 +8,33 @@
   height: 100vh;
 }
 
-.home-headerImage {
+.home-right {
+  width: 250px;
+}
+.home-global {
+  /* display: grid;
+  grid-template-columns: auto 2fr 1fr; */
+}
+.home-left {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  max-width: 260px;
+  z-index: 10;
+}
+
+.team-avatar {
+  overflow: hidden;
+}
+
+/* .home-headerImage {
   background-color: white;
   object-fit: contain;
   width: 60px;
   height: 60px;
   background: transparent;
-}
+} */
 
 .home-header {
   /* padding: 20px; */
@@ -23,12 +43,14 @@
   object-fit: contain;
 }
 
-.home-global {
-  /* display: flex;
-  justify-content: space-between; */
+.home-center-right {
   display: grid;
   grid-template-columns: auto 2fr 1fr;
-  gap: 2.5rem;
+  margin-left: 300px;
+  gap: 50px;
+}
+.home-footer {
+  background-color: aqua;
 }
 
 /* ==================MEDIA QUERIES (MEDIUM DEVICES)==================== */

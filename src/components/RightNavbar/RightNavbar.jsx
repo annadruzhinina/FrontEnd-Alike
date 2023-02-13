@@ -71,8 +71,8 @@ function RightNavbar({ username, imageUrl, github }) {
                   />
                 );
               })}
-              {/* <h3>{username}</h3> */}
-              {/* <button className='btn'>GitHub</button> */}
+              <h3>{username}</h3>
+              <button className="btn">GitHub</button>
             </div>
           </div>
         </div>
