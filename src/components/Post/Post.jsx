@@ -49,23 +49,23 @@ function Post({ post, onPostLikeClick }) {
         ></Avatar>
         <h3>{post.username}</h3>
       </div>
-      <img className="post-image" src={post.imageUrl} alt="" />
+      <img className="post-image" src={post.image} alt="" />
       <div className="post-bottom">
         <div className="post-like-title">
           <button
-            id={"like-" + post.id}
+            id={"like-" + post.postID}
             className={
               post.liked ? "heart-button-liked heart-button" : "heart-button"
             }
-            onClick={(e) => handlePostLikeClick(e, post, "like-" + post.id)}
+            onClick={(e) => handlePostLikeClick(e, post, "like-" + post.postID)}
           >
             {likeButton(post.liked)}
 
-            <span className="heart-button-heartQty">{post.heartQty}</span>
+            <span className="heart-button-heartQty">{post.likes}</span>
           </button>
-          <h4>Project: {post.project}</h4>
+          <h4>Project: {post.projTitle}</h4>
         </div>
-        <a className="btn" target="_blank" href={post.github}>
+        <a className="btn" target="_blank" href={post.github_link}>
           GitHub
         </a>
       </div>

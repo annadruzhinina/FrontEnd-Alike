@@ -11,6 +11,8 @@ export default function usePostData() {
         //Maps the data with the new object and data
         let allPosts = data.map((post) => {
           //Returns object with data
+
+          // CHANGE KEY TO MATCH VALUE NAME
           return {
             postID: post.id,
             image: post["image"],
@@ -23,21 +25,6 @@ export default function usePostData() {
         setPostData(allPosts);
       });
 
-    // let data = [
-    //     {
-    //         image: "abc",
-    //         username: "abc",
-    //         projTitle: "title",
-    //         github: "github"
-    //     },
-    //     {
-    //         image: "def",
-    //         username: "def",
-    //         projTitle: "title2",
-    //         github: "github2"
-    //     }
-    // ]
-    // setPostData(data)
   }, []);
   return postData;
 }
