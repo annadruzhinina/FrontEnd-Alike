@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import "./rightNavbar.css";
 // Import Avatar from mui
 import Avatar from "@mui/material/Avatar";
+// import component
 import MemberInfo from "../MemberInfo/MemberInfo.jsx";
 
 // our function
@@ -11,42 +12,42 @@ function RightNavbar({ username, imageUrl, github }) {
   const [avatar, setAvatars] = useState([
     {
       username: "Ari",
-      imageUrl: "./image/avatar.jpeg",
+      imageUrl: "./image/cat.jpeg",
       github: "https://github.com/argurjanaolloni",
     },
     {
       username: "Anna",
-      imageUrl: "./image/avatar.jpeg",
+      imageUrl: "./image/cat.jpeg",
       github: "https://github.com/annadruzhinina",
     },
     {
       username: "Jose",
-      imageUrl: "./image/avatar.jpeg",
+      imageUrl: "./image/cat.jpeg",
       github: "https://github.com/HowzayCalderon",
     },
     {
       username: "Nick",
-      imageUrl: "./image/avatar.jpeg",
+      imageUrl: "./image/cat.jpeg",
       github: "https://github.com/NickFasulo",
     },
     {
       username: "Ryan",
-      imageUrl: "./image/avatar.jpeg",
+      imageUrl: "./image/cat.jpeg",
       github: "https://github.com/Jagerziel",
     },
     {
       username: "Vasilis",
-      imageUrl: "./image/avatar.jpeg",
+      imageUrl: "./image/cat.jpeg",
       github: "https://github.com/Vasilis89",
     },
     {
       username: "Ron",
-      imageUrl: "./image/avatar.jpeg",
+      imageUrl: "./image/cat.jpeg",
       github: "https://github.com/RonLanzilotta",
     },
     {
       username: "Jimy",
-      imageUrl: "./image/avatar.jpeg",
+      imageUrl: "./image/cat.jpeg",
       github: "https://github.com/jallen2787",
     },
   ]);

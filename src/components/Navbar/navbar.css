@@ -1,7 +1,7 @@
 .navbar {
   height: 100vh;
   border-right: solid rgb(222 236 254);
-  background-color: red;
+  background-color: #eaf4fecf;
   min-width: 200px;
   position: fixed;
   left: 0;
@@ -29,7 +29,7 @@
   margin-left: var(--space-base-half);
 }
 /* For tablets. */
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 1022px) {
   .navbar-menu__text {
     display: none;
   }

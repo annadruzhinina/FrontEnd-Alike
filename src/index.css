@@ -29,6 +29,8 @@
   --icon-size-base: 24px;
   --space-base: 20px;
   --space-base-double: calc(var(--space-base) * 2);
+  --space-base-large: calc(var(--space-base) * 5);
+  --space-base-medium: 8px;
   --space-base-small: 4px;
   --space-base-half:calc(var(--space-base) / 2);
   --navbar-width: 200px;
