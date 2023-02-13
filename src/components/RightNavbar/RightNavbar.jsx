@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import "./rightNavbar.css";
 // Import Avatar from mui
 import Avatar from "@mui/material/Avatar";
+// import component
 import MemberInfo from "../MemberInfo/MemberInfo.jsx";
 
 // our function
@@ -11,73 +12,65 @@ function RightNavbar({ username, imageUrl, github }) {
   const [avatar, setAvatars] = useState([
     {
       username: "Ari",
-      imageUrl: "./image/avatar.jpeg",
+      imageUrl: "./image/cat.jpeg",
       github: "https://github.com/argurjanaolloni",
     },
     {
       username: "Anna",
-      imageUrl: "./image/avatar.jpeg",
+      imageUrl: "./image/cat.jpeg",
       github: "https://github.com/annadruzhinina",
     },
     {
       username: "Jose",
-      imageUrl: "./image/avatar.jpeg",
+      imageUrl: "./image/cat.jpeg",
       github: "https://github.com/HowzayCalderon",
     },
     {
       username: "Nick",
-      imageUrl: "./image/avatar.jpeg",
+      imageUrl: "./image/cat.jpeg",
       github: "https://github.com/NickFasulo",
     },
     {
       username: "Ryan",
-      imageUrl: "./image/avatar.jpeg",
+      imageUrl: "./image/cat.jpeg",
       github: "https://github.com/Jagerziel",
     },
     {
       username: "Vasilis",
-      imageUrl: "./image/avatar.jpeg",
+      imageUrl: "./image/cat.jpeg",
       github: "https://github.com/Vasilis89",
     },
     {
       username: "Ron",
-      imageUrl: "./image/avatar.jpeg",
+      imageUrl: "./image/cat.jpeg",
       github: "https://github.com/RonLanzilotta",
     },
     {
       username: "Jimy",
-      imageUrl: "./image/avatar.jpeg",
+      imageUrl: "./image/cat.jpeg",
       github: "https://github.com/jallen2787",
     },
   ]);
 
   return (
     // created a navBar for the right side, this area is open to having different content. Some ideas: creating a meet the dev team, creating links to different groups a user can join etc.
-    <section className="r-navbar">
-      <p className="suggestion">Suggestions for you: </p>
-      <div className="right-item-title">Lets share useful information!</div>
-      <div className="r-items">
-        <div className="r-item">
-          <div className="right-team">
-            <h4>Welcome General Assembly alumni</h4>
-            <div className="team-avatar">
-              {avatar.map((member) => {
-                return (
-                  <MemberInfo
-                    key={member.username}
-                    username={member.username}
-                    imageUrl={member.imageUrl}
-                    github={member.github}
-                  />
-                );
-              })}
-              {/* <h3>{username}</h3> */}
-              {/* <button className='btn'>GitHub</button> */}
-            </div>
-          </div>
-        </div>
+    <div className="suggestion">
+      <h3 className="suggestion-title">Suggestions for you: </h3>
+      <p>Lets share useful information!</p>
+      <h4>Welcome General Assembly alumni</h4>
+      <div className="suggestion-list">
+        {avatar.map((member) => {
+          return (
+            <MemberInfo
+              key={member.username}
+              username={member.username}
+              imageUrl={member.imageUrl}
+              github={member.github}
+            />
+          );
+        })}
       </div>
-    </section>
+    </div>
   );
 }
 
