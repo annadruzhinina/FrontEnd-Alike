@@ -23,7 +23,7 @@ export const NavbarData = [
         cName: 'navbar-item',
     },
     {
-        title: 'Create',
+        title: 'Create Post',
         path: '',
         icon: <MdIcons.MdOutlineAddToPhotos/>,
         cName: 'navbar-item',
