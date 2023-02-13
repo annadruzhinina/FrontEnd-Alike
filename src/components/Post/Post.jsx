@@ -4,6 +4,8 @@ import Avatar from "@mui/material/Avatar";
 import { BiLike } from "react-icons/bi";
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FcLikePlaceholder, FcLike } from "react-icons/fc";
+import { RxCross2 } from "react-icons/rx"
+
 
 function Post({ post, onPostLikeClick }) {
   // const heartButton = document.getElementById("heart-button");
@@ -42,12 +44,16 @@ function Post({ post, onPostLikeClick }) {
   return (
     <div className="post">
       <div className="post_header">
-        <Avatar
-          className="post-avatar"
-          alt="Anna"
-          src="./image/avatar.jpeg"
-        ></Avatar>
-        <h3>{post.username}</h3>
+        <div className="post-header-left">
+          <Avatar
+            className="post-avatar"
+            alt="Anna"
+            src="./image/avatar.jpeg"
+          ></Avatar>
+          <h3>{post.username}</h3>
+        </div>
+        <RxCross2
+          className="delete-avatar" />
       </div>
       <img className="post-image" src={post.imageUrl} alt="" />
       <div className="post-bottom">
@@ -65,7 +71,7 @@ function Post({ post, onPostLikeClick }) {
           </button>
           <h4>Project: {post.project}</h4>
         </div>
-        <a className="btn" target="_blank" href={post.github}>
+        <a className="like-btn" target="_blank" href={post.github}>
           GitHub
         </a>
       </div>

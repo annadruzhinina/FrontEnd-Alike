@@ -42,9 +42,9 @@ function Home() {
   ]);
 
 
-// }
-// function Home() {
-//   const [posts, setPosts] = useState([]);
+  // }
+  // function Home() {
+  //   const [posts, setPosts] = useState([]);
 
   // data from json file
   useEffect(() => {
@@ -59,15 +59,6 @@ function Home() {
       });
   }, []);
   // checking if a post has been liked, here we avoid on multi clicks
-  function handlePostLikeClick(updatedPost) {
-    console.log("Handle Post Update", updatedPost);
-    const newPosts = posts.map((post) => {
-      if (post.id === updatedPost.id) return updatedPost;
-      return post;
-    });
-    setPosts(newPosts);
-  }
-
   function handlePostLikeClick(updatedPost) {
     console.log("Handle Post Update", updatedPost);
     const newPosts = posts.map((post) => {
