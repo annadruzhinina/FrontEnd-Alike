@@ -51,6 +51,7 @@ function Home() {
     fetch("data.json")
       .then((response) => response.json())
       .then((data) => {
+        // console.log(data);
         setPosts(data);
       })
       .catch((error) => {
@@ -58,6 +59,15 @@ function Home() {
       });
   }, []);
   // checking if a post has been liked, here we avoid on multi clicks
+  function handlePostLikeClick(updatedPost) {
+    console.log("Handle Post Update", updatedPost);
+    const newPosts = posts.map((post) => {
+      if (post.id === updatedPost.id) return updatedPost;
+      return post;
+    });
+    setPosts(newPosts);
+  }
+
   function handlePostLikeClick(updatedPost) {
     console.log("Handle Post Update", updatedPost);
     const newPosts = posts.map((post) => {
