@@ -10,6 +10,18 @@
   padding: 4px;
 }
 
-.MuiOutlinedInput-notchedOutline {
-  margin-bottom: 20px;
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  margin: 15px !important;
+}
+
+#outlined-basic {
+  min-width: 300px;
+}
+
+#outlined-basic {
+  padding: 26px 26px;
+}
+
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+  margin-left: 10px;
 }
