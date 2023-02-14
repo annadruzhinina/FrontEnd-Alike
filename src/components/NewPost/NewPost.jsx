@@ -90,7 +90,10 @@ export default function BasicModal({ icon, title, className }) {
             accept="image/png, image/jpeg"
             ref={imageFileRef}
           ></input> */}
-          <Button onClick={handleSubmit}>Submit</Button>
+          <div className="new-post-btn">
+            <Button onClick={handleSubmit} className="-button">Submit</Button>
+            <Button onClick={handleClose} className="-button">Close</Button>
+          </div>
         </Box>
       </Modal>
     </div>
