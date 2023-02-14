@@ -7,9 +7,7 @@ import { useNavigate } from "react-router-dom"
 
 function Landing() {
   const { dispatch } = useAuthContext()
-  const [user, setUser] = useState({
-    username: "",
-  })
+  const [user, setUser] = useState('')
   const navigate = useNavigate();
   const [username, setUserName] = useState("")
   const [password, setPassword] = useState("")
@@ -19,11 +17,11 @@ function Landing() {
     // Prevent Page from Reloading
     e.preventDefault()
     // Update User with Values
-    setUser({
-      username
-    })
+    console.log(`Username: ${username}, Password: ${password}`)
+    setUser('TEST!')
+    
     //Send payload (username)
-    dispatch({ type: "LOGIN", payload: username })
+    dispatch({ type: "LOGIN", payload: {username, password} })
     //Reset values to ''
     setUserName('')
     setPassword('')
