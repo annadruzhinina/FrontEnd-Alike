@@ -5,15 +5,13 @@ import Navbar from "../../components/Navbar/Navbar";
 import RightNavbar from "../../components/RightNavbar/RightNavbar";
 import usePostData from "../../Hooks/usePostData.js";
 import Button from "@mui/material/Button";
-import useUserData from "../../Hooks/useUserData.js"
+import useUserData from "../../Hooks/useUserData.js";
 import Footer from "../../components/Footer/Footer.jsx";
-
-
 
 // username, project, github, imageUrl
 function Home() {
-  const posts = usePostData()
-  const users = useUserData()
+  const posts = usePostData();
+  const users = useUserData();
 
   // checking if a post has been liked, here we avoid on multi clicks
 
@@ -33,24 +31,22 @@ function Home() {
         <div className="home-content">
           <div className="home-content_center">
             <div className="home-center">
-              {posts && users &&
+              {posts &&
+                users &&
                 posts.map((post, index) => {
-
                   let user = users.map((user, index) => {
-                    if (post.username === user.id)
-                      return user.username
-                  })
+                    if (post.username === user.id) return user.username;
+                  });
                   return (
                     <Post
                       key={index}
                       user={user}
                       post={post}
-                    // onPostLikeClick={handlePostLikeClick}
+                      // onPostLikeClick={handlePostLikeClick}
                     />
                   );
                 })}
             </div>
-            <RightNavbar />
           </div>
         </div>
       </div>

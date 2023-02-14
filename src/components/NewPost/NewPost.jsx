@@ -26,11 +26,11 @@ const style = {
 export default function BasicModal({ icon, title, className }) {
   const [open, setOpen] = useState(false);
 
-  const projectNameRef = useRef(null);
-  const githubRef = useRef(null);
-  // const tagsRef = useRef(null);
-  const imageUrlRef = useRef(null);
-  const imageFileRef = useRef(null);
+  const projectNameRef = React.useRef(null);
+  const githubRef = React.useRef(null);
+  // const tagsRef = React.useRef(null);
+  const imageUrlRef = React.useRef(null);
+  const imageFileRef = React.useRef(null);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
