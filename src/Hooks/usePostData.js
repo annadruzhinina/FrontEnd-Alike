@@ -24,6 +24,6 @@ export default function usePostData() {
         setPostData(allPosts);
       });
 
-  }, [postData]);
+  }, []);
   return postData;
 }

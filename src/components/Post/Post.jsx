@@ -7,16 +7,8 @@ import { FcLikePlaceholder, FcLike } from "react-icons/fc";
 import useUserData from "../../Hooks/useUserData.js"
 import { useState, useEffect } from 'react'
 
-function Post( { post } ) {
-  const [users, setUsers] = useState([])
-  const userData = useUserData()
-
-  useEffect(() => setUsers(userData), [])
-
-  console.log(users)
-
-
-
+function Post( { post, user } ) {
+  console.log(user)
   // const post = props.post
   // const heartButton = document.getElementById("heart-button");
 
