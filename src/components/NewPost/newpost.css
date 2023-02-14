@@ -25,3 +25,35 @@
 .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
   margin-left: 10px;
 }
+
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  margin: 5px !important;
+}
+
+#outlined-basic {
+  min-width: 300px;
+  padding-bottom: 20px;
+}
+
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  width: max-content !important;
+  display: inline-block !important;
+  color: var(--color-primary) !important;
+  padding: 0.75rem 1.2rem !important;
+  border-radius: 0.4rem !important;
+  cursor: pointer !important;
+  border: 1px solid var(--color-primary-variant) !important;
+  transition: var(--transition) !important;
+  margin-right: 15px !important;
+}
+
+
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root:hover {
+  background-color: var(--color-bg-variant) !important;
+}
+
+.new-post-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
