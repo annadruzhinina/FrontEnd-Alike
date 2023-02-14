@@ -4,8 +4,10 @@ import Avatar from "@mui/material/Avatar";
 import { BiLike } from "react-icons/bi";
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FcLikePlaceholder, FcLike } from "react-icons/fc";
+
 import useUserData from "../../Hooks/useUserData.js"
 import { useState, useEffect } from 'react'
+import { RxCross2 } from "react-icons/rx"
 
 function Post( { post, user } ) {
   console.log(user)

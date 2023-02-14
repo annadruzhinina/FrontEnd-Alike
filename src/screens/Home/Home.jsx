@@ -17,21 +17,6 @@ function Home() {
   console.log(users)
   console.log(posts)
 
-  // const [users, setUsers] = useState([])
-  // const userData = useUserData()
-
-  // useEffect(() => setUsers(userData), [])
-
-  // useEffect(() => setPosts(postData), [])
-
-  // const [posts, setPosts] = useState([])
-  // const postData = usePostData()
-
-  // Renders only once
-  // useEffect(() => setPosts(postData), [])
-
-  // useEffect(() => setUsers(userData), [])
-
   // checking if a post has been liked, here we avoid on multi clicks
 
   // function handlePostLikeClick(updatedPost) {
@@ -42,7 +27,7 @@ function Home() {
   //   });
   //   setPosts(newPosts);
   // }
-  // if (!posts) return <h1>Loading . . .</h1>
+  
   return (
     <div className="home">
       <div className="home-global">
