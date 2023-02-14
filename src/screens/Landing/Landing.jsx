@@ -1,8 +1,36 @@
 import React from "react";
 import "./landing.css";
 import Button from "@mui/material/Button";
+import { useAuthContext } from "../../Hooks/useAuthContext.js"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom"
 
 function Landing() {
+  const { dispatch } = useAuthContext()
+  const [user, setUser] = useState({
+    username: "",
+  })
+  const navigate = useNavigate();
+  const [username, setUserName] = useState("")
+  const [password, setPassword] = useState("")
+  const [valid, setValid] = useState("")
+
+  const handleSubmit = (e) => {
+    // Prevent Page from Reloading
+    e.preventDefault()
+    // Update User with Values
+    setUser({
+      username
+    })
+    //Send payload (username)
+    dispatch({ type: "LOGIN", payload: username })
+    //Reset values to ''
+    setUserName('')
+    setPassword('')
+    setValid('')
+
+    navigate("/home")
+  }
   return (
     <>
       <div className="landing-home-header">
@@ -18,15 +46,23 @@ function Landing() {
           <h2 className="landing-title">
             Social Me​dia Is Better When You Can Relate{" "}
           </h2>
-          <form className="form">
+          <form className="form" onSubmit={handleSubmit}>
             <h1 className="SigninLogo">Sign In</h1>
             <input
               className="username"
               id="username"
               type="text"
               placeholder="Username"
+              value={username}
+              onChange={(e)=> setUserName(e.target.value)}
             />
-            <input id="pw" type="password" placeholder="Password" />
+            <input 
+              id="pw" 
+              type="password" 
+              placeholder="Password" 
+              value={password}
+              onChange={(e)=> setPassword(e.target.value)}
+            />
             {/* <input
              id="pwConfirm"
              type="password"
@@ -35,9 +71,9 @@ function Landing() {
             <button id="submitCredentials" type="submit" value="submit">
               Login
             </button>
-            <button id="submitCredentials" type="submit" value="submit">
+            {/* <button id="submitCredentials" type="submit" value="submit">
               Sign Up
-            </button>
+            </button> */}
           </form>
         </div>
       </div>
