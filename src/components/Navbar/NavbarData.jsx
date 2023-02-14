@@ -21,6 +21,7 @@ export const NavbarData = [
   {
     title: "New Post",
     path: "",
+    type: "popup-new-post",
     icon: <MdIcons.MdOutlinePostAdd className="navbar-menu__icon" />,
   },
   {

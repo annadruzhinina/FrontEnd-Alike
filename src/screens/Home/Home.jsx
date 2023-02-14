@@ -3,15 +3,14 @@ import "./home.css";
 import Post from "../../components/Post/Post.jsx";
 import Navbar from "../../components/Navbar/Navbar";
 import RightNavbar from "../../components/RightNavbar/RightNavbar";
-import CreatePostModal from "../../components/CreatePostModal/CreatePostModal.jsx";
 import usePostData from "../../Hooks/usePostData.js";
+import Button from "@mui/material/Button";
 import useUserData from "../../Hooks/useUserData.js"
-// import useUserData from "../../Hooks/useUserData.js";
+
 
   
   // username, project, github, imageUrl
 function Home() {
-  // const [posts, setPosts] = useState([])
   const posts = usePostData()
   const users = useUserData()
   console.log(users)
