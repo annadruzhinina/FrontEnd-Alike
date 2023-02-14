@@ -1,13 +1,19 @@
 // // Home, Search, Message, Profile, LogOut, Report A Problem,... React-icons
 import React, { useState } from "react";
 import "./navbar.css";
-import { Link } from "react-router-dom";
+import { Link , Navigate , useNavigate } from "react-router-dom";
 import { NavbarData } from "./NavbarData";
 import NewPost from "../../components/NewPost/NewPost.jsx";
+import { useAuthContext } from "../../Hooks/useAuthContext.js";
 
 function Navbar() {
   const [showNewPost, setShowNewPost] = useState(false);
   const [open, setOpen] = React.useState(false);
+    // Deconstruct useAuthContext to pull dispatch
+    const { dispatch } = useAuthContext()
+    const { user } = useAuthContext()
+    const navigate = useNavigate()
+
 
   return (
     <>
@@ -40,6 +46,10 @@ function Navbar() {
                     if (item.title === "New Post") {
                       // setShowNewPost(!showNewPost);
                       setOpen(true);
+                    }
+                    if (item.title === "Sign Out") {
+                      dispatch({ type: "LOGOUT", payload: null })
+                      console.log("Logged Out")
                     }
                   }}
                 >
