@@ -5,16 +5,19 @@ import Navbar from "../../components/Navbar/Navbar";
 import RightNavbar from "../../components/RightNavbar/RightNavbar";
 import CreatePostModal from "../../components/CreatePostModal/CreatePostModal.jsx";
 import usePostData from "../../Hooks/usePostData.js";
+// import useUserData from "../../Hooks/useUserData.js";
 
-// username, project, github, imageUrl
+  
+  // username, project, github, imageUrl
 function Home() {
   const [posts, setPosts] = useState([])
+  // const userData = useUserData()
   const postData = usePostData()
 
+  // Renders only once
   useEffect(() => setPosts(postData), [])
 
-  console.log(posts)
-
+  // useEffect(() => setUsers(userData), [])
 
   // checking if a post has been liked, here we avoid on multi clicks
 
@@ -26,7 +29,7 @@ function Home() {
   //   });
   //   setPosts(newPosts);
   // }
-
+  if (!posts) return <h1>Loading . . .</h1>
   return (
     <div className="home">
       <div className="home-global">

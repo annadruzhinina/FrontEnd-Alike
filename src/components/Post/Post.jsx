@@ -4,8 +4,13 @@ import Avatar from "@mui/material/Avatar";
 import { BiLike } from "react-icons/bi";
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FcLikePlaceholder, FcLike } from "react-icons/fc";
+import userData from "../../Hooks/useUserData.js"
 
 function Post( { post } ) {
+  const [users, setUsers] = useState([])
+  const postData = usePostData()
+
+
   // const post = props.post
   // const heartButton = document.getElementById("heart-button");
 
