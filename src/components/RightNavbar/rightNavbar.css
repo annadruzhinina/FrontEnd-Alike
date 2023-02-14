@@ -22,7 +22,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -35,14 +35,13 @@
   align-items: center;
 }
 
-
-
-.resourceContainer h5{
-  color: #b8d0e9cf
+.articles a{
+  font-size: 10px;
 }
 
+
 .vid-container{
-  border: solid black;
+  /* border: solid black; */
   height: 25%;
   width: 98%;
   margin: 3em;
@@ -52,9 +51,10 @@
 .ga-container{
   /* border: solid black; */
   height: 25%;
-  width: 98%;
+  width: 85%;
   background: url(gaLogo.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  margin-top: 3em;
+  padding: 2px;
+  margin-bottom: 2rem;
 }

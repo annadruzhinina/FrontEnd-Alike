@@ -16,7 +16,7 @@ export const RnavbarData = [
     },
     {
         title: 'A General Assembly Review',
-        img: '../RightNavbar/gaLogo.png',
+        img: 'djangoLogo.png',
         link: 'https://skillcrush.com/blog/general-assembly-review/',
         alt: 'General Assembly'
     },
