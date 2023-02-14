@@ -13,8 +13,6 @@ import useUserData from "../../Hooks/useUserData.js"
 function Home() {
   const posts = usePostData()
   const users = useUserData()
-  console.log(users)
-  console.log(posts)
 
   // checking if a post has been liked, here we avoid on multi clicks
 
