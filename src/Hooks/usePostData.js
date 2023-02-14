@@ -12,13 +12,12 @@ export default function usePostData() {
         let allPosts = data.map((post) => {
           //Returns object with data
 
-          // CHANGE KEY TO MATCH VALUE NAME
           return {
-            postID: post.id,
+            id: post.id,
             image: post["image"],
             username: post["username"],
-            projTitle: post["project_name"],
-            github: post["github_link"],
+            project_name: post["project_name"],
+            github_link: post["github_link"],
           };
         });
         //Sets data

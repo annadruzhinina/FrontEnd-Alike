@@ -8,31 +8,24 @@ import usePostData from "../../Hooks/usePostData.js";
 
 // username, project, github, imageUrl
 function Home() {
-  const [posts, setPosts] = useState()
+  const [posts, setPosts] = useState([])
   const postData = usePostData()
 
   useEffect(() => setPosts(postData), [])
-  console.log(postData)
+
+  console.log(posts)
 
 
   // checking if a post has been liked, here we avoid on multi clicks
-  function handlePostLikeClick(updatedPost) {
-    console.log("Handle Post Update", updatedPost);
-    const newPosts = posts.map((post) => {
-      if (post.id === updatedPost.id) return updatedPost;
-      return post;
-    });
-    setPosts(newPosts);
-  }
 
-  function handlePostLikeClick(updatedPost) {
-    console.log("Handle Post Update", updatedPost);
-    const newPosts = posts.map((post) => {
-      if (post.id === updatedPost.id) return updatedPost;
-      return post;
-    });
-    setPosts(newPosts);
-  }
+  // function handlePostLikeClick(updatedPost) {
+  //   console.log("Handle Post Update", updatedPost);
+  //   const newPosts = posts.map((post) => {
+  //     if (post.id === updatedPost.id) return updatedPost;
+  //     return post;
+  //   });
+  //   setPosts(newPosts);
+  // }
 
   return (
     <div className="home">
@@ -41,16 +34,16 @@ function Home() {
         <div className="home-content">
           <div className="home-content_center">
             <div className="home-center">
-              {/* {posts.map((post, index) => {
+              {posts.map((post, index) => {
                 // console.log(post);
                 return (
                   <Post
                     key={index}
                     post={post}
-                    onPostLikeClick={handlePostLikeClick}
+                    // onPostLikeClick={handlePostLikeClick}
                   />
                 );
-              })} */}
+              })}
             </div>
             <RightNavbar />
           </div>
