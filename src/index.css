@@ -13,17 +13,13 @@
 :root {
 
   --color-bg: rgb(62, 63, 57);
-  --color-bg-variant: rgb(96,163,234);
+  --color-bg-variant: rgb(96, 163, 234);
   --color-primary: #1a1b1c;
   /* --color-primary-variant: rgb(96 163 234 / 69%); */
   --color-primary-variant: rgb(222 236 254);
-  --color-btn: rgb(207 225 244)
-  --color-white: #fff;
+  --color-btn: rgb(207 225 244) --color-white: #fff;
   --color-light: #fafafa;
   --color-light-blue: #fafafa;
-  --container-width-lg: 75%;
-  --container-width-md: 86%;
-  --container-width-sm: 90%;
   --transition: transition: all 400ms ease;
   --header-height: 60px;
   --icon-size-base: 24px;
@@ -31,8 +27,8 @@
   --space-base-double: calc(var(--space-base) * 2);
   --space-base-large: calc(var(--space-base) * 5);
   --space-base-medium: 8px;
-  --space-base-small: 4px;
-  --space-base-half:calc(var(--space-base) / 2);
+  --space-base-small: calc(var(--space-base-medium) /2);
+  --space-base-half: calc(var(--space-base) / 2);
   --navbar-width: 200px;
 
 
@@ -78,13 +74,13 @@ h1 {
   /* /* height: 100vh;
 } */
 
-section > h2,
-section > h5 {
+section>h2,
+section>h5 {
   text-align: center;
   color: var(--color-light);
 }
 
-section > h2 {
+section>h2 {
   color: var(--color-primary);
   margin-bottom: 3rem;
 }
@@ -98,11 +94,11 @@ a {
   transition: var(--transition);
 }
 
-a:hover{
-color: var(--color-white);
+a:hover {
+  color: var(--color-white);
 }
 
-.btn{
+.btn {
   width: max-content;
   display: inline-block;
   color: var(--color-primary);
@@ -114,7 +110,7 @@ color: var(--color-white);
   background-color: var(--color-btn);
 }
 
-.btn:hover{
+.btn:hover {
   background-color: var(--color-primary-variant);
   color: var(--color-bg);
   border-color: transparent;
@@ -124,12 +120,13 @@ color: var(--color-white);
   background: var(--color-primary);
   color: var(--color-bg);
 }
+
 /* img {
   display: block;
   width: 100%;
   object-fit: cover;
 } */
-.logo_image{
+.logo_image {
   display: block;
   width: 200px;
   height: 200px;
@@ -143,6 +140,7 @@ color: var(--color-white);
   .container {
     width: var(--container-width-md);
   }
+
   section {
     margin-top: 5px;
   }
@@ -154,6 +152,7 @@ color: var(--color-white);
   .container {
     width: var(--container-width-ms);
   }
+
   section {
     margin-bottom: 5px;
   }
