@@ -10,7 +10,7 @@ import * as BiIcons from "react-icons/bi";
 export const NavbarData = [
   {
     title: "Home",
-    path: "/",
+    path: "/home",
     icon: <MdIcons.MdHomeFilled className="navbar-menu__icon" />,
   },
   {
@@ -25,13 +25,15 @@ export const NavbarData = [
     icon: <MdIcons.MdOutlinePostAdd className="navbar-menu__icon" />,
   },
   {
+
     title: "About Us",
     path: "/",
+
     icon: <CgIcons.CgProfile className="navbar-menu__icon" />,
   },
   {
     title: "Sign Out",
-    path: "/sign-in",
+    path: "/",
     icon: <FaIcons.FaSignInAlt className="navbar-menu__icon" />,
   },
 ];

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState, useRef } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -7,7 +8,8 @@ import { Input, TextField } from "@mui/material";
 import "./newpost.css";
 import { Link } from "react-router-dom";
 
-import newPostSubmit from "../../services/new-post.service";
+import createPost from "../../services/new-post.service";
+import { create } from "@mui/material/styles/createTransitions";
 
 const style = {
   position: "absolute",
@@ -22,11 +24,11 @@ const style = {
 };
 
 export default function BasicModal({ icon, title, className }) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const projectNameRef = React.useRef(null);
   const githubRef = React.useRef(null);
-  const tagsRef = React.useRef(null);
+  // const tagsRef = React.useRef(null);
   const imageUrlRef = React.useRef(null);
   const imageFileRef = React.useRef(null);
 
@@ -34,20 +36,18 @@ export default function BasicModal({ icon, title, className }) {
   const handleClose = () => setOpen(false);
 
   function handleSubmit() {
-    console.log(projectNameRef.current.value);
-    console.log(githubRef.current.value);
-    console.log(tagsRef.current.value);
-    console.log(imageUrlRef.current.value);
+    // console.log(projectNameRef.current.value);
+    // console.log(githubRef.current.value);
+    // console.log(tagsRef.current.value);
+    // console.log(imageUrlRef.current.value);
 
-    newPostSubmit(
-      projectNameRef.current.value,
-      githubRef.current.value,
-      tagsRef.current.value,
-      imageUrlRef.current.value,
-      (event) => {
-        console.log("Progress", Math.round((100 * event.loaded) / event.total));
-      }
-    );
+    createPost({
+      username : 2,
+      project_name: projectNameRef.current.value,
+      github_link: githubRef.current.value,
+      // tagsRef.current.value,
+      image: imageUrlRef.current.value,
+    });
   }
 
   return (
@@ -70,12 +70,12 @@ export default function BasicModal({ icon, title, className }) {
             variant="outlined"
             inputRef={githubRef}
           />
-          <TextField
+          {/* <TextField
             id="outlined-basic"
             label="Tags"
             variant="outlined"
             inputRef={tagsRef}
-          />
+          /> */}
           <TextField
             id="outlined-basic"
             label="Image URL"
@@ -90,7 +90,10 @@ export default function BasicModal({ icon, title, className }) {
             accept="image/png, image/jpeg"
             ref={imageFileRef}
           ></input> */}
-          <Button onClick={handleSubmit}>Submit</Button>
+          <div className="new-post-btn">
+            <Button onClick={handleSubmit} className="-button">Submit</Button>
+            <Button onClick={handleClose} className="-button">Close</Button>
+          </div>
         </Box>
       </Modal>
     </div>
