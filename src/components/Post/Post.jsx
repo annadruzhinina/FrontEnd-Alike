@@ -15,8 +15,11 @@ import { FcLikePlaceholder, FcLike } from "react-icons/fc";
 import { useState, useEffect } from "react";
 import { RxCross2 } from "react-icons/rx";
 
+import useUserData from "../../Hooks/useUserData.js";
+import { useState, useEffect } from "react";
+import { RxCross2 } from "react-icons/rx";
+
 function Post({ post, user }) {
-  console.log(user);
   let username = "";
   for (let i = 0; i < user.length; i++) {
     if (user[i] != undefined) {

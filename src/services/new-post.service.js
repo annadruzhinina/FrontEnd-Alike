@@ -1,19 +1,43 @@
 import api from "./apiConfig";
-// tags,
-function newPostSubmit(projectName, githubUrl, image, onUploadProgress) {
-  let formData = new FormData();
 
-  formData.append("project_name", projectName);
-  formData.append("github_link", githubUrl);
-  // formData.append("tags", tags);
-  formData.append("image", image);
+export const createPost = async (postData) => {
+  // console.log(postData);
+  //   let formData = {
+  // project_name : postData.project_name,
+  // github_link : postData.github_link,
+  // image : postData.image
+  //   }
 
-  return api.post("/post", formData, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-    onUploadProgress,
-  });
-}
+  // console.log(formData)
+  let formData = {
+      username : 2,
+      project_name: postData.project_name,
+      github_link: postData.github_link,
+      image: postData.image
+  }
+  console.log(formData)
 
-export default newPostSubmit;
+  try {
+    const response = await api.post("post/", {
+      username : 2,
+      project_name: postData.project_name,
+      github_link: postData.github_link,
+      image: postData.image,
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+//   console.log(formData)
+
+//   return api.post("post", formData, {
+//     headers: {
+//       "Content-Type": "multipart/form-data",
+//     },
+//     onUploadProgress,
+//   });
+// }
+
+export default createPost;
