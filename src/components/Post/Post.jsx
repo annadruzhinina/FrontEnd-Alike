@@ -14,15 +14,12 @@ import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FcLikePlaceholder, FcLike } from "react-icons/fc";
 import { useState, useEffect } from "react";
 import { RxCross2 } from "react-icons/rx";
-
-import useUserData from "../../Hooks/useUserData.js";
-import { useState, useEffect } from "react";
-import { RxCross2 } from "react-icons/rx";
+import { deletePost } from '../../services/postApi';
 
 function Post({ post, user }) {
   let username = "";
   for (let i = 0; i < user.length; i++) {
-    if (user[i] != undefined) {
+    if (user[i] !== undefined) {
       username = user[i];
     }
   }
@@ -61,21 +58,24 @@ function Post({ post, user }) {
   // }
 
   return (
-    <div className="post">
-      <div className="post_header">
-        <div className="post-avatar_left">
+    <div className='post'>
+      <div className='post_header'>
+        <div className='post-avatar_left'>
           <Avatar
-            className="post-avatar"
-            alt="Anna"
-            src="./image/avatar.jpeg"
+            className='post-avatar'
+            alt='Anna'
+            src='./image/avatar.jpeg'
           ></Avatar>
           <h3>{username}</h3>
         </div>
-        <RxCross2 className="post-delete-btn" />
+        <RxCross2
+          onClick={() => deletePost(post)}
+          className='post-delete-btn'
+        />
       </div>
-      <img className="post-image" src={post.image} alt="" />
-      <div className="post-bottom">
-        <div className="post-like-title">
+      <img className='post-image' src={post.image} alt='' />
+      <div className='post-bottom'>
+        <div className='post-like-title'>
           {/* <button
             id={"like-" + post.id}
             className={
@@ -89,12 +89,12 @@ function Post({ post, user }) {
           </button> */}
           <h4>Project: {post.project_name}</h4>
         </div>
-        <a className="btn" target="_blank" href={post.github_link}>
+        <a className='btn' target='_blank' href={post.github_link}>
           GitHub
         </a>
       </div>
     </div>
-  );
+  )
 }
 
 export default Post;

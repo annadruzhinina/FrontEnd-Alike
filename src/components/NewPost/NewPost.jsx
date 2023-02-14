@@ -7,8 +7,7 @@ import Modal from "@mui/material/Modal";
 import { Input, TextField } from "@mui/material";
 import "./newpost.css";
 import { Link } from "react-router-dom";
-
-import createPost from "../../services/new-post.service";
+import { createPost } from "../../services/postApi";
 import { create } from "@mui/material/styles/createTransitions";
 
 const style = {
