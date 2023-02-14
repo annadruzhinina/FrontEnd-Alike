@@ -1,0 +1,121 @@
+.post-image {
+  width: 100%;
+  object-fit: contain;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.post {
+  background-color: white;
+  max-width: 470px;
+  border: 1px solid lightgray;
+  margin-bottom: var(--space-base-double);
+  min-width: 300px;
+}
+
+.post-text {
+  font-weight: normal;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.post_header {
+  display: flex;
+  align-items: center;
+  padding: var(--space-base-medium);
+}
+
+.post-avatar {
+  margin-right: 10px;
+}
+
+.post-text {
+  padding: 20px;
+}
+
+.post-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px 0 10px;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+.post-like-title {
+  display: flex;
+}
+
+.heart-button {
+  cursor: pointer;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heart-button-icon {
+  font-size: 24px;
+  cursor: pointer;
+  background: transparent;
+  margin-right: 10px;
+}
+
+.heart-button-icon-liked {
+  color: rgb(226, 19, 23);
+}
+
+.heart-button-heartQty {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.hearted {
+  animation: pulse 1s ease-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  14% {
+    transform: scale(1.3);
+  }
+
+  28% {
+    transform: scale(1);
+  }
+}
+
+.delete-avatar {
+  font-size: var(--icon-size-base);
+  font-weight: bold;
+}
+
+.like-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: system-ui, -apple-system, 'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+  background: #6E6D70;
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+  color: #DFDEDF;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.like-btn:focus {
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}
+
+h4 {
+  font-size: smaller;
+}

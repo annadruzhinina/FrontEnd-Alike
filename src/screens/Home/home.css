@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.home {
+  background-color: #fafafa;
+  height: 100vh;
+}
+
+.home-header {
+  /* padding: 20px; */
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  object-fit: contain;
+}
+.home-content_center {
+  display: flex;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.home-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin: var(--space-base);
+}
+.home-footer {
+  background-color: aqua;
+}
+
+/* ==================MEDIA QUERIES (MEDIUM DEVICES)==================== */
+
+@media screen and (max-width: 1010px) {
+}
+
+/* ==================MEDIA QUERIES (SMALL DEVICES)==================== */
+
+@media screen and (max-width: 600px) {
+}
