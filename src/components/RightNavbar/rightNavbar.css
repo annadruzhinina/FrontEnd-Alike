@@ -20,17 +20,41 @@
   right: 0px;
   width: 20rem;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .rbar-container h1{
   color: rgb(95, 95, 95);
 }
 
-.rbar-container h3{
-  color: #b8d0e9cf
-}
-
 .art-top{
   display: flex;
   align-items: center;
+}
+
+
+
+.resourceContainer h5{
+  color: #b8d0e9cf
+}
+
+.vid-container{
+  border: solid black;
+  height: 25%;
+  width: 98%;
+  margin: 3em;
+}
+
+
+.ga-container{
+  /* border: solid black; */
+  height: 25%;
+  width: 98%;
+  background: url(gaLogo.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin-top: 3em;
 }

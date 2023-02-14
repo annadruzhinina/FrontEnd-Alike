@@ -16,19 +16,25 @@ function RightNavbar() {
   return (
     <div className="rbar-container">
       <h1>Tech News</h1>
-      {RnavbarData.map((data, index) => {
-        return (
-          <div className="articles">
-            <div className="art-top">
-              <Avatar></Avatar>
-              <h3>{data.title}</h3>
+      <div className="resourceContainer">
+        {RnavbarData.map((data, index) => {
+          return (
+            <div className="articles">
+              <div className="art-top">
+                {/* <img src='' alt={data.alt} /> */}
+                <h5>{data.title}</h5>
+              </div>
+              <a target='_blank' href={data.link}> 👉 Read More</a>
             </div>
-            <article>{data.article}
-            </article>
-             <a target='_blank' href={data.link}>Full Article &gt;</a>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
+      <div className="vid-container">
+      <iframe width="310" height="235" src="https://www.youtube.com/embed/W6NZfCO5SIk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div className="ga-container">
+          
+      </div>
     </div>
   );
 }

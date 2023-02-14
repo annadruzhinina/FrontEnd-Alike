@@ -4,32 +4,32 @@ import React from 'react'
 export const RnavbarData = [
     {
         title: 'JS Data Structures',
-        article: 'A binary search tree is a data structure consisting of a set of ordered linked nodes that represent a hierarchical tree structure.',
-        img: '',
-        link: 'https://www.30secondsofcode.org/articles/s/js-data-structures-binary-search-tree'
+        img: 'JavaScript-logo.png',
+        link: 'https://www.30secondsofcode.org/articles/s/js-data-structures-binary-search-tree',
+        alt: 'Javascript'
     },
     {
-        title: 'The foop',
-        article: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus magni, beatae laudantium perspiciatis cum ea doloribus, veniam quo enim ab voluptates unde. Facere sunt adipisci error voluptate, eveniet ea officia.',
-        img: '',
-        link: ''
+        title: 'CSS The :has() selector',
+        img: '../cssLogo.webp',
+        link: 'https://www.smashingmagazine.com/2023/01/level-up-css-skills-has-selector/',
+        alt: 'CSS'
     },
     {
-        title: '',
-        article: '',
-        img: '',
-        link: ''
+        title: 'A General Assembly Review',
+        img: '../RightNavbar/gaLogo.png',
+        link: 'https://skillcrush.com/blog/general-assembly-review/',
+        alt: 'General Assembly'
     },
     {
-        title: '',
-        article: '',
+        title: "React beginner must know's",
         img: '',
-        link: ''
+        link: 'https://camjackson.net/post/9-things-every-reactjs-beginner-should-know',
+        alt: 'React'
     },
     {
-        title: '',
-        article: '',
+        title: 'Many to one in Django',
         img: '',
-        link: ''
+        link: 'https://www.valentinog.com/blog/many-to-one/?utm_source=devglan',
+        alt: 'Django'
     }
 ]
