@@ -1,11 +1,11 @@
 import api from "./apiConfig";
-
-function newPostSubmit(projectName, githubUrl, tags, image, onUploadProgress) {
+// tags,
+function newPostSubmit(projectName, githubUrl, image, onUploadProgress) {
   let formData = new FormData();
 
   formData.append("project_name", projectName);
   formData.append("github_link", githubUrl);
-  formData.append("tags", tags);
+  // formData.append("tags", tags);
   formData.append("image", image);
 
   return api.post("/post", formData, {

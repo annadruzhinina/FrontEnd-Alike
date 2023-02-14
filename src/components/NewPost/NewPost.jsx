@@ -26,7 +26,7 @@ export default function BasicModal({ icon, title, className }) {
 
   const projectNameRef = React.useRef(null);
   const githubRef = React.useRef(null);
-  const tagsRef = React.useRef(null);
+  // const tagsRef = React.useRef(null);
   const imageUrlRef = React.useRef(null);
   const imageFileRef = React.useRef(null);
 
@@ -36,13 +36,13 @@ export default function BasicModal({ icon, title, className }) {
   function handleSubmit() {
     console.log(projectNameRef.current.value);
     console.log(githubRef.current.value);
-    console.log(tagsRef.current.value);
+    // console.log(tagsRef.current.value);
     console.log(imageUrlRef.current.value);
 
     newPostSubmit(
       projectNameRef.current.value,
       githubRef.current.value,
-      tagsRef.current.value,
+      // tagsRef.current.value,
       imageUrlRef.current.value,
       (event) => {
         console.log("Progress", Math.round((100 * event.loaded) / event.total));
@@ -70,12 +70,12 @@ export default function BasicModal({ icon, title, className }) {
             variant="outlined"
             inputRef={githubRef}
           />
-          <TextField
+          {/* <TextField
             id="outlined-basic"
             label="Tags"
             variant="outlined"
             inputRef={tagsRef}
-          />
+          /> */}
           <TextField
             id="outlined-basic"
             label="Image URL"
