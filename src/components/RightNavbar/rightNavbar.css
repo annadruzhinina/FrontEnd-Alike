@@ -24,19 +24,38 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  overflow: scroll;
 }
 
-.rbar-container h1{
-  color: rgb(95, 95, 95);
+.rbar-container h3{
+  color: rgb(96, 163, 234)
 }
+
 
 .art-top{
   display: flex;
   align-items: center;
 }
 
+.articles{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: solid black;
+  width: 100%;
+}
+
 .articles a{
   font-size: 10px;
+}
+
+.articles img{
+  height: 40px;
+}
+
+.articles h4{
+  justify-content: center;
+  align-items: flex-start;
 }
 
 
@@ -52,7 +71,7 @@
   /* border: solid black; */
   height: 25%;
   width: 85%;
-  background: url(gaLogo.png);
+  /* background: url(/Users/owner/sei-nyc-1114/classProjects/finalProject/FrontEnd-Alike/public/image/gaLogo.png); */
   background-size: 100% 100%;
   background-repeat: no-repeat;
   padding: 2px;

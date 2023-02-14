@@ -21,8 +21,10 @@ function RightNavbar() {
           return (
             <div className="articles">              
                 <img src={data.img} alt={data.alt} />
-                <h4>{data.title}</h4>
-              <a target='_blank' href={data.link}> 👉 Read More</a>
+                <h4>{data.title}
+                <br/><a target='_blank' href={data.link}> 👉 Read More</a>
+                </h4>           
+
             </div>
           )
         })}
@@ -30,7 +32,6 @@ function RightNavbar() {
       <div className="vid-container">
       <iframe width="310" height="235" src="https://www.youtube.com/embed/W6NZfCO5SIk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
-      <div className="ga-container"></div>
     </div>
   );
 }
