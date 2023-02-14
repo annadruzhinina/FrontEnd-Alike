@@ -6,70 +6,29 @@ import "./rightNavbar.css";
 import Avatar from "@mui/material/Avatar";
 // import component
 import MemberInfo from "../MemberInfo/MemberInfo.jsx";
+//importing Rnavbar data for mapping
+import { RnavbarData } from "./RnavbarData";
+import { ListItem } from "@mui/material";
 
 // our function
-function RightNavbar({ username, imageUrl, github }) {
-  const [avatar, setAvatars] = useState([
-    {
-      username: "Ari",
-      imageUrl: "./image/cat.jpeg",
-      github: "https://github.com/argurjanaolloni",
-    },
-    {
-      username: "Anna",
-      imageUrl: "./image/cat.jpeg",
-      github: "https://github.com/annadruzhinina",
-    },
-    {
-      username: "Jose",
-      imageUrl: "./image/cat.jpeg",
-      github: "https://github.com/HowzayCalderon",
-    },
-    {
-      username: "Nick",
-      imageUrl: "./image/cat.jpeg",
-      github: "https://github.com/NickFasulo",
-    },
-    {
-      username: "Ryan",
-      imageUrl: "./image/cat.jpeg",
-      github: "https://github.com/Jagerziel",
-    },
-    {
-      username: "Vasilis",
-      imageUrl: "./image/cat.jpeg",
-      github: "https://github.com/Vasilis89",
-    },
-    {
-      username: "Ron",
-      imageUrl: "./image/cat.jpeg",
-      github: "https://github.com/RonLanzilotta",
-    },
-    {
-      username: "Jimy",
-      imageUrl: "./image/cat.jpeg",
-      github: "https://github.com/jallen2787",
-    },
-  ]);
+function RightNavbar() {
 
   return (
-    // created a navBar for the right side, this area is open to having different content. Some ideas: creating a meet the dev team, creating links to different groups a user can join etc.
-    <div className="suggestion">
-      <h3 className="suggestion-title">Suggestions for you: </h3>
-      <p>Lets share useful information!</p>
-      <h4>Welcome General Assembly alumni</h4>
-      <div className="suggestion-list">
-        {avatar.map((member) => {
-          return (
-            <MemberInfo
-              key={member.username}
-              username={member.username}
-              imageUrl={member.imageUrl}
-              github={member.github}
-            />
-          );
-        })}
-      </div>
+    <div className="rbar-container">
+      <h1>Tech News</h1>
+      {RnavbarData.map((data, index) => {
+        return (
+          <div className="articles">
+            <div className="art-top">
+              <Avatar></Avatar>
+              <h3>{data.title}</h3>
+            </div>
+            <article>{data.article}
+            </article>
+             <a target='_blank' href={data.link}>Full Article &gt;</a>
+          </div>
+        )
+      })}
     </div>
   );
 }

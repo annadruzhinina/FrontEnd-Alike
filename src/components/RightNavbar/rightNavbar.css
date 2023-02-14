@@ -1,6 +1,36 @@
-.suggestion {
+/* .suggestion {
   font-weight: 100;
-  color: lightgray;
-  padding-left: var(--space-base-large);
+  color: white;
+  height: 100vh;
+   padding-left: var(--space-base-large); 
   max-width: 250px;
+  border: solid black; 
+  background-color: rgb(210, 30, 30);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: fixed;
+  right: 0px;
+} */
+
+.rbar-container{
+  border-left: solid rgb(224, 223, 223);
+  position: fixed;
+  right: 0px;
+  width: 20rem;
+  height: 100vh;
+}
+
+.rbar-container h1{
+  color: rgb(95, 95, 95);
+}
+
+.rbar-container h3{
+  color: #b8d0e9cf
+}
+
+.art-top{
+  display: flex;
+  align-items: center;
 }
