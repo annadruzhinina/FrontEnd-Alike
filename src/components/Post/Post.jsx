@@ -9,6 +9,12 @@ import { useState, useEffect } from 'react'
 
 function Post( { post, user } ) {
   console.log(user)
+  let username = ''
+  for(let i = 0; i < user.length; i++) {
+    if (user[i] != undefined) {
+      username = user[i]
+    }
+  }
   // const post = props.post
   // const heartButton = document.getElementById("heart-button");
 
@@ -51,7 +57,7 @@ function Post( { post, user } ) {
           alt="Anna"
           src="./image/avatar.jpeg"
         ></Avatar>
-        <h3>{post.username}</h3>
+        <h3>{username}</h3>
       </div>
       <img className="post-image" src={post.image} alt="" />
       <div className="post-bottom">

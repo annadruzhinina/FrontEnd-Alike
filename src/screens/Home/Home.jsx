@@ -52,7 +52,8 @@ function Home() {
             <div className="home-center">
               {posts && users &&
               posts.map((post, index) => {
-                let user = users.map((user) => {
+
+                let user = users.map((user, index) => {
                   if (post.username === user.id)
                   return user.username
                 })
