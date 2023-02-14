@@ -15,9 +15,6 @@ import { FcLikePlaceholder, FcLike } from "react-icons/fc";
 import { useState, useEffect } from "react";
 import { RxCross2 } from "react-icons/rx";
 
-import useUserData from "../../Hooks/useUserData.js";
-import { useState, useEffect } from "react";
-import { RxCross2 } from "react-icons/rx";
 
 function Post({ post, user }) {
   let username = "";

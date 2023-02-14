@@ -7,13 +7,16 @@ function Footer() {
     <>
       <footer className="footer-container">
         footer
+        <br />
         this is it
+        <br />
         hello
-        <AiFillInstagram />
-        <AiFillTwitterSquare />
-        <AiFillFacebook />
-        <AiFillRedditSquare />
-
+        <div className='footer-icons'>
+          <AiFillInstagram />
+          <AiFillTwitterSquare />
+          <AiFillFacebook />
+          <AiFillRedditSquare />
+        </div>
       </footer>
     </>
   )
