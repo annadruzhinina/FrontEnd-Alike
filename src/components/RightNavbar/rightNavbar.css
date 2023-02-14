@@ -1,6 +1,79 @@
-.suggestion {
+/* .suggestion {
   font-weight: 100;
-  color: lightgray;
-  padding-left: var(--space-base-large);
+  color: white;
+  height: 100vh;
+   padding-left: var(--space-base-large); 
   max-width: 250px;
+  border: solid black; 
+  background-color: rgb(210, 30, 30);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: fixed;
+  right: 0px;
+} */
+
+.rbar-container{
+  border-left: solid rgb(224, 223, 223);
+  position: fixed;
+  right: 0px;
+  width: 20rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: scroll;
+}
+
+.rbar-container h3{
+  color: rgb(96, 163, 234)
+}
+
+
+.art-top{
+  display: flex;
+  align-items: center;
+}
+
+.articles{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: solid black;
+  width: 100%;
+}
+
+.articles a{
+  font-size: 10px;
+}
+
+.articles img{
+  height: 40px;
+}
+
+.articles h4{
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+.vid-container{
+  /* border: solid black; */
+  height: 25%;
+  width: 98%;
+  margin: 3em;
+}
+
+
+.ga-container{
+  /* border: solid black; */
+  height: 25%;
+  width: 85%;
+  /* background: url(/Users/owner/sei-nyc-1114/classProjects/finalProject/FrontEnd-Alike/public/image/gaLogo.png); */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 2px;
+  margin-bottom: 2rem;
 }

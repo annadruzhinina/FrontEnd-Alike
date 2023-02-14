@@ -25,8 +25,10 @@ export const NavbarData = [
     icon: <MdIcons.MdOutlinePostAdd className="navbar-menu__icon" />,
   },
   {
-    title: "Profile",
-    path: "",
+
+    title: "About Us",
+    path: "/",
+
     icon: <CgIcons.CgProfile className="navbar-menu__icon" />,
   },
   {
