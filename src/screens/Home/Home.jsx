@@ -11,7 +11,6 @@ import usePostData from "../../Hooks/usePostData.js";
   // username, project, github, imageUrl
 function Home() {
   const [posts, setPosts] = useState([])
-  // const userData = useUserData()
   const postData = usePostData()
 
   // Renders only once

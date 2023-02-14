@@ -4,11 +4,17 @@ import Avatar from "@mui/material/Avatar";
 import { BiLike } from "react-icons/bi";
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FcLikePlaceholder, FcLike } from "react-icons/fc";
-import userData from "../../Hooks/useUserData.js"
+import useUserData from "../../Hooks/useUserData.js"
+import { useState, useEffect } from 'react'
 
 function Post( { post } ) {
   const [users, setUsers] = useState([])
-  const postData = usePostData()
+  const userData = useUserData()
+
+  useEffect(() => setUsers(userData), [])
+
+  console.log(users)
+
 
 
   // const post = props.post
