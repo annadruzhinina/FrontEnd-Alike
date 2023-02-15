@@ -1,16 +1,14 @@
 //import react
-import React, { useState } from "react";
-//import css
-import "./landing.css";
-//import components
-import SignUp from "../../components/SignUp/SignUp";
+import React from "react";
+// import css
+import "./signup.css";
 // redirect to new path
 import { useNavigate } from "react-router-dom";
 
-function Landing() {
+function SignUp() {
   let navigate = useNavigate();
-  function handleSignUpClick() {
-    let path = `/sign-up`;
+  function handleSignInClick() {
+    let path = `/`;
     navigate(path);
   }
   return (
@@ -29,7 +27,7 @@ function Landing() {
             Social Me​dia Is Better When You Can Relate{" "}
           </h2>
           <form className="form">
-            <h1 className="SigninLogo">Sign In</h1>
+            <h1 className="SigninLogo">Sign Up</h1>
             <input
               className="username"
               id="username"
@@ -37,20 +35,21 @@ function Landing() {
               placeholder="Username"
             />
             <input id="pw" type="password" placeholder="Password" />
-            {/* <input
-             id="pwConfirm"
-             type="password"
-             placeholder="Confirm Password"
-           /> */}
-            <button id="submitCredentials" type="submit" value="submit">
-              Login
-            </button>
+            <input
+              id="pwConfirm"
+              type="password"
+              placeholder="Confirm Password"
+            />
             <button
-              onClick={handleSignUpClick}
+              onClick={handleSignInClick}
               id="submitCredentials"
+              type="submit"
               value="submit"
             >
-              SignUp
+              Back
+            </button>
+            <button id="submitCredentials" type="submit" value="submit">
+              Submit
             </button>
           </form>
         </div>
@@ -59,4 +58,4 @@ function Landing() {
   );
 }
 
-export default Landing;
+export default SignUp;

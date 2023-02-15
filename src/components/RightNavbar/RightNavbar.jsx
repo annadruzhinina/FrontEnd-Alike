@@ -12,25 +12,41 @@ import { ListItem } from "@mui/material";
 
 // our function
 function RightNavbar() {
-
   return (
-    <div className="rbar-container">
-      <h3>Tech News</h3>
-      <div className="resourceContainer">
-        {RnavbarData.map((data, index) => {
-          return (
-            <div className="articles">              
-                <img src={data.img} alt={data.alt} />
-                <h4>{data.title}
-                <br/><a target='_blank' href={data.link}> 👉 Read More</a>
-                </h4>           
+    <div className="suggestion">
+      <h3 className="suggestion-title">Tech News</h3>
+      <div className="suggestion-scroll">
+        <div className="suggestion-list">
+          {RnavbarData.map((data, index) => {
+            return (
+              <div className="articles">
+                <img
+                  src={data.img}
+                  alt={data.alt}
+                  className="suggestion-img__icons"
+                />
+                <h4>
+                  {data.title}
+                  <br />
+                  <a target="_blank" href={data.link}>
+                    <span className="suggestion-icon_pointer">👉</span> Read
+                    More
+                  </a>
+                </h4>
+              </div>
+            );
+          })}
+        </div>
 
-            </div>
-          )
-        })}
-      </div>
-      <div className="vid-container">
-      <iframe width="310" height="235" src="https://www.youtube.com/embed/W6NZfCO5SIk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe
+          width="220"
+          height="180"
+          src="https://www.youtube.com/embed/W6NZfCO5SIk"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
   );

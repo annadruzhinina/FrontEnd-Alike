@@ -4,7 +4,6 @@ import Post from "../../components/Post/Post.jsx";
 import Navbar from "../../components/Navbar/Navbar";
 import RightNavbar from "../../components/RightNavbar/RightNavbar";
 import usePostData from "../../Hooks/usePostData.js";
-import Button from "@mui/material/Button";
 import useUserData from "../../Hooks/useUserData.js";
 import Footer from "../../components/Footer/Footer.jsx";
 
@@ -48,6 +47,7 @@ function Home() {
                 })}
             </div>
           </div>
+          <RightNavbar />
         </div>
       </div>
       <Footer />
