@@ -14,7 +14,8 @@ export default function useUserData() {
 
           return {
             id: user.id,
-            username: user["username"]
+            username: user["username"],
+            password: user["password"]
           };
         });
         //Sets data
