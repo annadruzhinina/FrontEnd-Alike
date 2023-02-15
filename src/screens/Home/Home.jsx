@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./home.css";
 import Post from "../../components/Post/Post.jsx";
 import Navbar from "../../components/Navbar/Navbar";
-import RightNavbar from "../../components/RightNavbar/RightNavbar";
 import usePostData from "../../Hooks/usePostData.js";
 import useUserData from "../../Hooks/useUserData.js";
 import Footer from "../../components/Footer/Footer.jsx";
+import RightNavbar from "../../components/RightNavbar/RightNavbar.jsx";
 
 // username, project, github, imageUrl
 function Home() {
@@ -41,7 +41,7 @@ function Home() {
                       key={index}
                       user={user}
                       post={post}
-                      // onPostLikeClick={handlePostLikeClick}
+                    // onPostLikeClick={handlePostLikeClick}
                     />
                   );
                 })}
