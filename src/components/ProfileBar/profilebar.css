@@ -1,0 +1,51 @@
+.profileTainer{
+    /* position: fixed; */
+    height: 100vh;
+    width: 30rem;
+    border: solid black;
+}
+
+
+.profileAvatar{
+    /* border: solid blue; */
+    display: flex;
+    justify-content: center;
+    height: 20rem;
+    width: 20rem;
+    align-items: center;
+}
+.profileAvatar img{
+    height: 15rem;
+    width: 15rem;
+    border-radius: 20rem;
+}
+
+.friendsList{
+    display: flex;
+    flex-direction: column;
+    border: solid black;
+    height: 100%;
+    width: 26rem;
+    
+}
+
+.friendsList h3{
+    padding: 2rem 2rem 0 2rem;
+}
+
+.friendPictainer{
+    /* border: solid black; */
+    margin: 0 1rem 0 0;
+}
+
+.friendPictainer img{
+    height: 4rem;
+    width: 4rem;
+    border-radius: 6rem;
+}
+
+.friendItem{
+    display: flex;
+    align-items: center;
+    padding: 2rem 2rem 0 2rem;
+}

@@ -1,14 +1,16 @@
 import React from "react";
 import "./profile.css";
 import Avatar from "@mui/material/Avatar";
-import ProfileBar from "../"
+import ProfileBar from '../../components/ProfileBar/ProfileBar.jsx'
+
+
 
 
 function Profile({ username, caption, imageUrl }) {
   return (
     <div className="profile">
       <div className="profileSideBarContainer">
-
+       <ProfileBar/>
       </div>
       <div className="profileInfoContainer">
 
