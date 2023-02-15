@@ -1,16 +1,17 @@
+//import react
 import * as React from "react";
-import { useState, useRef } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+//import material ui
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { Input, TextField } from "@mui/material";
-import "./newpost.css";
-import { Link } from "react-router-dom";
+import { TextField } from "@mui/material";
 
 import createPost from "../../services/new-post.service";
-import { create } from "@mui/material/styles/createTransitions";
 
+//css style
+import "./newpost.css";
 const style = {
   position: "absolute",
   top: "50%",
@@ -26,23 +27,18 @@ const style = {
 export default function BasicModal({ icon, title, className }) {
   const [open, setOpen] = useState(false);
 
-  const projectNameRef = useRef(null);
-  const githubRef = useRef(null);
-  // const tagsRef = useRef(null);
-  const imageUrlRef = useRef(null);
-  const imageFileRef = useRef(null);
+  const projectNameRef = React.useRef(null);
+  const githubRef = React.useRef(null);
+  // const tagsRef = React.useRef(null);
+  const imageUrlRef = React.useRef(null);
+  const imageFileRef = React.useRef(null);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   function handleSubmit() {
-    // console.log(projectNameRef.current.value);
-    // console.log(githubRef.current.value);
-    // console.log(tagsRef.current.value);
-    // console.log(imageUrlRef.current.value);
-
     createPost({
-      username : 2,
+      username: 2,
       project_name: projectNameRef.current.value,
       github_link: githubRef.current.value,
       // tagsRef.current.value,
@@ -90,7 +86,14 @@ export default function BasicModal({ icon, title, className }) {
             accept="image/png, image/jpeg"
             ref={imageFileRef}
           ></input> */}
-          <Button onClick={handleSubmit}>Submit</Button>
+          <div className="new-post-btn">
+            <Button onClick={handleSubmit} className="-button">
+              Submit
+            </Button>
+            <Button onClick={handleClose} className="-button">
+              Close
+            </Button>
+          </div>
         </Box>
       </Modal>
     </div>

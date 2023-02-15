@@ -1,19 +1,25 @@
+//import react
 import React from "react";
+
+//import ccs
 import "./post.css";
+
+//import components
+
+//import material ui
 import Avatar from "@mui/material/Avatar";
 import { BiLike } from "react-icons/bi";
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FcLikePlaceholder, FcLike } from "react-icons/fc";
+import { useState, useEffect } from "react";
+import { RxCross2 } from "react-icons/rx";
+import useUserData from "../../Hooks/useUserData.js";
 
-import useUserData from "../../Hooks/useUserData.js"
-import { useState, useEffect } from 'react'
-import { RxCross2 } from "react-icons/rx"
-
-function Post( { post, user } ) {
-  let username = ''
-  for(let i = 0; i < user.length; i++) {
+function Post({ post, user }) {
+  let username = "";
+  for (let i = 0; i < user.length; i++) {
     if (user[i] != undefined) {
-      username = user[i]
+      username = user[i];
     }
   }
   // const post = props.post
@@ -53,12 +59,15 @@ function Post( { post, user } ) {
   return (
     <div className="post">
       <div className="post_header">
-        <Avatar
-          className="post-avatar"
-          alt="Anna"
-          src="./image/avatar.jpeg"
-        ></Avatar>
-        <h3>{username}</h3>
+        <div className="post-avatar_left">
+          <Avatar
+            className="post-avatar"
+            alt="Anna"
+            src="./image/avatar.jpeg"
+          ></Avatar>
+          <h3>{username}</h3>
+        </div>
+        <RxCross2 className="post-delete-btn" />
       </div>
       <img className="post-image" src={post.image} alt="" />
       <div className="post-bottom">
@@ -74,7 +83,10 @@ function Post( { post, user } ) {
 
             <span className="heart-button-heartQty">{post.likes}</span>
           </button> */}
-          <h4>Project: {post.project_name}</h4>
+          <h4>
+            <strong className="post-project__name">Project:</strong>{" "}
+            {post.project_name}
+          </h4>
         </div>
         <a className="btn" target="_blank" href={post.github_link}>
           GitHub
