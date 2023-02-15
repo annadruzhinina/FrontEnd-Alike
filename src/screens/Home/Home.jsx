@@ -12,6 +12,9 @@ function Home() {
   const posts = usePostData();
   const users = useUserData();
 
+  // const urls = useCloudinaryData();
+  // console.log(urls)
+
   // checking if a post has been liked, here we avoid on multi clicks
 
   // function handlePostLikeClick(updatedPost) {
@@ -31,7 +34,7 @@ function Home() {
           <div className="home-content_center">
             <div className="home-center">
               {posts &&
-
+                users &&
                 posts
                   .slice(0)
                   .reverse()
@@ -48,7 +51,6 @@ function Home() {
                       />
                     );
                   })}
-
             </div>
           </div>
           <RightNavbar />

@@ -10,6 +10,9 @@ import { TextField } from "@mui/material";
 
 import createPost from "../../services/new-post.service";
 
+import UploadWidget from '../UploadWidget/UploadWidget.jsx';
+
+
 //css style
 import "./newpost.css";
 const style = {
@@ -26,7 +29,7 @@ const style = {
 
 export default function BasicModal({ icon, title, className }) {
   const [open, setOpen] = useState(false);
-
+  
   const projectNameRef = React.useRef(null);
   const githubRef = React.useRef(null);
   // const tagsRef = React.useRef(null);
@@ -36,13 +39,15 @@ export default function BasicModal({ icon, title, className }) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  let cloudinaryUrl = window.localStorage.getItem('cloud')
+
   function handleSubmit() {
     createPost({
       username: 2,
       project_name: projectNameRef.current.value,
       github_link: githubRef.current.value,
       // tagsRef.current.value,
-      image: imageUrlRef.current.value,
+      image: cloudinaryUrl,
     });
   }
 
@@ -54,6 +59,9 @@ export default function BasicModal({ icon, title, className }) {
       </Link>
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
+
+          <UploadWidget />
+
           <TextField
             id="outlined-basic"
             label="Project Name"
@@ -72,12 +80,14 @@ export default function BasicModal({ icon, title, className }) {
             variant="outlined"
             inputRef={tagsRef}
           /> */}
-          <TextField
+          {/* <TextField
             id="outlined-basic"
             label="Image URL"
             variant="outlined"
             inputRef={imageUrlRef}
-          />
+          /> */}
+          
+
           {/* <div>Post Image upload: </div>
           <input
             type="file"

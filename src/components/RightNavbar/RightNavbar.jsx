@@ -19,7 +19,7 @@ function RightNavbar() {
         <div className="suggestion-list">
           {RnavbarData.map((data, index) => {
             return (
-              <div className="articles">
+              <div className="articles" key={index}>
                 <img
                   src={data.img}
                   alt={data.alt}
