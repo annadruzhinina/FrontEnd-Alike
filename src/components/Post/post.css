@@ -15,6 +15,7 @@
 
 .post-delete-btn {
   font-weight: bold;
+  cursor: pointer;
 }
 
 .post-text {

@@ -15,9 +15,8 @@ export const createPost = async postData => {
 }
 
 export const deletePost = async postData => {
-  console.log(postData)
   try {
-    const response = await api.delete('post/', postData.id)
+    const response = await api.delete(`post/${postData.id}`, postData.id)
     return response.data
   } catch (error) {
     throw error
