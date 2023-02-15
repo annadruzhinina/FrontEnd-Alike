@@ -2,10 +2,32 @@ import React from "react";
 import "./profile.css";
 import Avatar from "@mui/material/Avatar";
 
-function Post({ username, caption, imageUrl }) {
+function Profile({ username, caption, imageUrl }) {
   return (
-    <div className="post">
-      <div className="post_header">
+    <div className="profile">
+      <div className="sideBarContainer">
+
+      </div>
+      <div className="infoContainer">
+
+      </div>
+      <div className="postsContainer">
+        
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {/* <div className="post_header">
         <Avatar className="post-avatar" alt="Anna" src="./avatar.jpeg"></Avatar>
         <h3>{username}</h3>
       </div>
@@ -13,8 +35,7 @@ function Post({ username, caption, imageUrl }) {
       <div className="post-bottom">
         <h4>Project name</h4>
         <button className="btn">GitHub</button>
-      </div>
-
+      </div> */}
       {/* <h4 className="post-text">
         <strong>{username}</strong> {caption}
       </h4> */}
@@ -22,4 +43,4 @@ function Post({ username, caption, imageUrl }) {
   );
 }
 
-export default Post;
+export default Profile;
