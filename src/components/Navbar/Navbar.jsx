@@ -56,6 +56,7 @@ function Navbar() {
             if (item.type === "popup-new-post") {
               return (
                 <NewPost
+                  key={index}
                   icon={item.icon}
                   title={item.title}
                   className="navbar-menu__item"
