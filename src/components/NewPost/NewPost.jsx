@@ -29,7 +29,7 @@ const style = {
 
 export default function BasicModal({ icon, title, className }) {
   const [open, setOpen] = useState(false);
-
+  
   const projectNameRef = React.useRef(null);
   const githubRef = React.useRef(null);
   // const tagsRef = React.useRef(null);
@@ -39,13 +39,15 @@ export default function BasicModal({ icon, title, className }) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  let cloudinaryUrl = window.localStorage.getItem('cloud')
+
   function handleSubmit() {
     createPost({
       username: 2,
       project_name: projectNameRef.current.value,
       github_link: githubRef.current.value,
       // tagsRef.current.value,
-      image: imageUrlRef.current.value,
+      image: cloudinaryUrl,
     });
   }
 
