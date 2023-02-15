@@ -10,8 +10,7 @@ import { TextField } from "@mui/material";
 
 import createPost from "../../services/new-post.service";
 
-import { Image, Video, Transformation } from 'cloudinary-react';
-import {Cloudinary} from "@cloudinary/url-gen";
+import UploadWidget from '../UploadWidget/UploadWidget.jsx';
 
 
 //css style
@@ -59,7 +58,7 @@ export default function BasicModal({ icon, title, className }) {
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
 
-
+          <UploadWidget />
 
           <TextField
             id="outlined-basic"
@@ -79,12 +78,12 @@ export default function BasicModal({ icon, title, className }) {
             variant="outlined"
             inputRef={tagsRef}
           /> */}
-          <TextField
+          {/* <TextField
             id="outlined-basic"
             label="Image URL"
             variant="outlined"
             inputRef={imageUrlRef}
-          />
+          /> */}
           
 
           {/* <div>Post Image upload: </div>
