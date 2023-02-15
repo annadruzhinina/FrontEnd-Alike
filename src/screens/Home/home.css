@@ -16,13 +16,13 @@
 }
 .home-content_center {
   display: flex;
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
 .home-content {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   margin: var(--space-base);
 }
 .home-footer {
@@ -31,7 +31,10 @@
 
 /* ==================MEDIA QUERIES (MEDIUM DEVICES)==================== */
 
-@media screen and (max-width: 1010px) {
+@media screen and (max-width: 1019px) {
+  .suggestion {
+    display: none;
+  }
 }
 
 /* ==================MEDIA QUERIES (SMALL DEVICES)==================== */

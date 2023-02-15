@@ -5,7 +5,6 @@ import React from "react";
 import "./post.css";
 
 //import components
-import useUserData from "../../Hooks/useUserData.js";
 
 //import material ui
 import Avatar from "@mui/material/Avatar";
@@ -14,7 +13,7 @@ import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FcLikePlaceholder, FcLike } from "react-icons/fc";
 import { useState, useEffect } from "react";
 import { RxCross2 } from "react-icons/rx";
-
+import useUserData from "../../Hooks/useUserData.js";
 
 function Post({ post, user }) {
   let username = "";
@@ -84,7 +83,10 @@ function Post({ post, user }) {
 
             <span className="heart-button-heartQty">{post.likes}</span>
           </button> */}
-          <h4>Project: {post.project_name}</h4>
+          <h4>
+            <strong className="post-project__name">Project:</strong>{" "}
+            {post.project_name}
+          </h4>
         </div>
         <a className="btn" target="_blank" href={post.github_link}>
           GitHub

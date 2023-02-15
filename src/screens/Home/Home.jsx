@@ -3,7 +3,6 @@ import "./home.css";
 import Post from "../../components/Post/Post.jsx";
 import Navbar from "../../components/Navbar/Navbar";
 import usePostData from "../../Hooks/usePostData.js";
-import Button from "@mui/material/Button";
 import useUserData from "../../Hooks/useUserData.js";
 import Footer from "../../components/Footer/Footer.jsx";
 import RightNavbar from "../../components/RightNavbar/RightNavbar.jsx";
