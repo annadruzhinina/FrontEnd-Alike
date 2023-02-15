@@ -78,7 +78,8 @@ input[type="submit"]:hover {
   background-color: #0a0b0a;
 }
 
-#submitCredentials {
+#submitCredentials,
+#submitCredential {
   background-color: #6fbeeb;
   border: 1px solid rgba(255, 255, 255, 0.62);
   padding: 7px 20px;
@@ -91,7 +92,8 @@ input[type="submit"]:hover {
   width: 100px;
   box-sizing: border-box;
 }
-#submitCredentials:hover {
+#submitCredentials,
+#submitCredential:hover {
   background-color: #6fbeeb9c;
   color: white;
   cursor: pointer;
@@ -101,7 +103,10 @@ input[type="submit"]:hover {
 .SigninLogo {
   padding-bottom: 10px;
 }
-
+.sign-up__password {
+  margin-top: 10px;
+  color: red;
+}
 @media screen and (max-width: 560px) {
   .form {
     max-width: 360px;
