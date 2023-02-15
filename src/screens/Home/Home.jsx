@@ -32,25 +32,28 @@ function Home() {
             <div className="home-center">
               {posts &&
                 users &&
-                posts.map((post, index) => {
-                  let user = users.map((user, index) => {
-                    if (post.username === user.id) return user.username;
-                  });
-                  return (
-                    <Post
-                      key={index}
-                      user={user}
-                      post={post}
-                      // onPostLikeClick={handlePostLikeClick}
-                    />
-                  );
-                })}
+                posts
+                  .slice(0)
+                  .reverse()
+                  .map((post, index) => {
+                    let user = users.map((user, index) => {
+                      if (post.username === user.id) return user.username;
+                    });
+                    return (
+                      <Post
+                        key={index}
+                        user={user}
+                        post={post}
+                        // onPostLikeClick={handlePostLikeClick}
+                      />
+                    );
+                  })}
             </div>
           </div>
           <RightNavbar />
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
