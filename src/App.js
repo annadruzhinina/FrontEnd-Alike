@@ -8,7 +8,7 @@ import Landing from "./screens/Landing/Landing.jsx";
 import Profile from "./screens/Profile/Profile.jsx";
 import Home from "./screens/Home/Home.jsx";
 import RightNavbar from "./components/RightNavbar/RightNavbar.jsx";
-
+import SignUp from "./components/SignUp/SignUp.jsx";
 // Import React
 import { useEffect, useState } from "react";
 

@@ -2,9 +2,9 @@
   font-weight: 100;
   color: white;
   height: 100vh;
-   padding-left: var(--space-base-large); 
+   padding-left: var(--space-base-large);
   max-width: 250px;
-  border: solid black; 
+  border: solid black;
   background-color: rgb(210, 30, 30);
   display: flex;
   flex-direction: column;
@@ -13,6 +13,44 @@
   position: fixed;
   right: 0px;
 } */
+
+.suggestion {
+  font-weight: 100;
+  color: var(--color-primary);
+  max-width: 250px;
+  width: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: #ecf5fd;
+  border-left: 1px solid rgb(222 236 254);
+}
+.suggestion-title {
+  padding: 17px;
+  color: var(--color-primary);
+  line-height: 1.7;
+  /* background-color: rgb(53 187 235 / 49%); */
+  background-color: #ecf5fd;
+  border-bottom: 1px solid rgb(222 236 254);
+  font-size: 16px;
+}
+.suggestion-list {
+  padding-left: 10px;
+  padding-top: 10px;
+  border-left: 1px solid #deecfe;
+}
+.suggestion-scroll {
+  position: fixed;
+  width: 250px;
+  overflow-y: scroll;
+  top: 62px;
+  bottom: 0;
+  background-color: #ecf5fd;
+}
+.suggestion-img__icons {
+  display: flex;
+  justify-content: left;
+}
 
 .rbar-container {
   border-left: solid rgb(224, 223, 223);
@@ -28,9 +66,9 @@
 }
 
 .rbar-container h3 {
-  color: rgb(96, 163, 234)
-}
 
+  color: rgb(96, 163, 234);
+}
 
 .art-top {
   display: flex;
@@ -43,22 +81,24 @@
   flex-direction: column;
   /* border: solid black; */
   width: 100%;
+  padding-bottom: 10px;
 }
 
 .articles a {
-  font-size: 10px;
+  font-size: 16px;
 }
 
 .articles img {
-  height: var(--icon-size-base);
-  width: var(--icon-size-base)
+  height: 30px;
+  font-size: 10px;
+  //height: var(--icon-size-base);
+  //width: var(--icon-size-base)
 }
 
 .articles h4 {
   justify-content: center;
   align-items: flex-start;
 }
-
 
 .vid-container {
   /* border: solid black; */
@@ -67,6 +107,9 @@
   margin: 3em;
 }
 
+.suggestion-icon_pointer {
+  font-size: 22px;
+}
 
 .ga-container {
   /* border: solid black; */
@@ -78,3 +121,19 @@
   padding: 2px;
   margin-bottom: 2rem;
 }
+
+iframe {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.right-video {
+  display: flex;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+
+

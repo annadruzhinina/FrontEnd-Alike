@@ -1,8 +1,24 @@
-import React from "react";
+//import react
+import React, { useState } from "react";
+//import css
 import "./landing.css";
-import Button from "@mui/material/Button";
+//import components
+import SignUp from "../../components/SignUp/SignUp";
+// redirect to new path
+import { useNavigate } from "react-router-dom";
 
 function Landing() {
+  let navigate = useNavigate();
+  function handleSignUpClick() {
+    let path = `/sign-up`;
+    navigate(path);
+  }
+
+  function handleSignInClick() {
+    let path = `/home`;
+    navigate(path);
+  }
+
   return (
     <>
       <div className="landing-home-header">
@@ -32,11 +48,20 @@ function Landing() {
              type="password"
              placeholder="Confirm Password"
            /> */}
-            <button id="submitCredentials" type="submit" value="submit">
+            <button
+              onClick={handleSignInClick}
+              id="submitCredentials"
+              type="submit"
+              value="submit"
+            >
               Login
             </button>
-            <button id="submitCredentials" type="submit" value="submit">
-              Sign Up
+            <button
+              onClick={handleSignUpClick}
+              id="submitCredentials"
+              value="submit"
+            >
+              SignUp
             </button>
           </form>
         </div>

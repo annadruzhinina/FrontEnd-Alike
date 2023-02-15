@@ -1,8 +1,8 @@
 .navbar {
   height: 100vh;
-  border-right: solid rgb(222 236 254);
+  border-right: 1px solid rgb(222 236 254);
   background-color: #eaf4fecf;
-  min-width: 200px;
+  min-width: 230px;
   position: fixed;
   left: 0;
   bottom: 0;
