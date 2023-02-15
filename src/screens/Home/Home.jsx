@@ -56,7 +56,7 @@ function Home() {
           <RightNavbar />
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

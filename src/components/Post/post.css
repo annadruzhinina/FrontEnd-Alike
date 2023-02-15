@@ -24,17 +24,19 @@
 strong {
   font-weight: bold;
 }
+.post-project {
+  font-size: 14px;
+}
 .post-project__name {
-  font-size: 16px;
+  margin-left: 10px;
+  font-size: 20px;
 }
 .post_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10px 0 10px;
   overflow: hidden;
-  padding-bottom: 10px;
-  padding: var(--space-base-medium);
+  padding: 15px 10px 10px 10px;
 }
 .post-avatar_left {
   display: flex;
@@ -58,8 +60,15 @@ strong {
 
 .post-like-title {
   display: flex;
+  width: 100%;
+  justify-content: start;
+  align-items: center;
 }
-
+.post-navbar-menu__icon {
+  width: var(--icon-size-base);
+  height: var(--icon-size-base);
+  margin-left: 10px;
+}
 .heart-button {
   cursor: pointer;
   background: transparent;
