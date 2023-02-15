@@ -34,10 +34,10 @@ export default function BasicModal({ icon, title, className }) {
   const handleClose = () => setOpen(false);
 
   function handleSubmit() {
-    console.log(projectNameRef.current.value);
-    console.log(githubRef.current.value);
-    console.log(tagsRef.current.value);
-    console.log(imageUrlRef.current.value);
+    // console.log(projectNameRef.current.value);
+    // console.log(githubRef.current.value);
+    // console.log(tagsRef.current.value);
+    // console.log(imageUrlRef.current.value);
 
     newPostSubmit(
       projectNameRef.current.value,
@@ -45,7 +45,7 @@ export default function BasicModal({ icon, title, className }) {
       tagsRef.current.value,
       imageUrlRef.current.value,
       (event) => {
-        console.log("Progress", Math.round((100 * event.loaded) / event.total));
+        // console.log("Progress", Math.round((100 * event.loaded) / event.total));
       }
     );
   }

@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react'
 import { RxCross2 } from "react-icons/rx"
 
 function Post( { post, user } ) {
-  console.log(user)
+  // console.log(user)
   let username = ''
   for(let i = 0; i < user.length; i++) {
     if (user[i] != undefined) {

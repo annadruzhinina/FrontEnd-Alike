@@ -21,7 +21,7 @@ export default function CreatePostModal() {
     //Handle Submit
     const handleSubmit = (e) => {
         //Console Log When Submitted
-        console.log("Submitted")
+        // console.log("Submitted")
         //Prevent Page from Reloading
         e.preventDefault()
         /*

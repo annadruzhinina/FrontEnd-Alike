@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import { useAuthContext } from "../../Hooks/useAuthContext.js"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
+import { loginUser } from "../../Context/AuthContexts.js";
 
 function Landing() {
   const { dispatch } = useAuthContext()
@@ -18,7 +19,7 @@ function Landing() {
     e.preventDefault()
     // Update User with Values
     console.log(`Username: ${username}, Password: ${password}`)
-    setUser('TEST!')
+    loginUser(username, password)
     
     //Send payload (username)
     dispatch({ type: "LOGIN", payload: {username, password} })
