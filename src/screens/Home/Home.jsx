@@ -19,23 +19,19 @@ function Home() {
       setPosts(posts.data)
       console.log(posts)
     })
-    // getUsers().then((users) => {
-    //   console.log('setUsers')
-    //   setPosts(users.data)
-    //   console.log(users)
-    // })
-      // const userData = await getUsers()
-      // setPosts(postData)
-      // setUsers(userData)
-      // setLoading(false)
-      // console.log(users)
+    getUsers().then((users) => {
+      console.log('setUsers')
+      setUsers(users.data)
+      console.log(users)
+    })
   }, [])
-  // useEffect(() => {
-  //   return async () => {
-  //     setPosts(getPosts())
-  //     setUsers(getUsers())  
 
-  //   }
+  // useEffect(() => {
+  //   getUsers().then((users) => {
+  //   console.log('setUsers')
+  //   setUsers(users.data)
+  //   console.log(users)
+  //   })
   // }, []);
 
   // useEffect(() => {
