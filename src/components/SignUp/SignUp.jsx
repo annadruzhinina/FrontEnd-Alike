@@ -54,7 +54,7 @@ function SignUp() {
     const specialChar = /[\s~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?()\._]/g;
     const numChar = /\d/;
     // Validate the password has the below criteria
-    if (pw.length >= 8 && specialChar.test(pw) && numChar.test(pw)) return true;
+    if (pw.length >= 6 && specialChar.test(pw) && numChar.test(pw)) return true;
     // If it does not, return false
     return false;
   };
@@ -122,7 +122,7 @@ function SignUp() {
               type="password"
               placeholder="Password"
               value={password}
-              minLength="8"
+              minLength="6"
               pattern="(?=.*\d)(?=.*[a-z])(?=.*?[~`!@#$%\^&*()\-_=+[\]{};:\x27.,\x22\\|/?><]).{8,}"
               onChange={(e) => setPassword(e.target.value)}
             />

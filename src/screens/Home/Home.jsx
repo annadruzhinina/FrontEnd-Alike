@@ -1,48 +1,31 @@
 import React, { useState, useEffect } from 'react'
 import './home.css'
 import Post from '../../components/Post/Post.jsx'
-import Navbar from '../../components/Navbar/Navbar'
-import { getPosts } from '../../services/postApi'
-import { getUsers } from '../../services/userApi'
+import Navbar from '../../components/Navbar/Navbar.jsx'
+import { getPosts } from '../../services/postApi.js'
+import { getUsers } from '../../services/userApi.js'
 import Footer from '../../components/Footer/Footer.jsx'
 import RightNavbar from '../../components/RightNavbar/RightNavbar.jsx'
+
 
 function Home() {
   const [posts, setPosts] = useState([])
   const [users, setUsers] = useState([])
+  const [toggle, setToggle] = useState(false)
 
   useEffect(() => {
-    return async () => {
-      const postData = await getPosts()
-      setPosts(postData)
-    }
-  }, [posts])
-
-  useEffect(() => {
-    return async () => {
-      const userData = await getUsers()
-      setUsers(userData)
-    }
-  }, [])
-
-  // const urls = useCloudinaryData();
-  // console.log(urls)
-
-  // checking if a post has been liked, here we avoid on multi clicks
-
-  // function handlePostLikeClick(updatedPost) {
-  //   console.log("Handle Post Update", updatedPost);
-  //   const newPosts = posts.map((post) => {
-  //     if (post.id === updatedPost.id) return updatedPost;
-  //     return post;
-  //   });
-  //   setPosts(newPosts);
-  // }
+    getPosts().then((posts) => {
+      setPosts(posts.data)
+    })
+    getUsers().then((users) => {
+      setUsers(users.data)
+    })
+  }, [toggle])
 
   return (
     <div className='home'>
       <div className='home-global'>
-        <Navbar />
+        <Navbar setToggle={setToggle}/>
         <div className='home-content'>
           <div className='home-content_center'>
             <div className='home-center'>
@@ -57,7 +40,7 @@ function Home() {
                       key={index}
                       user={user}
                       post={post}
-                      // onPostLikeClick={handlePostLikeClick}
+                      setToggle={setToggle}
                     />
                   )
                 })}

@@ -1,9 +1,9 @@
 import api from './apiConfig'
 
-export const getUsers = async () => {
+export const getUsers = () => {
   try {
-    const response = await api.get('user/')
-    return response.data
+    const response = api.get('user/')
+    return response
   } catch (error) {
     throw new Error(error)
   }

@@ -1,12 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./uploadwidget.css";
 
-// export let url = ''
-
-// export const urlFunc = () => {
-
-// }
-
 const UploadWidget = () => {
 
   const cloudinaryRef = useRef();
@@ -20,7 +14,6 @@ const UploadWidget = () => {
       },
       function (error, result) {
         <result className="info url"></result>;
-        // window.localStorage.setItem('cloudinary', toString(Object.values(result.info.url)[0]))
         let urlVal = result.info.url
         let arr = Object.values(urlVal).join('')
         window.localStorage.setItem('cloud', arr)
