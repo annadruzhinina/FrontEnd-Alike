@@ -25,7 +25,7 @@ function Landing() {
         <img
           className="landing-home-header-image"
           // src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-          src="./image/logo_transparent_bg_new.png"
+          src="./image/logo.png"
         />
         <span>Alike</span>
       </div>

@@ -6,7 +6,7 @@ import "./post.css";
 
 //import components
 
-//import material ui
+//Import Material ui & React Icon
 import Avatar from "@mui/material/Avatar";
 import { BiLike } from "react-icons/bi";
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
@@ -14,6 +14,7 @@ import { FcLikePlaceholder, FcLike } from "react-icons/fc";
 import { useState, useEffect } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { FaRegCommentDots } from "react-icons/fa";
+import { GoMarkGithub } from "react-icons/go";
 import useUserData from "../../Hooks/useUserData.js";
 
 function Post({ post, user }) {
@@ -91,8 +92,8 @@ function Post({ post, user }) {
           <h3>{username}</h3>
           <FaRegCommentDots className="post-navbar-menu__icon" />
         </div>
-        <a className="btn" target="_blank" href={post.github_link}>
-          GitHub
+        <a target="_blank" href={post.github_link}>
+          <GoMarkGithub className="post-navbar-menu__icon" />
         </a>
       </div>
     </div>

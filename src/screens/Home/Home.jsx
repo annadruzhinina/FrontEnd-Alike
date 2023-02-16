@@ -1,16 +1,21 @@
+//Import React
 import React, { useState, useEffect } from "react";
+// Import ccs
 import "./home.css";
+// Import Components
 import Post from "../../components/Post/Post.jsx";
 import Navbar from "../../components/Navbar/Navbar";
 import RightNavbar from "../../components/RightNavbar/RightNavbar";
+import Footer from "../../components/Footer/Footer.jsx";
+// Import Hooks
 import usePostData from "../../Hooks/usePostData.js";
 import useUserData from "../../Hooks/useUserData.js";
-import Footer from "../../components/Footer/Footer.jsx";
 
 // username, project, github, imageUrl
 function Home() {
   const posts = usePostData();
   const users = useUserData();
+  
 
   // checking if a post has been liked, here we avoid on multi clicks
 
