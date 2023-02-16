@@ -14,6 +14,7 @@ import { FcLikePlaceholder, FcLike } from "react-icons/fc";
 import { useState, useEffect } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { deletePost } from '../../services/postApi';
+import { FaRegCommentDots } from "react-icons/fa";
 
 function Post({ post, user }) {
   let username = "";
@@ -57,15 +58,19 @@ function Post({ post, user }) {
   // }
 
   return (
-    <div className='post'>
-      <div className='post_header'>
-        <div className='post-avatar_left'>
-          <Avatar
-            className='post-avatar'
-            alt='Anna'
-            src='./image/avatar.jpeg'
-          ></Avatar>
-          <h3>{username}</h3>
+    <div className="post">
+      <div className="post_header">
+        <div className="post-avatar_left">
+          {/* <Avatar
+            className="post-avatar"
+            alt="Anna"
+            src="./image/avatar.jpeg"
+          ></Avatar> */}
+          {/* <h3>{username}</h3> */}
+          <h4>
+            <strong className="post-project">Project:</strong>
+            <span className="post-project__name">{post.project_name}</span>
+          </h4>
         </div>
         <RxCross2
           onClick={() => deletePost(post)}
@@ -83,13 +88,11 @@ function Post({ post, user }) {
             onClick={(e) => handlePostLikeClick(e, post, "like-" + post.postID)}
           >
             {likeButton(post.liked)}
-
+//
             <span className="heart-button-heartQty">{post.likes}</span>
           </button> */}
-          <h4>
-            <strong className="post-project__name">Project:</strong>{" "}
-            {post.project_name}
-          </h4>
+          <h3>{username}</h3>
+          <FaRegCommentDots className="post-navbar-menu__icon" />
         </div>
         <a className='btn' target='_blank' href={post.github_link}>
           GitHub

@@ -25,6 +25,9 @@ function Home() {
     }
   }, [])
 
+  // const urls = useCloudinaryData();
+  // console.log(urls)
+
   // checking if a post has been liked, here we avoid on multi clicks
 
   // function handlePostLikeClick(updatedPost) {
@@ -45,7 +48,7 @@ function Home() {
             <div className='home-center'>
               {posts &&
                 users &&
-                posts.map((post, index) => {
+                posts.slice(0).reverse().map((post, index) => {
                   let user = users.map((user, index) => {
                     if (post.username === user.id) return user.username
                   })
@@ -63,7 +66,7 @@ function Home() {
           <RightNavbar />
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

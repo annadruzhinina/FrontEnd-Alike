@@ -13,6 +13,12 @@ function Landing() {
     let path = `/sign-up`;
     navigate(path);
   }
+
+  function handleSignInClick() {
+    let path = `/home`;
+    navigate(path);
+  }
+
   return (
     <>
       <div className="landing-home-header">
@@ -42,7 +48,12 @@ function Landing() {
              type="password"
              placeholder="Confirm Password"
            /> */}
-            <button className="submitCredentials" type="submit" value="submit">
+            <button
+              onClick={handleSignInClick}
+              id="submitCredentials"
+              type="submit"
+              value="submit"
+            >
               Login
             </button>
             <button
