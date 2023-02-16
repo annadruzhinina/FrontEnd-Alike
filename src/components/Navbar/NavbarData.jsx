@@ -27,6 +27,7 @@ export const NavbarData = [
   {
     title: "About Us",
     path: "/",
+
     icon: <CgIcons.CgProfile className="navbar-menu__icon" />,
   },
   {

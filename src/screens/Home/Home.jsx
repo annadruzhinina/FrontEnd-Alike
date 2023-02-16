@@ -12,32 +12,15 @@ function Home() {
   const [posts, setPosts] = useState([])
   const [users, setUsers] = useState([])
   const [toggle, setToggle] = useState(false)
-  // const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // console.log('useEffect Triggered')
     getPosts().then((posts) => {
-      // console.log('setPosts')
       setPosts(posts.data)
-      // console.log(posts)
     })
     getUsers().then((users) => {
-      // console.log('setUsers')
       setUsers(users.data)
-      // console.log(users)
     })
   }, [toggle])
-
-  // checking if a post has been liked, here we avoid on multi clicks
-
-  // function handlePostLikeClick(updatedPost) {
-  //   console.log("Handle Post Update", updatedPost);
-  //   const newPosts = posts.map((post) => {
-  //     if (post.id === updatedPost.id) return updatedPost;
-  //     return post;
-  //   });
-  //   setPosts(newPosts);
-  // }
 
   return (
     <div className='home'>
@@ -58,7 +41,6 @@ function Home() {
                       user={user}
                       post={post}
                       setToggle={setToggle}
-                      // onPostLikeClick={handlePostLikeClick}
                     />
                   )
                 })}

@@ -34,9 +34,6 @@ export default function BasicModal({ icon, title, className, setToggle }) {
   
   const projectNameRef = React.useRef(null);
   const githubRef = React.useRef(null);
-  // const tagsRef = React.useRef(null);
-  // const imageUrlRef = React.useRef(null);
-  // const imageFileRef = React.useRef(null);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
