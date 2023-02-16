@@ -17,10 +17,11 @@
   --color-primary: #1a1b1c;
   /* --color-primary-variant: rgb(96 163 234 / 69%); */
   --color-primary-variant: rgb(222 236 254);
-  --color-btn: rgb(207 225 244) --color-white: #fff;
+  --color-btn: rgb(207 225 244) 
+  /* --color-white: #fff; */
   --color-light: #fafafa;
   --color-light-blue: #fafafa;
-  --transition: transition: all 400ms ease;
+  --transition: all 400ms ease;
   --header-height: 60px;
   --icon-size-base: 24px;
   --space-base: 20px;
@@ -30,8 +31,6 @@
   --space-base-small: calc(var(--space-base-medium) /2);
   --space-base-half: calc(var(--space-base) / 2);
   --navbar-width: 200px;
-
-
 }
 
 html {
