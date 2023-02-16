@@ -21,12 +21,14 @@ let tokenRequest = axios.create({
 // NEED LOGIN TOKEN
 const loginUser = (username, password) => {
   const loginBody = {username: username, password: password}
+  console.log(loginBody)
 
   return tokenRequest.post(`api/token/`, loginBody)
     .then((response)=> {
+  
       window.localStorage.setItem(ACCESS_TOKEN, response.data.access);
       window.localStorage.setItem(REFRESH_TOKEN, response.data.refresh);
-      window.localStorage.setItem('username', loginBody.username);
+      
       return Promise.resolve(response.data);
     }).catch((error)=>{
       return Promise.reject(error);
@@ -89,6 +91,7 @@ const errorInterceptor = (error) => {
 const logoutUser = () => {
   window.localStorage.removeItem(ACCESS_TOKEN);
   window.localStorage.removeItem(REFRESH_TOKEN);
+  window.localStorage.removeItem('username');
   authRequest.defaults.headers['Authorization'] = "";
 }
 
@@ -97,12 +100,14 @@ export const AuthContext = createContext();
 export const authReducer = (state, action) => {
     switch (action.type) {
       case "LOGIN":
+        window.localStorage.setItem('username', action.payload.username);
         loginUser(action.payload.username, action.payload.password)
         return (
           { user: action.payload }
           )          ;
       case "LOGOUT":
         logoutUser()
+
         return (
           { username: null, password: null }
           );

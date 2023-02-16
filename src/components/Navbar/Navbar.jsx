@@ -6,14 +6,16 @@ import { NavbarData } from "./NavbarData";
 import NewPost from "../../components/NewPost/NewPost.jsx";
 import { useAuthContext } from "../../Hooks/useAuthContext.js";
 
-function Navbar() {
+function Navbar({setToggle}) {
   const [showNewPost, setShowNewPost] = useState(false);
   const [open, setOpen] = React.useState(false);
   // Deconstruct useAuthContext to pull dispatch
   const { dispatch , state } = useAuthContext()
   const { user } = useAuthContext()
   const navigate = useNavigate()
+
   let username = window.localStorage.getItem('username')
+
   return (
     <>
       <aside className="navbar">
@@ -33,6 +35,7 @@ function Navbar() {
                   icon={item.icon}
                   title={item.title}
                   className="navbar-menu__item"
+                  setToggle={setToggle}
                 />
               );
             } else {

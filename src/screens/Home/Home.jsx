@@ -7,9 +7,11 @@ import { getUsers } from '../../services/userApi.js'
 import Footer from '../../components/Footer/Footer.jsx'
 import RightNavbar from '../../components/RightNavbar/RightNavbar.jsx'
 
+
 function Home() {
   const [posts, setPosts] = useState([])
   const [users, setUsers] = useState([])
+  const [toggle, setToggle] = useState(false)
   // const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -24,7 +26,7 @@ function Home() {
       setUsers(users.data)
       // console.log(users)
     })
-  }, [])
+  }, [toggle])
 
   // checking if a post has been liked, here we avoid on multi clicks
 
@@ -40,7 +42,7 @@ function Home() {
   return (
     <div className='home'>
       <div className='home-global'>
-        <Navbar />
+        <Navbar setToggle={setToggle}/>
         <div className='home-content'>
           <div className='home-content_center'>
             <div className='home-center'>
@@ -55,6 +57,7 @@ function Home() {
                       key={index}
                       user={user}
                       post={post}
+                      setToggle={setToggle}
                       // onPostLikeClick={handlePostLikeClick}
                     />
                   )

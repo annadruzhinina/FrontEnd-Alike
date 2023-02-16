@@ -16,7 +16,7 @@ import { RxCross2 } from "react-icons/rx";
 import { deletePost } from '../../services/postApi';
 import { FaRegCommentDots } from "react-icons/fa";
 
-function Post({ post, user }) {
+function Post({ post, user, setToggle }) {
   let username = "";
   for (let i = 0; i < user.length; i++) {
     if (user[i] !== undefined) {
@@ -56,6 +56,10 @@ function Post({ post, user }) {
   //     return <FcLikePlaceholder className="heart-button-icon" />;
   //   }
   // }
+  async function handleDelete(){
+    await deletePost(post)
+    setToggle(prev => !prev)
+  }
 
   return (
     <div className="post">
@@ -73,7 +77,7 @@ function Post({ post, user }) {
           </h4>
         </div>
         <RxCross2
-          onClick={() => deletePost(post)}
+          onClick={handleDelete}
           className='post-delete-btn'
         />
       </div>
