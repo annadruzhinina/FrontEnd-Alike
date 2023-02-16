@@ -76,8 +76,8 @@
 .articles img {
   height: 30px;
   font-size: 10px;
-  //height: var(--icon-size-base);
-  //width: var(--icon-size-base)
+  /* height: var(--icon-size-base);
+  width: var(--icon-size-base); */
 }
 
 .articles h4 {
