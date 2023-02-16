@@ -22,7 +22,6 @@
 
 .home-content {
   display: flex;
-  /* flex-wrap: wrap; */
   margin: var(--space-base);
 }
 .home-footer {
