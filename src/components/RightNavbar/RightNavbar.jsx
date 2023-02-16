@@ -13,21 +13,22 @@ function RightNavbar() {
           {RnavbarData.map((data, index) => {
             return (
               <div key={index} className="articles">
+
                 <img
                   src={data.img}
                   alt={data.alt}
-                  className="suggestion-img__icons"
+                  className='suggestion-img__icons'
                 />
                 <h4>
                   {data.title}
                   <br />
-                  <a target="_blank" href={data.link}>
-                    <span className="suggestion-icon_pointer">👉</span> Read
+                  <a target='_blank' href={data.link}>
+                    <span className='suggestion-icon_pointer'>👉</span> Read
                     More
                   </a>
                 </h4>
               </div>
-            );
+            )
           })}
         </div>
         <div className="right-video">
@@ -36,6 +37,7 @@ function RightNavbar() {
             height="180"
             src="https://www.youtube.com/embed/W6NZfCO5SIk"
             title="YouTube video player"
+
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
@@ -44,6 +46,7 @@ function RightNavbar() {
             height="180"
             src="https://www.youtube.com/embed/W6NZfCO5SIk"
             title="YouTube video player"
+
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>

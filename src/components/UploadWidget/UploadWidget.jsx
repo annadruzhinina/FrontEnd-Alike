@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-
 const UploadWidget = () => {
+
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
   useEffect(() => {
@@ -11,17 +11,20 @@ const UploadWidget = () => {
         uploadPreset: "alike_crop",
         multiple: false,
         cropping: true,
-        resource_type: "image",
+
+        resource_type: 'image'
       },
       function (error, result) {
         <result className="info url"></result>;
-        let urlVal = result.info.url;
-        let arr = Object.values(urlVal).join("");
-        window.localStorage.setItem("cloud", arr);
+        let urlVal = result.info.url
+        let arr = Object.values(urlVal).join('')
+        window.localStorage.setItem('cloud', arr)
+
         console.log(result.info.url);
       }
     );
   }, []);
   return <button onClick={() => widgetRef.current.open()}>Upload Image</button>;
 };
+
 export default UploadWidget;

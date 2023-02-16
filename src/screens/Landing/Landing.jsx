@@ -2,9 +2,11 @@
 import React, { useState } from "react";
 //Import css
 import "./landing.css";
+
 //import components
 import SignUp from "../../components/SignUp/SignUp";
 import Button from "@mui/material/Button";
+
 import { useAuthContext } from "../../Hooks/useAuthContext.js";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../Context/AuthContexts.js";
@@ -16,6 +18,7 @@ function Landing() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [valid, setValid] = useState("");
+
   //CHECK MERGE
   function handleSignUpClick() {
     let path = `/sign-up`;
@@ -35,8 +38,24 @@ function Landing() {
     setPassword("");
     setValid("");
 
-    navigate("/home");
-  };
+
+  const handleSubmit = (e) => {
+    // Prevent Page from Reloading
+    e.preventDefault()
+    // Update User with Values
+    console.log(`Username: ${username}, Password: ${password}`)
+    loginUser(username, password)
+    
+    //Send payload (username)
+    dispatch({ type: "LOGIN", payload: {username, password} })
+    //Reset values to ''
+    setUserName('')
+    setPassword('')
+    setValid('')
+
+    navigate("/home")
+  }
+
   return (
     <>
       <div className="landing-home-header">
@@ -66,6 +85,7 @@ function Landing() {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button id="submitCredentials" type="submit" value="submit">
+
               Login
             </button>
             <button

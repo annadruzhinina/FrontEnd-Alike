@@ -2,6 +2,7 @@
 // import './footer.css'
 // import { AiFillInstagram, AiFillTwitterSquare, AiFillFacebook, AiFillRedditSquare } from 'react-icons/ai'
 
+
 // function Footer() {
 //   return (
 //     <>
@@ -23,3 +24,4 @@
 // }
 
 // export default Footer
+

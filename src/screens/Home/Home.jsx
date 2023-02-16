@@ -1,3 +1,4 @@
+
 //Import React
 import React, { useState, useEffect } from "react";
 // Import ccs
@@ -47,13 +48,14 @@ function Home() {
                       />
                     );
                   })}
+
             </div>
           </div>
           <RightNavbar />
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home

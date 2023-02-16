@@ -4,6 +4,7 @@ import React from "react";
 import "./post.css";
 //Import Material ui & React Icon
 import { RxCross2 } from "react-icons/rx";
+
 import { deletePost } from "../../services/postApi";
 import { FaRegCommentDots } from "react-icons/fa";
 import { GoMarkGithub } from "react-icons/go";
@@ -15,11 +16,13 @@ function Post({ post, user, setToggle }) {
       username = user[i];
     }
   }
+
   let activeUser = window.localStorage.getItem("username");
   async function handleDelete() {
     await deletePost(post);
     setToggle((prev) => !prev);
   }
+
   return (
     <div className="post">
       <div className="post_header">
@@ -43,10 +46,11 @@ function Post({ post, user, setToggle }) {
         </div>
         <a target="_blank" href={post.github_link}>
           <GoMarkGithub className="post-navbar-menu__icon" />
+
         </a>
       </div>
     </div>
-  );
+  )
 }
 
 export default Post;

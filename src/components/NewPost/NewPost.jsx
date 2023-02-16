@@ -31,13 +31,13 @@ const style = {
 
 export default function BasicModal({ icon, title, className, setToggle }) {
   const [open, setOpen] = useState(false);
-
+  
   const projectNameRef = React.useRef(null);
   const githubRef = React.useRef(null);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+  
   async function handleSubmit() {
     let cloudinaryUrl = window.localStorage.getItem('cloud')
     let username = window.localStorage.getItem('username')
@@ -60,6 +60,7 @@ export default function BasicModal({ icon, title, className, setToggle }) {
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
           <UploadWidget />
+
           <TextField
             id="outlined-basic"
             label="Project Name"
