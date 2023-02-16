@@ -49,13 +49,14 @@ function Navbar() {
             className="navbar-logo"
             src="./image/logo_transparent_bg_new.png"
           />
-          <span className="navbar-logo-text">Alike</span>
+          <span className="navbar-logo-text">Hello, </span>
         </div>
         <div className="navbar-menu">
           {NavbarData.map((item, index) => {
             if (item.type === "popup-new-post") {
               return (
                 <NewPost
+                  key={index}
                   icon={item.icon}
                   title={item.title}
                   className="navbar-menu__item"

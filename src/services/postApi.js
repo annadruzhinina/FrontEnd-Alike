@@ -1,5 +1,14 @@
 import api from './apiConfig'
 
+export const getPosts = async () => {
+  try {
+    const response = await api.get('post/')
+    return response.data
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 export const createPost = async postData => {
   try {
     const response = await api.post('post/', {
@@ -10,7 +19,7 @@ export const createPost = async postData => {
     })
     return response.data
   } catch (error) {
-    throw error
+    throw new Error(error)
   }
 }
 
@@ -19,6 +28,6 @@ export const deletePost = async postData => {
     const response = await api.delete(`post/${postData.id}`, postData.id)
     return response.data
   } catch (error) {
-    throw error
+    throw new Error(error)
   }
 }

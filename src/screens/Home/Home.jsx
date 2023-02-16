@@ -1,17 +1,29 @@
-import React, { useState, useEffect } from "react";
-import "./home.css";
-import Post from "../../components/Post/Post.jsx";
-import Navbar from "../../components/Navbar/Navbar";
-import usePostData from "../../Hooks/usePostData.js";
-import Button from "@mui/material/Button";
-import useUserData from "../../Hooks/useUserData.js";
-import Footer from "../../components/Footer/Footer.jsx";
-import RightNavbar from "../../components/RightNavbar/RightNavbar.jsx";
+import React, { useState, useEffect } from 'react'
+import './home.css'
+import Post from '../../components/Post/Post.jsx'
+import Navbar from '../../components/Navbar/Navbar'
+import { getPosts } from '../../services/postApi'
+import { getUsers } from '../../services/userApi'
+import Footer from '../../components/Footer/Footer.jsx'
+import RightNavbar from '../../components/RightNavbar/RightNavbar.jsx'
 
-// username, project, github, imageUrl
 function Home() {
-  const posts = usePostData();
-  const users = useUserData();
+  const [posts, setPosts] = useState([])
+  const [users, setUsers] = useState([])
+
+  useEffect(() => {
+    return async () => {
+      const postData = await getPosts()
+      setPosts(postData)
+    }
+  }, [posts])
+
+  useEffect(() => {
+    return async () => {
+      const userData = await getUsers()
+      setUsers(userData)
+    }
+  }, [users])
 
   // checking if a post has been liked, here we avoid on multi clicks
 
@@ -25,26 +37,26 @@ function Home() {
   // }
 
   return (
-    <div className="home">
-      <div className="home-global">
+    <div className='home'>
+      <div className='home-global'>
         <Navbar />
-        <div className="home-content">
-          <div className="home-content_center">
-            <div className="home-center">
+        <div className='home-content'>
+          <div className='home-content_center'>
+            <div className='home-center'>
               {posts &&
                 users &&
                 posts.map((post, index) => {
                   let user = users.map((user, index) => {
-                    if (post.username === user.id) return user.username;
-                  });
+                    if (post.username === user.id) return user.username
+                  })
                   return (
                     <Post
                       key={index}
                       user={user}
                       post={post}
-                    // onPostLikeClick={handlePostLikeClick}
+                      // onPostLikeClick={handlePostLikeClick}
                     />
-                  );
+                  )
                 })}
             </div>
           </div>
@@ -53,7 +65,7 @@ function Home() {
       </div>
       <Footer />
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home

@@ -1,15 +1,18 @@
+//import react
 import * as React from "react";
-import { useState, useRef } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+//import material ui
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { Input, TextField } from "@mui/material";
 import "./newpost.css";
-import { Link } from "react-router-dom";
 import { createPost } from "../../services/postApi";
 import { create } from "@mui/material/styles/createTransitions";
 
+//css style
+import "./newpost.css";
 const style = {
   position: "absolute",
   top: "50%",
@@ -35,13 +38,8 @@ export default function BasicModal({ icon, title, className }) {
   const handleClose = () => setOpen(false);
 
   function handleSubmit() {
-    // console.log(projectNameRef.current.value);
-    // console.log(githubRef.current.value);
-    // console.log(tagsRef.current.value);
-    // console.log(imageUrlRef.current.value);
-
     createPost({
-      username : 2,
+      username: 2,
       project_name: projectNameRef.current.value,
       github_link: githubRef.current.value,
       // tagsRef.current.value,
@@ -90,8 +88,12 @@ export default function BasicModal({ icon, title, className }) {
             ref={imageFileRef}
           ></input> */}
           <div className="new-post-btn">
-            <Button onClick={handleSubmit} className="-button">Submit</Button>
-            <Button onClick={handleClose} className="-button">Close</Button>
+            <Button onClick={handleSubmit} className="-button">
+              Submit
+            </Button>
+            <Button onClick={handleClose} className="-button">
+              Close
+            </Button>
           </div>
         </Box>
       </Modal>
