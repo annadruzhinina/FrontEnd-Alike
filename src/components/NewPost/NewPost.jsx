@@ -47,9 +47,9 @@ export default function BasicModal({ icon, title, className }) {
       username: 2,
       project_name: projectNameRef.current.value,
       github_link: githubRef.current.value,
-      // tagsRef.current.value,
       image: cloudinaryUrl,
     });
+    setOpen(false);
   }
 
   return (
