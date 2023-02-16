@@ -24,20 +24,6 @@ function Landing() {
     let path = `/sign-up`;
     navigate(path);
   }
-  const handleSubmit = (e) => {
-    // Prevent Page from Reloading
-    e.preventDefault();
-    // Update User with Values
-    console.log(`Username: ${username}, Password: ${password}`);
-    loginUser(username, password);
-
-    //Send payload (username)
-    dispatch({ type: "LOGIN", payload: { username, password } });
-    //Reset values to ''
-    setUserName("");
-    setPassword("");
-    setValid("");
-
 
   const handleSubmit = (e) => {
     // Prevent Page from Reloading

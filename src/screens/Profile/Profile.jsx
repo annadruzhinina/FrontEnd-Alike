@@ -56,7 +56,7 @@ function Profile() {
               />
             </div>
             <div class="profile-user-settings">
-              <h1 class="profile-user-name">{username}</h1>
+              {/* <h1 class="profile-user-name">{username}</h1> */}
             </div>
             <div class="profile-stats">
               <ul>
@@ -73,8 +73,7 @@ function Profile() {
             </div>
             <div class="profile-bio">
               <p>
-                <span class="profile-real-name">Jane Doe</span> Lorem ipsum
-                dolor sit, amet consectetur adipisicing elit ❤️❤️❤️
+                <span class="profile-real-name">{username}'s profile</span>
               </p>
             </div>
           </div>
