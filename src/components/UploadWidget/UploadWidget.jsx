@@ -10,7 +10,10 @@ const UploadWidget = () => {
     widgetRef.current = cloudinaryRef.current.createUploadWidget(
       {
         cloudName: "dybw1p8nl",
-        uploadPreset: "alike_preset",
+        uploadPreset: "alike_crop",
+        multiple: false,
+        cropping: true,
+        resource_type: 'image'
       },
       function (error, result) {
         <result className="info url"></result>;
