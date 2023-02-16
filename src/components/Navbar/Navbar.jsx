@@ -14,7 +14,6 @@ function Navbar() {
     const { user } = useAuthContext()
     const navigate = useNavigate()
 
-
   return (
     <>
       <aside className="navbar">
@@ -23,7 +22,7 @@ function Navbar() {
             className="navbar-logo"
             src="./image/logo_transparent_bg_new.png"
           />
-          <span className="navbar-logo-text">Alike</span>
+          <span className="navbar-logo-text">Hello, </span>
         </div>
         <div className="navbar-menu">
           {NavbarData.map((item, index) => {
@@ -67,29 +66,3 @@ function Navbar() {
 
 export default Navbar;
 
-
-// function Navbar() {
-//   return (
-//     <aside className="navbar">
-//       <div className="navbar-header">
-//         <img
-//           className="navbar-logo"
-//           src="./image/logo_transparent_bg_new.png"
-//         />
-//         <span className="navbar-logo-text">Alike</span>
-//       </div>
-//       <div className="navbar-menu">
-//         {NavbarData.map((item, index) => {
-//           return (
-//             <Link key={index} className="navbar-menu__item" to={item.path}>
-//               {item.icon}
-//               <span className="navbar-menu__text">{item.title}</span>
-//             </Link>
-//           );
-//         })}
-//       </div>
-//     </aside>
-//   );
-// }
-
-// export default Navbar;

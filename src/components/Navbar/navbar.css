@@ -1,8 +1,8 @@
 .navbar {
   height: 100vh;
-  border-right: solid rgb(222 236 254);
+  border-right: 1px solid rgb(222 236 254);
   background-color: #eaf4fecf;
-  min-width: 200px;
+  min-width: 230px;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -29,7 +29,7 @@
   margin-left: var(--space-base-half);
 }
 /* For tablets. */
-@media screen and (max-width: 1022px) {
+@media screen and (max-width: 1135px) {
   .navbar-menu__text {
     display: none;
   }
@@ -45,12 +45,15 @@
   }
 }
 
-@media screen and (max-width: 840px) {
+/* For Mobile. */
+@media screen and (max-width: 905px) {
   .navbar {
     height: unset;
     right: 0;
     top: unset;
     display: flex;
+    background-color: white;
+    justify-content: center;
   }
   .navbar-menu {
     display: flex;

@@ -1,14 +1,21 @@
+//import react
 import * as React from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+//import material ui
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { Input, TextField } from "@mui/material";
 import "./newpost.css";
-import { Link } from "react-router-dom";
+import { createPost } from "../../services/postApi";
+import { create } from "@mui/material/styles/createTransitions";
 
-import newPostSubmit from "../../services/new-post.service";
+import UploadWidget from '../UploadWidget/UploadWidget.jsx';
 
+
+//css style
+import "./newpost.css";
 const style = {
   position: "absolute",
   top: "50%",
@@ -22,32 +29,27 @@ const style = {
 };
 
 export default function BasicModal({ icon, title, className }) {
-  const [open, setOpen] = React.useState(false);
-
+  const [open, setOpen] = useState(false);
+  
   const projectNameRef = React.useRef(null);
   const githubRef = React.useRef(null);
-  const tagsRef = React.useRef(null);
+  // const tagsRef = React.useRef(null);
   const imageUrlRef = React.useRef(null);
   const imageFileRef = React.useRef(null);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  function handleSubmit() {
-    // console.log(projectNameRef.current.value);
-    // console.log(githubRef.current.value);
-    // console.log(tagsRef.current.value);
-    // console.log(imageUrlRef.current.value);
+  let cloudinaryUrl = window.localStorage.getItem('cloud')
 
-    newPostSubmit(
-      projectNameRef.current.value,
-      githubRef.current.value,
-      tagsRef.current.value,
-      imageUrlRef.current.value,
-      (event) => {
-        // console.log("Progress", Math.round((100 * event.loaded) / event.total));
-      }
-    );
+  function handleSubmit() {
+    createPost({
+      username: 2,
+      project_name: projectNameRef.current.value,
+      github_link: githubRef.current.value,
+      // tagsRef.current.value,
+      image: cloudinaryUrl,
+    });
   }
 
   return (
@@ -58,6 +60,9 @@ export default function BasicModal({ icon, title, className }) {
       </Link>
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
+
+          <UploadWidget />
+
           <TextField
             id="outlined-basic"
             label="Project Name"
@@ -70,18 +75,20 @@ export default function BasicModal({ icon, title, className }) {
             variant="outlined"
             inputRef={githubRef}
           />
-          <TextField
+          {/* <TextField
             id="outlined-basic"
             label="Tags"
             variant="outlined"
             inputRef={tagsRef}
-          />
-          <TextField
+          /> */}
+          {/* <TextField
             id="outlined-basic"
             label="Image URL"
             variant="outlined"
             inputRef={imageUrlRef}
-          />
+          /> */}
+          
+
           {/* <div>Post Image upload: </div>
           <input
             type="file"
@@ -90,7 +97,14 @@ export default function BasicModal({ icon, title, className }) {
             accept="image/png, image/jpeg"
             ref={imageFileRef}
           ></input> */}
-          <Button onClick={handleSubmit}>Submit</Button>
+          <div className="new-post-btn">
+            <Button onClick={handleSubmit} className="-button">
+              Submit
+            </Button>
+            <Button onClick={handleClose} className="-button">
+              Close
+            </Button>
+          </div>
         </Box>
       </Modal>
     </div>

@@ -18,6 +18,7 @@
   color: white;
   border: 2px solid white;
   text-align: center;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
 }
 /* For Large screen */
 @media screen and (min-width: 960px) {
@@ -70,7 +71,6 @@ input[type="submit"] {
   background-color: #152605;
   color: white;
   border: 1px solid white;
-
   cursor: pointer;
 }
 
@@ -78,10 +78,36 @@ input[type="submit"]:hover {
   background-color: #0a0b0a;
 }
 
+
+#submitCredentials,
+#submitCredential {
+  background-color: #6fbeeb;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  padding: 7px 20px;
+  font-size: 16px;
+  margin-top: 17px;
+  margin-bottom: 10px;
+  color: white;
+  margin: 4px 10px;
+  height: 40px;
+  width: 100px;
+  box-sizing: border-box;
+}
+#submitCredentials,
+#submitCredential:hover {
+  background-color: #6fbeeb9c;
+  color: white;
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.3s all ease;
+}
 .SigninLogo {
   padding-bottom: 10px;
 }
-
+.sign-up__password {
+  margin-top: 10px;
+  color: red;
+}
 @media screen and (max-width: 560px) {
   .form {
     max-width: 360px;

@@ -6,69 +6,57 @@ import "./rightNavbar.css";
 import Avatar from "@mui/material/Avatar";
 // import component
 import MemberInfo from "../MemberInfo/MemberInfo.jsx";
+//importing Rnavbar data for mapping
+import { RnavbarData } from "./RnavbarData";
+import { ListItem } from "@mui/material";
 
 // our function
-function RightNavbar({ username, imageUrl, github }) {
-  const [avatar, setAvatars] = useState([
-    {
-      username: "Ari",
-      imageUrl: "./image/cat.jpeg",
-      github: "https://github.com/argurjanaolloni",
-    },
-    {
-      username: "Anna",
-      imageUrl: "./image/cat.jpeg",
-      github: "https://github.com/annadruzhinina",
-    },
-    {
-      username: "Jose",
-      imageUrl: "./image/cat.jpeg",
-      github: "https://github.com/HowzayCalderon",
-    },
-    {
-      username: "Nick",
-      imageUrl: "./image/cat.jpeg",
-      github: "https://github.com/NickFasulo",
-    },
-    {
-      username: "Ryan",
-      imageUrl: "./image/cat.jpeg",
-      github: "https://github.com/Jagerziel",
-    },
-    {
-      username: "Vasilis",
-      imageUrl: "./image/cat.jpeg",
-      github: "https://github.com/Vasilis89",
-    },
-    {
-      username: "Ron",
-      imageUrl: "./image/cat.jpeg",
-      github: "https://github.com/RonLanzilotta",
-    },
-    {
-      username: "Jimy",
-      imageUrl: "./image/cat.jpeg",
-      github: "https://github.com/jallen2787",
-    },
-  ]);
-
+function RightNavbar() {
   return (
-    // created a navBar for the right side, this area is open to having different content. Some ideas: creating a meet the dev team, creating links to different groups a user can join etc.
     <div className="suggestion">
-      <h3 className="suggestion-title">Suggestions for you: </h3>
-      <p>Lets share useful information!</p>
-      <h4>Welcome General Assembly alumni</h4>
-      <div className="suggestion-list">
-        {avatar.map((member) => {
-          return (
-            <MemberInfo
-              key={member.username}
-              username={member.username}
-              imageUrl={member.imageUrl}
-              github={member.github}
-            />
-          );
-        })}
+      <h3 className="suggestion-title">Tech News</h3>
+      <div className="suggestion-scroll">
+        <div className="suggestion-list">
+          {RnavbarData.map((data, index) => {
+            return (
+              <div key={index} className='articles'>
+                <img
+                  src={data.img}
+                  alt={data.alt}
+                  className='suggestion-img__icons'
+                />
+                <h4>
+                  {data.title}
+                  <br />
+                  <a target='_blank' href={data.link}>
+                    <span className='suggestion-icon_pointer'>👉</span> Read
+                    More
+                  </a>
+                </h4>
+              </div>
+            )
+          })}
+        </div>
+        <div className="right-video">
+          <iframe
+            width="220"
+            height="180"
+            src="https://www.youtube.com/embed/W6NZfCO5SIk"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+          <iframe
+            width="220"
+            height="180"
+            src="https://www.youtube.com/embed/W6NZfCO5SIk"
+            title="YouTube video player"
+            frameBorder="1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
     </div>
   );

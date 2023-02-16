@@ -1,20 +1,41 @@
-import React, { useState, useEffect } from "react";
-import "./home.css";
-import Post from "../../components/Post/Post.jsx";
-import Navbar from "../../components/Navbar/Navbar";
-import RightNavbar from "../../components/RightNavbar/RightNavbar";
-import usePostData from "../../Hooks/usePostData.js";
-import Button from "@mui/material/Button";
-import useUserData from "../../Hooks/useUserData.js"
+import React, { useState, useEffect } from 'react'
+import './home.css'
+import Post from '../../components/Post/Post.jsx'
+import Navbar from '../../components/Navbar/Navbar.jsx'
+import { getPosts } from '../../services/postApi.js'
+import { getUsers } from '../../services/userApi.js'
+import Footer from '../../components/Footer/Footer.jsx'
+import RightNavbar from '../../components/RightNavbar/RightNavbar.jsx'
 
-
-  
-  // username, project, github, imageUrl
 function Home() {
-  const posts = usePostData()
-  const users = useUserData()
-  console.log(users)
-  console.log(posts)
+  const [posts, setPosts] = useState([])
+  const [users, setUsers] = useState([])
+  // const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    return async () => {
+      const postData = await getPosts()
+      const userData = await getUsers()
+      setPosts(postData)
+      setUsers(userData)
+      // setLoading(false)
+      console.log('useEffect Triggered')
+      console.log(posts)
+      console.log(users)
+    }
+  }, [])
+
+
+
+
+  // if (loading) {
+  //   return (
+  //     <h1>Loading...</h1>
+  //   )
+  // }
+
+  // console.log(posts)
+  // console.log(users)
 
   // checking if a post has been liked, here we avoid on multi clicks
 
@@ -26,40 +47,37 @@ function Home() {
   //   });
   //   setPosts(newPosts);
   // }
-  
-  return (
-    <div className="home">
-      <div className="home-global">
-        <Navbar />
-        <div className="home-content">
-          <div className="home-content_center">
-            <div className="home-center">
-              {posts && users &&
-              posts.map((post, index) => {
 
-                let user = users.map((user, index) => {
-                  if (post.username === user.id)
-                  return user.username
-                })
-                return (
-                  <Post
-                    key={index}
-                    user={user}
-                    post={post}
-                    // onPostLikeClick={handlePostLikeClick}
-                  />
-                );
-              })}
+  return (
+    <div className='home'>
+      <div className='home-global'>
+        <Navbar />
+        <div className='home-content'>
+          <div className='home-content_center'>
+            <div className='home-center'>
+              {posts &&
+                users &&
+                posts.slice(0).reverse().map((post, index) => {
+                  let user = users.map((user, index) => {
+                    if (post.username === user.id) return user.username
+                  })
+                  return (
+                    <Post
+                      key={index}
+                      user={user}
+                      post={post}
+                      // onPostLikeClick={handlePostLikeClick}
+                    />
+                  )
+                })}
             </div>
-            <RightNavbar />
           </div>
+          <RightNavbar />
         </div>
       </div>
-      <footer className="home-footer">
-        <h1>hello</h1>
-      </footer>
+      {/* <Footer /> */}
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home

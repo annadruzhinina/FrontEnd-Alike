@@ -1,8 +1,12 @@
-import React from "react";
+//import react
+import React, { useState } from "react";
+//import css
 import "./landing.css";
+
+//import components
+import SignUp from "../../components/SignUp/SignUp";
 import Button from "@mui/material/Button";
 import { useAuthContext } from "../../Hooks/useAuthContext.js"
-import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { loginUser } from "../../Context/AuthContexts.js";
 
@@ -13,6 +17,16 @@ function Landing() {
   const [username, setUserName] = useState("")
   const [password, setPassword] = useState("")
   const [valid, setValid] = useState("")
+  //CHECK MERGE
+  function handleSignUpClick() {
+    let path = `/sign-up`;
+    navigate(path);
+  }
+
+  function handleSignInClick() {
+    let path = `/home`;
+    navigate(path);
+  }
 
   const handleSubmit = (e) => {
     // Prevent Page from Reloading
@@ -67,12 +81,20 @@ function Landing() {
              type="password"
              placeholder="Confirm Password"
            /> */}
-            <button id="submitCredentials" type="submit" value="submit">
+            <button
+              id="submitCredentials"
+              type="submit"
+              value="submit"
+            >
               Login
             </button>
-            {/* <button id="submitCredentials" type="submit" value="submit">
-              Sign Up
-            </button> */}
+            <button
+              onClick={handleSignUpClick}
+              id="submitCredentials"
+              value="submit"
+            >
+              SignUp
+            </button>
           </form>
         </div>
       </div>
