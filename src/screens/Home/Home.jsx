@@ -13,21 +13,34 @@ function Home() {
   // const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    return async () => {
-      const postData = await getPosts()
-      const userData = await getUsers()
-      setPosts(postData)
-      setUsers(userData)
-      // setLoading(false)
-      console.log('useEffect Triggered')
+    console.log('useEffect Triggered')
+    getPosts().then((posts) => {
+      console.log('setPosts')
+      setPosts(posts.data)
       console.log(posts)
-      console.log(users)
-    }
+    })
+    // getUsers().then((users) => {
+    //   console.log('setUsers')
+    //   setPosts(users.data)
+    //   console.log(users)
+    // })
+      // const userData = await getUsers()
+      // setPosts(postData)
+      // setUsers(userData)
+      // setLoading(false)
+      // console.log(users)
   }, [])
+  // useEffect(() => {
+  //   return async () => {
+  //     setPosts(getPosts())
+  //     setUsers(getUsers())  
 
+  //   }
+  // }, []);
 
-
-
+  // useEffect(() => {
+  //   console.log(users, posts)
+  // }, [users, posts]);
   // if (loading) {
   //   return (
   //     <h1>Loading...</h1>
