@@ -13,13 +13,13 @@ import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FcLikePlaceholder, FcLike } from "react-icons/fc";
 import { useState, useEffect } from "react";
 import { RxCross2 } from "react-icons/rx";
+import { deletePost } from '../../services/postApi';
 import { FaRegCommentDots } from "react-icons/fa";
-import useUserData from "../../Hooks/useUserData.js";
 
 function Post({ post, user }) {
   let username = "";
   for (let i = 0; i < user.length; i++) {
-    if (user[i] != undefined) {
+    if (user[i] !== undefined) {
       username = user[i];
     }
   }
@@ -72,11 +72,14 @@ function Post({ post, user }) {
             <span className="post-project__name">{post.project_name}</span>
           </h4>
         </div>
-        <RxCross2 className="post-delete-btn" />
+        <RxCross2
+          onClick={() => deletePost(post)}
+          className='post-delete-btn'
+        />
       </div>
-      <img className="post-image" src={post.image} alt="" />
-      <div className="post-bottom">
-        <div className="post-like-title">
+      <img className='post-image' src={post.image} alt='' />
+      <div className='post-bottom'>
+        <div className='post-like-title'>
           {/* <button
             id={"like-" + post.id}
             className={
@@ -91,12 +94,12 @@ function Post({ post, user }) {
           <h3>{username}</h3>
           <FaRegCommentDots className="post-navbar-menu__icon" />
         </div>
-        <a className="btn" target="_blank" href={post.github_link}>
+        <a className='btn' target='_blank' href={post.github_link}>
           GitHub
         </a>
       </div>
     </div>
-  );
+  )
 }
 
 export default Post;

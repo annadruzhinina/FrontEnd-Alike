@@ -58,7 +58,7 @@ function Landing() {
             </button>
             <button
               onClick={handleSignUpClick}
-              id="submitCredentials"
+              className="submitCredentials"
               value="submit"
             >
               SignUp

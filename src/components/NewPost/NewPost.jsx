@@ -6,9 +6,10 @@ import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
-import { TextField } from "@mui/material";
-
-import createPost from "../../services/new-post.service";
+import { Input, TextField } from "@mui/material";
+import "./newpost.css";
+import { createPost } from "../../services/postApi";
+import { create } from "@mui/material/styles/createTransitions";
 
 import UploadWidget from '../UploadWidget/UploadWidget.jsx';
 
