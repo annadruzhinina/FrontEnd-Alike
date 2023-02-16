@@ -30,8 +30,6 @@
   --space-base-small: calc(var(--space-base-medium) /2);
   --space-base-half: calc(var(--space-base) / 2);
   --navbar-width: 200px;
-
-
 }
 
 html {
