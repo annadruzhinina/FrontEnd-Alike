@@ -13,38 +13,18 @@ function Home() {
   // const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    console.log('useEffect Triggered')
+    // console.log('useEffect Triggered')
     getPosts().then((posts) => {
-      console.log('setPosts')
+      // console.log('setPosts')
       setPosts(posts.data)
-      console.log(posts)
+      // console.log(posts)
     })
     getUsers().then((users) => {
-      console.log('setUsers')
+      // console.log('setUsers')
       setUsers(users.data)
-      console.log(users)
+      // console.log(users)
     })
   }, [])
-
-  // useEffect(() => {
-  //   getUsers().then((users) => {
-  //   console.log('setUsers')
-  //   setUsers(users.data)
-  //   console.log(users)
-  //   })
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log(users, posts)
-  // }, [users, posts]);
-  // if (loading) {
-  //   return (
-  //     <h1>Loading...</h1>
-  //   )
-  // }
-
-  // console.log(posts)
-  // console.log(users)
 
   // checking if a post has been liked, here we avoid on multi clicks
 

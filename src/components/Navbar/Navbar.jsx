@@ -9,11 +9,11 @@ import { useAuthContext } from "../../Hooks/useAuthContext.js";
 function Navbar() {
   const [showNewPost, setShowNewPost] = useState(false);
   const [open, setOpen] = React.useState(false);
-    // Deconstruct useAuthContext to pull dispatch
-    const { dispatch } = useAuthContext()
-    const { user } = useAuthContext()
-    const navigate = useNavigate()
-
+  // Deconstruct useAuthContext to pull dispatch
+  const { dispatch , state } = useAuthContext()
+  const { user } = useAuthContext()
+  const navigate = useNavigate()
+  let username = window.localStorage.getItem('username')
   return (
     <>
       <aside className="navbar">
@@ -22,7 +22,7 @@ function Navbar() {
             className="navbar-logo"
             src="./image/logo_transparent_bg_new.png"
           />
-          <span className="navbar-logo-text">Hello, </span>
+          <span className="navbar-logo-text">Hello, {username} </span>
         </div>
         <div className="navbar-menu">
           {NavbarData.map((item, index) => {

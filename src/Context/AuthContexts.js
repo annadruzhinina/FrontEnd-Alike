@@ -26,6 +26,7 @@ const loginUser = (username, password) => {
     .then((response)=> {
       window.localStorage.setItem(ACCESS_TOKEN, response.data.access);
       window.localStorage.setItem(REFRESH_TOKEN, response.data.refresh);
+      window.localStorage.setItem('username', loginBody.username);
       return Promise.resolve(response.data);
     }).catch((error)=>{
       return Promise.reject(error);
