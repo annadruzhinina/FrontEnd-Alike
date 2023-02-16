@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 import "./navbar.css";
-import { Link } from "react-router-dom";
-import { NavbarData } from "./NavbarData";
+import { Link , Navigate , useNavigate } from "react-router-dom";
+import { NavbarData } from "./NavbarData.jsx";
 import NewPost from "../../components/NewPost/NewPost.jsx";
+import { useAuthContext } from "../../Hooks/useAuthContext.js";
 
-function Navbar() {
+function Navbar({setToggle}) {
   const [showNewPost, setShowNewPost] = useState(false);
   const [open, setOpen] = React.useState(false);
   const handleLogoClick = () => {
     window.scrollTo(0, 0);
   };
+  // Deconstruct useAuthContext to pull dispatch
+  const { dispatch , state } = useAuthContext()
+  const { user } = useAuthContext()
+  const navigate = useNavigate()
+
+  let username = window.localStorage.getItem('username')
 
   return (
     <>
@@ -20,16 +27,18 @@ function Navbar() {
             className="navbar-logo"
             src="./image/logo.png"
           />
-          <span className="navbar-logo-text">Hello, </span>
+          <span className="navbar-logo-text">Hello, {username} </span>
         </div>
         <div className="navbar-menu">
           {NavbarData.map((item, index) => {
             if (item.type === "popup-new-post") {
               return (
                 <NewPost
+                  key={index}
                   icon={item.icon}
                   title={item.title}
                   className="navbar-menu__item"
+                  setToggle={setToggle}
                 />
               );
             }
@@ -61,6 +70,10 @@ function Navbar() {
                     if (item.title === "New Post") {
                       // setShowNewPost(!showNewPost);
                       setOpen(true);
+                    }
+                    if (item.title === "Sign Out") {
+                      dispatch({ type: "LOGOUT", payload: null })
+                      console.log("Logged Out")
                     }
                   }}
                 >

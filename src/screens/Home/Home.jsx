@@ -2,36 +2,30 @@
 import React, { useState, useEffect } from "react";
 // Import ccs
 import "./home.css";
-// Import Components
 import Post from "../../components/Post/Post.jsx";
-import Navbar from "../../components/Navbar/Navbar";
-import RightNavbar from "../../components/RightNavbar/RightNavbar";
-import Footer from "../../components/Footer/Footer.jsx";
-// Import Hooks
-import usePostData from "../../Hooks/usePostData.js";
-import useUserData from "../../Hooks/useUserData.js";
+import Navbar from "../../components/Navbar/Navbar.jsx";
+import RightNavbar from "../../components/RightNavbar/RightNavbar.jsx";
+import { getPosts } from "../../services/postApi.js";
+import { getUsers } from "../../services/userApi.js";
 
-// username, project, github, imageUrl
 function Home() {
-  const posts = usePostData();
-  const users = useUserData();
-  
+  const [posts, setPosts] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [toggle, setToggle] = useState(false);
 
-  // checking if a post has been liked, here we avoid on multi clicks
-
-  // function handlePostLikeClick(updatedPost) {
-  //   console.log("Handle Post Update", updatedPost);
-  //   const newPosts = posts.map((post) => {
-  //     if (post.id === updatedPost.id) return updatedPost;
-  //     return post;
-  //   });
-  //   setPosts(newPosts);
-  // }
+  useEffect(() => {
+    getPosts().then((posts) => {
+      setPosts(posts.data);
+    });
+    getUsers().then((users) => {
+      setUsers(users.data);
+    });
+  }, [toggle]);
 
   return (
     <div className="home">
       <div className="home-global">
-        <Navbar />
+        <Navbar setToggle={setToggle} />
         <div className="home-content">
           <div className="home-content_center">
             <div className="home-center">
@@ -49,7 +43,7 @@ function Home() {
                         key={index}
                         user={user}
                         post={post}
-                        // onPostLikeClick={handlePostLikeClick}
+                        setToggle={setToggle}
                       />
                     );
                   })}
@@ -58,7 +52,6 @@ function Home() {
           <RightNavbar />
         </div>
       </div>
-      {/* <Footer /> */}
     </div>
   );
 }

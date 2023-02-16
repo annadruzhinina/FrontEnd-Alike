@@ -1,6 +1,5 @@
 //Import React
 import React from "react";
-
 //Import Icons
 import * as MdIcons from "react-icons/md";
 import * as FaIcons from "react-icons/fa";
@@ -26,8 +25,8 @@ export const NavbarData = [
     icon: <MdIcons.MdOutlinePostAdd className="navbar-menu__icon" />,
   },
   {
-    title: "Profile-me",
-    path: "/profile-me",
+    title: "Profile",
+    path: "/profile",
 
     icon: <CgIcons.CgProfile className="navbar-menu__icon" />,
   },
