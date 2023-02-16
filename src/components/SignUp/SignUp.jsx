@@ -42,13 +42,13 @@ function SignUp() {
             />
             <button
               onClick={handleSignInClick}
-              id="submitCredentials"
+              className="submitCredentials"
               type="submit"
               value="submit"
             >
               Back
             </button>
-            <button id="submitCredentials" type="submit" value="submit">
+            <button className="submitCredentials" type="submit" value="submit">
               Submit
             </button>
           </form>

@@ -23,7 +23,7 @@ function Home() {
       const userData = await getUsers()
       setUsers(userData)
     }
-  }, [users])
+  }, [])
 
   // checking if a post has been liked, here we avoid on multi clicks
 

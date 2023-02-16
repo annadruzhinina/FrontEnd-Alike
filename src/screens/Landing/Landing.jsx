@@ -42,12 +42,12 @@ function Landing() {
              type="password"
              placeholder="Confirm Password"
            /> */}
-            <button id="submitCredentials" type="submit" value="submit">
+            <button className="submitCredentials" type="submit" value="submit">
               Login
             </button>
             <button
               onClick={handleSignUpClick}
-              id="submitCredentials"
+              className="submitCredentials"
               value="submit"
             >
               SignUp
