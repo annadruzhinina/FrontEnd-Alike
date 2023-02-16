@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "username": "Anna",
+    "project": "Alike",
+    "heartQty": 1,
+    "github": "https://github.com/annadruzhinina/FrontEnd-Alike",
+    "imageUrl": "../image/project_001.png",
+    "liked": false
+  },
+  {
+    "id": 2,
+    "username": "Masha",
+    "project": "llama, (Lama glama), domesticated livestock species, descendant of the guanaco (Lama guanicoe)",
+    "heartQty": 2,
+    "github": "https://github.com/annadruzhinina/FrontEnd-Alike",
+    "imageUrl": "https://t3.ftcdn.net/jpg/02/94/01/90/240_F_294019074_G4NcIwP8uaYyxX0lNflmwMNK7N67LawS.jpg",
+    "liked": false
+  },
+  {
+    "id": 3,
+    "username": "Irina",
+    "project": "❤️❤️❤️",
+    "heartQty": 3,
+    "github": "https://github.com/annadruzhinina/FrontEnd-Alike",
+    "imageUrl": "https://t4.ftcdn.net/jpg/03/05/40/57/240_F_305405752_HDjCBMszsIz7OhJ2ybT0TeIh3If5CREJ.jpg",
+    "liked": false
+  },
+  {
+    "id": 4,
+    "username": "Liza",
+    "project": "Lorem LoremLoremLoremLoremLoremLoremLoremLoremLoremLorem LoremLoremLoremLorem ",
+    "heartQty": 100500,
+    "github": "https://github.com/annadruzhinina/FrontEnd-Alike",
+    "imageUrl": "https://t4.ftcdn.net/jpg/00/28/04/57/240_F_28045761_hAsTs9W6HZs1RiRiND8QdNoD70paO6Ww.jpg",
+    "liked": true
+  }
+]
