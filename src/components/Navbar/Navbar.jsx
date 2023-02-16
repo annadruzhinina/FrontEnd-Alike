@@ -1,4 +1,4 @@
-// // Home, Search, Message, Profile, LogOut, Report A Problem,... React-icons
+// Home, Search, Message, Profile, LogOut, Report A Problem,... React-icons
 import React, { useState } from "react";
 import "./navbar.css";
 import { Link , Navigate , useNavigate } from "react-router-dom";
@@ -9,6 +9,10 @@ import { useAuthContext } from "../../Hooks/useAuthContext.js";
 function Navbar({setToggle}) {
   const [showNewPost, setShowNewPost] = useState(false);
   const [open, setOpen] = React.useState(false);
+  const handleLogoClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   // Deconstruct useAuthContext to pull dispatch
   const { dispatch , state } = useAuthContext()
   const { user } = useAuthContext()
@@ -21,8 +25,9 @@ function Navbar({setToggle}) {
       <aside className="navbar">
         <div className="navbar-header">
           <img
+            onClick={handleLogoClick}
             className="navbar-logo"
-            src="./image/logo_transparent_bg_new.png"
+            src="./image/logo.png"
           />
           <span className="navbar-logo-text">Hello, {username} </span>
         </div>
@@ -37,6 +42,25 @@ function Navbar({setToggle}) {
                   className="navbar-menu__item"
                   setToggle={setToggle}
                 />
+              );
+            }
+            if (item.type === "home") {
+              console.log(item);
+              return (
+                <Link
+                  key={index}
+                  className="navbar-menu__item"
+                  to={item.path}
+                  onClick={() => {
+                    if (item.title === "Home") {
+                      // setShowNewPost(!showNewPost);
+                      handleLogoClick();
+                    }
+                  }}
+                >
+                  {item.icon}
+                  <span className="navbar-menu__text">{item.title}</span>
+                </Link>
               );
             } else {
               return (

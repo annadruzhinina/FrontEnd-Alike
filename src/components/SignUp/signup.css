@@ -93,7 +93,7 @@ input[type="submit"]:hover {
   width: 100px;
   box-sizing: border-box;
 }
-#submitCredentials,
+#submitCredentials:hover,
 #submitCredential:hover {
   background-color: #6fbeeb9c;
   color: white;

@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import "./uploadwidget.css";
-
 const UploadWidget = () => {
 
   const cloudinaryRef = useRef();
@@ -13,6 +11,7 @@ const UploadWidget = () => {
         uploadPreset: "alike_crop",
         multiple: false,
         cropping: true,
+
         resource_type: 'image'
       },
       function (error, result) {
@@ -20,6 +19,7 @@ const UploadWidget = () => {
         let urlVal = result.info.url
         let arr = Object.values(urlVal).join('')
         window.localStorage.setItem('cloud', arr)
+
         console.log(result.info.url);
       }
     );

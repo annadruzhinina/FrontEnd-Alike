@@ -37,8 +37,7 @@ export default function BasicModal({ icon, title, className, setToggle }) {
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  // let username = window.localStorage.getItem('username')
+  
   async function handleSubmit() {
     let cloudinaryUrl = window.localStorage.getItem('cloud')
     let username = window.localStorage.getItem('username')
@@ -52,7 +51,6 @@ export default function BasicModal({ icon, title, className, setToggle }) {
     setToggle(prev => !prev)
     handleClose()
   }
-
   return (
     <div>
       <Link key="new-post" className="navbar-menu__item" onClick={handleOpen}>
@@ -61,7 +59,6 @@ export default function BasicModal({ icon, title, className, setToggle }) {
       </Link>
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
-
           <UploadWidget />
 
           <TextField

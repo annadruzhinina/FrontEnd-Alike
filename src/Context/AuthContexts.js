@@ -25,10 +25,11 @@ const loginUser = (username, password) => {
 
   return tokenRequest.post(`api/token/`, loginBody)
     .then((response)=> {
-  
+
+
       window.localStorage.setItem(ACCESS_TOKEN, response.data.access);
       window.localStorage.setItem(REFRESH_TOKEN, response.data.refresh);
-      
+
       return Promise.resolve(response.data);
     }).catch((error)=>{
       return Promise.reject(error);
