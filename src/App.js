@@ -1,7 +1,7 @@
 //import React
 import { Route, Routes } from "react-router-dom";
 // import CSS file for App.jsx
-import "./App.css";
+// import "./App.css";
 
 //Importing Screens
 import Landing from "./screens/Landing/Landing.jsx";
