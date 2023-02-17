@@ -76,8 +76,15 @@ Front-End (All)
 Goal: Finalized project and prepared for presenting
 
 ## API Data
-API Endpoints
+### API Endpoints
 Home: https://backend-alike.herokuapp.com/
+User: https://backend-alike.herokuapp.com/user
+Post: https://backend-alike.herokuapp.com/post
+Comment: https://backend-alike.herokuapp.com/comment
+Admin: https://backend-alike.herokuapp.com/admin
+Token Pair: https://backend-alike.herokuapp.com/api/token
+Refresh Token: https://backend-alike.herokuapp.com/api/token/refresh
+
 Snippet of object output:
 API Screenshot
 
@@ -115,7 +122,6 @@ Back End
 
   A bit tricky...
 - Tracking which user liked which post
-
 
 
 ## Team
