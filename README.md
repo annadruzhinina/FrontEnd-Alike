@@ -1,54 +1,67 @@
 # FrontEnd-Alike
 
-Alike is a social media platform where innovative minds collaborate and share ideas to create the projects of tomorrow.  The platform is deisgned so developers can showcase their projects, share their feedback, and keep up on all the latest technology.  
+Alike is a social media platform where innovative minds collaborate and share ideas to create the projects of tomorrow. The platform is deisgned so developers can showcase their projects, share their feedback, and keep up on all the latest technology.
 
 Built by developers - for developers!
 
 ## Screen Shots
 
 ### Landing Page
-![Landing Page](./public/image/Home_Page_Screenshot_1.png)
+
+![Landing Page](./public/image/github/Home_Page_Screenshot_1.png)
 
 ### Home
-![Home Page](./public/image/Home_Page_Screenshot_2.png)
+
+![Home Page](./public/image/github/Home_Page_Screenshot_2.png)
 
 ### Add Post
-![Add Post](./public/image/Home_Page_Screenshot_3.png)
+
+![Add Post](./public/image/github/Home_Page_Screenshot_3.png)
 
 ### Profile
-![Profile Page](./public/image/Home_Page_Screenshot_5.png)
+
+![Profile Page](./public/image/github/Home_Page_Screenshot_4.png)
 
 ## Pages
 
 To navigate to an individual page via the URL, use the following:
-1) Landing Page:  
-2) Home: 
-3) Profile:  
+
+1. Landing Page: https://alike-ga.netlify.app/
+2. Home: https://alike-ga.netlify.app/home
+3. Profile: https://alike-ga.netlify.app/profile
 
 ## Technical Notes
 
 ### Data
 
 The API provided several fields of data used for this project:
-1) TBC
+
+- "user": "https://backend-alike.herokuapp.com/user/"
+- "post": "https://backend-alike.herokuapp.com/post/",
+- "comment": "https://backend-alike.herokuapp.com/comment/"
 
 ### Dependencies
+
 - axios
 - node-fetch
-- react 
+- react
 - react-dom
 - react-icons
 - react-router-dom
 - react-scripts
+- cloudinary-react
+- @mui/material
+- @emotion/styled
+- @emotion/react
 
 ## Overview of Process
 
-
-## Overview of Process
 ### Stage 0 - Planning (All)
+
 Established the goal of creating an app to showcase technical projects in a social media environment. We developed a wireframe, outlined component swap on the front-end, agreed on the overall data flow of the project, set data structure with clear models, determined what we needed at a minimum to be released from the back-end to begin testing, set timelines for when we hoped to achieve each state, and reviewed general Git workflow.
 
 ### Stage 1 - Initial Set-Up
+
 Back End (Ron, Nick, Ryan, Vasilis)
 
 - Initialized backend repo
@@ -64,6 +77,7 @@ Front End (Anna, Jose, Ari)
 Goal: Working on these items allowed us to get to a point where we could divide work and pair program
 
 ### Stage 2 - Get Back End Running, Front End Development
+
 Back End (Ron, Nick, Ryan, Vasilis)
 
 - Review and build models
@@ -83,6 +97,7 @@ Front End (Anna, Ari, Jose)
 Goal: Get some basic functionality on the page, identify unforseen problems and adjust timeline.
 
 ### Stage 3 - Connect Front and Back Ends, Front End Logic
+
 Back End (Ron, Nick, Ryan, Vasilis)
 
 - Researched and worked on JWT User Auth (can return tokens)
@@ -101,6 +116,7 @@ Front End (Anna, Jose, Ari, Ron)
 Goal: We worked to ensure the site was in working order with the basic features we wanted to achieve.
 
 ### Stage 4 - Enhance Backend Data and Finalize Front End
+
 Back End (Ron, Ryan, Nick, Vasilis)
 
 - Resolved deployment issues after front end was deployed
@@ -120,7 +136,9 @@ Front-End (All)
 Goal: Finalized project and prepared for presenting
 
 ## API Data
+
 ### API Endpoints
+
 Home: https://backend-alike.herokuapp.com/
 User: https://backend-alike.herokuapp.com/user
 Post: https://backend-alike.herokuapp.com/post
@@ -136,7 +154,8 @@ API Screenshot
 
 Front End
 
-  Within Reach...
+Within Reach...
+
 - Like button counter
 - Successful sign up from landing page
 - Adjust preset in Cloudinary to apply padding to images with smaller cropped sizes
@@ -149,6 +168,7 @@ Front End
 - Pagination for API calls (display ~50 results instead of calling the entire API)
 
   A bit tricky...
+
 - Like button that stores which user has clicked
 - Archiving your favorite projects
 - Direct messaging between users
@@ -156,17 +176,17 @@ Front End
 
 Back End
 
-  Within Reach...
+Within Reach...
+
 - Pagination
 - User Auth
 - Aligning our User model with the built in Django User model
 - Adding the relationship for users to follow / friend one another
 - Make a new table for 'Forums'
 
-
   A bit tricky...
-- Tracking which user liked which post
 
+- Tracking which user liked which post
 
 ## Team
 
