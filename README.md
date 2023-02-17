@@ -75,22 +75,51 @@ Front-End (All)
 
 Goal: Finalized project and prepared for presenting
 
-API Data
+## API Data
 API Endpoints
-Home: https://shop-express.herokuapp.com/products
+Home: https://backend-alike.herokuapp.com/
 Snippet of object output:
 API Screenshot
 
-Future Features
-Full user authentication
-Have Cart tied to each individual user (so it can be maintained on login and logout)
-Orders Page
-Track Order History
-Add admin account that can add/delete products from inventory (full CRUD)
-Add payment page
-Add user profiles with payment information, address, etc.
-Wire Frame
-Wire Frame
+## Future Features
+
+Front End
+
+  Within Reach...
+- Like button counter
+- Successful sign up from landing page
+- Adjust preset in Cloudinary to apply padding to images with smaller cropped sizes
+- Comment section with "likes"
+- User Auth with JWT
+- Links to curated tech related articles and resources
+- Ability to edit posts
+- Follow friends' profiles
+- Admin with superuser powers to create advertised posts and oversee the site
+- Pagination for API calls (display ~50 results instead of calling the entire API)
+
+  A bit tricky...
+- Like button that stores which user has clicked
+- Archiving your favorite projects
+- Direct messaging between users
+- Targeted advertising in the form of posts
+
+Back End
+
+  Within Reach...
+- Pagination
+- User Auth
+- Aligning our User model with the built in Django User model
+- Adding the relationship for users to follow / friend one another
+- Make a new table for 'Forums'
+
+
+  A bit tricky...
+- Tracking which user liked which post
+
+
+
+
+Front End
 
 Team
 Anna Druzhinina
