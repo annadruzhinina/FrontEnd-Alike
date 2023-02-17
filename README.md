@@ -51,6 +51,7 @@ Front End (Anna, Jose, Ari, Ron)
 - Unified the CSS practices throughout
 - Started build out of profile page
 - Create post, delete button logic built
+- Added responsive mobile design
 - Route testing
 
 Goal: We worked to ensure the site was in working order with the basic features we wanted to achieve.
@@ -67,15 +68,11 @@ Back End (Ron, Ryan, Nick, Vasilis)
 Front-End (All)
 
 - Finalized logo
-- Reviewed CSS design across pages for consistency
+- Reviewed and finalized CSS design across pages for consistency
 - Finished profile page, filtered delete buttons based on users
 - Added cropping to Cloudinary upload widget
-- 
+- Deployed on Netlify
 
-Added additional features for login/logout, search navigation, cart counter and item deletion
-Added Logo!
-Merged and tested on all machines that we were all able to access
-Ensured README was updated and code was commented
 Goal: Finalized project and prepared for presenting
 
 API Data
