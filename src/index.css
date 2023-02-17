@@ -30,8 +30,6 @@
   --space-base-small: calc(var(--space-base-medium) /2);
   --space-base-half: calc(var(--space-base) / 2);
   --navbar-width: 200px;
-
-
 }
 
 html {
@@ -111,9 +109,11 @@ a:hover {
 }
 
 .btn:hover {
-  background-color: var(--color-primary-variant);
+
   color: var(--color-bg);
-  border-color: transparent;
+  background-color: white;
+  border-color: #a4c6e4;
+  transform: scale(0.9);
 }
 
 .btn-primary {

@@ -1,3 +1,47 @@
+# FrontEnd-Alike
+
+Alike is a social media platform where innovative minds collaborate and share ideas to create the projects of tomorrow.  The platform is deisgned so developers can showcase their projects, share their feedback, and keep up on all the latest technology.  
+
+Built by developers - for developers!
+
+## Screen Shots
+
+### Landing Page
+![Landing Page](./public/image/Home_Page_Screenshot_1.png)
+
+### Home
+![Home Page](./public/image/Home_Page_Screenshot_2.png)
+
+### Add Post
+![Add Post](./public/image/Home_Page_Screenshot_3.png)
+
+### Profile
+![Profile Page](./public/image/Home_Page_Screenshot_5.png)
+
+## Pages
+
+To navigate to an individual page via the URL, use the following:
+1) Landing Page:  
+2) Home: 
+3) Profile:  
+
+## Technical Notes
+
+### Data
+
+The API provided several fields of data used for this project:
+1) TBC
+
+### Dependencies
+- axios
+- node-fetch
+- react 
+- react-dom
+- react-icons
+- react-router-dom
+- react-scripts
+
+## Overview of Process
 
 
 ## Overview of Process
