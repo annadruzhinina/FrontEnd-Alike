@@ -27,20 +27,20 @@ function Landing() {
 
   const handleSubmit = (e) => {
     // Prevent Page from Reloading
-    e.preventDefault()
+    e.preventDefault();
     // Update User with Values
-    console.log(`Username: ${username}, Password: ${password}`)
-    loginUser(username, password)
-    
-    //Send payload (username)
-    dispatch({ type: "LOGIN", payload: {username, password} })
-    //Reset values to ''
-    setUserName('')
-    setPassword('')
-    setValid('')
+    console.log(`Username: ${username}, Password: ${password}`);
+    loginUser(username, password);
 
-    navigate("/home")
-  }
+    //Send payload (username)
+    dispatch({ type: "LOGIN", payload: { username, password } });
+    //Reset values to ''
+    setUserName("");
+    setPassword("");
+    setValid("");
+
+    navigate("/home");
+  };
 
   return (
     <>
@@ -51,7 +51,7 @@ function Landing() {
       <div className="landing">
         <div className="landig-content">
           <h2 className="landing-title">
-            Social Me​dia Is Better When You Can Relate{" "}
+            We believe that motivation is the key to success
           </h2>
           <form className="form" onSubmit={handleSubmit}>
             <h1 className="SigninLogo">Sign In</h1>
@@ -71,7 +71,6 @@ function Landing() {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button id="submitCredentials" type="submit" value="submit">
-
               Login
             </button>
             <button
