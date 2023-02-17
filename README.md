@@ -54,6 +54,10 @@ The API provided several fields of data used for this project:
 - @emotion/styled
 - @emotion/react
 
+### Data Flow
+
+![Wireframe of Data Flow](./public/image/github/IMG_5524.jpg)
+
 ## Overview of Process
 
 ### Stage 0 - Planning (All)
@@ -135,9 +139,7 @@ Front-End (All)
 
 Goal: Finalized project and prepared for presenting
 
-## API Data
-
-### API Endpoints
+## API Endpoints
 
 Home: https://backend-alike.herokuapp.com/
 User: https://backend-alike.herokuapp.com/user
