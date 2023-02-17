@@ -118,31 +118,32 @@ Back End
 
 
 
+## Team
 
-Front End
-
-Team
 Anna Druzhinina
-LinkedIn: https://www.linkedin.com/in/anna-druzhinina/
+[LinkedIn](https://www.linkedin.com/in/anna-druzhinina/)
+[GitHub](https://github.com/annadruzhinina)
 
-GitHub: https://github.com/annadruzhinina
+Argurjana Olloni
+[LinkedIn](https://www.linkedin.com/in/aolloni/)
+[GitHub](https://github.com/argurjanaolloni)
 
-Angela Kwon
-LinkedIn: https://www.linkedin.com/in/angelakwon2/
+Jose Calderon
+[LinkedIn](https://www.linkedin.com/in/jose-a-calderon-software-engineer/)
+[GitHub](https://github.com/HowzayCalderon)
 
-GitHub: https://github.com/kwonangela
+Ryan Ehrlich (Project Manager)
+[LinkedIn](https://www.linkedin.com/in/ryanehrlich/)
+[GitHub](https://github.com/Jagerziel)
 
-Bryant Perez
-LinkedIn: https://www.linkedin.com/in/bryxntperez
+Vasilis Myrianthopoulos
+[LinkedIn](https://www.linkedin.com/in/vasilis-myrianthopoulos/)
+[GitHub](https://github.com/Vasilis89)
 
-GitHub: https://github.com/bryxnt1
+Ron Lanzilotta
+[LinkedIn](https://www.linkedin.com/in/ronlanzilotta/)
+[GitHub](https://github.com/RonLanzilotta)
 
-Muhammad Warrad
-LinkedIn: https://www.linkedin.com/in/muhammadwarrad/
-
-GitHub: https://github.com/muhammadwarrad
-
-Ryan Ehrlich
-LinkedIn: https://www.linkedin.com/in/ryanehrlich/
-
-GitHub: https://github.com/Jagerziel
+Nick Fasulo
+[LinkedIn](https://www.linkedin.com/in/nicholas-fasulo/)
+[GitHub](https://github.com/NickFasulo)
