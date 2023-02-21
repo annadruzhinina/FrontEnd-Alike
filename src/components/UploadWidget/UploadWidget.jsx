@@ -1,6 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-const UploadWidget = () => {
+import { useEffect, useRef } from "react";
 
+function UploadWidget() {
+
+    // creates a reference for 
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
   useEffect(() => {
