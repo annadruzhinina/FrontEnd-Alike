@@ -1,6 +1,3 @@
-// Import React
-import React, { useState } from "react";
-// Import css for rightNavbar
 import "./rightNavbar.css";
 import { RnavbarData } from "./RnavbarData";
 
@@ -22,7 +19,7 @@ function RightNavbar() {
                 <h4>
                   {data.title}
                   <br />
-                  <a target='_blank' href={data.link}>
+                  <a target='_blank' href={data.link} rel="noreferrer">
                     <span className='suggestion-icon_pointer'>👉</span> Read
                     More
                   </a>
@@ -41,18 +38,10 @@ function RightNavbar() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
-          <iframe
-            width="220"
-            height="180"
-            src="https://www.youtube.com/embed/W6NZfCO5SIk"
-            title="YouTube video player"
-
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
         </div>
       </div>
     </div>
   );
 }
+
 export default RightNavbar;
