@@ -38,6 +38,13 @@ function RightNavbar() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
+          <iframe 
+          width="220" 
+          height="180" 
+          src="https://www.youtube.com/embed/hQAHSlTtcmY" 
+          title="YouTube video player" frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen></iframe>
         </div>
       </div>
     </div>
