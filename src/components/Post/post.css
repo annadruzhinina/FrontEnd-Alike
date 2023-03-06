@@ -143,3 +143,24 @@ strong {
 h4 {
   font-size: smaller;
 }
+
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px); /* add a blur effect to the background */
+  z-index: 1; /* make sure the popup is displayed above the blurred background */
+  background-color: rgba(0, 0, 0, 0.618);
+}
+
+.popup {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 2; /* make sure the popup is displayed above the blurred background */
+}
