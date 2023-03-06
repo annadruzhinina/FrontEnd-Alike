@@ -1,14 +1,19 @@
 // Home, Search, Message, Profile, LogOut, Report A Problem,... React-icons
+//Import React
 import React, { useState } from "react";
-import "./navbar.css";
 import { Link , Navigate , useNavigate } from "react-router-dom";
+// Import css
+import "./navbar.css";
+// Import Components
 import { NavbarData } from "./NavbarData";
 import NewPost from "../../components/NewPost/NewPost.jsx";
+// Import Hooks
 import { useAuthContext } from "../../Hooks/useAuthContext.js";
 
 function Navbar({setToggle}) {
   const [showNewPost, setShowNewPost] = useState(false);
   const [open, setOpen] = React.useState(false);
+  // Scroll up when clicking on the logo
   const handleLogoClick = () => {
     window.scrollTo(0, 0);
   };
@@ -92,4 +97,3 @@ function Navbar({setToggle}) {
 }
 
 export default Navbar;
-
