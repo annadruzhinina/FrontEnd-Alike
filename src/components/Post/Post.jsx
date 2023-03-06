@@ -34,10 +34,10 @@ export default function Post({ post, user, setToggle }) {
     setShowPopup(false);
   };
 
-  const handleDelete = async () => {
+  async function handleDelete() {
     await deletePost(post);
     setToggle((prev) => !prev);
-  };
+  }
 
   const handlePopupClose = () => {
     setShowPopup(false);
@@ -66,39 +66,6 @@ export default function Post({ post, user, setToggle }) {
     };
   }, []);
 
-  //   return (
-  //     <div className="post">
-  //       <div className="post_header">
-  //         <div className="post-avatar_left">
-  //           <h4>
-  //             <strong className="post-project">Project:</strong>
-  //             <span className="post-project__name">{post.project_name}</span>
-  //           </h4>
-  //         </div>
-  //         {activeUser === username ? (
-  //           <FaEdit onClick={handleUpdate} className="post-update-btn" />
-  //         ) : (
-  //           <></>
-  //         )}
-  //         {activeUser === username ? (
-  //           <RxCross2 onClick={handleDelete} className="post-delete-btn" />
-  //         ) : (
-  //           <></>
-  //         )}
-  //       </div>
-  //       <img className="post-image" src={post.image} alt="" />
-  //       <div className="post-bottom">
-  //         <div className="post-like-title">
-  //           <h3>{username}</h3>
-  //           <FaRegCommentDots className="post-navbar-menu__icon" />
-  //         </div>
-  //         <a target="_blank" href={post.github_link}>
-  //           <GoMarkGithub className="post-navbar-menu__icon" />
-  //         </a>
-  //       </div>
-  //     </div>
-  //   );
-  // }
   return (
     <>
       <div className="post">
