@@ -1,8 +1,6 @@
 .post-image {
   width: 100%;
   object-fit: contain;
-  border-top: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
 }
 .post {
   background-color: white;
@@ -10,6 +8,9 @@
   border: 1px solid lightgray;
   margin-bottom: var(--space-base-double);
   min-width: 300px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .post-delete-btn {
@@ -37,6 +38,7 @@ strong {
   justify-content: space-between;
   overflow: hidden;
   padding: 15px 10px 10px 10px;
+  border-bottom: solid lightgray;
 }
 .post-avatar_left {
   display: flex;
@@ -56,6 +58,7 @@ strong {
   padding: 0 10px 0 10px;
   overflow: hidden;
   padding-bottom: 10px;
+  border-top: 1px solid lightgray;
 }
 
 .post-like-title {
