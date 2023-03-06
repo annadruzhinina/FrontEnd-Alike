@@ -1,41 +1,68 @@
-import api from './apiConfig'
-import { getUsers } from './userApi.js'
+import api from "./apiConfig";
+import { getUsers } from "./userApi.js";
 
 export const getPosts = () => {
   try {
-    const response = api.get('post/')
-    return response
+    const response = api.get("post/");
+    return response;
   } catch (error) {
-    throw new Error(error)
+    throw new Error(error);
   }
-}
+};
 
-export const createPost = async postData => {
+export const createPost = async (postData) => {
   try {
-    let username = window.localStorage.getItem('username')
-    let users = await getUsers()
-    let userID = users.data.find(user => {
-      return user.username === username
-    }).id
-    console.log(`User ID: ${userID}`)
+    let username = window.localStorage.getItem("username");
+    let users = await getUsers();
+    let userID = users.data.find((user) => {
+      return user.username === username;
+    }).id;
+    console.log(`User ID: ${userID}`);
 
-    const response = await api.post('post/', {
+    const response = await api.post("post/", {
       username: userID,
       project_name: postData.project_name,
       github_link: postData.github_link,
-      image: postData.image
-    })
-    return response.data
+      image: postData.image,
+    });
+    return response.data;
   } catch (error) {
-    throw new Error(error)
+    throw new Error(error);
   }
-}
+};
 
-export const deletePost = async postData => {
+// export const updatePost = async (postData) => {
+//   try {
+//     const response = await api.put(`post/${postData.id}/`, postData);
+//     return response.data;
+//   } catch (error) {
+//     throw new Error(error);
+//   }
+// };
+
+export const updatePost = async (postData) => {
   try {
-    const response = await api.delete(`post/${postData.id}`)
-    return response.data
+    const postResponse = await api.get(`post/${postData.id}/`);
+    const postUserID = postResponse.data.username;
+    // ????
+    const loggedInUserID = window.localStorage.getItem("userID");
+
+    if (postUserID !== loggedInUserID) {
+      throw new Error("You are not authorized to update this post.");
+    }
+
+    const response = await api.put(`post/${postData.id}/`, postData);
+    return response.data;
   } catch (error) {
-    throw new Error(error)
+    throw new Error(error);
   }
-}
+};
+
+export const deletePost = async (postData) => {
+  try {
+    const response = await api.delete(`post/${postData.id}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
