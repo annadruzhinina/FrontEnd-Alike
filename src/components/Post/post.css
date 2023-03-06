@@ -167,3 +167,20 @@ h4 {
   border-radius: 5px;
   z-index: 2; /* make sure the popup is displayed above the blurred background */
 }
+
+.popup input{
+  border: solid black;
+  border-radius: .5rem;
+}
+
+.popup-btns{
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup-btns button{
+  border: solid black;
+  background-color: white;
+  padding: .5rem;
+  border-radius: .5rem;
+}

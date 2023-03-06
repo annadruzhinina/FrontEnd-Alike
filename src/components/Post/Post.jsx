@@ -132,6 +132,7 @@ export default function Post({ post, user, setToggle }) {
                 setPostData({ ...postData, image: e.target.value })
               }
             />
+            <div className="popup-btns">
             <button onClick={handleUpdate}>Save</button>
             <button
               onClick={() => {
@@ -141,6 +142,7 @@ export default function Post({ post, user, setToggle }) {
             >
               Cancel
             </button>
+            </div>
           </div>
         </div>
       )}
