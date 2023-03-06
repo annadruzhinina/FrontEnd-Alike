@@ -159,6 +159,7 @@ h4 {
   backdrop-filter: blur(2px); /* add a blur effect to the background */
   z-index: 1; /* make sure the popup is displayed above the blurred background */
   background-color: rgba(0, 0, 0, 0.618);
+  min-width: 350px;
 }
 
 .popup {
@@ -166,11 +167,12 @@ h4 {
   padding: 20px;
   border-radius: 5px;
   z-index: 2; /* make sure the popup is displayed above the blurred background */
+  min-width: 350px;
 }
 
 .popup input{
-  border: solid black;
   border-radius: .5rem;
+  border: solid #00000024;
 }
 
 .popup-btns{
@@ -179,8 +181,22 @@ h4 {
 }
 
 .popup-btns button{
-  border: solid black;
-  background-color: white;
+  border: solid #00000024;
+  background-color: #3b91d7;
   padding: .5rem;
   border-radius: .5rem;
+  width: 310px;
+  margin-top: 20px;
+  color: white;
+}
+
+.popup-container h3{
+  text-align: center;
+  color: #3b91d7;
+}
+
+.popup label{
+  font-size: small;
+  margin-bottom: 0;
+ 
 }
