@@ -31,32 +31,32 @@ export const createPost = async (postData) => {
   }
 };
 
-// export const updatePost = async (postData) => {
-//   try {
-//     const response = await api.put(`post/${postData.id}/`, postData);
-//     return response.data;
-//   } catch (error) {
-//     throw new Error(error);
-//   }
-// };
-
 export const updatePost = async (postData) => {
   try {
-    const postResponse = await api.get(`post/${postData.id}/`);
-    const postUserID = postResponse.data.username;
-    // ????
-    const loggedInUserID = window.localStorage.getItem("userID");
-
-    if (postUserID !== loggedInUserID) {
-      throw new Error("You are not authorized to update this post.");
-    }
-
     const response = await api.put(`post/${postData.id}/`, postData);
     return response.data;
   } catch (error) {
     throw new Error(error);
   }
 };
+
+// export const updatePost = async (postData) => {
+//   try {
+//     const postResponse = await api.get(`post/${postData.id}/`);
+//     const postUserID = postResponse.data.username;
+//     // ????
+//     const loggedInUserID = window.localStorage.getItem("userID");
+
+//     if (postUserID !== loggedInUserID) {
+//       throw new Error("You are not authorized to update this post.");
+//     }
+
+//     const response = await api.put(`post/${postData.id}/`, postData);
+//     return response.data;
+//   } catch (error) {
+//     throw new Error(error);
+//   }
+// };
 
 export const deletePost = async (postData) => {
   try {

@@ -2,12 +2,17 @@
 import React from "react";
 //Import ccs
 import "./post.css";
-//Import Material ui & React Icon
+//Import Material UI & React Icon
 import { RxCross2 } from "react-icons/rx";
-
-import { deletePost } from "../../services/postApi";
-import { FaRegCommentDots } from "react-icons/fa";
+import { FaRegCommentDots, FaEdit } from "react-icons/fa";
 import { GoMarkGithub } from "react-icons/go";
+
+// Import postAPI configuration
+import { deletePost } from "../../services/postApi";
+import { updatePost } from "../../services/postApi";
+
+//Import Components
+import Comment from "../../components/Comment/Comment.jsx";
 
 function Post({ post, user, setToggle }) {
   let username = "";
@@ -18,10 +23,19 @@ function Post({ post, user, setToggle }) {
   }
 
   let activeUser = window.localStorage.getItem("username");
+  async function handleUpdate() {
+    await updatePost(post);
+    setToggle((prev) => !prev);
+  }
   async function handleDelete() {
     await deletePost(post);
     setToggle((prev) => !prev);
   }
+  // let activeUser = window.localStorage.getItem("username");
+  // async function handleDelete() {
+  //   await deletePost(post);
+  //   setToggle((prev) => !prev);
+  // }
 
   return (
     <div className="post">
@@ -32,6 +46,11 @@ function Post({ post, user, setToggle }) {
             <span className="post-project__name">{post.project_name}</span>
           </h4>
         </div>
+        {activeUser === username ? (
+          <FaEdit onClick={handleUpdate} className="post-update-btn" />
+        ) : (
+          <></>
+        )}
         {activeUser === username ? (
           <RxCross2 onClick={handleDelete} className="post-delete-btn" />
         ) : (
@@ -46,11 +65,10 @@ function Post({ post, user, setToggle }) {
         </div>
         <a target="_blank" href={post.github_link}>
           <GoMarkGithub className="post-navbar-menu__icon" />
-
         </a>
       </div>
     </div>
-  )
+  );
 }
 
 export default Post;
