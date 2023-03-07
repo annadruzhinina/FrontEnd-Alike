@@ -132,15 +132,17 @@ export default function Post({ post, user, setToggle }) {
                 setPostData({ ...postData, image: e.target.value })
               }
             />
+            <div className="popup-btns">
             <button onClick={handleUpdate}>Save</button>
-            <button
+            {/* <button
               onClick={() => {
                 handlePopupClose();
                 console.log("Popup closed");
               }}
             >
               Cancel
-            </button>
+            </button> */}
+            </div>
           </div>
         </div>
       )}
