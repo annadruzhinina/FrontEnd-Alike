@@ -28,3 +28,5 @@ function NewRightNavbar() {
 }
 
 export default NewRightNavbar;
+
+// go to localhost:3000/newrightnavbar to edit this component
