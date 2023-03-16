@@ -8,8 +8,15 @@ function NewRightNavbar() {
       const response = await axios.get(
         "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=40ae771bf4ab4646b2d0c3916a06e6dd"
       );
-    } catch {}
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
   }
+
+  useEffect(() => {
+    getNews();
+  }, []);
 
   return <div>New Right Navbar</div>;
 }
