@@ -1,0 +1,13 @@
+ .NRNB img{
+    height: 100px;
+    width: 100px;
+}
+
+.NRNB {
+    background-color: brown;
+    position: fixed;
+    height: 100vh;
+    width: var(--navbar-width);
+    right: 0;
+    overflow: scroll;
+}
