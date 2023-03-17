@@ -1,13 +1,37 @@
- .NRNB img{
-    height: 100px;
-    width: 100px;
+.newNavR{
+    right: 0px;
+    top: 0px;
+    height: 100vh;
+    width: 30vh;
+    background-color: #ecf5fd;
+    position: fixed;
+    border: solid #deecfe;
 }
 
-.NRNB {
-    background-color: brown;
+.newNavR h3{
+    border: solid #deecfe;
+    padding: 0;
+
+}
+
+.newNavR img {
+    height: 80px;
+    width: 80px;
+}
+
+.newNavR--scroll{
+    height: 97vh;
     position: fixed;
-    height: 100vh;
-    width: var(--navbar-width);
-    right: 0;
-    overflow: scroll;
+    overflow-y: scroll;
+}
+
+.newNavR--list{
+    height: 95vh;
+}
+.NavR--article{
+    display: flex;
+    font-size: .7rem;
+    margin-bottom: 1rem;
+    /* border: solid black; */
+    padding: 1em;
 }

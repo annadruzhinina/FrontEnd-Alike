@@ -25,21 +25,32 @@ function NewRightNavbar() {
   }, []);
 
   return (
-    <div className="NRNB">
-      <h1>Tech News</h1>
-      <ul>
-        {newsData.articles ? (
-          newsData.articles.map((item, index) => (
-            <li key={index}>
-              <img src={item["urlToImage"]} alt="articlePic" />
-              <p>{item.title}</p>
-              <a href={item.url}>Read More</a>
-            </li>
-          ))
-        ) : (
-          <p>Loading...</p>
-        )}
-      </ul>
+    <div className="newNavR">
+      <h3>Tech News</h3>
+      <div className="newNavR--scroll">
+        <iframe
+          width="240"
+          height="160"
+          src="https://www.youtube.com/embed/hQAHSlTtcmY"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+        <div className="newNavR--list">
+          {newsData.articles ? (
+            newsData.articles.map((item, index) => (
+              <div key={index} className="NavR--article">
+                <img src={item["urlToImage"]} alt="articlePic" />
+                <p>{item.title}</p>
+                <a href={item.url}>Read More</a>
+              </div>
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
