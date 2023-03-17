@@ -26,7 +26,7 @@ export const createPost = async (postData) => {
     };
 
     const response = await api.post(
-      "post/",
+      "posts",
       {
         project_name: postData.project_name,
         github_link: postData.github_link,

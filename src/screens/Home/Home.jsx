@@ -38,7 +38,6 @@ function Home() {
                     let user = users.map((user, index) => {
                       if (post.username === user.id) return user.username;
                     });
-                    console.log("TEST!!!", post.username, post.project_title);
                     return (
                       <Post
                         key={index}
