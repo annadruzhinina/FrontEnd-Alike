@@ -8,7 +8,7 @@ import SignUp from "../../components/SignUp/SignUp";
 import Button from "@mui/material/Button";
 
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../../Context/AuthContexts.js";
+import { loginUser, getUser } from "../../Context/AuthContexts.js";
 
 function Landing() {
   const [userData, setUserData] = useState({
@@ -38,7 +38,7 @@ function Landing() {
         await loginUser(userData);
   
         let response = await getUser()
-        setUser(response)
+        setUserData(response)
         navigate("/home");
       } catch (error) {
         setUserData((prev) => ({
