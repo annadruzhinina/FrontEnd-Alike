@@ -7,17 +7,16 @@ import "./landing.css";
 import SignUp from "../../components/SignUp/SignUp";
 import Button from "@mui/material/Button";
 
-import { useAuthContext } from "../../Hooks/useAuthContext.js";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../Context/AuthContexts.js";
 
 function Landing() {
-  const { dispatch } = useAuthContext();
-  const [user, setUser] = useState("");
+  const [userData, setUserData] = useState({
+    username: "",
+    password: null,
+    message: "",
+  });
   const navigate = useNavigate();
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [valid, setValid] = useState("");
 
   //CHECK MERGE
   function handleSignUpClick() {
