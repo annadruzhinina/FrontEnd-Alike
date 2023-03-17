@@ -11,8 +11,8 @@ import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { loginUser, getUser } from "../../Context/AuthContexts.js";
 
-function Landing() {
-  const data = useContext(UserContext)
+function Landing({ setUser }) {
+  const data = useContext(UserContext);
   const [userData, setUserData] = useState({
     username: "",
     password: null,
@@ -38,9 +38,9 @@ function Landing() {
     } else {
       try {
         await loginUser(userData);
-  
-        let response = data
-        setUserData(response)
+
+        let response = await getUser();
+        setUser(response);
         navigate("/home");
       } catch (error) {
         setUserData((prev) => ({
@@ -52,12 +52,12 @@ function Landing() {
   };
 
   const handleChange = (e) => {
-    const {name, value} = e.target
+    const { name, value } = e.target;
 
-    setUserData(prev => ({
-        ...prev,
-        [name]: value
-    }))
+    setUserData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   return (
