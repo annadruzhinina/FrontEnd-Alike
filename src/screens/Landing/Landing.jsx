@@ -1,5 +1,6 @@
 //Import react
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../../App";
 //Import css
 import "./landing.css";
 
@@ -11,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { loginUser, getUser } from "../../Context/AuthContexts.js";
 
 function Landing() {
+  const data = useContext(UserContext)
   const [userData, setUserData] = useState({
     username: "",
     password: null,
@@ -37,7 +39,7 @@ function Landing() {
       try {
         await loginUser(userData);
   
-        let response = await getUser()
+        let response = data
         setUserData(response)
         navigate("/home");
       } catch (error) {
