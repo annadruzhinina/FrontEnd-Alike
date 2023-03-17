@@ -12,11 +12,11 @@ import { getUser, registerUser } from "../../services/userApi";
 function SignUp({ setUser }) {
   // Set useState object
   const [userData, setUserData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    re_password: "",
-    valid: "",
+    username: null,
+    email: null,
+    password: null,
+    re_password: null,
+    valid: null,
   });
 
   const handleSubmit = async (e) => {

@@ -16,6 +16,7 @@ function Landing({ setUser }) {
     password: null,
     message: "",
   });
+  console.log("Test1", userData);
   const navigate = useNavigate();
 
   //CHECK MERGE
@@ -27,25 +28,25 @@ function Landing({ setUser }) {
     // Prevent Page from Reloading
     e.preventDefault();
     // Update User with Values
-    // console.log(`Username: ${username}, Password: ${password}`);
+    console.log("Test2", userData);
     if (userData.password === "") {
       setUserData((prev) => ({
         ...prev,
         message: "Please Enter a valid password",
       }));
     } else {
-      try {
-        await loginUser(userData);
-
-        let response = await getUser();
-        setUser(response);
-        navigate("/home");
-      } catch (error) {
-        setUserData((prev) => ({
-          ...prev,
-          message: "Please Enter a valid username",
-        }));
-      }
+      // try {
+      await loginUser(userData);
+      window.localStorage.setItem("username", userData.username);
+      let response = await getUser();
+      setUser(response);
+      navigate("/home");
+      // } catch (error) {
+      //   setUserData((prev) => ({
+      //     ...prev,
+      //     message: "Please Enter a valid username",
+      //   }));
+      // }
     }
   };
 
@@ -75,6 +76,7 @@ function Landing({ setUser }) {
               className="username"
               id="username"
               type="text"
+              name="username"
               placeholder="Username"
               value={userData.username}
               onChange={handleChange}
@@ -82,6 +84,7 @@ function Landing({ setUser }) {
             <input
               id="pw"
               type="password"
+              name="password"
               placeholder="Password"
               value={userData.password}
               onChange={handleChange}
