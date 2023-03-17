@@ -1,5 +1,5 @@
 // Import React
-import { useState } from "react";
+import React, { useState } from "react";
 // Import css
 import "./signup.css";
 // Import React-Router-Dom
@@ -10,15 +10,15 @@ import { getUser, registerUser } from "../../services/userApi";
 
 // Sign-in function
 function SignUp({ setUser }) {
+  let navigate = useNavigate();
   // Set useState object
   const [userData, setUserData] = useState({
     username: null,
     email: null,
     password: null,
     re_password: null,
-    valid: null,
   });
-
+  console.log("Test3", userData);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -29,7 +29,9 @@ function SignUp({ setUser }) {
 
       let response = await getUser();
       setUser(response);
-      Navigate("/home");
+      console.log("Test4", userData);
+      window.localStorage.setItem("username", userData.username);
+      navigate("/home");
     } else {
       setUser((prev) => ({
         ...prev,
@@ -64,6 +66,7 @@ function SignUp({ setUser }) {
         );
       } else {
         return <Navigate to="/" replace={true} />;
+        // return console.log('Navigate')
       }
       // Otherwise flag that the passwords do not match
     } else {
@@ -75,7 +78,6 @@ function SignUp({ setUser }) {
     }
   };
 
-  let navigate = useNavigate();
   function handleBackClick() {
     let path = `/`;
     navigate(path);
@@ -110,6 +112,7 @@ function SignUp({ setUser }) {
               className="username"
               id="username"
               type="text"
+              name="username"
               placeholder="Username"
               value={userData.username}
               onChange={handleChange}
@@ -118,6 +121,7 @@ function SignUp({ setUser }) {
               className="email"
               id="email"
               type="text"
+              name="email"
               placeholder="Email"
               value={userData.email}
               onChange={handleChange}
@@ -125,6 +129,7 @@ function SignUp({ setUser }) {
             <input
               id="pw"
               type="password"
+              name="password"
               placeholder="Password"
               value={userData.password}
               minLength="6"
@@ -134,6 +139,7 @@ function SignUp({ setUser }) {
             <input
               id="pwConfirm"
               type="password"
+              name="re_password"
               placeholder="confirm password"
               value={userData.re_password}
               onChange={handleChange}
