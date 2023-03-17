@@ -20,25 +20,26 @@ function Landing() {
 
   //CHECK MERGE
   function handleSignUpClick() {
-    let path = `/sign-up`;
-    navigate(path);
+    navigate(`/sign-up`);
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // Prevent Page from Reloading
     e.preventDefault();
     // Update User with Values
-    console.log(`Username: ${username}, Password: ${password}`);
-    loginUser(username, password);
-
-    //Send payload (username)
-    dispatch({ type: "LOGIN", payload: { username, password } });
-    //Reset values to ''
-    setUserName("");
-    setPassword("");
-    setValid("");
-
-    navigate("/home");
+    // console.log(`Username: ${username}, Password: ${password}`);
+    if (userData.password === "") {
+      setUserData((prev) => ({
+        ...prev,
+        message: "Please Enter a valid password",
+      }));
+    } else {
+      await loginUser(userData);
+  
+      let response = await getUser()
+      setUser(response)
+      navigate("/home");
+    }
   };
 
   return (
