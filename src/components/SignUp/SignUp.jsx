@@ -58,7 +58,7 @@ function SignUp({setUser}) {
       // If the passwords match...
     } else if (validation === true) {
       // Vaidate if they meet the specified criteria and return <p> accordingly
-      if (passwordValidation(user.password) === false) {
+      if (passwordValidation(userData.password) === false) {
         return (
           <>
             <p>"Password Must Contain at least 6 letters"</p>
@@ -153,7 +153,7 @@ function SignUp({setUser}) {
             <button id="submitCredentials" type="submit" value="submit">
               Submit
             </button>
-            <>{result(user.valid)}</>
+            <>{result(userData.valid)}</>
           </form>
           <div className="whatever">{userData.message}</div>
         </div>

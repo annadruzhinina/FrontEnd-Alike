@@ -1,6 +1,5 @@
 //Import react
-import React, { useState, useContext } from "react";
-import { UserContext } from "../../App";
+import React, { useState } from "react";
 //Import css
 import "./landing.css";
 
@@ -9,10 +8,9 @@ import SignUp from "../../components/SignUp/SignUp";
 import Button from "@mui/material/Button";
 
 import { useNavigate } from "react-router-dom";
-import { loginUser, getUser } from "../../Context/AuthContexts.js";
+import { loginUser, getUser } from "../../services/userApi";
 
 function Landing({ setUser }) {
-  const data = useContext(UserContext);
   const [userData, setUserData] = useState({
     username: "",
     password: null,

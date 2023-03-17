@@ -75,7 +75,6 @@ function Navbar({setToggle}) {
                       setOpen(true);
                     }
                     if (item.title === "Sign Out") {
-                      dispatch({ type: "LOGOUT", payload: null })
                       console.log("Logged Out")
                     }
                   }}
