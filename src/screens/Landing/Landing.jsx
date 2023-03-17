@@ -34,12 +34,28 @@ function Landing() {
         message: "Please Enter a valid password",
       }));
     } else {
-      await loginUser(userData);
+      try {
+        await loginUser(userData);
   
-      let response = await getUser()
-      setUser(response)
-      navigate("/home");
+        let response = await getUser()
+        setUser(response)
+        navigate("/home");
+      } catch (error) {
+        setUserData((prev) => ({
+          ...prev,
+          message: "Please Enter a valid username",
+        }));
+      }
     }
+  };
+
+  const handleChange = (e) => {
+    const {name, value} = e.target
+
+    setUserData(prev => ({
+        ...prev,
+        [name]: value
+    }))
   };
 
   return (
@@ -60,15 +76,15 @@ function Landing() {
               id="username"
               type="text"
               placeholder="Username"
-              value={username}
-              onChange={(e) => setUserName(e.target.value)}
+              value={userData.username}
+              onChange={handleChange}
             />
             <input
               id="pw"
               type="password"
               placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={userData.password}
+              onChange={handleChange}
             />
             <button id="submitCredentials" type="submit" value="submit">
               Login
@@ -81,6 +97,7 @@ function Landing() {
               SignUp
             </button>
           </form>
+          <div className="loginErrorMessage">{userData.message}</div>
         </div>
       </div>
     </>
