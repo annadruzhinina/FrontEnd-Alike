@@ -9,14 +9,12 @@ import Modal from "@mui/material/Modal";
 import { Input, TextField } from "@mui/material";
 import "./newpost.css";
 import { createPost } from "../../services/postApi";
-import { create } from "@mui/material/styles/createTransitions";
 
-import UploadWidget from '../UploadWidget/UploadWidget.jsx';
-
+import UploadWidget from "../UploadWidget/UploadWidget.jsx";
 
 //css style
 import "./newpost.css";
-import { MdLibraryBooks } from "react-icons/md";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -31,25 +29,27 @@ const style = {
 
 export default function BasicModal({ icon, title, className, setToggle }) {
   const [open, setOpen] = useState(false);
-  
+
   const projectNameRef = React.useRef(null);
   const githubRef = React.useRef(null);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  
+
   async function handleSubmit() {
-    let cloudinaryUrl = window.localStorage.getItem('cloud')
-    let username = window.localStorage.getItem('username')
-    await createPost({
-      username: username,
+    let cloudinaryUrl = window.localStorage.getItem("cloud");
+    // let username = window.localStorage.getItem("username");
+
+    let newPost = await createPost({
+      // username: username,
       project_name: projectNameRef.current.value,
       github_link: githubRef.current.value,
       // tagsRef.current.value,
       image: cloudinaryUrl,
     });
-    setToggle(prev => !prev)
-    handleClose()
+    console.log("Test5", newPost.project_name);
+    setToggle((prev) => !prev);
+    handleClose();
   }
   return (
     <div>
