@@ -1,8 +1,6 @@
 .post-image {
   width: 100%;
   object-fit: contain;
-  border-top: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
 }
 .post {
   background-color: white;
@@ -10,6 +8,9 @@
   border: 1px solid lightgray;
   margin-bottom: var(--space-base-double);
   min-width: 300px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .post-delete-btn {
@@ -37,6 +38,7 @@ strong {
   justify-content: space-between;
   overflow: hidden;
   padding: 15px 10px 10px 10px;
+  border-bottom: solid lightgray;
 }
 .post-avatar_left {
   display: flex;
@@ -56,6 +58,7 @@ strong {
   padding: 0 10px 0 10px;
   overflow: hidden;
   padding-bottom: 10px;
+  border-top: 1px solid lightgray;
 }
 
 .post-like-title {
@@ -142,4 +145,58 @@ strong {
 
 h4 {
   font-size: smaller;
+}
+
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px); /* add a blur effect to the background */
+  z-index: 1; /* make sure the popup is displayed above the blurred background */
+  background-color: rgba(0, 0, 0, 0.618);
+  min-width: 350px;
+}
+
+.popup {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 2; /* make sure the popup is displayed above the blurred background */
+  min-width: 350px;
+}
+
+.popup input{
+  border-radius: .5rem;
+  border: solid #00000024;
+}
+
+.popup-btns{
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup-btns button{
+  border: solid #00000024;
+  background-color: #3b91d7;
+  padding: .5rem;
+  border-radius: .5rem;
+  width: 310px;
+  margin-top: 20px;
+  color: white;
+}
+
+.popup-container h3{
+  text-align: center;
+  color: #3b91d7;
+}
+
+.popup label{
+  font-size: small;
+  margin-bottom: 0;
+ 
 }

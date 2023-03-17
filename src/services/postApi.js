@@ -1,16 +1,19 @@
 import api from "./apiConfig";
 import { getUsers } from "./userApi.js";
 
+
 const getToken = () => {
   return new Promise((resolve) => {
     resolve(`Token ${localStorage.getItem("knox") || null}`);
   });
 };
 
+
 export const getPosts = () => {
   try {
     const response = api.get("post/");
     return response;
+
   } catch (error) {
     throw new Error(error);
   }
@@ -35,6 +38,7 @@ export const createPost = async (postData) => {
       { headers }
     );
     return response.data;
+
   } catch (error) {
     throw new Error(error);
   }
