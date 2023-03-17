@@ -7,8 +7,6 @@ import "./navbar.css";
 // Import Components
 import { NavbarData } from "./NavbarData";
 import NewPost from "../../components/NewPost/NewPost.jsx";
-// Import Hooks
-import { useAuthContext } from "../../Hooks/useAuthContext.js";
 
 function Navbar({setToggle}) {
   const [showNewPost, setShowNewPost] = useState(false);
@@ -19,8 +17,6 @@ function Navbar({setToggle}) {
   };
 
   // Deconstruct useAuthContext to pull dispatch
-  const { dispatch , state } = useAuthContext()
-  const { user } = useAuthContext()
   const navigate = useNavigate()
 
   let username = window.localStorage.getItem('username')

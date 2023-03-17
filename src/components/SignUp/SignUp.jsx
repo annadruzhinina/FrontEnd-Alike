@@ -4,49 +4,41 @@ import { useState } from "react";
 import "./signup.css";
 // Import React-Router-Dom
 import { Navigate, useNavigate } from "react-router-dom";
-// Import Context
-import { useAuthContext } from "../../Hooks/useAuthContext.js";
 // Import CSS
 import "./signup.css";
+import { getUser, registerUser } from "../../services/userApi";
 
 // Sign-in function
-function SignUp() {
-  // Deconstruct useAuthContext to pull dispatch
-  const { dispatch } = useAuthContext();
+function SignUp({setUser}) {
 
   // Set useState object
-  const [user, setUser] = useState({
+  const [userData, setUserData] = useState({
     username: "",
+    email: "",
     password: "",
-    passwordConfirm: "",
+    re_password: "",
     valid: "",
   });
 
-  // Deconstruct useState
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [valid, setValid] = useState("");
+  
 
-  // Handle Submit
-  const handleSubmit = (e) => {
-    // Prevent Page from Reloading
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Update User with Values
-    setUser({
-      username,
-      password,
-      passwordConfirm,
-      valid:
-        password === passwordConfirm ? (password !== "" ? true : "") : false,
-    });
-    // Sending payload (username)
-    dispatch({ type: "LOGIN", payload: username });
 
-    // Reset Values to ''
-    setPassword("");
-    setPasswordConfirm("");
-    setValid(null);
+    if (userData.password === "")
+      setUser({ message: "Please Enter a valid username and password" });
+    else if (userData.password === userData.re_password) {
+        await registerUser(userData);
+    
+        let response = await getUser()
+        setUser(response)
+        Navigate("/home");
+    } else {
+      setUser((prev) => ({
+        ...prev,
+        message: "Confirm password must be the same as password",
+      }));
+    }
   };
   // Password Validation Function
   const passwordValidation = (pw) => {
@@ -69,7 +61,7 @@ function SignUp() {
       if (passwordValidation(user.password) === false) {
         return (
           <>
-            <p>"Password Must Contain at least 8 letters"</p>
+            <p>"Password Must Contain at least 6 letters"</p>
             <p>"Password Must Include a Number and Special Character"</p>
           </>
         );
@@ -91,6 +83,14 @@ function SignUp() {
     let path = `/`;
     navigate(path);
   }
+  const handleChange = (e) => {
+    const {name, value} = e.target
+
+    setUserData(prev => ({
+        ...prev,
+        [name]: value
+    }))
+  };
 
   return (
     <>
@@ -114,26 +114,32 @@ function SignUp() {
               id="username"
               type="text"
               placeholder="Username"
-              value={username}
-              onChange={(e) => setUserName(e.target.value)}
+              value={userData.username}
+              onChange={handleChange}
+            />
+            <input
+              className="email"
+              id="email"
+              type="text"
+              placeholder="Email"
+              value={userData.email}
+              onChange={handleChange}
             />
             <input
               id="pw"
               type="password"
               placeholder="Password"
-              value={password}
+              value={userData.password}
               minLength="6"
               pattern="(?=.*\d)(?=.*[a-z])(?=.*?[~`!@#$%\^&*()\-_=+[\]{};:\x27.,\x22\\|/?><]).{8,}"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handleChange}
             />
             <input
               id="pwConfirm"
               type="password"
               placeholder="confirm password"
-              value={passwordConfirm}
-              onChange={(e) => {
-                return setPasswordConfirm(e.target.value);
-              }}
+              value={userData.re_password}
+              onChange={handleChange}
             />
             <button
               onClick={handleBackClick}
@@ -149,6 +155,7 @@ function SignUp() {
             </button>
             <>{result(user.valid)}</>
           </form>
+          <div className="whatever">{userData.message}</div>
         </div>
       </div>
     </>
