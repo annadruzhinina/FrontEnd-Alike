@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import "./landing.css";
 
 //import components
-import SignUp from "../../components/SignUp/SignUp";
+import SignUp from "../../components/SignUp/SignUp.jsx";
 import Button from "@mui/material/Button";
 
 import { useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ import { loginUser, getUser } from "../../services/userApi";
 
 function Landing({ setUser }) {
   const [userData, setUserData] = useState({
-    username: "",
+    username: null,
     password: null,
     message: "",
   });

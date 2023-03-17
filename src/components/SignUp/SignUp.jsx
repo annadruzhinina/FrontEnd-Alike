@@ -9,8 +9,7 @@ import "./signup.css";
 import { getUser, registerUser } from "../../services/userApi";
 
 // Sign-in function
-function SignUp({setUser}) {
-
+function SignUp({ setUser }) {
   // Set useState object
   const [userData, setUserData] = useState({
     username: "",
@@ -20,19 +19,17 @@ function SignUp({setUser}) {
     valid: "",
   });
 
-  
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (userData.password === "")
       setUser({ message: "Please Enter a valid username and password" });
     else if (userData.password === userData.re_password) {
-        await registerUser(userData);
-    
-        let response = await getUser()
-        setUser(response)
-        Navigate("/home");
+      await registerUser(userData);
+
+      let response = await getUser();
+      setUser(response);
+      Navigate("/home");
     } else {
       setUser((prev) => ({
         ...prev,
@@ -84,12 +81,12 @@ function SignUp({setUser}) {
     navigate(path);
   }
   const handleChange = (e) => {
-    const {name, value} = e.target
+    const { name, value } = e.target;
 
-    setUserData(prev => ({
-        ...prev,
-        [name]: value
-    }))
+    setUserData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   return (
