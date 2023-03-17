@@ -1,10 +1,19 @@
 import api from "./apiConfig";
 import { getUsers } from "./userApi.js";
 
+
+const getToken = () => {
+  return new Promise((resolve) => {
+    resolve(`Token ${localStorage.getItem("knox") || null}`);
+  });
+};
+
+
 export const getPosts = () => {
   try {
     const response = api.get("post/");
     return response;
+
   } catch (error) {
     throw new Error(error);
   }
@@ -12,39 +21,59 @@ export const getPosts = () => {
 
 export const createPost = async (postData) => {
   try {
-    let username = window.localStorage.getItem("username");
-    let users = await getUsers();
-    let userID = users.data.find((user) => {
-      return user.username === username;
-    }).id;
-    console.log(`User ID: ${userID}`);
+    let token = await getToken();
+    const headers = {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: token,
+    };
 
-    const response = await api.post("post/", {
-      username: userID,
-      project_name: postData.project_name,
-      github_link: postData.github_link,
-      image: postData.image,
-    });
+    const response = await api.post(
+      "post/",
+      {
+        project_name: postData.project_name,
+        github_link: postData.github_link,
+        image: postData.image,
+      },
+      { headers }
+    );
     return response.data;
+
   } catch (error) {
     throw new Error(error);
   }
 };
 
-export const updatePost = async (postData) => {
+export const updatePost = async (postData, postID) => {
   try {
-    const response = await api.put(`post/${postData.id}/`, postData);
+    let token = await getToken();
+
+    const headers = {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: token,
+    };
+
+    const response = await api.put(`post/${postID}`, postData, { headers });
     return response.data;
   } catch (error) {
-    throw new Error(error);
+    throw error;
   }
 };
 
-export const deletePost = async (postData) => {
+export const deletePost = async (id) => {
   try {
-    const response = await api.delete(`post/${postData.id}`);
+    let token = await getToken();
+
+    const headers = {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: token,
+    };
+
+    const response = await api.delete(`post/${id}`, { headers });
     return response.data;
   } catch (error) {
-    throw new Error(error);
+    throw error;
   }
 };

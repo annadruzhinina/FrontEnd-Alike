@@ -1,5 +1,6 @@
 //Import react
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../../App";
 //Import css
 import "./landing.css";
 
@@ -7,39 +8,56 @@ import "./landing.css";
 import SignUp from "../../components/SignUp/SignUp";
 import Button from "@mui/material/Button";
 
-import { useAuthContext } from "../../Hooks/useAuthContext.js";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../../Context/AuthContexts.js";
+import { loginUser, getUser } from "../../Context/AuthContexts.js";
 
 function Landing() {
-  const { dispatch } = useAuthContext();
-  const [user, setUser] = useState("");
+  const data = useContext(UserContext)
+  const [userData, setUserData] = useState({
+    username: "",
+    password: null,
+    message: "",
+  });
   const navigate = useNavigate();
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [valid, setValid] = useState("");
 
   //CHECK MERGE
   function handleSignUpClick() {
-    let path = `/sign-up`;
-    navigate(path);
+    navigate(`/sign-up`);
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // Prevent Page from Reloading
     e.preventDefault();
     // Update User with Values
-    console.log(`Username: ${username}, Password: ${password}`);
-    loginUser(username, password);
+    // console.log(`Username: ${username}, Password: ${password}`);
+    if (userData.password === "") {
+      setUserData((prev) => ({
+        ...prev,
+        message: "Please Enter a valid password",
+      }));
+    } else {
+      try {
+        await loginUser(userData);
+  
+        let response = data
+        setUserData(response)
+        navigate("/home");
+      } catch (error) {
+        setUserData((prev) => ({
+          ...prev,
+          message: "Please Enter a valid username",
+        }));
+      }
+    }
+  };
 
-    //Send payload (username)
-    dispatch({ type: "LOGIN", payload: { username, password } });
-    //Reset values to ''
-    setUserName("");
-    setPassword("");
-    setValid("");
+  const handleChange = (e) => {
+    const {name, value} = e.target
 
-    navigate("/home");
+    setUserData(prev => ({
+        ...prev,
+        [name]: value
+    }))
   };
 
   return (
@@ -60,15 +78,15 @@ function Landing() {
               id="username"
               type="text"
               placeholder="Username"
-              value={username}
-              onChange={(e) => setUserName(e.target.value)}
+              value={userData.username}
+              onChange={handleChange}
             />
             <input
               id="pw"
               type="password"
               placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={userData.password}
+              onChange={handleChange}
             />
             <button id="submitCredentials" type="submit" value="submit">
               Login
@@ -81,6 +99,7 @@ function Landing() {
               SignUp
             </button>
           </form>
+          <div className="loginErrorMessage">{userData.message}</div>
         </div>
       </div>
     </>
