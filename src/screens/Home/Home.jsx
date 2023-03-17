@@ -1,4 +1,3 @@
-
 //Import React
 import React, { useState, useEffect } from "react";
 // Import ccs
@@ -39,6 +38,7 @@ function Home() {
                     let user = users.map((user, index) => {
                       if (post.username === user.id) return user.username;
                     });
+                    console.log("TEST!!!", post.username, post.project_title);
                     return (
                       <Post
                         key={index}
@@ -48,14 +48,13 @@ function Home() {
                       />
                     );
                   })}
-
             </div>
           </div>
           <RightNavbar />
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
