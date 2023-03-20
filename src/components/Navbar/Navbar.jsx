@@ -7,6 +7,7 @@ import "./navbar.css";
 // Import Components
 import { NavbarData } from "./NavbarData";
 import NewPost from "../../components/NewPost/NewPost.jsx";
+import { signOut } from '../../services/userApi.js'
 
 function Navbar({setToggle}) {
   const [showNewPost, setShowNewPost] = useState(false);
@@ -75,6 +76,7 @@ function Navbar({setToggle}) {
                       setOpen(true);
                     }
                     if (item.title === "Sign Out") {
+                      signOut()
                       console.log("Logged Out")
                     }
                   }}

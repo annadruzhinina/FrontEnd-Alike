@@ -12,7 +12,7 @@ import { loginUser, getUser } from "../../services/userApi";
 
 function Landing({ setUser }) {
   const [userData, setUserData] = useState({
-    username: null,
+    username: "",
     password: null,
     message: "",
   });
@@ -40,7 +40,15 @@ function Landing({ setUser }) {
       window.localStorage.setItem("username", userData.username);
       let response = await getUser();
       setUser(response);
-      navigate("/home");
+      if (
+        window.localStorage.getItem("knox") &&
+        window.localStorage.getItem("knox") !== "undefined"
+      ) {
+        console.log("Token is in local storage");
+        navigate("/home");
+      }
+      // navigate("/home");
+
       // } catch (error) {
       //   setUserData((prev) => ({
       //     ...prev,
@@ -95,7 +103,7 @@ function Landing({ setUser }) {
             <button
               onClick={handleSignUpClick}
               id="submitCredentials"
-              value="submit"
+              // value="submit"
             >
               SignUp
             </button>

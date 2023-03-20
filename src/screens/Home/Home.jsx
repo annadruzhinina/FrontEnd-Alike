@@ -14,12 +14,15 @@ function Home() {
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
-    getPosts().then((posts) => {
-      setPosts(posts.data);
-    });
-    getUsers().then((users) => {
-      setUsers(users.data);
-    });
+    getPosts()
+      .then((posts) => {
+        setPosts(posts.data);
+      })
+      .then(
+        getUsers().then((users) => {
+          setUsers(users);
+        })
+      );
   }, [toggle]);
 
   return (
