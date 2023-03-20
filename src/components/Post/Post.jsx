@@ -35,7 +35,7 @@ export default function Post({ post, user, setToggle }) {
   };
 
   async function handleDelete() {
-    await deletePost(post);
+    await deletePost(post.id);
     setToggle((prev) => !prev);
   }
 
