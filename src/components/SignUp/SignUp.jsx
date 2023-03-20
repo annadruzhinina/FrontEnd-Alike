@@ -18,7 +18,7 @@ function SignUp({ setUser }) {
     password: null,
     re_password: null,
   });
-  console.log("Test3", userData);
+  // console.log("Test3", userData);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -66,14 +66,14 @@ function SignUp({ setUser }) {
         );
       } else {
         return <Navigate to="/" replace={true} />;
-        // return console.log('Navigate')
       }
       // Otherwise flag that the passwords do not match
     } else {
       return (
-        <div className="sign-up__password">
-          Password incorrect please try again.
-        </div>
+        // <div className="sign-up__password">
+        // Password incorrect please try again.
+        // </div>
+        console.log("placeholder")
       );
     }
   };
@@ -140,7 +140,7 @@ function SignUp({ setUser }) {
               id="pwConfirm"
               type="password"
               name="re_password"
-              placeholder="confirm password"
+              placeholder="Confirm Password"
               value={userData.re_password}
               onChange={handleChange}
             />
