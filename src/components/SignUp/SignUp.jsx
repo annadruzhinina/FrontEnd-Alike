@@ -29,23 +29,26 @@ function SignUp({ setUser, user }) {
     }
       // setUser({ message: "Please Enter a valid username and password" });
     else if (userData.password === userData.re_password) {
-      setUserData((prev) => ({
-        ...prev,
-        valid: true,
-      }));
-      await registerUser(userData);
+      // setUserData((prev) => ({
+      //   ...prev,
+      //   valid: true,
+      // }));
+      // await registerUser(userData);
 
-      let response = await getUser();
-      setUser(response);
-      console.log("Test4", userData);
-      window.localStorage.setItem("username", userData.username);
-      navigate("/home");
+      // let response = await getUser();
+      // setUser(response);
+      // console.log("Test4", userData);
+      // window.localStorage.setItem("username", userData.username);
+      // navigate("/home");
     } else {
       // setUser((prev) => ({
       //   ...prev,
       //   message: "Confirm password must be the same as password",
       // }));
       // return <p>Confirm password must be the same as password</p>
+
+
+      
       setError('Confirm password must be the same as password')
     }
   };
@@ -76,7 +79,8 @@ function SignUp({ setUser, user }) {
           </>
         );
       } else {
-        return <Navigate to="/" replace={true} />;
+        setUser(null)
+        return <Navigate to="/sign-up" replace={true} />;
       }
       // Otherwise flag that the passwords do not match
     } else {

@@ -23,7 +23,6 @@ function App() {
             let response = await getUser()
             setUser(response)
         }
-    
         fetchUser()
     }, [])
     return (
