@@ -45,6 +45,8 @@ export const loginUser = async (userData) => {
 export const signOut = async () => {
   try {
     localStorage.removeItem("knox");
+    localStorage.removeItem("username");
+    localStorage.removeItem("cloud");
     return true;
   } catch (error) {
     throw error;
