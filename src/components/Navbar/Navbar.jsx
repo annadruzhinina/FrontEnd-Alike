@@ -9,7 +9,7 @@ import { NavbarData } from "./NavbarData";
 import NewPost from "../../components/NewPost/NewPost.jsx";
 import { signOut } from '../../services/userApi.js'
 
-function Navbar({setToggle}) {
+function Navbar({setToggle, toggle}) {
   const [showNewPost, setShowNewPost] = useState(false);
   const [open, setOpen] = React.useState(false);
   // Scroll up when clicking on the logo
@@ -43,6 +43,7 @@ function Navbar({setToggle}) {
                   title={item.title}
                   className="navbar-menu__item"
                   setToggle={setToggle}
+                  toggle={toggle}
                 />
               );
             }

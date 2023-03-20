@@ -13,6 +13,8 @@ import Post from "../../components/Post/Post.jsx";
 function Profile() {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
+  const [toggle, setToggle] = useState(false);
+
   let username = window.localStorage.getItem("username");
   let usernameID = "";
 
@@ -26,7 +28,6 @@ function Profile() {
   }
 
   console.log(`User ID: ${usernameID}`);
-  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     getPosts()
@@ -92,7 +93,6 @@ function Profile() {
                 .filter((post) => post.username === usernameID)
                 .reverse()
                 .map((post, index) => {
-                  console.log(post);
                   let user = users.map((user, index) => {
                     if (post.username === user.id) return user.username;
                   });
@@ -102,6 +102,7 @@ function Profile() {
                       user={user}
                       post={post}
                       setToggle={setToggle}
+                      toggle={toggle}
                     />
                   );
                 })}
