@@ -34,27 +34,15 @@ function SignUp({ setUser, user }) {
         valid: true,
       }));
       try{
-
-      
-      await registerUser(userData);
-
-      let response = await getUser();
-      setUser(response);
-      window.localStorage.setItem("username", userData.username);
-      navigate("/home");
-    }catch{
-      setError('User Already Exists')
-    }
-  
-  } else {
-      // setUser((prev) => ({
-      //   ...prev,
-      //   message: "Confirm password must be the same as password",
-      // }));
-      // return <p>Confirm password must be the same as password</p>
-
-
-
+        await registerUser(userData);
+        let response = await getUser();
+        setUser(response);
+        window.localStorage.setItem("username", userData.username);
+        navigate("/home");
+      }catch{
+        setError('User or Email Already Exists')
+      }
+    } else {
       setError('Confirm password must be the same as password')
     }
   };
@@ -85,8 +73,7 @@ function SignUp({ setUser, user }) {
           </>
         );
       } else {
-        // setUser(null)
-        // return <Navigate to="/sign-up" replace={true} />;
+        setUser(null)
       }
       // Otherwise flag that the passwords do not match
     } else {
