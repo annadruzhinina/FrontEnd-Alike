@@ -9,34 +9,41 @@ import "./signup.css";
 import { getUser, registerUser } from "../../services/userApi";
 
 // Sign-in function
-function SignUp({ setUser }) {
+function SignUp({ setUser, user }) {
+  const [error, setError] = useState("");
   let navigate = useNavigate();
   // Set useState object
   const [userData, setUserData] = useState({
-    username: null,
-    email: null,
-    password: null,
-    re_password: null,
+    username: "",
+    email: "",
+    password: "",
+    re_password: "",
+    valid: false,
   });
   // console.log("Test3", userData);
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (userData.password === "")
-      setUser({ message: "Please Enter a valid username and password" });
+    if (userData.password === ""){
+      setError('Please Enter a valid username and password')
+      // return <p>Please Enter a valid username and password</p>
+    }
+      // setUser({ message: "Please Enter a valid username and password" });
     else if (userData.password === userData.re_password) {
-      await registerUser(userData);
-
-      let response = await getUser();
-      setUser(response);
-      console.log("Test4", userData);
-      window.localStorage.setItem("username", userData.username);
-      navigate("/home");
-    } else {
-      setUser((prev) => ({
+      setUserData((prev) => ({
         ...prev,
-        message: "Confirm password must be the same as password",
+        valid: true,
       }));
+      try{
+        await registerUser(userData);
+        let response = await getUser();
+        setUser(response);
+        window.localStorage.setItem("username", userData.username);
+        navigate("/home");
+      }catch{
+        setError('User or Email Already Exists')
+      }
+    } else {
+      setError('Confirm password must be the same as password')
     }
   };
   // Password Validation Function
@@ -51,6 +58,7 @@ function SignUp({ setUser }) {
   };
   // Result Function to check for valid passwords
   const result = (validation) => {
+    console.log(validation)
     if (validation === "") {
       // Ensure reset of <p> when values are reset after submitting
       return <p></p>;
@@ -65,16 +73,25 @@ function SignUp({ setUser }) {
           </>
         );
       } else {
-        return <Navigate to="/" replace={true} />;
+        setUser(null)
       }
       // Otherwise flag that the passwords do not match
     } else {
-      return (
-        // <div className="sign-up__password">
-        // Password incorrect please try again.
-        // </div>
-        console.log("placeholder")
-      );
+      // console.log(user)
+      // let message = ""
+      // if(userData.username !== "" && userData.email !==  "" && userData.password !== ""){
+      //   if(userData.password === userData.re_password){
+      //     message = 'Passwords Match'
+      //   }else{
+      //     message = error
+      //   }
+      //   message = error
+      // }
+      // return (
+      //   <div className="sign-up__password">
+      //   {message}
+      //   </div>
+      // );
     }
   };
 
@@ -157,8 +174,8 @@ function SignUp({ setUser }) {
               Submit
             </button>
             <>{result(userData.valid)}</>
+            <div className="sign-up__password">{error}</div>
           </form>
-          <div className="whatever">{userData.message}</div>
         </div>
       </div>
     </>

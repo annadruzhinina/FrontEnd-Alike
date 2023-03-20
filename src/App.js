@@ -23,15 +23,14 @@ function App() {
             let response = await getUser()
             setUser(response)
         }
-    
         fetchUser()
     }, [])
     return (
         <>
             <Routes>
                 <Route path="/home" element={<Home user={user}/>} />
-                <Route path="/" element={<Landing  setUser={setUser}/>} />
-                <Route path="/sign-up" element={<SignUp setUser={setUser}/>} />
+                <Route path="/" element={<Landing  setUser={setUser} />} />
+                <Route path="/sign-up" element={<SignUp setUser={setUser} user={user}/>} />
                 <Route path="/profile" element={<Profile user={user}/>} />
                 <Route path="/newrightnavbar" element = {<NewRightNavbar/>} />
             </Routes>

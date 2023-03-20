@@ -28,7 +28,7 @@ function Home() {
   return (
     <div className="home">
       <div className="home-global">
-        <Navbar setToggle={setToggle} />
+        <Navbar setToggle={setToggle} toggle={toggle}/>
         <div className="home-content">
           <div className="home-content_center">
             <div className="home-center">

@@ -27,7 +27,7 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({ icon, title, className, setToggle }) {
+export default function BasicModal({ icon, title, className, setToggle, toggle }) {
   const [open, setOpen] = useState(false);
 
   const projectNameRef = React.useRef(null);
@@ -38,13 +38,10 @@ export default function BasicModal({ icon, title, className, setToggle }) {
 
   async function handleSubmit() {
     let cloudinaryUrl = window.localStorage.getItem("cloud");
-    // let username = window.localStorage.getItem("username");
 
     let newPost = await createPost({
-      // username: username,
       project_name: projectNameRef.current.value,
       github_link: githubRef.current.value,
-      // tagsRef.current.value,
       image: cloudinaryUrl,
     });
     console.log("Test5", newPost.project_name);
