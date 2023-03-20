@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { loginUser, getUser } from "../../services/userApi";
 
 function Landing({ setUser }) {
+  const [error, setError] = useState("")
   const [userData, setUserData] = useState({
     username: "",
     password: null,
@@ -30,12 +31,9 @@ function Landing({ setUser }) {
     // Update User with Values
     console.log("Test2", userData);
     if (userData.password === "") {
-      setUserData((prev) => ({
-        ...prev,
-        message: "Please Enter a valid password",
-      }));
+      setError("Password Field Required")
     } else {
-      // try {
+      try {
       await loginUser(userData);
       window.localStorage.setItem("username", userData.username);
       let response = await getUser();
@@ -47,14 +45,10 @@ function Landing({ setUser }) {
         console.log("Token is in local storage");
         navigate("/home");
       }
-      // navigate("/home");
 
-      // } catch (error) {
-      //   setUserData((prev) => ({
-      //     ...prev,
-      //     message: "Please Enter a valid username",
-      //   }));
-      // }
+      } catch (error) {
+        setError("Username or Password Incorrect")
+      }
     }
   };
 
@@ -107,8 +101,8 @@ function Landing({ setUser }) {
             >
               SignUp
             </button>
+            <div className="loginErrorMessage">{error}</div>
           </form>
-          <div className="loginErrorMessage">{userData.message}</div>
         </div>
       </div>
     </>
