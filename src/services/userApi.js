@@ -8,12 +8,11 @@ const getToken = () => {
 
 export const getUser = async () => {
   try {
-    // let token = await getToken();
-
+    let token = await getToken();
     const headers = {
       Accept: "application/json",
       "Content-Type": "application/json",
-      // Authorization: token,
+      Authorization: token,
     };
 
     const response = await api.get("profile", { headers });
@@ -63,6 +62,7 @@ export const getUsers = async () => {
     };
 
     const response = await api.get("user", { headers });
+    console.log(response.data);
     return response.data;
   } catch (error) {
     throw error;
