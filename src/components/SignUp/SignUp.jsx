@@ -29,18 +29,24 @@ function SignUp({ setUser, user }) {
     }
       // setUser({ message: "Please Enter a valid username and password" });
     else if (userData.password === userData.re_password) {
-      // setUserData((prev) => ({
-      //   ...prev,
-      //   valid: true,
-      // }));
-      // await registerUser(userData);
+      setUserData((prev) => ({
+        ...prev,
+        valid: true,
+      }));
+      try{
 
-      // let response = await getUser();
-      // setUser(response);
-      // console.log("Test4", userData);
-      // window.localStorage.setItem("username", userData.username);
-      // navigate("/home");
-    } else {
+      
+      await registerUser(userData);
+
+      let response = await getUser();
+      setUser(response);
+      window.localStorage.setItem("username", userData.username);
+      navigate("/home");
+    }catch{
+      setError('User Already Exists')
+    }
+  
+  } else {
       // setUser((prev) => ({
       //   ...prev,
       //   message: "Confirm password must be the same as password",
@@ -48,7 +54,7 @@ function SignUp({ setUser, user }) {
       // return <p>Confirm password must be the same as password</p>
 
 
-      
+
       setError('Confirm password must be the same as password')
     }
   };
@@ -79,21 +85,21 @@ function SignUp({ setUser, user }) {
           </>
         );
       } else {
-        setUser(null)
-        return <Navigate to="/sign-up" replace={true} />;
+        // setUser(null)
+        // return <Navigate to="/sign-up" replace={true} />;
       }
       // Otherwise flag that the passwords do not match
     } else {
-      console.log(user)
-      let message = ""
-      if(userData.username !== "" && userData.email !==  "" && userData.password !== ""){
-        if(userData.password === userData.re_password){
-          message = 'Passwords Match'
-        }else{
-          message = error
-        }
-        message = error
-      }
+      // console.log(user)
+      // let message = ""
+      // if(userData.username !== "" && userData.email !==  "" && userData.password !== ""){
+      //   if(userData.password === userData.re_password){
+      //     message = 'Passwords Match'
+      //   }else{
+      //     message = error
+      //   }
+      //   message = error
+      // }
       // return (
       //   <div className="sign-up__password">
       //   {message}
