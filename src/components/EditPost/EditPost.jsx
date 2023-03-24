@@ -10,7 +10,7 @@ function EditPost( {showPopup, setShowPopup, setToggle, post}) {
     let activeUser = window.localStorage.getItem("username");
     const popupRef = useRef(null);
     const handleUpdate = async () => {
-        await updatePost(postData);
+        await updatePost(postData, post.id);
         setToggle((prev) => !prev);
         setShowPopup(false);
     };
