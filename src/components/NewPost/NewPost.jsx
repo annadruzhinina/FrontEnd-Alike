@@ -46,7 +46,7 @@ export default function BasicModal({ icon, title, className, setToggle, toggle }
     });
     // console.log("Test5", newPost.project_name);
     handleClose();
-    window.location.reload(true);
+    // window.location.reload(true);
     setToggle((prev) => !prev);
   }
   return (

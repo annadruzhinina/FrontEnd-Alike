@@ -48,7 +48,7 @@ function Profile( { user, toggle, setToggle } ) {
   return (
     <>
       <div className="header">
-        <Navbar />
+        <Navbar toggle={toggle} setToggle={setToggle}/>
         <div className="profile-container">
           <div className="profile">
             <div className="profile-image">
