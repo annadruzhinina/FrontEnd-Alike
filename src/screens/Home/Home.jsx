@@ -12,7 +12,6 @@ function Home( {toggle, setToggle }) {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
   // const [toggle, setToggle] = useState(false);
-
   useEffect(() => {
     getPosts()
       .then((posts) => {

@@ -45,9 +45,9 @@ export default function BasicModal({ icon, title, className, setToggle, toggle }
       image: cloudinaryUrl,
     });
     // console.log("Test5", newPost.project_name);
-    setToggle((prev) => !prev);
     handleClose();
-    // window.location.reload(true);
+    window.location.reload(true);
+    setToggle((prev) => !prev);
   }
   return (
     <div>

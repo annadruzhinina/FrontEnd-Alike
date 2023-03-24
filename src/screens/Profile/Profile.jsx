@@ -10,7 +10,7 @@ import Navbar from "../../components/Navbar/Navbar.jsx";
 import { getPosts } from "../../services/postApi.js";
 import { getUsers } from "../../services/userApi.js";
 import Post from "../../components/Post/Post.jsx";
-function Profile( { toggle, setToggle } ) {
+function Profile( { user, toggle, setToggle } ) {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
   // const [toggle, setToggle] = useState(false);

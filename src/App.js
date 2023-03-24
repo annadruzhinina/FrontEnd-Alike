@@ -13,8 +13,6 @@ import SignUp from "./components/SignUp/SignUp.jsx";
 // importing newrightnavbar temporarily so it can be worked on
 import NewRightNavbar from "./components/NewRightNavbar/NewRightNavbar.jsx";
 
-
-
 function App() {
     const [user, setUser] = useState(null)
     const [toggle, setToggle] = useState(false);
