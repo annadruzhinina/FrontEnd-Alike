@@ -46,8 +46,12 @@ export default function BasicModal({ icon, title, className, setToggle, toggle }
     });
     console.log("Test5", newPost.project_name);
     setToggle((prev) => !prev);
+    console.log(toggle)
+    
     handleClose();
+    // window.location.reload(true);
   }
+
   return (
     <div>
       <Link key="new-post" className="navbar-menu__item" onClick={handleOpen}>

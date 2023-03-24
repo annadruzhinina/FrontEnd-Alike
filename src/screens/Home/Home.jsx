@@ -8,10 +8,10 @@ import RightNavbar from "../../components/RightNavbar/RightNavbar.jsx";
 import { getPosts } from "../../services/postApi.js";
 import { getUsers } from "../../services/userApi.js";
 
-function Home() {
+function Home( {toggle, setToggle }) {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
-  const [toggle, setToggle] = useState(false);
+  // const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     getPosts()
