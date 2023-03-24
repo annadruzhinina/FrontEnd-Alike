@@ -198,5 +198,18 @@ h4 {
 .popup label{
   font-size: small;
   margin-bottom: 0;
- 
+}
+
+.EditHeader {
+  /* border: solid red 2px; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.ExitEdit {
+  background-color: transparent;
+}
+
+.ExitEdit:hover {
+  cursor: pointer;
 }
