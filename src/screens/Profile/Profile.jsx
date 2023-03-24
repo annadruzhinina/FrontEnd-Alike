@@ -10,24 +10,24 @@ import Navbar from "../../components/Navbar/Navbar.jsx";
 import { getPosts } from "../../services/postApi.js";
 import { getUsers } from "../../services/userApi.js";
 import Post from "../../components/Post/Post.jsx";
-function Profile() {
+function Profile( { user, toggle, setToggle } ) {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
-  const [toggle, setToggle] = useState(false);
+  // const [toggle, setToggle] = useState(false);
 
   let username = window.localStorage.getItem("username");
   let usernameID = "";
 
-  console.log(username);
+  // console.log(username);
 
   for (let i = 0; i < users.length; i++) {
-    console.log(users[i].username);
+    // console.log(users[i].username);
     if (users[i].username === username) {
       usernameID = users[i].id;
     }
   }
 
-  console.log(`User ID: ${usernameID}`);
+  // console.log(`User ID: ${usernameID}`);
 
   useEffect(() => {
     getPosts()
@@ -48,10 +48,10 @@ function Profile() {
   return (
     <>
       <div className="header">
-        <Navbar />
-        <div class="profile-container">
-          <div class="profile">
-            <div class="profile-image">
+        <Navbar toggle={toggle} setToggle={setToggle}/>
+        <div className="profile-container">
+          <div className="profile">
+            <div className="profile-image">
               <img
                 onClick={handleGAClick}
                 className="profile-image-png"
@@ -59,25 +59,25 @@ function Profile() {
                 alt=""
               />
             </div>
-            <div class="profile-user-settings">
-              {/* <h1 class="profile-user-name">{username}</h1> */}
+            <div className="profile-user-settings">
+              {/* <h1 className="profile-user-name">{username}</h1> */}
             </div>
-            <div class="profile-stats">
+            <div className="profile-stats">
               <ul>
                 <li>
-                  <span class="profile-stat-count">164</span> posts
+                  <span className="profile-stat-count">164</span> posts
                 </li>
                 <li>
-                  <span class="profile-stat-count">188</span> followers
+                  <span className="profile-stat-count">188</span> followers
                 </li>
                 <li>
-                  <span class="profile-stat-count">206</span> following
+                  <span className="profile-stat-count">206</span> following
                 </li>
               </ul>
             </div>
-            <div class="profile-bio">
+            <div className="profile-bio">
               <p>
-                <span class="profile-real-name">{username}'s profile</span>
+                <span className="profile-real-name">{username}'s profile</span>
               </p>
             </div>
           </div>

@@ -44,9 +44,8 @@ export default function BasicModal({ icon, title, className, setToggle, toggle }
       github_link: githubRef.current.value,
       image: cloudinaryUrl,
     });
-    console.log("Test5", newPost.project_name);
-    setToggle((prev) => !prev);
     handleClose();
+    setToggle((prev) => !prev);
   }
   return (
     <div>

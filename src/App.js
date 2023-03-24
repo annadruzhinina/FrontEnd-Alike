@@ -13,10 +13,9 @@ import SignUp from "./components/SignUp/SignUp.jsx";
 // importing newrightnavbar temporarily so it can be worked on
 import NewRightNavbar from "./components/NewRightNavbar/NewRightNavbar.jsx";
 
-
-
 function App() {
     const [user, setUser] = useState(null)
+    const [toggle, setToggle] = useState(false);
     
     useEffect(()=>{
         const fetchUser = async () => {
@@ -28,10 +27,10 @@ function App() {
     return (
         <>
             <Routes>
-                <Route path="/home" element={<Home user={user}/>} />
+                <Route path="/home" element={<Home user={user} toggle={toggle} setToggle={setToggle}/>} />
                 <Route path="/" element={<Landing  setUser={setUser} />} />
                 <Route path="/sign-up" element={<SignUp setUser={setUser} user={user}/>} />
-                <Route path="/profile" element={<Profile user={user}/>} />
+                <Route path="/profile" element={<Profile user={user} toggle={toggle} setToggle={setToggle}/>} />
                 <Route path="/newrightnavbar" element = {<NewRightNavbar/>} />
             </Routes>
         </>
