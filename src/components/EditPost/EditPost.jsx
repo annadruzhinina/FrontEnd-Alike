@@ -2,15 +2,24 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { updatePost } from "../../services/postApi";
+import UploadWidget from "../UploadWidget/UploadWidget.jsx";
 //Import ccs
 import "../Post/post.css";
 
 function EditPost( {showPopup, setShowPopup, setToggle, post}) {
     const [postData, setPostData] = useState(post);
-    let activeUser = window.localStorage.getItem("username");
+    let cloudinaryUrl = window.localStorage.getItem("cloud")
+    const [cloudURL, setCloudURL] = useState(cloudinaryUrl);
     const popupRef = useRef(null);
     const handleUpdate = async () => {
-        await updatePost(postData, post.id);
+        console.log(post)
+        cloudinaryUrl = window.localStorage.getItem("cloud")
+        await updatePost({
+            project_name: postData.project_name,
+            github_link: postData.github_link,
+            image: cloudinaryUrl,
+        }, post.id);
+        console.log(postData)
         setToggle((prev) => !prev);
         setShowPopup(false);
     };
@@ -31,6 +40,12 @@ function EditPost( {showPopup, setShowPopup, setToggle, post}) {
             handlePopupClose();
         }
     };
+
+    const updateURL = (prevURL, newURL) => {
+        if (prevURL !== newURL) {
+            setPostData({ ...postData, image: newURL })
+        }
+    }
 
     useEffect(() => {
         document.addEventListener("mousedown", handleClickOutside);
@@ -74,15 +89,13 @@ function EditPost( {showPopup, setShowPopup, setToggle, post}) {
             setPostData({ ...postData, github_link: e.target.value })
             }
         />
-        {/* <label htmlFor="image">Image URL:</label> */}
-        {/* <input
-            type="text"
-            name="image"
-            value={postData.image}
+        <UploadWidget 
+            className="UploadWidget"
+            value={cloudinaryUrl}
             onChange={(e) =>
-            setPostData({ ...postData, image: e.target.value })
+                updateURL(cloudURL, cloudinaryUrl)
             }
-        /> */}
+        />
         <div className="popup-btns">
         <button onClick={handleUpdate}>Save</button>
         </div>

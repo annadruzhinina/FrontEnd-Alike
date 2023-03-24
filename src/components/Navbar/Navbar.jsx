@@ -48,7 +48,7 @@ function Navbar({setToggle, toggle}) {
               );
             }
             if (item.type === "home") {
-              console.log(item);
+              // console.log(item);
               return (
                 <Link
                   key={index}
@@ -78,7 +78,7 @@ function Navbar({setToggle, toggle}) {
                     }
                     if (item.title === "Sign Out") {
                       signOut()
-                      console.log("Logged Out")
+                      // console.log("Logged Out")
                     }
                   }}
                 >
