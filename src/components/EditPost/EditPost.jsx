@@ -9,15 +9,16 @@ import "../Post/post.css";
 function EditPost( {showPopup, setShowPopup, setToggle, post}) {
     const [postData, setPostData] = useState(post);
     let cloudinaryUrl = window.localStorage.getItem("cloud")
-    const [cloudURL, setCloudURL] = useState(cloudinaryUrl);
+    // const [cloudURL, setCloudURL] = useState(null);
     const popupRef = useRef(null);
     const handleUpdate = async () => {
         console.log(post)
         cloudinaryUrl = window.localStorage.getItem("cloud")
+        setPostData({ ...postData, image: cloudinaryUrl })
         await updatePost({
             project_name: postData.project_name,
             github_link: postData.github_link,
-            image: cloudinaryUrl,
+            image: postData.image,
         }, post.id);
         console.log(postData)
         setToggle((prev) => !prev);
@@ -26,7 +27,7 @@ function EditPost( {showPopup, setShowPopup, setToggle, post}) {
 
     const handlePopupClose = () => {
         setShowPopup(false);
-        setPostData(post);
+        setPostData(post);  
     };
 
     const handleClickOutside = (event) => {
@@ -40,12 +41,6 @@ function EditPost( {showPopup, setShowPopup, setToggle, post}) {
             handlePopupClose();
         }
     };
-
-    const updateURL = (prevURL, newURL) => {
-        if (prevURL !== newURL) {
-            setPostData({ ...postData, image: newURL })
-        }
-    }
 
     useEffect(() => {
         document.addEventListener("mousedown", handleClickOutside);
@@ -93,7 +88,7 @@ function EditPost( {showPopup, setShowPopup, setToggle, post}) {
             className="UploadWidget"
             value={cloudinaryUrl}
             onChange={(e) =>
-                updateURL(cloudURL, cloudinaryUrl)
+                setPostData({ ...postData, image: e.target.value })
             }
         />
         <div className="popup-btns">
