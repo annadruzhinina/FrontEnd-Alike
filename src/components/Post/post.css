@@ -205,3 +205,11 @@ h4 {
   display: flex;
   justify-content: space-between;
 }
+
+.ExitEdit {
+  background-color: transparent;
+}
+
+.ExitEdit:hover {
+  cursor: pointer;
+}

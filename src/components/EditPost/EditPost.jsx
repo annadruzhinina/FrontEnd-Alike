@@ -46,7 +46,7 @@ function EditPost( {showPopup, setShowPopup, postData, setPostData, setToggle, p
         <div className="popup">
         <div className="EditHeader">
             <h3>Edit Post</h3>
-            <button
+            <button className="ExitEdit"
                 onClick={() => {
                 handlePopupClose();
                 console.log("Popup closed");
