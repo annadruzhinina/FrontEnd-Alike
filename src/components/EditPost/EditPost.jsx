@@ -44,7 +44,17 @@ function EditPost( {showPopup, setShowPopup, postData, setPostData, setToggle, p
   return (
     <div className="popup-container">
         <div className="popup">
-        <h3>Edit Post</h3>
+        <div className="EditHeader">
+            <h3>Edit Post</h3>
+            <button
+                onClick={() => {
+                handlePopupClose();
+                console.log("Popup closed");
+                }}
+            >
+                X
+            </button>
+        </div>
         <label htmlFor="project_name">Project Name:</label>
         <input
             type="text"
@@ -74,14 +84,6 @@ function EditPost( {showPopup, setShowPopup, postData, setPostData, setToggle, p
         />
         <div className="popup-btns">
         <button onClick={handleUpdate}>Save</button>
-        {/* <button
-            onClick={() => {
-            handlePopupClose();
-            console.log("Popup closed");
-            }}
-        >
-            Cancel
-        </button> */}
         </div>
         </div>
     </div>
