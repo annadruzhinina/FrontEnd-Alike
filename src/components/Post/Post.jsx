@@ -17,8 +17,6 @@ import EditPost from "../EditPost/EditPost.jsx";
 
 export default function Post({ post, user, setToggle }) {
   const [showPopup, setShowPopup] = useState(false);
-  const [postData, setPostData] = useState(post);
-
 
   let username = "";
   for (let i = 0; i < user.length; i++) {
@@ -29,18 +27,10 @@ export default function Post({ post, user, setToggle }) {
 
   let activeUser = window.localStorage.getItem("username");
 
-  const handleUpdate = async () => {
-    await updatePost(postData);
-    setToggle((prev) => !prev);
-    setShowPopup(false);
-  };
-
   async function handleDelete() {
     await deletePost(post.id);
     setToggle((prev) => !prev);
   }
-
-
 
   return (
     <>
@@ -77,7 +67,7 @@ export default function Post({ post, user, setToggle }) {
           </a>
         </div>
       </div>
-      {showPopup && <EditPost showPopup={showPopup} setShowPopup={setShowPopup} postData={postData} setPostData={setPostData} setToggle={setToggle} post={post}/>}
+      {showPopup && <EditPost showPopup={showPopup} setShowPopup={setShowPopup} setToggle={setToggle} post={post}/>}
     </>
   );
 }

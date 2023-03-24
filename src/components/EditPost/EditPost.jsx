@@ -5,7 +5,8 @@ import { updatePost } from "../../services/postApi";
 //Import ccs
 import "../Post/post.css";
 
-function EditPost( {showPopup, setShowPopup, postData, setPostData, setToggle, post}) {
+function EditPost( {showPopup, setShowPopup, setToggle, post}) {
+    const [postData, setPostData] = useState(post);
     let activeUser = window.localStorage.getItem("username");
     const popupRef = useRef(null);
     const handleUpdate = async () => {
@@ -73,15 +74,15 @@ function EditPost( {showPopup, setShowPopup, postData, setPostData, setToggle, p
             setPostData({ ...postData, github_link: e.target.value })
             }
         />
-        <label htmlFor="image">Image URL:</label>
-        <input
+        {/* <label htmlFor="image">Image URL:</label> */}
+        {/* <input
             type="text"
             name="image"
             value={postData.image}
             onChange={(e) =>
             setPostData({ ...postData, image: e.target.value })
             }
-        />
+        /> */}
         <div className="popup-btns">
         <button onClick={handleUpdate}>Save</button>
         </div>
