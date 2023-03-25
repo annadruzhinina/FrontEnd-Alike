@@ -44,8 +44,12 @@ export default function BasicModal({ icon, title, className, setToggle, toggle }
       github_link: githubRef.current.value,
       image: cloudinaryUrl,
     });
+
     handleClose();
     setToggle((prev) => !prev);
+    
+    // Removes cloudinary url from local storage after post submission
+    window.localStorage.removeItem("cloud")
   }
   return (
     <div>

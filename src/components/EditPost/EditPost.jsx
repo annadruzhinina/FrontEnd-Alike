@@ -8,21 +8,23 @@ import "../Post/post.css";
 
 function EditPost( {showPopup, setShowPopup, setToggle, post}) {
     const [postData, setPostData] = useState(post);
-    let cloudinaryUrl = window.localStorage.getItem("cloud")
-    // const [cloudURL, setCloudURL] = useState(null);
     const popupRef = useRef(null);
+
     const handleUpdate = async () => {
-        console.log(post)
-        cloudinaryUrl = window.localStorage.getItem("cloud")
-        setPostData({ ...postData, image: cloudinaryUrl })
+        let cloudinaryUrl = window.localStorage.getItem("cloud")
+
         await updatePost({
             project_name: postData.project_name,
             github_link: postData.github_link,
-            image: postData.image,
+            // Sets image to the current post image URL if cloudinaryUrl does not exist; otherwise, uses cloudinaryUrl
+            image: !cloudinaryUrl ? post.image : cloudinaryUrl,
         }, post.id);
-        console.log(postData)
+
         setToggle((prev) => !prev);
         setShowPopup(false);
+
+        // Removes cloudinaryUrl after submission of post update
+        window.localStorage.removeItem("cloud")
     };
 
     const handlePopupClose = () => {
@@ -84,13 +86,7 @@ function EditPost( {showPopup, setShowPopup, setToggle, post}) {
             setPostData({ ...postData, github_link: e.target.value })
             }
         />
-        <UploadWidget 
-            className="UploadWidget"
-            value={cloudinaryUrl}
-            onChange={(e) =>
-                setPostData({ ...postData, image: e.target.value })
-            }
-        />
+        <UploadWidget className="UploadWidget" />
         <div className="popup-btns">
         <button onClick={handleUpdate}>Save</button>
         </div>
