@@ -8,7 +8,7 @@
   border: 1px solid lightgray;
   margin-bottom: var(--space-base-double);
   min-width: 300px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -158,46 +158,51 @@ h4 {
   align-items: center;
   backdrop-filter: blur(2px); /* add a blur effect to the background */
   z-index: 1; /* make sure the popup is displayed above the blurred background */
-  background-color: rgba(0, 0, 0, 0.618);
+  background-color: rgba(0, 0, 0, 0.8);
   min-width: 350px;
 }
 
 .popup {
-  background-color: white;
+  background-color: #3b91d780;
   padding: 20px;
   border-radius: 5px;
-  z-index: 2; /* make sure the popup is displayed above the blurred background */
-  min-width: 350px;
+  z-index: 2;
+  min-width: 450px;
+  min-height: 450px;
+  box-shadow: 2px 3px 15px black;
 }
 
-.popup input{
-  border-radius: .5rem;
+.popup input {
+  border-radius: 0.5rem;
   border: solid #00000024;
 }
 
-.popup-btns{
+.popup-btns {
   display: flex;
   justify-content: space-between;
 }
 
-.popup-btns button{
+.popup-btns button {
   border: solid #00000024;
   background-color: #3b91d7;
-  padding: .5rem;
-  border-radius: .5rem;
-  width: 310px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  width: 410px;
   margin-top: 20px;
   color: white;
 }
 
-.popup-container h3{
+.popup-container h3 {
   text-align: center;
-  color: #3b91d7;
+  color: white;
+  font-weight: 900;
+  font-size: 24px;
 }
 
-.popup label{
+.popup label {
   font-size: small;
   margin-bottom: 0;
+  color: white;
 }
 
 .EditHeader {
@@ -212,4 +217,29 @@ h4 {
 
 .ExitEdit:hover {
   cursor: pointer;
+}
+
+.edit_UploadWidget {
+  width: 100%;
+  padding: 12px;
+  margin: 20px 0 20px 0;
+  border: 2px solid white;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: solid #00000024;
+}
+
+.edit_exit {
+  color: white;
+  height: 20px;
+  width: 20px;
+  font-weight: 900;
+}
+
+.edit_header {
+  margin-bottom: 20px;
+}
+
+.edit_btns {
+  display: flex;
 }

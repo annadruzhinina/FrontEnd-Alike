@@ -21,7 +21,14 @@ const UploadWidget = () => {
       }
     );
   }, []);
-  return <button onClick={() => widgetRef.current.open()}>Upload Image</button>;
+  return (
+    <button
+      className="edit_UploadWidget"
+      onClick={() => widgetRef.current.open()}
+    >
+      Upload Image
+    </button>
+  );
 };
 
 export default UploadWidget;
