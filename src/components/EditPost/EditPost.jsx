@@ -64,13 +64,6 @@ function EditPost({ showPopup, setShowPopup, setToggle, post }) {
       <div className="popup">
         <div className="EditHeader">
           <h3 className="edit_header">Edit Post</h3>
-          <RxCross2
-            className="edit_exit"
-            onClick={() => {
-              handlePopupClose();
-              console.log("Popup closed");
-            }}
-          />
         </div>
         <label htmlFor="project_name">Project Name:</label>
         <input
@@ -95,21 +88,22 @@ function EditPost({ showPopup, setShowPopup, setToggle, post }) {
           value={cloudinaryUrl}
           onChange={(e) => setPostData({ ...postData, image: e.target.value })}
         />
-        {/* <div className="edit_btns">
-          <div className="popup-btns">
-            <button onClick={handleUpdate}>Сancel</button>
-          </div>
-          <div className="popup-btns">
-            <button onClick={handleUpdate}>Save</button>
-          </div>
-        </div> */}
 
         <div className="popup-btns">
-          <button onClick={handleUpdate}>Save</button>
+          <button
+            className="edit_btns"
+            onClick={() => {
+              handlePopupClose();
+            }}
+          >
+            Сancel
+          </button>
+          <button className="edit_btns" onClick={handleUpdate}>
+            Save
+          </button>
         </div>
       </div>
     </div>
   );
 }
-
 export default EditPost;
