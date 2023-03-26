@@ -8,12 +8,11 @@ const getToken = () => {
 
 export const getUser = async () => {
   try {
-    // let token = await getToken();
-
+    let token = await getToken();
     const headers = {
       Accept: "application/json",
       "Content-Type": "application/json",
-      // Authorization: token,
+      Authorization: token,
     };
 
     const response = await api.get("profile", { headers });
@@ -58,6 +57,8 @@ export const loginUser = async (userData) => {
 export const signOut = async () => {
   try {
     localStorage.removeItem("knox");
+    localStorage.removeItem("username");
+    localStorage.removeItem("cloud");
     return true;
   } catch (error) {
     throw error;
@@ -75,6 +76,7 @@ export const getUsers = async () => {
     };
 
     const response = await api.get("user", { headers });
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     throw error;

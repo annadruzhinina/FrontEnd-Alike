@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { loginUser, getUser } from "../../services/userApi";
 
 function Landing({ setUser }) {
+  const [error, setError] = useState("");
   const [userData, setUserData] = useState({
     username: null,
     password: null,
@@ -29,23 +30,22 @@ function Landing({ setUser }) {
     // Update User with Values
     // console.log(`Username: ${username}, Password: ${password}`);
     if (userData.password === "") {
-      setUserData((prev) => ({
-        ...prev,
-        message: "Please Enter a valid password",
-      }));
+      setError("Password Field Required");
     } else {
       try {
-        let token = await loginUser(userData);
-        console.log(token);
-
+        await loginUser(userData);
+        window.localStorage.setItem("username", userData.username);
         let response = await getUser();
         setUser(response);
-        navigate("/home");
+        if (
+          window.localStorage.getItem("knox") &&
+          window.localStorage.getItem("knox") !== "undefined"
+        ) {
+          console.log("Token is in local storage");
+          navigate("/home");
+        }
       } catch (error) {
-        setUserData((prev) => ({
-          ...prev,
-          message: "Please Enter a valid username",
-        }));
+        setError("Username or Password Incorrect");
       }
     }
   };
@@ -93,12 +93,12 @@ function Landing({ setUser }) {
             <button
               onClick={handleSignUpClick}
               id="submitCredentials"
-              value="submit"
+              // value="submit"
             >
               SignUp
             </button>
+            <div className="loginErrorMessage">{error}</div>
           </form>
-          <div className="loginErrorMessage">{userData.message}</div>
         </div>
       </div>
     </>

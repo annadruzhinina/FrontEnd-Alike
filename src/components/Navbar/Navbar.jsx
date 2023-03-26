@@ -7,8 +7,9 @@ import "./navbar.css";
 // Import Components
 import { NavbarData } from "./NavbarData";
 import NewPost from "../../components/NewPost/NewPost.jsx";
+import { signOut } from '../../services/userApi.js'
 
-function Navbar({setToggle}) {
+function Navbar({setToggle, toggle}) {
   const [showNewPost, setShowNewPost] = useState(false);
   const [open, setOpen] = React.useState(false);
   // Scroll up when clicking on the logo
@@ -42,11 +43,12 @@ function Navbar({setToggle}) {
                   title={item.title}
                   className="navbar-menu__item"
                   setToggle={setToggle}
+                  toggle={toggle}
                 />
               );
             }
             if (item.type === "home") {
-              console.log(item);
+              // console.log(item);
               return (
                 <Link
                   key={index}
@@ -75,7 +77,8 @@ function Navbar({setToggle}) {
                       setOpen(true);
                     }
                     if (item.title === "Sign Out") {
-                      console.log("Logged Out")
+                      signOut()
+                      // console.log("Logged Out")
                     }
                   }}
                 >

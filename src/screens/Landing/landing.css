@@ -81,6 +81,10 @@ input[type="submit"]:hover {
 .SigninLogo {
   padding-bottom: 10px;
 }
+.loginErrorMessage {
+  margin-top: 10px;
+  color: red;
+}
 
 @media screen and (max-width: 560px) {
   .form {

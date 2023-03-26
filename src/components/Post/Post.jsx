@@ -11,13 +11,12 @@ import { GoMarkGithub } from "react-icons/go";
 // Import postAPI configuration
 import { deletePost, updatePost } from "../../services/postApi";
 
+import EditPost from "../EditPost/EditPost.jsx";
 //Import Components
 // import Comment from "../../components/Comment/Comment.jsx";
 
 export default function Post({ post, user, setToggle }) {
   const [showPopup, setShowPopup] = useState(false);
-  const [postData, setPostData] = useState(post);
-  const popupRef = useRef(null);
 
   let username = "";
   for (let i = 0; i < user.length; i++) {
@@ -28,43 +27,10 @@ export default function Post({ post, user, setToggle }) {
 
   let activeUser = window.localStorage.getItem("username");
 
-  const handleUpdate = async () => {
-    await updatePost(postData);
-    setToggle((prev) => !prev);
-    setShowPopup(false);
-  };
-
   async function handleDelete() {
-    await deletePost(post);
+    await deletePost(post.id);
     setToggle((prev) => !prev);
   }
-
-  const handlePopupClose = () => {
-    setShowPopup(false);
-    setPostData(post);
-  };
-
-  const handleClickOutside = (event) => {
-    if (popupRef.current && !popupRef.current.contains(event.target)) {
-      handlePopupClose();
-    }
-  };
-
-  const handleKeyPress = (event) => {
-    if (event.key === "Escape") {
-      handlePopupClose();
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleKeyPress);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleKeyPress);
-    };
-  }, []);
 
   return (
     <>
@@ -101,51 +67,7 @@ export default function Post({ post, user, setToggle }) {
           </a>
         </div>
       </div>
-      {showPopup && (
-        <div className="popup-container">
-          <div className="popup">
-            <h3>Edit Post</h3>
-            <label htmlFor="project_name">Project Name:</label>
-            <input
-              type="text"
-              name="project_name"
-              value={postData.project_name}
-              onChange={(e) =>
-                setPostData({ ...postData, project_name: e.target.value })
-              }
-            />
-            <label htmlFor="github_link">GitHub Link:</label>
-            <input
-              type="text"
-              name="github_link"
-              value={postData.github_link}
-              onChange={(e) =>
-                setPostData({ ...postData, github_link: e.target.value })
-              }
-            />
-            <label htmlFor="image">Image URL:</label>
-            <input
-              type="text"
-              name="image"
-              value={postData.image}
-              onChange={(e) =>
-                setPostData({ ...postData, image: e.target.value })
-              }
-            />
-            <div className="popup-btns">
-            <button onClick={handleUpdate}>Save</button>
-            {/* <button
-              onClick={() => {
-                handlePopupClose();
-                console.log("Popup closed");
-              }}
-            >
-              Cancel
-            </button> */}
-            </div>
-          </div>
-        </div>
-      )}
+      {showPopup && <EditPost showPopup={showPopup} setShowPopup={setShowPopup} setToggle={setToggle} post={post}/>}
     </>
   );
 }
