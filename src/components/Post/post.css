@@ -168,7 +168,7 @@ h4 {
 }
 
 .popup {
-  background-color: #3b91d780;
+  background-color: #5c90bd;
   padding: 20px;
   border-radius: 5px;
   z-index: 2;
@@ -179,16 +179,16 @@ h4 {
 
 .popup input {
   border-radius: 0.5rem;
-  border: solid #00000024;
+  border: solid white;
 }
 
 .popup-btns > button {
-  border: solid #00000024;
-  background-color: #3b91d7;
+  border: 1px solid white;
+  background-color: #fff;
   padding: 0.5rem;
   border-radius: 0.5rem;
   width: 185px;
-  color: white;
+  color: black;
 }
 .popup-btns {
   display: flex;
@@ -197,11 +197,10 @@ h4 {
 }
 
 .edit_btns:hover {
-  background-color: rgba(0, 0, 0, 0.176) !important;
+  background-color: #8db1d0 !important;
   color: white;
-  border: solid 1px rgba(255, 255, 255, 0.337);
-  /* transform: scale(1.1); */
   transition: 0.3s all ease;
+  border: 1px solid white;
 }
 
 .popup-container h3 {
@@ -223,7 +222,7 @@ h4 {
 
 .ExitEdit:hover {
   cursor: pointer;
-  transition: all 800ms ease;
+  transition: all 600ms ease;
 }
 
 .edit_UploadWidget {
@@ -233,22 +232,21 @@ h4 {
   border: 2px solid white;
   cursor: pointer;
   border-radius: 0.5rem;
-  border: solid #56565668;
+  border: 1px solid white;
   background-color: #ffffff;
 }
 
 .edit_UploadWidget:hover {
-  background-color: rgba(0, 0, 0, 0.176) !important;
+  background-color: #8db1d0 !important;
   color: white;
-  border: solid 1px rgba(255, 255, 255, 0.337);
-  transition: all 800ms ease;
+  transition: all 600ms ease;
+  border: 1px solid white;
 }
 
 .popup input:hover {
-  background-color: rgba(0, 0, 0, 0.176) !important;
+  background-color: #8db1d0 !important;
   color: white;
-  border: solid 1px rgba(255, 255, 255, 0.337);
-  transition: all 800ms ease;
+  transition: all 600ms ease;
 }
 
 .edit_exit {

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import "./landing.css";
 
 //import components
-import SignUp from "../../components/SignUp/SignUp";
+import SignUp from "../../components/SignUp/SignUp.jsx";
 import Button from "@mui/material/Button";
 
 import { useNavigate } from "react-router-dom";
@@ -13,10 +13,11 @@ import { loginUser, getUser } from "../../services/userApi";
 function Landing({ setUser }) {
   const [error, setError] = useState("");
   const [userData, setUserData] = useState({
-    username: null,
+    username: "",
     password: null,
     message: "",
   });
+  console.log("Test1", userData);
   const navigate = useNavigate();
 
   //CHECK MERGE
@@ -28,7 +29,7 @@ function Landing({ setUser }) {
     // Prevent Page from Reloading
     e.preventDefault();
     // Update User with Values
-    // console.log(`Username: ${username}, Password: ${password}`);
+    console.log("Test2", userData);
     if (userData.password === "") {
       setError("Password Field Required");
     } else {
@@ -76,6 +77,7 @@ function Landing({ setUser }) {
               className="username"
               id="username"
               type="text"
+              name="username"
               placeholder="Username"
               value={userData.username}
               onChange={handleChange}
@@ -83,6 +85,7 @@ function Landing({ setUser }) {
             <input
               id="pw"
               type="password"
+              name="password"
               placeholder="Password"
               value={userData.password}
               onChange={handleChange}

@@ -12,6 +12,7 @@ import "../Post/post.css";
 
 function EditPost({ showPopup, setShowPopup, setToggle, post }) {
   const [postData, setPostData] = useState(post);
+  const [isSaveDisabled, setIsSaveDisabled] = useState(true); // Add state variable for disabled state
   let cloudinaryUrl = window.localStorage.getItem("cloud");
   // const [cloudURL, setCloudURL] = useState(null);
   const popupRef = useRef(null);
@@ -49,6 +50,11 @@ function EditPost({ showPopup, setShowPopup, setToggle, post }) {
     }
   };
 
+  const handleInputChange = (event) => {
+    setPostData({ ...postData, [event.target.name]: event.target.value });
+    setIsSaveDisabled(false); // Enable the "Save" button when input is changed
+  };
+
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleKeyPress);
@@ -70,18 +76,14 @@ function EditPost({ showPopup, setShowPopup, setToggle, post }) {
           type="text"
           name="project_name"
           value={postData.project_name}
-          onChange={(e) =>
-            setPostData({ ...postData, project_name: e.target.value })
-          }
+          onChange={handleInputChange}
         />
         <label htmlFor="github_link">GitHub Link:</label>
         <input
           type="text"
           name="github_link"
           value={postData.github_link}
-          onChange={(e) =>
-            setPostData({ ...postData, github_link: e.target.value })
-          }
+          onChange={handleInputChange}
         />
         <UploadWidget
           className="UploadWidget"
@@ -96,9 +98,13 @@ function EditPost({ showPopup, setShowPopup, setToggle, post }) {
               handlePopupClose();
             }}
           >
-            Сancel
+            Cancel
           </button>
-          <button className="edit_btns" onClick={handleUpdate}>
+          <button
+            className="edit_btns"
+            onClick={handleUpdate}
+            disabled={isSaveDisabled}
+          >
             Save
           </button>
         </div>
