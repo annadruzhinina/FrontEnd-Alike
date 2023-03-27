@@ -12,25 +12,40 @@ import "../Post/post.css";
 
 function EditPost({ showPopup, setShowPopup, setToggle, post }) {
   const [postData, setPostData] = useState(post);
-  const [isSaveDisabled, setIsSaveDisabled] = useState(true); // Add state variable for disabled state
-  let cloudinaryUrl = window.localStorage.getItem("cloud");
-  // const [cloudURL, setCloudURL] = useState(null);
+  const [isSaveDisabled, setIsSaveDisabled] = useState(false); // Add state variable for disabled state
   const popupRef = useRef(null);
   const handleUpdate = async () => {
-    console.log(post);
-    cloudinaryUrl = window.localStorage.getItem("cloud");
-    setPostData({ ...postData, image: cloudinaryUrl });
+    let cloudinaryUrl = window.localStorage.getItem("cloud");
+    let urlTest = !cloudinaryUrl ? post.image : cloudinaryUrl;
+    if (
+      post.project_name === postData.project_name &&
+      post.github_link === postData.github_link &&
+      post.image === urlTest
+    ) {
+      return;
+    }
+    // console.log(post);
+
+    console.log(cloudinaryUrl);
     await updatePost(
       {
         project_name: postData.project_name,
         github_link: postData.github_link,
-        image: postData.image,
+        // Sets image to the current post image URL if cloudinaryUrl does not exist; otherwise, uses cloudinaryUrl
+        image: !cloudinaryUrl ? post.image : cloudinaryUrl,
       },
       post.id
     );
+    console.log(post);
     console.log(postData);
+    if (cloudinaryUrl) {
+      setPostData({ ...postData, image: cloudinaryUrl });
+    }
+
     setToggle((prev) => !prev);
     setShowPopup(false);
+    // Removes cloudinaryUrl after submission of post update
+    window.localStorage.removeItem("cloud");
   };
 
   const handlePopupClose = () => {
@@ -50,11 +65,6 @@ function EditPost({ showPopup, setShowPopup, setToggle, post }) {
     }
   };
 
-  const handleInputChange = (event) => {
-    setPostData({ ...postData, [event.target.name]: event.target.value });
-    setIsSaveDisabled(false); // Enable the "Save" button when input is changed
-  };
-
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleKeyPress);
@@ -64,52 +74,50 @@ function EditPost({ showPopup, setShowPopup, setToggle, post }) {
       document.removeEventListener("keydown", handleKeyPress);
     };
   }, []);
-
+  console.log(postData);
   return (
     <div className="popup-container">
       <div className="popup">
         <div className="EditHeader">
-          <h3 className="edit_header">Edit Post</h3>
+          <h3>Edit Post</h3>
+          <button
+            className="ExitEdit"
+            onClick={() => {
+              handlePopupClose();
+              console.log("Popup closed");
+            }}
+          >
+            X
+          </button>
         </div>
         <label htmlFor="project_name">Project Name:</label>
         <input
           type="text"
           name="project_name"
           value={postData.project_name}
-          onChange={handleInputChange}
+          onChange={
+            (e) => setPostData({ ...postData, project_name: e.target.value })
+            // setIsSaveDisabled(false)
+          }
         />
         <label htmlFor="github_link">GitHub Link:</label>
         <input
           type="text"
           name="github_link"
           value={postData.github_link}
-          onChange={handleInputChange}
+          onChange={
+            (e) => setPostData({ ...postData, github_link: e.target.value })
+            // setIsSaveDisabled(false)
+          }
         />
-        <UploadWidget
-          className="UploadWidget"
-          value={cloudinaryUrl}
-          onChange={(e) => setPostData({ ...postData, image: e.target.value })}
-        />
+        <UploadWidget className="UploadWidget" />
 
         <div className="popup-btns">
-          <button
-            className="edit_btns"
-            onClick={() => {
-              handlePopupClose();
-            }}
-          >
-            Cancel
-          </button>
-          <button
-            className="edit_btns"
-            onClick={handleUpdate}
-            disabled={isSaveDisabled}
-          >
-            Save
-          </button>
+          <button onClick={handleUpdate}>Save</button>
         </div>
       </div>
     </div>
   );
 }
+
 export default EditPost;
