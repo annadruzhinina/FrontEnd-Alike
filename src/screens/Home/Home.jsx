@@ -4,9 +4,10 @@ import React, { useState, useEffect } from "react";
 import "./home.css";
 import Post from "../../components/Post/Post.jsx";
 import Navbar from "../../components/Navbar/Navbar.jsx";
-import RightNavbar from "../../components/RightNavbar/RightNavbar.jsx";
+// import RightNavbar from "../../components/RightNavbar/RightNavbar.jsx";
 import { getPosts } from "../../services/postApi.js";
 import { getUsers } from "../../services/userApi.js";
+import NewRightNavbar from "../../components/NewRightNavbar/NewRightNavbar";
 
 function Home( {toggle, setToggle }) {
   const [posts, setPosts] = useState([]);
@@ -51,7 +52,8 @@ function Home( {toggle, setToggle }) {
                   })}
             </div>
           </div>
-          <RightNavbar />
+          {/* <RightNavbar /> */}
+          {<NewRightNavbar />}
         </div>
       </div>
     </div>
