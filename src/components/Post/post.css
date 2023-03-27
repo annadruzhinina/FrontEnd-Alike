@@ -72,6 +72,7 @@ strong {
   width: var(--icon-size-base);
   height: var(--icon-size-base);
   margin-left: 10px;
+  cursor: pointer;
 }
 .heart-button {
   cursor: pointer;
@@ -258,11 +259,13 @@ h4 {
 .post-github {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .post-update-btn {
   width: 28px;
   height: 28px;
+  cursor: pointer;
 }
 .post-like-username {
   font-size: 14px;

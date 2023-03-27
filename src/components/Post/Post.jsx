@@ -7,6 +7,7 @@ import "./post.css";
 import { RxCross2 } from "react-icons/rx";
 import { FaRegCommentDots, FaEdit } from "react-icons/fa";
 import { GoMarkGithub } from "react-icons/go";
+import { IconContext } from "react-icons";
 
 // Import postAPI configuration
 import { deletePost, updatePost } from "../../services/postApi";
@@ -52,18 +53,24 @@ export default function Post({ post, user, setToggle }) {
         <div className="post-bottom">
           <div className="post-like-title">
             <h3 className="post-like-username">{username}</h3>
-            <FaRegCommentDots className="post-navbar-menu__icon" />
+            <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
+              <FaRegCommentDots className="post-navbar-menu__icon" />
+            </IconContext.Provider>
           </div>
           {activeUser === username ? (
-            <FaEdit
-              onClick={() => setShowPopup(true)}
-              className="post-update-btn post-navbar-menu__icon"
-            />
+            <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
+              <FaEdit
+                onClick={() => setShowPopup(true)}
+                className="post-update-btn post-navbar-menu__icon"
+              />
+            </IconContext.Provider>
           ) : (
             <></>
           )}
           <a className="post-github" target="_blank" href={post.github_link}>
-            <GoMarkGithub className="post-navbar-menu__icon" />
+            <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
+              <GoMarkGithub className="post-navbar-menu__icon" />
+            </IconContext.Provider>
           </a>
         </div>
       </div>
