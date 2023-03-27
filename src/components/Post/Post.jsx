@@ -6,6 +6,7 @@ import "./post.css";
 //Import Material UI & React Icon
 import { RxCross2 } from "react-icons/rx";
 import { FaRegCommentDots, FaEdit } from "react-icons/fa";
+import {FcLikePlaceholder, FcLike } from "react-icons/fc";
 import { GoMarkGithub } from "react-icons/go";
 
 // Import postAPI configuration
@@ -17,6 +18,7 @@ import EditPost from "../EditPost/EditPost.jsx";
 
 export default function Post({ post, user, setToggle }) {
   const [showPopup, setShowPopup] = useState(false);
+  const [liked, setLiked] = useState(false);
 
   let username = "";
   for (let i = 0; i < user.length; i++) {
@@ -31,6 +33,7 @@ export default function Post({ post, user, setToggle }) {
     await deletePost(post.id);
     setToggle((prev) => !prev);
   }
+
 
   return (
     <>
@@ -65,6 +68,10 @@ export default function Post({ post, user, setToggle }) {
           <a target="_blank" href={post.github_link}>
             <GoMarkGithub className="post-navbar-menu__icon" />
           </a>
+          <div className="likeContainer">
+            <button className="likeButton"><FcLikePlaceholder /></button>
+            <div className="likeCount">0</div>
+          </div>
         </div>
       </div>
       {showPopup && <EditPost showPopup={showPopup} setShowPopup={setShowPopup} setToggle={setToggle} post={post}/>}
