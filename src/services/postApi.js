@@ -16,6 +16,23 @@ export const getPosts = () => {
   }
 };
 
+// export const getPost = async (postID) => {
+//   try {
+//     let token = await getToken();
+
+//     const headers = {
+//       Accept: "application/json",
+//       "Content-Type": "application/json",
+//       Authorization: token,
+//     };
+
+//     const response = await api.get(`post/${postID}`, { headers });
+//     return response.data;
+//   } catch (error) {
+//     throw error;
+//   }
+// };
+
 export const createPost = async (postData) => {
   try {
     let token = await getToken();
