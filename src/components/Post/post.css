@@ -254,3 +254,17 @@ h4 {
 .edit_header {
   margin-bottom: 20px;
 }
+
+.post-github {
+  display: flex;
+  align-items: center;
+}
+
+.post-update-btn {
+  width: 28px;
+  height: 28px;
+}
+.post-like-username {
+  font-size: 14px;
+  font-weight: 500;
+}

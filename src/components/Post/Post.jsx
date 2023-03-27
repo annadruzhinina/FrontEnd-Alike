@@ -43,14 +43,6 @@ export default function Post({ post, user, setToggle }) {
             </h4>
           </div>
           {activeUser === username ? (
-            <FaEdit
-              onClick={() => setShowPopup(true)}
-              className="post-update-btn"
-            />
-          ) : (
-            <></>
-          )}
-          {activeUser === username ? (
             <RxCross2 onClick={handleDelete} className="post-delete-btn" />
           ) : (
             <></>
@@ -59,15 +51,30 @@ export default function Post({ post, user, setToggle }) {
         <img className="post-image" src={post.image} alt="" />
         <div className="post-bottom">
           <div className="post-like-title">
-            <h3>{username}</h3>
+            <h3 className="post-like-username">{username}</h3>
             <FaRegCommentDots className="post-navbar-menu__icon" />
           </div>
-          <a target="_blank" href={post.github_link}>
+          {activeUser === username ? (
+            <FaEdit
+              onClick={() => setShowPopup(true)}
+              className="post-update-btn post-navbar-menu__icon"
+            />
+          ) : (
+            <></>
+          )}
+          <a className="post-github" target="_blank" href={post.github_link}>
             <GoMarkGithub className="post-navbar-menu__icon" />
           </a>
         </div>
       </div>
-      {showPopup && <EditPost showPopup={showPopup} setShowPopup={setShowPopup} setToggle={setToggle} post={post}/>}
+      {showPopup && (
+        <EditPost
+          showPopup={showPopup}
+          setShowPopup={setShowPopup}
+          setToggle={setToggle}
+          post={post}
+        />
+      )}
     </>
   );
 }
