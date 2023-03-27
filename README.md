@@ -26,9 +26,7 @@ Built by developers - for developers!
 
 To navigate to an individual page via the URL, use the following:
 
-1. Landing Page: https://alike-ga.netlify.app/
-2. Home: https://alike-ga.netlify.app/home
-3. Profile: https://alike-ga.netlify.app/profile
+Landing Page: https://alike-ga.netlify.app/
 
 ## Technical Notes
 

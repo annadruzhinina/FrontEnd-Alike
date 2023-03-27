@@ -1,21 +1,23 @@
 // Home, Search, Message, Profile, LogOut, Report A Problem,... React-icons
+//Import React
 import React, { useState } from "react";
-import "./navbar.css";
 import { Link , Navigate , useNavigate } from "react-router-dom";
+// Import css
+import "./navbar.css";
+// Import Components
 import { NavbarData } from "./NavbarData";
 import NewPost from "../../components/NewPost/NewPost.jsx";
-import { useAuthContext } from "../../Hooks/useAuthContext.js";
+import { signOut } from '../../services/userApi.js'
 
-function Navbar({setToggle}) {
+function Navbar({setToggle, toggle}) {
   const [showNewPost, setShowNewPost] = useState(false);
   const [open, setOpen] = React.useState(false);
+  // Scroll up when clicking on the logo
   const handleLogoClick = () => {
     window.scrollTo(0, 0);
   };
 
   // Deconstruct useAuthContext to pull dispatch
-  const { dispatch , state } = useAuthContext()
-  const { user } = useAuthContext()
   const navigate = useNavigate()
 
   let username = window.localStorage.getItem('username')
@@ -41,11 +43,12 @@ function Navbar({setToggle}) {
                   title={item.title}
                   className="navbar-menu__item"
                   setToggle={setToggle}
+                  toggle={toggle}
                 />
               );
             }
             if (item.type === "home") {
-              console.log(item);
+              // console.log(item);
               return (
                 <Link
                   key={index}
@@ -74,8 +77,8 @@ function Navbar({setToggle}) {
                       setOpen(true);
                     }
                     if (item.title === "Sign Out") {
-                      dispatch({ type: "LOGOUT", payload: null })
-                      console.log("Logged Out")
+                      signOut()
+                      // console.log("Logged Out")
                     }
                   }}
                 >
@@ -92,4 +95,3 @@ function Navbar({setToggle}) {
 }
 
 export default Navbar;
-

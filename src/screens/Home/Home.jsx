@@ -1,4 +1,3 @@
-
 //Import React
 import React, { useState, useEffect } from "react";
 // Import ccs
@@ -9,24 +8,26 @@ import RightNavbar from "../../components/RightNavbar/RightNavbar.jsx";
 import { getPosts } from "../../services/postApi.js";
 import { getUsers } from "../../services/userApi.js";
 
-function Home() {
+function Home( {toggle, setToggle }) {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
-  const [toggle, setToggle] = useState(false);
-
+  // const [toggle, setToggle] = useState(false);
   useEffect(() => {
-    getPosts().then((posts) => {
-      setPosts(posts.data);
-    });
-    getUsers().then((users) => {
-      setUsers(users.data);
-    });
+    getPosts()
+      .then((posts) => {
+        setPosts(posts.data);
+      })
+      .then(
+        getUsers().then((users) => {
+          setUsers(users);
+        })
+      );
   }, [toggle]);
 
   return (
     <div className="home">
       <div className="home-global">
-        <Navbar setToggle={setToggle} />
+        <Navbar setToggle={setToggle} toggle={toggle}/>
         <div className="home-content">
           <div className="home-content_center">
             <div className="home-center">
@@ -48,14 +49,13 @@ function Home() {
                       />
                     );
                   })}
-
             </div>
           </div>
           <RightNavbar />
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
