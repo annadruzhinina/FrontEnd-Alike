@@ -44,7 +44,9 @@ export default function Post({ post, user, setToggle }) {
             </h4>
           </div>
           {activeUser === username ? (
-            <RxCross2 onClick={handleDelete} className="post-delete-btn" />
+            <IconContext.Provider value={{ color: "rgb(9 82 144)" }}>
+              <RxCross2 onClick={handleDelete} className="post-delete-btn" />
+            </IconContext.Provider>
           ) : (
             <></>
           )}
@@ -54,7 +56,13 @@ export default function Post({ post, user, setToggle }) {
           <div className="post-like-title">
             <h3 className="post-like-username">{username}</h3>
             <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
-              <FaRegCommentDots className="post-navbar-menu__icon" />
+              <FaRegCommentDots
+                className="post-navbar-menu__icon"
+                onMouseOver={({ target }) => (target.style.color = "black")}
+                onMouseOut={({ target }) =>
+                  (target.style.color = "rgb(46 127 194)")
+                }
+              />
             </IconContext.Provider>
           </div>
           {activeUser === username ? (
@@ -62,6 +70,10 @@ export default function Post({ post, user, setToggle }) {
               <FaEdit
                 onClick={() => setShowPopup(true)}
                 className="post-update-btn post-navbar-menu__icon"
+                onMouseOver={({ target }) => (target.style.color = "black")}
+                onMouseOut={({ target }) =>
+                  (target.style.color = "rgb(46 127 194)")
+                }
               />
             </IconContext.Provider>
           ) : (
@@ -69,7 +81,13 @@ export default function Post({ post, user, setToggle }) {
           )}
           <a className="post-github" target="_blank" href={post.github_link}>
             <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
-              <GoMarkGithub className="post-navbar-menu__icon" />
+              <GoMarkGithub
+                className="post-navbar-menu__icon"
+                onMouseOver={({ target }) => (target.style.color = "black")}
+                onMouseOut={({ target }) =>
+                  (target.style.color = "rgb(46 127 194)")
+                }
+              />
             </IconContext.Provider>
           </a>
         </div>

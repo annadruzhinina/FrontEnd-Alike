@@ -5,7 +5,7 @@
 .post {
   background-color: white;
   max-width: 470px;
-  border: 1px solid lightgray;
+  border: 3px solid #2196f340;
   margin-bottom: var(--space-base-double);
   min-width: 300px;
   display: flex;
@@ -59,6 +59,7 @@ strong {
   overflow: hidden;
   padding-bottom: 10px;
   border-top: 1px solid lightgray;
+  background-color: #deecfe57;
 }
 
 .post-like-title {
@@ -199,6 +200,8 @@ h4 {
   background-color: rgba(0, 0, 0, 0.176) !important;
   color: white;
   border: solid 1px rgba(255, 255, 255, 0.337);
+  /* transform: scale(1.1); */
+  transition: 0.3s all ease;
 }
 
 .popup-container h3 {
@@ -220,6 +223,7 @@ h4 {
 
 .ExitEdit:hover {
   cursor: pointer;
+  transition: all 800ms ease;
 }
 
 .edit_UploadWidget {
@@ -237,12 +241,14 @@ h4 {
   background-color: rgba(0, 0, 0, 0.176) !important;
   color: white;
   border: solid 1px rgba(255, 255, 255, 0.337);
+  transition: all 800ms ease;
 }
 
 .popup input:hover {
   background-color: rgba(0, 0, 0, 0.176) !important;
   color: white;
   border: solid 1px rgba(255, 255, 255, 0.337);
+  transition: all 800ms ease;
 }
 
 .edit_exit {
@@ -261,13 +267,25 @@ h4 {
   align-items: center;
   cursor: pointer;
 }
+.post-github:hover {
+  transition: all 300ms ease;
+}
 
 .post-update-btn {
   width: 28px;
   height: 28px;
   cursor: pointer;
 }
+.post-update-btn:hover {
+  transition: all 300ms ease;
+}
 .post-like-username {
   font-size: 14px;
   font-weight: 500;
+}
+/* .post-navbar-menu__icon {
+  color: black;
+} */
+.post-navbar-menu__icon:hover {
+  color: white;
 }
