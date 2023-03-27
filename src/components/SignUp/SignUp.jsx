@@ -63,27 +63,6 @@ function SignUp({ setUser, user }) {
     }
   }
 
-  // Result Function to check for valid passwords
-  const result = validation => {
-    if (validation === '') {
-      // Ensure reset of <p> when values are reset after submitting
-      return <p></p>
-      // If the passwords match...
-    } else if (validation === true) {
-      // Vaidate if they meet the specified criteria and return <p> accordingly
-      if (passwordValidation(userData.password) === false) {
-        return (
-          <>
-            <p>"Password Must Contain at least 6 letters"</p>
-            <p>"Password Must Include a Number and Special Character"</p>
-          </>
-        )
-      } else {
-        setUser(null)
-      }
-    }
-  }
-
   function handleBackClick() {
     let path = `/`
     navigate(path)
@@ -166,7 +145,6 @@ function SignUp({ setUser, user }) {
             <button id='submitCredentials' type='submit' value='submit'>
               Submit
             </button>
-            <>{result(userData.valid)}</>
             <div className='sign-up__password'>{error}</div>
           </form>
         </div>
