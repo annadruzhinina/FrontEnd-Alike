@@ -62,6 +62,12 @@ strong {
   border-top: 1px solid lightgray;
 }
 
+.post-bottom-right {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid red;
+}
+
 .post-like-title {
   display: flex;
   width: 100%;

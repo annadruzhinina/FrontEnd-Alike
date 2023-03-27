@@ -19,6 +19,7 @@ import EditPost from "../EditPost/EditPost.jsx";
 export default function Post({ post, user, setToggle }) {
   const [showPopup, setShowPopup] = useState(false);
   const [liked, setLiked] = useState(false);
+  const [hrtQty, setHrtQty] = useState(0);
 
   let username = "";
   for (let i = 0; i < user.length; i++) {
@@ -33,6 +34,11 @@ export default function Post({ post, user, setToggle }) {
     await deletePost(post.id);
     setToggle((prev) => !prev);
   }
+
+  // async function onLikeClick(post) {
+  //   await updatePost(post.id)
+
+  // }
 
 
   return (
@@ -61,16 +67,20 @@ export default function Post({ post, user, setToggle }) {
         </div>
         <img className="post-image" src={post.image} alt="" />
         <div className="post-bottom">
-          <div className="post-like-title">
-            <h3>{username}</h3>
-            <FaRegCommentDots className="post-navbar-menu__icon" />
+          <div className="post-bottom-left">
+            <div className="post-like-title">
+              <h3>{username}</h3>
+              <FaRegCommentDots className="post-navbar-menu__icon" />
+            </div>
           </div>
-          <a target="_blank" href={post.github_link}>
-            <GoMarkGithub className="post-navbar-menu__icon" />
-          </a>
-          <div className="likeContainer">
-            <button className="likeButton"><FcLikePlaceholder /></button>
-            <div className="likeCount">0</div>
+          <div className="post-bottom-right">
+            <a target="_blank" href={post.github_link}>
+              <GoMarkGithub className="post-navbar-menu__icon" />
+            </a>
+            <div className="likeContainer">
+              <button className="likeButton"><FcLikePlaceholder /></button>
+              <div className="likeCount">0</div>
+            </div>
           </div>
         </div>
       </div>
