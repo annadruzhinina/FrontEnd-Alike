@@ -7,7 +7,6 @@
 .post {
   background-color: white;
   max-width: 470px;
-  /* border: 3px solid #2196f340; */
   margin-bottom: var(--space-base-double);
   min-width: 300px;
   display: flex;
@@ -40,7 +39,7 @@ strong {
   justify-content: space-between;
   overflow: hidden;
   padding: 15px 10px 10px 10px;
-  background-color: #accef9;
+  background-color: #2d7fc26e;
 }
 .post-avatar_left {
   display: flex;
@@ -190,7 +189,8 @@ h4 {
   background-color: #fff;
   padding: 0.5rem;
   width: 185px;
-  color: black;
+  color: #3b91d7;
+  font-weight: 500;
 }
 .popup-btns {
   display: flex;
@@ -199,7 +199,7 @@ h4 {
 }
 
 .edit_btns:hover {
-  background-color: #bcd8f1 !important;
+  background-color: #dcf0ff !important;
   color: black;
   transition: 0.3s all ease;
   border: 1px solid white;
@@ -293,9 +293,8 @@ button:hover {
   color: white;
 }
 
-button:disabled
-/* button[disabled] */ {
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
+.edit_btns[disabled] {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
 }

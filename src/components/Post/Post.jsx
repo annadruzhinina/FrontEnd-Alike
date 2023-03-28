@@ -44,7 +44,7 @@ export default function Post({ post, user, setToggle }) {
             </h4>
           </div>
           {activeUser === username ? (
-            <IconContext.Provider value={{ color: "rgb(9 82 144)" }}>
+            <IconContext.Provider value={{ color: "black" }}>
               <RxCross2 onClick={handleDelete} className="post-delete-btn" />
             </IconContext.Provider>
           ) : (

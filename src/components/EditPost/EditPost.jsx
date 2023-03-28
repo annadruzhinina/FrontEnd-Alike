@@ -4,9 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import { updatePost } from "../../services/postApi";
 import UploadWidget from "../UploadWidget/UploadWidget.jsx";
 
-//Import Material UI & React Icon
-import { RxCross2 } from "react-icons/rx";
-
 //Import ccs
 import "../Post/post.css";
 
