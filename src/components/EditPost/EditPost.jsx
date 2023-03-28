@@ -24,8 +24,6 @@ function EditPost({ showPopup, setShowPopup, setToggle, post }) {
     ) {
       return;
     }
-    // console.log(post);
-
     console.log(cloudinaryUrl);
     await updatePost(
       {
@@ -80,15 +78,6 @@ function EditPost({ showPopup, setShowPopup, setToggle, post }) {
       <div className="popup">
         <div className="EditHeader">
           <h3>Edit Post</h3>
-          <button
-            className="ExitEdit"
-            onClick={() => {
-              handlePopupClose();
-              console.log("Popup closed");
-            }}
-          >
-            X
-          </button>
         </div>
         <label htmlFor="project_name">Project Name:</label>
         <input
@@ -113,7 +102,21 @@ function EditPost({ showPopup, setShowPopup, setToggle, post }) {
         <UploadWidget className="UploadWidget" />
 
         <div className="popup-btns">
-          <button onClick={handleUpdate}>Save</button>
+          <button
+            className="edit_btns"
+            onClick={() => {
+              handlePopupClose();
+            }}
+          >
+            Cancel
+          </button>
+          <button
+            className="edit_btns"
+            onClick={handleUpdate}
+            disabled={isSaveDisabled}
+          >
+            Save
+          </button>
         </div>
       </div>
     </div>

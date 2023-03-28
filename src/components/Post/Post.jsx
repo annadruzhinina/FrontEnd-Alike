@@ -55,18 +55,11 @@ export default function Post({ post, user, setToggle }) {
         <div className="post-bottom">
           <div className="post-like-title">
             <h3 className="post-like-username">{username}</h3>
-            <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
-              <FaRegCommentDots
-                className="post-navbar-menu__icon"
-                onMouseOver={({ target }) => (target.style.color = "black")}
-                onMouseOut={({ target }) =>
-                  (target.style.color = "rgb(46 127 194)")
-                }
-              />
-            </IconContext.Provider>
           </div>
           {activeUser === username ? (
-            <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
+            <IconContext.Provider
+              value={{ color: "rgb(46 127 194)", size: "1.5rem" }}
+            >
               <FaEdit
                 onClick={() => setShowPopup(true)}
                 className="post-update-btn post-navbar-menu__icon"
@@ -79,7 +72,21 @@ export default function Post({ post, user, setToggle }) {
           ) : (
             <></>
           )}
-          <a className="post-github" target="_blank" href={post.github_link}>
+          <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
+            <FaRegCommentDots
+              className="post-navbar-menu__icon"
+              onMouseOver={({ target }) => (target.style.color = "black")}
+              onMouseOut={({ target }) =>
+                (target.style.color = "rgb(46 127 194)")
+              }
+            />
+          </IconContext.Provider>
+
+          <a
+            // className="post-github post-navbar-menu__icon"
+            target="_blank"
+            href={post.github_link}
+          >
             <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
               <GoMarkGithub
                 className="post-navbar-menu__icon"

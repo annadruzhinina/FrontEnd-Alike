@@ -1,11 +1,13 @@
 .post-image {
   width: 100%;
-  object-fit: contain;
+  max-height: 350px;
+  min-height: 350px;
+  object-fit: cover;
 }
 .post {
   background-color: white;
   max-width: 470px;
-  border: 3px solid #2196f340;
+  /* border: 3px solid #2196f340; */
   margin-bottom: var(--space-base-double);
   min-width: 300px;
   display: flex;
@@ -38,7 +40,7 @@ strong {
   justify-content: space-between;
   overflow: hidden;
   padding: 15px 10px 10px 10px;
-  background-color: rgb(222 236 254);
+  background-color: #accef9;
 }
 .post-avatar_left {
   display: flex;
@@ -58,8 +60,7 @@ strong {
   padding: 0 10px 0 10px;
   overflow: hidden;
   padding-bottom: 10px;
-  border-top: 1px solid lightgray;
-  background-color: #deecfe57;
+  background-color: rgb(222 236 254);
 }
 
 .post-like-title {
@@ -70,11 +71,15 @@ strong {
   padding: 15px 10px 10px 10px;
 }
 .post-navbar-menu__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: var(--icon-size-base);
   height: var(--icon-size-base);
-  margin-left: 10px;
+  margin-left: 20px;
   cursor: pointer;
 }
+
 .heart-button {
   cursor: pointer;
   background: transparent;
@@ -168,9 +173,8 @@ h4 {
 }
 
 .popup {
-  background-color: #5c90bd;
+  background-color: #acd6fc;
   padding: 20px;
-  border-radius: 5px;
   z-index: 2;
   min-width: 450px;
   min-height: 450px;
@@ -178,7 +182,6 @@ h4 {
 }
 
 .popup input {
-  border-radius: 0.5rem;
   border: solid white;
 }
 
@@ -186,7 +189,6 @@ h4 {
   border: 1px solid white;
   background-color: #fff;
   padding: 0.5rem;
-  border-radius: 0.5rem;
   width: 185px;
   color: black;
 }
@@ -197,23 +199,27 @@ h4 {
 }
 
 .edit_btns:hover {
-  background-color: #8db1d0 !important;
-  color: white;
+  background-color: #bcd8f1 !important;
+  color: black;
   transition: 0.3s all ease;
   border: 1px solid white;
 }
-
+button:hover {
+  background-color: #dcf0ff;
+}
 .popup-container h3 {
   text-align: center;
-  color: white;
+  color: black;
   font-weight: 900;
   font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .popup label {
   font-size: small;
   margin-bottom: 0;
-  color: white;
+  color: #3b91d7;
+  font-weight: 500;
 }
 
 .ExitEdit {
@@ -229,24 +235,23 @@ h4 {
   width: 100%;
   padding: 12px;
   margin: 20px 0 20px 0;
-  border: 2px solid white;
   cursor: pointer;
-  border-radius: 0.5rem;
   border: 1px solid white;
   background-color: #ffffff;
 }
 
 .edit_UploadWidget:hover {
-  background-color: #8db1d0 !important;
-  color: white;
+  background-color: #dcf0ff !important;
+  color: black;
   transition: all 600ms ease;
   border: 1px solid white;
 }
 
 .popup input:hover {
-  background-color: #8db1d0 !important;
-  color: white;
+  background-color: #dcf0ff !important;
+  color: black;
   transition: all 600ms ease;
+  cursor: auto;
 }
 
 .edit_exit {
@@ -286,4 +291,11 @@ h4 {
 } */
 .post-navbar-menu__icon:hover {
   color: white;
+}
+
+button:disabled
+/* button[disabled] */ {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
