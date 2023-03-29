@@ -9,7 +9,6 @@ import Modal from "@mui/material/Modal";
 import { Input, TextField } from "@mui/material";
 import "./newpost.css";
 import { createPost } from "../../services/postApi";
-
 import UploadWidget from "../UploadWidget/UploadWidget.jsx";
 
 //css style
@@ -19,15 +18,20 @@ const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
+  transform: "translate(-50%, -50%)", 
+  width: 450,
+  height: 450,
+  bgcolor: "#acd6fc",
+  p: 2,
 };
 
-export default function BasicModal({ icon, title, className, setToggle, toggle }) {
+export default function BasicModal({
+  icon,
+  title,
+  className,
+  setToggle,
+  toggle,
+}) {
   const [open, setOpen] = useState(false);
 
   const projectNameRef = React.useRef(null);
@@ -47,9 +51,9 @@ export default function BasicModal({ icon, title, className, setToggle, toggle }
 
     handleClose();
     setToggle((prev) => !prev);
-    
+
     // Removes cloudinary url from local storage after post submission
-    window.localStorage.removeItem("cloud")
+    window.localStorage.removeItem("cloud");
   }
   return (
     <div>
@@ -59,8 +63,6 @@ export default function BasicModal({ icon, title, className, setToggle, toggle }
       </Link>
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
-          <UploadWidget />
-
           <TextField
             id="outlined-basic"
             label="Project Name"
@@ -73,6 +75,7 @@ export default function BasicModal({ icon, title, className, setToggle, toggle }
             variant="outlined"
             inputRef={githubRef}
           />
+          <UploadWidget />
           <div className="new-post-btn">
             <Button onClick={handleSubmit} className="-button">
               Submit

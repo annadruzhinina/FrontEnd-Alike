@@ -101,7 +101,6 @@ export default function Post({ post, user, setToggle }) {
       </div>
       {showPopup && (
         <EditPost
-          showPopup={showPopup}
           setShowPopup={setShowPopup}
           setToggle={setToggle}
           post={post}

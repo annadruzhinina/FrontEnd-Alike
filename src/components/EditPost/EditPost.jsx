@@ -7,45 +7,35 @@ import UploadWidget from "../UploadWidget/UploadWidget.jsx";
 //Import ccs
 import "../Post/post.css";
 
-function EditPost({ showPopup, setShowPopup, setToggle, post }) {
+function EditPost({ setShowPopup, setToggle, post }) {
   const [postData, setPostData] = useState(post);
-  const [isSaveDisabled, setIsSaveDisabled] = useState(false); // Add state variable for disabled state
+  const [isSaveDisabled, setIsSaveDisabled] = useState(true); // Add state variable for disabled state
+  // Hook, we save there ref to our element
   const popupRef = useRef(null);
-  const handleUpdate = async () => {
-    let cloudinaryUrl = window.localStorage.getItem("cloud");
-    let urlTest = !cloudinaryUrl ? post.image : cloudinaryUrl;
-    if (
-      post.project_name === postData.project_name &&
-      post.github_link === postData.github_link &&
-      post.image === urlTest
-    ) {
-      return;
-    }
-    console.log(cloudinaryUrl);
-    await updatePost(
-      {
-        project_name: postData.project_name,
-        github_link: postData.github_link,
-        // Sets image to the current post image URL if cloudinaryUrl does not exist; otherwise, uses cloudinaryUrl
-        image: !cloudinaryUrl ? post.image : cloudinaryUrl,
-      },
-      post.id
-    );
-    console.log(post);
-    console.log(postData);
-    if (cloudinaryUrl) {
-      setPostData({ ...postData, image: cloudinaryUrl });
-    }
 
-    setToggle((prev) => !prev);
-    setShowPopup(false);
+  const _setPostData = (_post) => {
+    const cloudinaryUrl = window.localStorage.getItem("cloud");
+    const urlTest = cloudinaryUrl || post.image;
+    const shouldDisable =
+      post.image === urlTest &&
+      _post.project_name === post.project_name &&
+      _post.github_link === post.github_link;
+
+    setIsSaveDisabled(shouldDisable);
+    setPostData({ ..._post, image: urlTest });
+  };
+
+  const handleUpdate = async () => {
+    await updatePost(postData, post.id);
+
     // Removes cloudinaryUrl after submission of post update
     window.localStorage.removeItem("cloud");
+    setToggle((prev) => !prev);
+    handlePopupClose();
   };
 
   const handlePopupClose = () => {
     setShowPopup(false);
-    setPostData(post);
   };
 
   const handleClickOutside = (event) => {
@@ -61,18 +51,18 @@ function EditPost({ showPopup, setShowPopup, setToggle, post }) {
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    // добоваляем сулшателя в нашем случаи это  keydown
     document.addEventListener("keydown", handleKeyPress);
-
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      // удаляем сулшателя в нашем случаи это  keydown
       document.removeEventListener("keydown", handleKeyPress);
     };
+    // [] массив зависимости, если пусто то этот useEffect будет вызван только один раз при начале рендеренга компоненты
   }, []);
-  console.log(postData);
+
   return (
-    <div className="popup-container">
-      <div className="popup">
+    <div className="popup-container" onClick={handleClickOutside}>
+      <div className="popup" ref={popupRef}>
         <div className="EditHeader">
           <h3>Edit Post</h3>
         </div>
@@ -81,9 +71,8 @@ function EditPost({ showPopup, setShowPopup, setToggle, post }) {
           type="text"
           name="project_name"
           value={postData.project_name}
-          onChange={
-            (e) => setPostData({ ...postData, project_name: e.target.value })
-            // setIsSaveDisabled(false)
+          onChange={(e) =>
+            _setPostData({ ...postData, project_name: e.target.value })
           }
         />
         <label htmlFor="github_link">GitHub Link:</label>
@@ -91,20 +80,17 @@ function EditPost({ showPopup, setShowPopup, setToggle, post }) {
           type="text"
           name="github_link"
           value={postData.github_link}
-          onChange={
-            (e) => setPostData({ ...postData, github_link: e.target.value })
-            // setIsSaveDisabled(false)
+          onChange={(e) =>
+            _setPostData({ ...postData, github_link: e.target.value })
           }
         />
-        <UploadWidget className="UploadWidget" />
+        <UploadWidget
+          className="UploadWidget"
+          onSelected={() => _setPostData(postData)}
+        />
 
         <div className="popup-btns">
-          <button
-            className="edit_btns"
-            onClick={() => {
-              handlePopupClose();
-            }}
-          >
+          <button className="edit_btns" onClick={handlePopupClose}>
             Cancel
           </button>
           <button
