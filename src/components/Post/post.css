@@ -2,6 +2,7 @@
   width: 100%;
   max-height: 350px;
   min-height: 350px;
+  min-width: 350px;
   object-fit: cover;
 }
 .post {
@@ -78,10 +79,12 @@ strong {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--icon-size-base);
-  height: var(--icon-size-base);
   margin-left: 20px;
   cursor: pointer;
+}
+svg {
+  width: 20px !important;
+  height: 20px !important;
 }
 
 .heart-button {
@@ -280,8 +283,8 @@ button:hover {
 }
 
 .post-update-btn {
-  width: 28px;
-  height: 28px;
+  /* width: 28px;
+  height: 28px; */
   cursor: pointer;
 }
 .post-update-btn:hover {
@@ -306,4 +309,3 @@ button:hover {
 .edit_btns[disabled]:hover {
   background-color: #ccc;
 }
-

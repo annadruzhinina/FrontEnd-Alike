@@ -72,7 +72,7 @@ export default function Post({ post, user, setToggle }) {
           ) : (
             <></>
           )}
-          <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
+          {/* <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
             <FaRegCommentDots
               className="post-navbar-menu__icon"
               onMouseOver={({ target }) => (target.style.color = "black")}
@@ -80,7 +80,7 @@ export default function Post({ post, user, setToggle }) {
                 (target.style.color = "rgb(46 127 194)")
               }
             />
-          </IconContext.Provider>
+          </IconContext.Provider> */}
 
           <a
             // className="post-github post-navbar-menu__icon"

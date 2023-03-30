@@ -60,8 +60,7 @@ function EditPost({ setShowPopup, setToggle, post }) {
     };
     // [] массив зависимости, если пусто то этот useEffect будет вызван только один раз при начале рендеренга компоненты
   }, []);
-  // TODO EditPost -> delete Title -> Save. Add validation about Title can't be emty
-
+  
   return (
     <div className="popup-container" onClick={handleClickOutside}>
       <div className="popup" ref={popupRef}>
@@ -75,6 +74,7 @@ function EditPost({ setShowPopup, setToggle, post }) {
             name="project_name"
             value={postData.project_name}
             onChange={(e) => {
+              // e.target.value.length > 0 &&
               if (e.target.value.length > 0 && e.target.value.length <= 30) {
                 _setPostData({ ...postData, project_name: e.target.value });
               } else if (e.target.value.length > 30) {
