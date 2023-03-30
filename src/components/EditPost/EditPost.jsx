@@ -6,6 +6,7 @@ import UploadWidget from "../UploadWidget/UploadWidget.jsx";
 
 //Import ccs
 import "../Post/post.css";
+import swal from "sweetalert";
 
 function EditPost({ setShowPopup, setToggle, post }) {
   const [postData, setPostData] = useState(post);
@@ -59,6 +60,7 @@ function EditPost({ setShowPopup, setToggle, post }) {
     };
     // [] массив зависимости, если пусто то этот useEffect будет вызван только один раз при начале рендеренга компоненты
   }, []);
+  // TODO EditPost -> delete Title -> Save. Add validation about Title can't be emty
 
   return (
     <div className="popup-container" onClick={handleClickOutside}>
@@ -66,28 +68,41 @@ function EditPost({ setShowPopup, setToggle, post }) {
         <div className="EditHeader">
           <h3>Edit Post</h3>
         </div>
-        <label htmlFor="project_name">Project Name:</label>
-        <input
-          type="text"
-          name="project_name"
-          value={postData.project_name}
-          onChange={(e) =>
-            _setPostData({ ...postData, project_name: e.target.value })
-          }
-        />
-        <label htmlFor="github_link">GitHub Link:</label>
-        <input
-          type="text"
-          name="github_link"
-          value={postData.github_link}
-          onChange={(e) =>
-            _setPostData({ ...postData, github_link: e.target.value })
-          }
-        />
-        <UploadWidget
-          className="UploadWidget"
-          onSelected={() => _setPostData(postData)}
-        />
+        <form>
+          <label htmlFor="project_name">Project Name:</label>
+          <input
+            type="text"
+            name="project_name"
+            value={postData.project_name}
+            onChange={(e) => {
+              if (e.target.value.length > 0 && e.target.value.length <= 30) {
+                _setPostData({ ...postData, project_name: e.target.value });
+              } else if (e.target.value.length > 30) {
+                swal(
+                  "Oops!",
+                  "Please limit your input to 30 characters or less!",
+                  "warning"
+                );
+                // alert("Please limit your input to 30 characters or less.");
+              }
+            }}
+          />
+          <label htmlFor="github_link">GitHub Link:</label>
+          <input
+            max={30}
+            type="text"
+            name="github_link"
+            value={postData.github_link}
+            onChange={(e) =>
+              _setPostData({ ...postData, github_link: e.target.value })
+            }
+            required
+          />
+          <UploadWidget
+            className="UploadWidget"
+            onSelected={() => _setPostData(postData)}
+          />
+        </form>
 
         <div className="popup-btns">
           <button className="edit_btns" onClick={handlePopupClose}>

@@ -18,7 +18,7 @@ const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
-  transform: "translate(-50%, -50%)", 
+  transform: "translate(-50%, -50%)",
   width: 450,
   height: 450,
   bgcolor: "#acd6fc",
@@ -68,12 +68,14 @@ export default function BasicModal({
             label="Project Name"
             variant="outlined"
             inputRef={projectNameRef}
+            required
           />
           <TextField
             id="outlined-basic"
             label="Github Link"
             variant="outlined"
             inputRef={githubRef}
+            required
           />
           <UploadWidget />
           <div className="new-post-btn">
