@@ -1,6 +1,5 @@
 //Import React
-import React from "react";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 //Import ccs
 import "./post.css";
 //Import Material UI & React Icon
@@ -11,7 +10,7 @@ import { GoMarkGithub } from "react-icons/go";
 import { IconContext } from "react-icons";
 
 // Import postAPI configuration
-import { deletePost, updatePost } from "../../services/postApi";
+import { deletePost, updatePost, getPost } from "../../services/postApi";
 
 import EditPost from "../EditPost/EditPost.jsx";
 //Import Components
@@ -19,9 +18,9 @@ import EditPost from "../EditPost/EditPost.jsx";
 
 export default function Post({ post, user, setToggle }) {
   const [showPopup, setShowPopup] = useState(false);
-
-  const [heart, setHeart] = useState(false);
-
+  const [heart, setHeart] = useState(null);
+  const [postLike, setPostLike] = useState(post)
+  console.log(heart)
 
   let username = "";
   for (let i = 0; i < user.length; i++) {
@@ -37,14 +36,43 @@ export default function Post({ post, user, setToggle }) {
     setToggle((prev) => !prev);
   }
 
+  async function updatingHeartQty() {
+    await updatePost({
+        project_name: postLike.project_name,
+        github_link: postLike.github_link,
+        // Sets image to the current postLike image URL if cloudinaryUrl does not exist; otherwise, uses cloudinaryUrl
+        image: postLike.image,
+        heartQty: postLike.heartQty
+    }, post.id);
+  }
+
 
   function likeButton(){
-    // <FcLikePlaceholder/> ?  <FcLike/> : <FcLikePlaceholder/>;
-    if(heart === false){
-      setHeart(true);
-      return <FcLike/>;
+    // if (heart === false) {
+    //     // const settingHeart1 = () => setHeart(true)
+    //     console.log(heart)
+    // } else {
+        //     const settingHeart2 = () => setHeart(false)
+        //     console.log(heart)
+        // }
+        // heart === false ? setHeart(true) : setHeart(false)
+        setHeart(prev => !prev)
+        // console.log(heart)
+        addLikes()
     }
-  }
+    
+    let hearts = postLike.heartQty
+    async function addLikes() {
+        if (heart === null) {
+            setHeart(true)
+        } 
+        !heart ? hearts++ : hearts--
+        setPostLike({...postLike, heartQty: hearts})
+        updatingHeartQty()
+        console.log(hearts)
+    }
+    // console.log(post)
+
 
 
   return (
@@ -114,7 +142,7 @@ export default function Post({ post, user, setToggle }) {
               />
             </IconContext.Provider>
           </a>
-          {heart === false ? <FcLikePlaceholder onClick={() => setHeart(true)}/> : <FcLike onClick={() => setHeart(false)}/>}
+          <button type="button" onClick={likeButton}>{heart === null ? <FcLikePlaceholder /> : heart === true ? <FcLike /> : <FcLikePlaceholder />}</button>
           <div className="likeCount">{post.heartQty}</div>
         </div>
       </div>
