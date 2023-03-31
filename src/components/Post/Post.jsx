@@ -16,10 +16,14 @@ import EditPost from "../EditPost/EditPost.jsx";
 //Import Components
 // import Comment from "../../components/Comment/Comment.jsx";
 
+//import heart Icon
+import { FcLikePlaceholder, FcLike } from "react-icons/fc";
+
 export default function Post({ post, user, setToggle }) {
   const [showPopup, setShowPopup] = useState(false);
-  const [liked, setLiked] = useState(false);
-  const [hrtQty, setHrtQty] = useState(0);
+
+  const [heart, setHeart] = useState(false);
+
 
   let username = "";
   for (let i = 0; i < user.length; i++) {
@@ -35,10 +39,14 @@ export default function Post({ post, user, setToggle }) {
     setToggle((prev) => !prev);
   }
 
-  // async function onLikeClick(post) {
-  //   await updatePost(post.id)
 
-  // }
+  function likeButton(){
+    // <FcLikePlaceholder/> ?  <FcLike/> : <FcLikePlaceholder/>;
+    if(heart === false){
+      setHeart(true);
+      return <FcLike/>;
+    }
+  }
 
 
   return (
@@ -82,6 +90,10 @@ export default function Post({ post, user, setToggle }) {
               <div className="likeCount">0</div>
             </div>
           </div>
+          <a target="_blank" href={post.github_link}>
+            <GoMarkGithub className="post-navbar-menu__icon" />
+          </a>
+          {heart === false ? <FcLikePlaceholder onClick={() => setHeart(true)}/> : <FcLike onClick={() => setHeart(false)}/>}
         </div>
       </div>
       {showPopup && <EditPost showPopup={showPopup} setShowPopup={setShowPopup} setToggle={setToggle} post={post}/>}
