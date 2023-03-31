@@ -48,16 +48,7 @@ export default function Post({ post, user, setToggle }) {
 
 
   function likeButton(){
-    // if (heart === false) {
-    //     // const settingHeart1 = () => setHeart(true)
-    //     console.log(heart)
-    // } else {
-        //     const settingHeart2 = () => setHeart(false)
-        //     console.log(heart)
-        // }
-        // heart === false ? setHeart(true) : setHeart(false)
         setHeart(prev => !prev)
-        // console.log(heart)
         addLikes()
     }
     
@@ -72,11 +63,7 @@ export default function Post({ post, user, setToggle }) {
         !heart ? liked = 1 : liked = -1
         setPostLike({...postLike, heartQty: hearts})
         updatingHeartQty(liked)
-        console.log(heart)
     }
-    // console.log(post)
-
-
 
   return (
     <>
