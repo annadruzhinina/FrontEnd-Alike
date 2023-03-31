@@ -143,7 +143,7 @@ export default function Post({ post, user, setToggle }) {
             </IconContext.Provider>
           </a>
           <button type="button" onClick={likeButton}>{heart === null ? <FcLikePlaceholder /> : heart === true ? <FcLike /> : <FcLikePlaceholder />}</button>
-          <div className="likeCount">{post.heartQty}</div>
+          <div className="likeCount">{post.heartQty + (!heart === null ? 1 : heart === true ? 1 : 0)}</div>
         </div>
       </div>
       {showPopup && (
