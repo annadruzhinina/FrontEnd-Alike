@@ -322,7 +322,7 @@ button:hover {
 
 /* media queries for edit popup */
 
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 640px) {
   .popup {
     width: 300px;
     height: 310px;
@@ -350,4 +350,35 @@ button:hover {
   .edit_btns{
     font-size: 10px;
   }
+}
+
+
+@media screen and (min-width: 820px) {
+  .popup {
+    width: 600px;
+    height: 600px;
+  }
+
+  .popup h3 {
+    font-size: 30px;
+  }
+
+  .popup label {
+    font-size: 25px;
+  }
+
+  .popup input {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  .edit_UploadWidget{
+    margin: 25px 0px 0px 0px;
+    font-size: 25px;
+  }
+
+  .edit_btns{
+    font-size: 25px;
+  }
+
 }
