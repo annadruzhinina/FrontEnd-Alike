@@ -42,19 +42,8 @@ function Navbar({ setToggle, toggle }) {
         <div className="navbar-menu">
           {NavbarData.map((item, index) => {
             if (item.type === "popup-new-post") {
-              // return (
-              //   <NewPost
-              //     key={index}
-              //     icon={item.icon}
-              //     title={item.title}
-              //     className="navbar-menu__item"
-              //     setToggle={setToggle}
-              //     toggle={toggle}
-              //   />
-              // );
-
               return (
-                <>
+                <React.Fragment key={index}>
                   <Link
                     key="new-post"
                     className="navbar-menu__item"
@@ -64,7 +53,7 @@ function Navbar({ setToggle, toggle }) {
                     <span className="navbar-menu__text">{item.title}</span>
                   </Link>
                   {showNewPost && <NewPost onClose={closeNewPost} />}
-                </>
+                </React.Fragment>
               );
             }
             if (item.type === "home") {
