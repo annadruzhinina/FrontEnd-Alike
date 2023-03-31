@@ -59,7 +59,6 @@ strong {
 }
 
 .post-bottom {
-  border: 2px solid red;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -315,4 +314,14 @@ button:hover {
 }
 .edit_btns[disabled]:hover {
   background-color: #ccc;
+}
+
+.right-icons {
+  display: flex;
+  align-items: center;
+}
+
+.post-heart {
+  margin-left: 20px;
+  margin-right: 10px;
 }
