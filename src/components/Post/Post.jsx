@@ -5,7 +5,6 @@ import "./post.css";
 //Import Material UI & React Icon
 import { RxCross2 } from "react-icons/rx";
 import { FaRegCommentDots, FaEdit } from "react-icons/fa";
-import {FcLikePlaceholder, FcLike } from "react-icons/fc";
 import { GoMarkGithub } from "react-icons/go";
 import { IconContext } from "react-icons";
 
@@ -18,9 +17,9 @@ import EditPost from "../EditPost/EditPost.jsx";
 
 export default function Post({ post, user, setToggle }) {
   const [showPopup, setShowPopup] = useState(false);
+
   const [heart, setHeart] = useState(null);
   const [postLike, setPostLike] = useState(post)
-  console.log(heart)
 
   let username = "";
   for (let i = 0; i < user.length; i++) {
@@ -35,7 +34,7 @@ export default function Post({ post, user, setToggle }) {
     await deletePost(post.id);
     setToggle((prev) => !prev);
   }
-
+  
   async function updatingHeartQty(liked) {
     await updatePost({
         project_name: postLike.project_name,
@@ -45,7 +44,6 @@ export default function Post({ post, user, setToggle }) {
         heartQty: postLike.heartQty + liked
     }, post.id);
   }
-
 
   function likeButton(){
         setHeart(prev => !prev)
@@ -89,35 +87,7 @@ export default function Post({ post, user, setToggle }) {
             <div className="post-like-title">
               <h3>{username}</h3>
               {/* <FaRegCommentDots className="post-navbar-menu__icon" /> */}
-            </div>
-          </div>
-          {activeUser === username ? (
-            <IconContext.Provider
-              value={{ color: "rgb(46 127 194)", size: "1.5rem" }}
-            >
-              <FaEdit
-                onClick={() => setShowPopup(true)}
-                className="post-update-btn post-navbar-menu__icon"
-                onMouseOver={({ target }) => (target.style.color = "black")}
-                onMouseOut={({ target }) =>
-                  (target.style.color = "rgb(46 127 194)")
-                }
-              />
-            </IconContext.Provider>
-          ) : (
-            <></>
-          )}
-          {/* <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
-            <FaRegCommentDots
-              className="post-navbar-menu__icon"
-              onMouseOver={({ target }) => (target.style.color = "black")}
-              onMouseOut={({ target }) =>
-                (target.style.color = "rgb(46 127 194)")
-              }
-            />
-          </IconContext.Provider> */}
-
-          <a
+              <a
             // className="post-github post-navbar-menu__icon"
             target="_blank"
             href={post.github_link}
@@ -132,17 +102,49 @@ export default function Post({ post, user, setToggle }) {
               />
             </IconContext.Provider>
           </a>
+            </div>
+          </div>
+          <div className="right-icons">
+            {activeUser === username ? (
+              <IconContext.Provider
+                value={{ color: "rgb(46 127 194)", size: "1.5rem" }}
+              >
+                <FaEdit
+                  onClick={() => setShowPopup(true)}
+                  className="post-update-btn post-navbar-menu__icon"
+                  onMouseOver={({ target }) => (target.style.color = "black")}
+                  onMouseOut={({ target }) =>
+                    (target.style.color = "rgb(46 127 194)")
+                  }
+                />
+              </IconContext.Provider>
+            ) : (
+              <></>
+            )}
+            {heart === false ? (
+              <FcLikePlaceholder
+                onClick={() => setHeart(true)}
+                className="post-heart"
+              />
+            ) : (
+              <FcLike className="post-heart" onClick={() => setHeart(false)} />
+            )}
+            <span className="post-hearQty">0</span>
+          </div>
           <button type="button" onClick={likeButton}>{heart === null ? <FcLikePlaceholder /> : heart === true ? <FcLike /> : <FcLikePlaceholder />}</button>
           <div className="likeCount">{post.heartQty + (!heart === null ? 1 : heart === true ? 1 : 0)}</div>
-        </div>
+          </div>
+          </div>
+           {showPopup && (
+          <EditPost
+            setShowPopup={setShowPopup}
+            setToggle={setToggle}
+            post={post}
+          />
+        )}
       </div>
-      {showPopup && (
-        <EditPost
-          setShowPopup={setShowPopup}
-          setToggle={setToggle}
-          post={post}
-        />
-      )}
     </>
   );
 }
+
+          

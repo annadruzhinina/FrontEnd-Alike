@@ -59,7 +59,7 @@ strong {
 }
 
 .post-bottom {
-  /* border: 2px solid red; */
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -190,8 +190,10 @@ h4 {
   background-color: #acd6fc;
   padding: 20px;
   z-index: 2;
-  min-width: 450px;
-  min-height: 450px;
+  /* min-width: 450px;
+  min-height: 450px; */
+  width: 450px;
+  height: 450px;
   box-shadow: 2px 3px 15px black;
 }
 
@@ -316,3 +318,97 @@ button:hover {
 .edit_btns[disabled]:hover {
   background-color: #ccc;
 }
+
+
+.right-icons {
+  display: flex;
+  align-items: center;
+}
+.post-hearQty {
+  margin-right: 10px;
+}
+.post-heart {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 3px;
+  cursor: pointer;
+  background: transparent;
+  animation: pulse 1s ease-out;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.3);
+  }
+  28% {
+    transform: scale(1);
+  }
+}
+
+
+/* media queries for edit popup */
+
+@media screen and (max-width: 640px) {
+  .popup {
+    width: 300px;
+    height: 310px;
+  }
+
+  .popup h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+
+  .popup label {
+    font-size: 12px;
+  }
+
+  .popup input {
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+
+  .edit_UploadWidget{
+    margin: 10px 0px 0px 0px;
+    font-size: 10px;
+  }
+
+  .edit_btns{
+    font-size: 10px;
+  }
+}
+
+
+@media screen and (min-width: 820px) {
+  .popup {
+    width: 600px;
+    height: 600px;
+  }
+
+  .popup h3 {
+    font-size: 30px;
+  }
+
+  .popup label {
+    font-size: 25px;
+  }
+
+  .popup input {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  .edit_UploadWidget{
+    margin: 25px 0px 0px 0px;
+    font-size: 25px;
+  }
+
+  .edit_btns{
+    font-size: 25px;
+  }
+
+}
+

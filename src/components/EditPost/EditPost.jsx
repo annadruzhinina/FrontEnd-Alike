@@ -9,7 +9,12 @@ function EditPost({ setShowPopup, setToggle, post }) {
   };
 
   return (
-    <PostModal post={post} onClose={handlePopupClose} setToggle={setToggle} />
+    <PostModal
+      post={post}
+      onClose={handlePopupClose}
+      setToggle={setToggle}
+      title="Edit Post"
+    />
   );
 }
 
