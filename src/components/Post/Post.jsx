@@ -1,6 +1,5 @@
 //Import React
-import React from "react";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 //Import ccs
 import "./post.css";
 //Import Material UI & React Icon
@@ -10,19 +9,17 @@ import { GoMarkGithub } from "react-icons/go";
 import { IconContext } from "react-icons";
 
 // Import postAPI configuration
-import { deletePost, updatePost } from "../../services/postApi";
+import { deletePost, updatePost, getPost } from "../../services/postApi";
 
 import EditPost from "../EditPost/EditPost.jsx";
 //Import Components
 // import Comment from "../../components/Comment/Comment.jsx";
 
-//import heart Icon
-import { FcLikePlaceholder, FcLike } from "react-icons/fc";
-
 export default function Post({ post, user, setToggle }) {
   const [showPopup, setShowPopup] = useState(false);
 
-  const [heart, setHeart] = useState(false);
+  const [heart, setHeart] = useState(null);
+  const [postLike, setPostLike] = useState(post)
 
   let username = "";
   for (let i = 0; i < user.length; i++) {
@@ -37,14 +34,34 @@ export default function Post({ post, user, setToggle }) {
     await deletePost(post.id);
     setToggle((prev) => !prev);
   }
-
-  function likeButton() {
-    // <FcLikePlaceholder/> ?  <FcLike/> : <FcLikePlaceholder/>;
-    if (heart === false) {
-      setHeart(true);
-      return <FcLike />;
-    }
+  
+  async function updatingHeartQty(liked) {
+    await updatePost({
+        project_name: postLike.project_name,
+        github_link: postLike.github_link,
+        // Sets image to the current postLike image URL if cloudinaryUrl does not exist; otherwise, uses cloudinaryUrl
+        image: postLike.image,
+        heartQty: postLike.heartQty + liked
+    }, post.id);
   }
+
+  function likeButton(){
+        setHeart(prev => !prev)
+        addLikes()
+    }
+    
+    let hearts = postLike.heartQty
+    async function addLikes() {
+        let liked = 0
+        if (heart === null) {
+            setHeart(true)
+            liked = 1
+        } 
+        !heart ? hearts++ : hearts--
+        !heart ? liked = 1 : liked = -1
+        setPostLike({...postLike, heartQty: hearts})
+        updatingHeartQty(liked)
+    }
 
   return (
     <>
@@ -71,20 +88,20 @@ export default function Post({ post, user, setToggle }) {
               <h3>{username}</h3>
               {/* <FaRegCommentDots className="post-navbar-menu__icon" /> */}
               <a
-                // className="post-github post-navbar-menu__icon"
-                target="_blank"
-                href={post.github_link}
-              >
-                <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
-                  <GoMarkGithub
-                    className="post-navbar-menu__icon"
-                    onMouseOver={({ target }) => (target.style.color = "black")}
-                    onMouseOut={({ target }) =>
-                      (target.style.color = "rgb(46 127 194)")
-                    }
-                  />
-                </IconContext.Provider>
-              </a>
+            // className="post-github post-navbar-menu__icon"
+            target="_blank"
+            href={post.github_link}
+          >
+            <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
+              <GoMarkGithub
+                className="post-navbar-menu__icon"
+                onMouseOver={({ target }) => (target.style.color = "black")}
+                onMouseOut={({ target }) =>
+                  (target.style.color = "rgb(46 127 194)")
+                }
+              />
+            </IconContext.Provider>
+          </a>
             </div>
           </div>
           <div className="right-icons">
@@ -114,8 +131,11 @@ export default function Post({ post, user, setToggle }) {
             )}
             <span className="post-hearQty">0</span>
           </div>
-        </div>
-        {showPopup && (
+          <button type="button" onClick={likeButton}>{heart === null ? <FcLikePlaceholder /> : heart === true ? <FcLike /> : <FcLikePlaceholder />}</button>
+          <div className="likeCount">{post.heartQty + (!heart === null ? 1 : heart === true ? 1 : 0)}</div>
+          </div>
+          </div>
+           {showPopup && (
           <EditPost
             setShowPopup={setShowPopup}
             setToggle={setToggle}
@@ -126,3 +146,5 @@ export default function Post({ post, user, setToggle }) {
     </>
   );
 }
+
+          

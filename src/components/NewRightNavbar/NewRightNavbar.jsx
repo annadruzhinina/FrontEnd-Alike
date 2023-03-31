@@ -30,13 +30,13 @@ function NewRightNavbar() {
         <div className="newNavR--list">
           {newsData.articles ? (
             newsData.articles.map((item, index) => (
-              <a href={item.url} target="_blank">
-              <div key={index} className="NavR--article">
-                <div className="imgBackground">
-                    <img src={item["urlToImage"]} alt="articlePic" />
+              <a href={item.url} key={index} target="_blank">
+                <div className="NavR--article">
+                    <div className="imgBackground">
+                        <img src={item["urlToImage"]} alt="articlePic" />
+                    </div>
+                    <p>{item.title}</p>
                 </div>
-                <p>{item.title}</p>
-              </div>
               </a>
 
             ))
