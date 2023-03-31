@@ -190,8 +190,10 @@ h4 {
   background-color: #acd6fc;
   padding: 20px;
   z-index: 2;
-  min-width: 450px;
-  min-height: 450px;
+  /* min-width: 450px;
+  min-height: 450px; */
+  width: 450px;
+  height: 450px;
   box-shadow: 2px 3px 15px black;
 }
 
@@ -315,4 +317,37 @@ button:hover {
 }
 .edit_btns[disabled]:hover {
   background-color: #ccc;
+}
+
+
+/* media queries for edit popup */
+
+@media screen and (max-width: 530px) {
+  .popup {
+    width: 300px;
+    height: 310px;
+  }
+
+  .popup h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+
+  .popup label {
+    font-size: 12px;
+  }
+
+  .popup input {
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+
+  .edit_UploadWidget{
+    margin: 10px 0px 0px 0px;
+    font-size: 10px;
+  }
+
+  .edit_btns{
+    font-size: 10px;
+  }
 }
