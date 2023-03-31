@@ -1,13 +1,21 @@
-.open-module-x {
+/* .open-module-x {
   position: absolute;
   top: 10px;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
+  max-width: 470px;
   background-color: rgb(230, 142, 26);
   border: 2px solid #000;
   box-shadow: 24px;
   padding: 4px;
+} */
+.css-1wnsr1i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 470px;
+  background-color: #acd6fc !important;
 }
 
 .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
@@ -47,7 +55,6 @@
   margin-right: 15px !important;
 }
 
-
 .css-1e6y48t-MuiButtonBase-root-MuiButton-root:hover {
   background-color: var(--color-bg-variant) !important;
 }
@@ -57,5 +64,3 @@
   flex-direction: row;
   justify-content: flex-end;
 }
-
-

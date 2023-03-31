@@ -20,7 +20,7 @@ export const NavbarData = [
   },
   {
     title: "New Post",
-    path: "",
+    path: null,
     type: "popup-new-post",
     icon: <MdIcons.MdOutlinePostAdd className="navbar-menu__icon" />,
   },

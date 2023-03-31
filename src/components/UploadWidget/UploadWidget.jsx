@@ -1,8 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+const UploadWidget = ({ onSelected }) => {
 
-function UploadWidget() {
-
-// creates a reference for widget and cloudinary
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
   useEffect(() => {
@@ -17,23 +15,32 @@ function UploadWidget() {
         cropping: true,
         resource_type: 'image'
       },
-      // Cloudinary's result is a URL to an img in their API that will have the presets applied to the image, in this case file compression.
+      // Event handler: call every time when we have any event
+      // Documentation!!!!!! https://cloudinary.com/documentation/upload_widget_reference#events
+      // If we have more then one image we will have problems
       function (error, result) {
-        <result className="info url"></result>;
-        // stores the result array in a variable
-        let urlVal = result.info.url
-        // the result was giving each character of the URL its own index in the array, so here we join all characters of the array to create a functional URL
-        let arr = Object.values(urlVal).join('')
-        // here we store this URL in local storage so that we have access to it in the widget's parent component
-        window.localStorage.setItem('cloud', arr)
-
-        console.log(result.info.url);
+        // <result className="info url"></result>; ?????????????!!!!!!
+        if (result.event === "success") {
+          const urlVal = result.info.url;
+          const arr = Object.values(urlVal).join("");
+          window.localStorage.setItem("cloud", arr);
+          onSelected && onSelected();
+        }
       }
     );
     // [] makes sure the widget only renders once
   }, []);
-  // widget appears when the user clicks a button
-  return <button onClick={() => widgetRef.current.open()}>Upload Image</button>;
+  return (
+    <button
+      className="edit_UploadWidget"
+      onClick={(e) => {
+        e.preventDefault();
+        widgetRef.current.open();
+      }}
+    >
+      Upload Image
+    </button>
+  );
 };
 
 export default UploadWidget;

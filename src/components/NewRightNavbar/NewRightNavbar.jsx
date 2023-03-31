@@ -23,7 +23,6 @@ function NewRightNavbar() {
   useEffect(() => {
     getNews();
   }, []);
-
   return (
     <div className="newNavR">
       <h3>Tech News</h3>

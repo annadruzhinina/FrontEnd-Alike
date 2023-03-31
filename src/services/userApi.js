@@ -35,11 +35,23 @@ export const registerUser = async (userData) => {
 export const loginUser = async (userData) => {
   try {
     const response = await api.post("login", userData);
+    console.log(response);
     localStorage.setItem("knox", response.data["token"]);
     return response.data["token"];
   } catch (error) {
     throw error;
   }
+  // api
+  //   .post("login", userData)
+  //   .then((response) => {
+  //     console.log("loginUser", response);
+  //     localStorage.setItem("knox", response.data["token"]);
+  //     return response.data["token"];
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //     throw err;
+  //   });
 };
 
 export const signOut = async () => {

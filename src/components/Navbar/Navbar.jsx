@@ -1,15 +1,15 @@
 // Home, Search, Message, Profile, LogOut, Report A Problem,... React-icons
 //Import React
 import React, { useState } from "react";
-import { Link , Navigate , useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 // Import css
 import "./navbar.css";
 // Import Components
 import { NavbarData } from "./NavbarData";
 import NewPost from "../../components/NewPost/NewPost.jsx";
-import { signOut } from '../../services/userApi.js'
+import { signOut } from "../../services/userApi.js";
 
-function Navbar({setToggle, toggle}) {
+function Navbar({ setToggle, toggle }) {
   const [showNewPost, setShowNewPost] = useState(false);
   const [open, setOpen] = React.useState(false);
   // Scroll up when clicking on the logo
@@ -18,10 +18,16 @@ function Navbar({setToggle, toggle}) {
   };
 
   // Deconstruct useAuthContext to pull dispatch
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  let username = window.localStorage.getItem('username')
+  let username = window.localStorage.getItem("username");
 
+  const openNewPost = () => {
+    setShowNewPost(true);
+  };
+  const closeNewPost = () => {
+    setShowNewPost(false);
+  };
   return (
     <>
       <aside className="navbar">
@@ -36,15 +42,29 @@ function Navbar({setToggle, toggle}) {
         <div className="navbar-menu">
           {NavbarData.map((item, index) => {
             if (item.type === "popup-new-post") {
+              // return (
+              //   <NewPost
+              //     key={index}
+              //     icon={item.icon}
+              //     title={item.title}
+              //     className="navbar-menu__item"
+              //     setToggle={setToggle}
+              //     toggle={toggle}
+              //   />
+              // );
+
               return (
-                <NewPost
-                  key={index}
-                  icon={item.icon}
-                  title={item.title}
-                  className="navbar-menu__item"
-                  setToggle={setToggle}
-                  toggle={toggle}
-                />
+                <>
+                  <Link
+                    key="new-post"
+                    className="navbar-menu__item"
+                    onClick={openNewPost}
+                  >
+                    {item.icon}
+                    <span className="navbar-menu__text">{item.title}</span>
+                  </Link>
+                  {showNewPost && <NewPost onClose={closeNewPost} />}
+                </>
               );
             }
             if (item.type === "home") {
@@ -77,7 +97,7 @@ function Navbar({setToggle, toggle}) {
                       setOpen(true);
                     }
                     if (item.title === "Sign Out") {
-                      signOut()
+                      signOut();
                       // console.log("Logged Out")
                     }
                   }}

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { loginUser, getUser } from '../../services/userApi'
 
 function Landing({ setUser }) {
-  const [error, setError] = useState('')
+  const [error, setError] = useState("");
   const [userData, setUserData] = useState({
     username: '',
     password: null,

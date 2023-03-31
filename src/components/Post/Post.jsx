@@ -8,6 +8,7 @@ import { RxCross2 } from "react-icons/rx";
 import { FaRegCommentDots, FaEdit } from "react-icons/fa";
 import {FcLikePlaceholder, FcLike } from "react-icons/fc";
 import { GoMarkGithub } from "react-icons/go";
+import { IconContext } from "react-icons";
 
 // Import postAPI configuration
 import { deletePost, updatePost } from "../../services/postApi";
@@ -52,7 +53,7 @@ export default function Post({ post, user, setToggle }) {
   return (
     <>
       <div className="post">
-        <div className="post_header">
+        <div className="demo post_header">
           <div className="post-avatar_left">
             <h4>
               <strong className="post-project">Project:</strong>
@@ -60,21 +61,18 @@ export default function Post({ post, user, setToggle }) {
             </h4>
           </div>
           {activeUser === username ? (
-            <FaEdit
-              onClick={() => setShowPopup(true)}
-              className="post-update-btn"
-            />
-          ) : (
-            <></>
-          )}
-          {activeUser === username ? (
-            <RxCross2 onClick={handleDelete} className="post-delete-btn" />
+            <IconContext.Provider value={{ color: "black" }}>
+              <RxCross2 onClick={handleDelete} className="post-delete-btn" />
+            </IconContext.Provider>
           ) : (
             <></>
           )}
         </div>
         <img className="post-image" src={post.image} alt="" />
         <div className="post-bottom">
+
+          //<div className="post-like-title">
+         //   <h3 className="post-like-username">{username}</h3>
           <div className="post-bottom-left">
             <div className="post-like-title">
               <h3>{username}</h3>
@@ -90,13 +88,57 @@ export default function Post({ post, user, setToggle }) {
               <div className="likeCount">0</div>
             </div>
           </div>
-          <a target="_blank" href={post.github_link}>
-            <GoMarkGithub className="post-navbar-menu__icon" />
+          {activeUser === username ? (
+            <IconContext.Provider
+              value={{ color: "rgb(46 127 194)", size: "1.5rem" }}
+            >
+              <FaEdit
+                onClick={() => setShowPopup(true)}
+                className="post-update-btn post-navbar-menu__icon"
+                onMouseOver={({ target }) => (target.style.color = "black")}
+                onMouseOut={({ target }) =>
+                  (target.style.color = "rgb(46 127 194)")
+                }
+              />
+            </IconContext.Provider>
+          ) : (
+            <></>
+          )}
+          {/* <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
+            <FaRegCommentDots
+              className="post-navbar-menu__icon"
+              onMouseOver={({ target }) => (target.style.color = "black")}
+              onMouseOut={({ target }) =>
+                (target.style.color = "rgb(46 127 194)")
+              }
+            />
+          </IconContext.Provider> */}
+
+          <a
+            // className="post-github post-navbar-menu__icon"
+            target="_blank"
+            href={post.github_link}
+          >
+            <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
+              <GoMarkGithub
+                className="post-navbar-menu__icon"
+                onMouseOver={({ target }) => (target.style.color = "black")}
+                onMouseOut={({ target }) =>
+                  (target.style.color = "rgb(46 127 194)")
+                }
+              />
+            </IconContext.Provider>
           </a>
           {heart === false ? <FcLikePlaceholder onClick={() => setHeart(true)}/> : <FcLike onClick={() => setHeart(false)}/>}
         </div>
       </div>
-      {showPopup && <EditPost showPopup={showPopup} setShowPopup={setShowPopup} setToggle={setToggle} post={post}/>}
+      {showPopup && (
+        <EditPost
+          setShowPopup={setShowPopup}
+          setToggle={setToggle}
+          post={post}
+        />
+      )}
     </>
   );
 }
