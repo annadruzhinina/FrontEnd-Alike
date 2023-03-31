@@ -18,7 +18,7 @@ function Home( {toggle, setToggle }) {
         setPosts(posts.data);
       })
       .then(
-        getUsers().then((users) => {
+        getUsers().then((users) => {  
           setUsers(users);
         })
       );
