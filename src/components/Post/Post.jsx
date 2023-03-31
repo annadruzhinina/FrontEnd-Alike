@@ -36,13 +36,13 @@ export default function Post({ post, user, setToggle }) {
     setToggle((prev) => !prev);
   }
 
-  async function updatingHeartQty() {
+  async function updatingHeartQty(liked) {
     await updatePost({
         project_name: postLike.project_name,
         github_link: postLike.github_link,
         // Sets image to the current postLike image URL if cloudinaryUrl does not exist; otherwise, uses cloudinaryUrl
         image: postLike.image,
-        heartQty: postLike.heartQty
+        heartQty: postLike.heartQty + liked
     }, post.id);
   }
 
@@ -63,13 +63,16 @@ export default function Post({ post, user, setToggle }) {
     
     let hearts = postLike.heartQty
     async function addLikes() {
+        let liked = 0
         if (heart === null) {
             setHeart(true)
+            liked = 1
         } 
         !heart ? hearts++ : hearts--
+        !heart ? liked = 1 : liked = -1
         setPostLike({...postLike, heartQty: hearts})
-        updatingHeartQty()
-        console.log(hearts)
+        updatingHeartQty(liked)
+        console.log(heart)
     }
     // console.log(post)
 
