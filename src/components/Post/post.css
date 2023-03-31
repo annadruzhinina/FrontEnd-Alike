@@ -52,6 +52,7 @@ strong {
 }
 
 .post-bottom {
+  border: 2px solid red;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -59,6 +60,12 @@ strong {
   overflow: hidden;
   padding-bottom: 10px;
   border-top: 1px solid lightgray;
+}
+
+.post-bottom-right {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid red;
 }
 
 .post-like-title {

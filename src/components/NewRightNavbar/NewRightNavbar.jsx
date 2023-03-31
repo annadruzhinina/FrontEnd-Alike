@@ -28,23 +28,18 @@ function NewRightNavbar() {
     <div className="newNavR">
       <h3>Tech News</h3>
       <div className="newNavR--scroll">
-        <iframe
-          width="240"
-          height="160"
-          src="https://www.youtube.com/embed/hQAHSlTtcmY"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
         <div className="newNavR--list">
           {newsData.articles ? (
             newsData.articles.map((item, index) => (
+              <a href={item.url} target="_blank">
               <div key={index} className="NavR--article">
-                <img src={item["urlToImage"]} alt="articlePic" />
+                <div className="imgBackground">
+                    <img src={item["urlToImage"]} alt="articlePic" />
+                </div>
                 <p>{item.title}</p>
-                <a href={item.url}>Read More</a>
               </div>
+              </a>
+
             ))
           ) : (
             <p>Loading...</p>
