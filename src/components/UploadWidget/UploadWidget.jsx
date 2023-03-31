@@ -1,17 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 const UploadWidget = ({ onSelected }) => {
+
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
   useEffect(() => {
+    // initializes an instance of the Cloudinary widget
     cloudinaryRef.current = window.cloudinary;
     widgetRef.current = cloudinaryRef.current.createUploadWidget(
+        // Cloudinary presets that disallow multiple uploades and allow for cropping
       {
         cloudName: "dybw1p8nl",
         uploadPreset: "alike_crop",
         multiple: false,
         cropping: true,
-
-        resource_type: "image",
+        resource_type: 'image'
       },
       // Event handler: call every time when we have any event
       // Documentation!!!!!! https://cloudinary.com/documentation/upload_widget_reference#events
@@ -26,6 +28,7 @@ const UploadWidget = ({ onSelected }) => {
         }
       }
     );
+    // [] makes sure the widget only renders once
   }, []);
   return (
     <button

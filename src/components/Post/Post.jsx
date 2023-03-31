@@ -6,6 +6,7 @@ import "./post.css";
 //Import Material UI & React Icon
 import { RxCross2 } from "react-icons/rx";
 import { FaRegCommentDots, FaEdit } from "react-icons/fa";
+import {FcLikePlaceholder, FcLike } from "react-icons/fc";
 import { GoMarkGithub } from "react-icons/go";
 import { IconContext } from "react-icons";
 
@@ -16,8 +17,14 @@ import EditPost from "../EditPost/EditPost.jsx";
 //Import Components
 // import Comment from "../../components/Comment/Comment.jsx";
 
+//import heart Icon
+import { FcLikePlaceholder, FcLike } from "react-icons/fc";
+
 export default function Post({ post, user, setToggle }) {
   const [showPopup, setShowPopup] = useState(false);
+
+  const [heart, setHeart] = useState(false);
+
 
   let username = "";
   for (let i = 0; i < user.length; i++) {
@@ -32,6 +39,16 @@ export default function Post({ post, user, setToggle }) {
     await deletePost(post.id);
     setToggle((prev) => !prev);
   }
+
+
+  function likeButton(){
+    // <FcLikePlaceholder/> ?  <FcLike/> : <FcLikePlaceholder/>;
+    if(heart === false){
+      setHeart(true);
+      return <FcLike/>;
+    }
+  }
+
 
   return (
     <>
@@ -53,8 +70,23 @@ export default function Post({ post, user, setToggle }) {
         </div>
         <img className="post-image" src={post.image} alt="" />
         <div className="post-bottom">
-          <div className="post-like-title">
-            <h3 className="post-like-username">{username}</h3>
+
+          //<div className="post-like-title">
+         //   <h3 className="post-like-username">{username}</h3>
+          <div className="post-bottom-left">
+            <div className="post-like-title">
+              <h3>{username}</h3>
+              <FaRegCommentDots className="post-navbar-menu__icon" />
+            </div>
+          </div>
+          <div className="post-bottom-right">
+            <a target="_blank" href={post.github_link}>
+              <GoMarkGithub className="post-navbar-menu__icon" />
+            </a>
+            <div className="likeContainer">
+              <button className="likeButton"><FcLikePlaceholder /></button>
+              <div className="likeCount">0</div>
+            </div>
           </div>
           {activeUser === username ? (
             <IconContext.Provider
@@ -97,6 +129,7 @@ export default function Post({ post, user, setToggle }) {
               />
             </IconContext.Provider>
           </a>
+          {heart === false ? <FcLikePlaceholder onClick={() => setHeart(true)}/> : <FcLike onClick={() => setHeart(false)}/>}
         </div>
       </div>
       {showPopup && (
