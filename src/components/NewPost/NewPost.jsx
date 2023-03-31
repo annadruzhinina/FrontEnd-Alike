@@ -7,5 +7,7 @@ export default function BasicModal({ onClose }) {
     onClose();
   };
 
-  return <PostModal post={{}} onClose={handlePopupClose} />;
+  return (
+    <PostModal post={{}} onClose={handlePopupClose} title="Create New Post" />
+  );
 }

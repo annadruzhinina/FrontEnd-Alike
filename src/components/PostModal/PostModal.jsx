@@ -8,7 +8,7 @@ import UploadWidget from "../UploadWidget/UploadWidget.jsx";
 import "../Post/post.css";
 import swal from "sweetalert";
 
-export function PostModal({ onClose, setToggle, post }) {
+export function PostModal({ onClose, setToggle, post, title }) {
   const isEditPost = Boolean(post.id);
   const [postData, setPostData] = useState(post);
   const [isSaveDisabled, setIsSaveDisabled] = useState(true); // Add state variable for disabled state
@@ -78,7 +78,7 @@ export function PostModal({ onClose, setToggle, post }) {
     <div className="popup-container" onClick={handleClickOutside}>
       <div className="popup" ref={popupRef}>
         <div className="EditHeader">
-          <h3>Edit Post</h3>
+          <h3>{title}</h3>
         </div>
 
         <label htmlFor="project_name">Project Name: *</label>

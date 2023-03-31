@@ -104,15 +104,6 @@ export default function Post({ post, user, setToggle }) {
             ) : (
               <></>
             )}
-            {/* <IconContext.Provider value={{ color: "rgb(46 127 194)" }}>
- <FaRegCommentDots
-   className="post-navbar-menu__icon"
-   onMouseOver={({ target }) => (target.style.color = "black")}
-   onMouseOut={({ target }) =>
-     (target.style.color = "rgb(46 127 194)")
-   }
- />
-</IconContext.Provider> */}
             {heart === false ? (
               <FcLikePlaceholder
                 onClick={() => setHeart(true)}
@@ -121,7 +112,7 @@ export default function Post({ post, user, setToggle }) {
             ) : (
               <FcLike className="post-heart" onClick={() => setHeart(false)} />
             )}
-            <span>0</span>
+            <span className="post-hearQty">0</span>
           </div>
         </div>
         {showPopup && (
