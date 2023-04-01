@@ -14,17 +14,16 @@ function Home({ toggle, setToggle }) {
   const [users, setUsers] = useState([])
   const [searchInput, setSearchInput] = useState('')
   const [filteredPosts, setFilteredPosts] = useState([])
-
-  console.log(searchInput)
-
+  
   const searchPosts = searchValue => {
     setSearchInput(searchValue)
-    if (searchInput !== '') {
+    if (searchValue !== '') {
       const filteredData = posts.filter(post => {
         if (
-          post.username.toLowerCase().includes(searchInput.toLowerCase()) ||
-          post.project_name.toLowerCase().includes(searchInput.toLowerCase())
+          // post.username.toLowerCase().includes(searchInput.toLowerCase()) ||
+          post.project_name.toLowerCase().includes(searchValue.toLowerCase())
         ) {
+          console.log(post.project_name)
           return true
         }
         return false
@@ -48,13 +47,13 @@ function Home({ toggle, setToggle }) {
   return (
     <div className='home'>
       <div className='home-global'>
-      <Searchbar setSearchInput={setSearchInput} />
+      <Searchbar searchPosts={searchPosts} />
         <Navbar setToggle={setToggle} toggle={toggle} />
         <div className='home-content'>
           <div className='home-content_center'>
             <div className='home-center'>
-              {posts && users && searchInput.length > 1
-                ? posts
+              {posts && users && searchInput.length > 0
+                ? filteredPosts
                     .slice(0)
                     .reverse()
                     .map((post, index) => {
