@@ -84,7 +84,7 @@ export default function Post({ post, user, setToggle }) {
               >
                 <FaEdit
                   onClick={() => setShowPopup(true)}
-                  className="post-update-btn post-navbar-menu__icon"
+                  className="post-update-btn post-navbar-menu__icon media"
                   onMouseOver={({ target }) => (target.style.color = "black")}
                   onMouseOut={({ target }) =>
                     (target.style.color = "rgb(46 127 194)")

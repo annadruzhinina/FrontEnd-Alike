@@ -7,9 +7,9 @@
 }
 .post {
   background-color: white;
-  max-width: 470px;
+  max-width: 400px;
   margin-bottom: var(--space-base-double);
-  min-width: 300px;
+  min-width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -177,8 +177,6 @@ h4 {
   background-color: #acd6fc;
   padding: 20px;
   z-index: 2;
-  /* min-width: 450px;
-  min-height: 450px; */
   width: 450px;
   height: 450px;
   box-shadow: 2px 3px 15px black;
@@ -344,10 +342,10 @@ button:hover {
 
 /* media queries for edit popup */
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 390px) {
   .popup {
     width: 300px;
-    height: 310px;
+    height: 300px;
   }
 
   .popup h3 {
@@ -371,34 +369,72 @@ button:hover {
 
   .edit_btns {
     font-size: 10px;
+    width: 100px !important;
+  }
+
+  .post-project__name {
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  h3 {
+    font-size: 16px;
+  }
+
+  .post-project {
+    font-size: 12px;
+  }
+  .gallery--list {
+    overflow: hidden;
+    overflow-y: hidden;
   }
 }
 
-@media screen and (min-width: 820px) {
+@media screen and (max-width: 640px) {
   .popup {
-    width: 600px;
-    height: 600px;
+    width: 300px;
+    height: 300px;
   }
 
   .popup h3 {
-    font-size: 30px;
+    font-size: 15px;
+    margin-bottom: 5px;
   }
 
   .popup label {
-    font-size: 25px;
+    font-size: 12px;
   }
 
   .popup input {
-    font-size: 25px;
-    margin-bottom: 20px;
+    font-size: 10px;
+    margin-bottom: 5px;
   }
 
   .edit_UploadWidget {
-    margin: 25px 0px 0px 0px;
-    font-size: 25px;
+    margin: 10px 0px 0px 0px;
+    font-size: 10px;
   }
 
   .edit_btns {
-    font-size: 25px;
+    font-size: 10px;
+    width: 100px !important;
+  }
+
+  .post-project__name {
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  .post-project {
+    font-size: 12px;
+  }
+  .gallery--list {
+    overflow: hidden;
+    overflow-y: hidden;
   }
 }
