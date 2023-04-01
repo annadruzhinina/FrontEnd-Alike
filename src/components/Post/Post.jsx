@@ -77,13 +77,31 @@ export default function Post({ post, user, setToggle }) {
               <span className="post-project__name">{post.project_name}</span>
             </h4>
           </div>
-          {activeUser === username ? (
-            <IconContext.Provider value={{ color: "black" }}>
-              <RxCross2 onClick={handleDelete} className="post-delete-btn" />
-            </IconContext.Provider>
-          ) : (
-            <></>
-          )}
+          <div className="post-top-icons">
+            {activeUser === username ? (
+              <IconContext.Provider
+                value={{ color: "rgb(46 127 194)", size: "1.5rem" }}
+              >
+                <FaEdit
+                  onClick={() => setShowPopup(true)}
+                  className="post-update-btn post-navbar-menu__icon"
+                  onMouseOver={({ target }) => (target.style.color = "black")}
+                  onMouseOut={({ target }) =>
+                    (target.style.color = "rgb(46 127 194)")
+                  }
+                />
+              </IconContext.Provider>
+            ) : (
+              <></>
+            )}
+            {activeUser === username ? (
+              <IconContext.Provider value={{ color: "black" }}>
+                <RxCross2 onClick={handleDelete} className="post-delete-btn" />
+              </IconContext.Provider>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
         <img className="post-image" src={post.image} alt="" />
         <div className="post-bottom">
