@@ -2,19 +2,19 @@ import React from 'react'
 import * as BiIcons from 'react-icons/bi'
 import './Searchbar.css'
 
-export default function Searchbar({ searchPosts }) {
+export default function Searchbar({ setSearchInput }) {
   return (
-    <div class='search-wrapper'>
-      <div class='search'>
+    <div className='search-wrapper'>
+      <div className='search'>
         <input
           type='text'
-          onchange={e => searchPosts(e.target.value)}
-          class='searchTerm'
+          onChange={e => setSearchInput(e.target.value)}
+          className='searchTerm'
           placeholder='Search posts'
         />
-        <button class='searchButton'>
+        <div className='searchButton'>
           <BiIcons.BiSearch className='navbar-menu__icon' />
-        </button>
+        </div>
       </div>
     </div>
   )

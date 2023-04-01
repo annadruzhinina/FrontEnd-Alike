@@ -15,6 +15,8 @@ function Home({ toggle, setToggle }) {
   const [searchInput, setSearchInput] = useState('')
   const [filteredPosts, setFilteredPosts] = useState([])
 
+  console.log(searchInput)
+
   const searchPosts = searchValue => {
     setSearchInput(searchValue)
     if (searchInput !== '') {
@@ -46,10 +48,10 @@ function Home({ toggle, setToggle }) {
   return (
     <div className='home'>
       <div className='home-global'>
+      <Searchbar setSearchInput={setSearchInput} />
         <Navbar setToggle={setToggle} toggle={toggle} />
         <div className='home-content'>
           <div className='home-content_center'>
-            <Searchbar searchPosts={searchPosts} />
             <div className='home-center'>
               {posts && users && searchInput.length > 1
                 ? posts
