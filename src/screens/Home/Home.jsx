@@ -9,33 +9,36 @@ import { getPosts } from "../../services/postApi.js";
 import { getUsers } from "../../services/userApi.js";
 import NewRightNavbar from "../../components/NewRightNavbar/NewRightNavbar";
 
-function Home( {toggle, setToggle }) {
+function Home({ toggle, setToggle }) {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState("");
+  const [filteredPosts, setFilteredPosts] = useState([]);
 
-  const searchPosts = searchValue => {
-    setSearchInput(searchValue)
-    if (searchInput !== '') {
-      const filteredData = posts.filter(post => {
-        if (post.username.toLowerCase().includes(searchInput.toLowerCase()) || post.project_name.toLowerCase().includes(searchInput.toLowerCase())) {
-          return true
-        } 
-        return false
-      })
-      setFilteredResults(filteredData)
+  const searchPosts = (searchValue) => {
+    setSearchInput(searchValue);
+    if (searchInput !== "") {
+      const filteredData = posts.filter((post) => {
+        if (
+          post.username.toLowerCase().includes(searchInput.toLowerCase()) ||
+          post.project_name.toLowerCase().includes(searchInput.toLowerCase())
+        ) {
+          return true;
+        }
+        return false;
+      });
+      setFilteredPosts(filteredData);
     }
-  }
-  
+  };
+
   // const [toggle, setToggle] = useState(false);
   useEffect(() => {
     getPosts()
       .then((posts) => {
         setPosts(posts.data);
-        
       })
       .then(
-        getUsers().then((users) => {  
+        getUsers().then((users) => {
           setUsers(users);
         })
       );
@@ -44,28 +47,43 @@ function Home( {toggle, setToggle }) {
   return (
     <div className="home">
       <div className="home-global">
-        <Navbar setToggle={setToggle} toggle={toggle}/>
+        <Navbar setToggle={setToggle} toggle={toggle} />
         <div className="home-content">
           <div className="home-content_center">
             <div className="home-center">
-              {posts &&
-                users &&
-                posts
-                  .slice(0)
-                  .reverse()
-                  .map((post, index) => {
-                    let user = users.map((user, index) => {
-                      if (post.username === user.id) return user.username;
-                    });
-                    return (
-                      <Post
-                        key={index}
-                        user={user}
-                        post={post}
-                        setToggle={setToggle}
-                      />
-                    );
-                  })}
+              {posts && users && searchInput.length > 1
+                ? posts
+                    .slice(0)
+                    .reverse()
+                    .map((post, index) => {
+                      let user = users.map((user, index) => {
+                        if (post.username === user.id) return user.username;
+                      });
+                      return (
+                        <Post
+                          key={index}
+                          user={user}
+                          post={post}
+                          setToggle={setToggle}
+                        />
+                      );
+                    })
+                : posts
+                    .slice(0)
+                    .reverse()
+                    .map((post, index) => {
+                      let user = users.map((user, index) => {
+                        if (post.username === user.id) return user.username;
+                      });
+                      return (
+                        <Post
+                          key={index}
+                          user={user}
+                          post={post}
+                          setToggle={setToggle}
+                        />
+                      );
+                    })}
             </div>
           </div>
           {/* <RightNavbar /> */}
