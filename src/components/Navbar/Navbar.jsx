@@ -25,9 +25,11 @@ function Navbar({ setToggle, toggle }) {
   const openNewPost = () => {
     setShowNewPost(true);
   };
+
   const closeNewPost = () => {
     setShowNewPost(false);
   };
+
   return (
     <>
       <aside className="navbar">
@@ -36,6 +38,7 @@ function Navbar({ setToggle, toggle }) {
             onClick={handleLogoClick}
             className="navbar-logo"
             src="./image/logo.png"
+            alt="Alike Logo"
           />
           <span className="navbar-logo-text">Hello, {username} </span>
         </div>
@@ -57,7 +60,6 @@ function Navbar({ setToggle, toggle }) {
               );
             }
             if (item.type === "home") {
-              // console.log(item);
               return (
                 <Link
                   key={index}
@@ -65,7 +67,6 @@ function Navbar({ setToggle, toggle }) {
                   to={item.path}
                   onClick={() => {
                     if (item.title === "Home") {
-                      // setShowNewPost(!showNewPost);
                       handleLogoClick();
                     }
                   }}
@@ -82,12 +83,10 @@ function Navbar({ setToggle, toggle }) {
                   to={item.path}
                   onClick={() => {
                     if (item.title === "New Post") {
-                      // setShowNewPost(!showNewPost);
                       setOpen(true);
                     }
                     if (item.title === "Sign Out") {
                       signOut();
-                      // console.log("Logged Out")
                     }
                   }}
                 >
