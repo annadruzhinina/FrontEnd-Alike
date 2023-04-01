@@ -20,10 +20,8 @@ function Home({ toggle, setToggle }) {
     if (searchValue !== '') {
       const filteredData = posts.filter(post => {
         if (
-          // post.username.toLowerCase().includes(searchInput.toLowerCase()) ||
           post.project_name.toLowerCase().includes(searchValue.toLowerCase())
         ) {
-          console.log(post.project_name)
           return true
         }
         return false

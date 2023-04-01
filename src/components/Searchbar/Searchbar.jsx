@@ -10,7 +10,7 @@ export default function Searchbar({ searchPosts }) {
           type='text'
           onChange={e => (searchPosts(e.target.value))}
           className='searchTerm'
-          placeholder='Search posts'
+          placeholder='Search by project title'
         />
         <div className='searchButton'>
           <BiIcons.BiSearch className='navbar-menu__icon' />
