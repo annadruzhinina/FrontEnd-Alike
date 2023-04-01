@@ -4,17 +4,17 @@ import './Searchbar.css'
 
 export default function Searchbar({ searchPosts }) {
   return (
-    <div class='search-wrapper'>
-      <div class='search'>
+    <div className='search-wrapper'>
+      <div className='search'>
         <input
           type='text'
-          onchange={e => searchPosts(e.target.value)}
-          class='searchTerm'
-          placeholder='Search posts'
+          onChange={e => (searchPosts(e.target.value))}
+          className='searchTerm'
+          placeholder='Search by project title'
         />
-        <button class='searchButton'>
+        <div className='searchButton'>
           <BiIcons.BiSearch className='navbar-menu__icon' />
-        </button>
+        </div>
       </div>
     </div>
   )
