@@ -12,11 +12,27 @@ import NewRightNavbar from "../../components/NewRightNavbar/NewRightNavbar";
 function Home( {toggle, setToggle }) {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
+
+  const searchPosts = searchValue => {
+    setSearchInput(searchValue)
+    if (searchInput !== '') {
+      const filteredData = posts.filter(post => {
+        if (post.username.toLowerCase().includes(searchInput.toLowerCase()) || post.project_name.toLowerCase().includes(searchInput.toLowerCase())) {
+          return true
+        } 
+        return false
+      })
+      setFilteredResults(filteredData)
+    }
+  }
+  
   // const [toggle, setToggle] = useState(false);
   useEffect(() => {
     getPosts()
       .then((posts) => {
         setPosts(posts.data);
+        
       })
       .then(
         getUsers().then((users) => {  
