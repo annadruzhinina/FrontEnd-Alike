@@ -1,64 +1,64 @@
 //Import React
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react'
 // Import ccs
-import "./home.css";
-import Post from "../../components/Post/Post.jsx";
-import Navbar from "../../components/Navbar/Navbar.jsx";
-// import RightNavbar from "../../components/RightNavbar/RightNavbar.jsx";
-import { getPosts } from "../../services/postApi.js";
-import { getUsers } from "../../services/userApi.js";
-import NewRightNavbar from "../../components/NewRightNavbar/NewRightNavbar";
+import './home.css'
+import Post from '../../components/Post/Post.jsx'
+import Navbar from '../../components/Navbar/Navbar.jsx'
+import { getPosts } from '../../services/postApi.js'
+import { getUsers } from '../../services/userApi.js'
+import NewRightNavbar from '../../components/NewRightNavbar/NewRightNavbar'
+import Searchbar from '../../components/Searchbar/Searchbar'
 
 function Home({ toggle, setToggle }) {
-  const [posts, setPosts] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [searchInput, setSearchInput] = useState("");
-  const [filteredPosts, setFilteredPosts] = useState([]);
+  const [posts, setPosts] = useState([])
+  const [users, setUsers] = useState([])
+  const [searchInput, setSearchInput] = useState('')
+  const [filteredPosts, setFilteredPosts] = useState([])
 
-  const searchPosts = (searchValue) => {
-    setSearchInput(searchValue);
-    if (searchInput !== "") {
-      const filteredData = posts.filter((post) => {
+  const searchPosts = searchValue => {
+    setSearchInput(searchValue)
+    if (searchInput !== '') {
+      const filteredData = posts.filter(post => {
         if (
           post.username.toLowerCase().includes(searchInput.toLowerCase()) ||
           post.project_name.toLowerCase().includes(searchInput.toLowerCase())
         ) {
-          return true;
+          return true
         }
-        return false;
-      });
-      setFilteredPosts(filteredData);
+        return false
+      })
+      setFilteredPosts(filteredData)
     }
-  };
+  }
 
-  // const [toggle, setToggle] = useState(false);
   useEffect(() => {
     getPosts()
-      .then((posts) => {
-        setPosts(posts.data);
+      .then(posts => {
+        setPosts(posts.data)
       })
       .then(
-        getUsers().then((users) => {
-          setUsers(users);
+        getUsers().then(users => {
+          setUsers(users)
         })
-      );
-  }, [toggle]);
+      )
+  }, [toggle])
 
   return (
-    <div className="home">
-      <div className="home-global">
+    <div className='home'>
+      <div className='home-global'>
         <Navbar setToggle={setToggle} toggle={toggle} />
-        <div className="home-content">
-          <div className="home-content_center">
-            <div className="home-center">
+        <div className='home-content'>
+          <div className='home-content_center'>
+            <Searchbar searchPosts={searchPosts} />
+            <div className='home-center'>
               {posts && users && searchInput.length > 1
                 ? posts
                     .slice(0)
                     .reverse()
                     .map((post, index) => {
                       let user = users.map((user, index) => {
-                        if (post.username === user.id) return user.username;
-                      });
+                        if (post.username === user.id) return user.username
+                      })
                       return (
                         <Post
                           key={index}
@@ -66,15 +66,15 @@ function Home({ toggle, setToggle }) {
                           post={post}
                           setToggle={setToggle}
                         />
-                      );
+                      )
                     })
                 : posts
                     .slice(0)
                     .reverse()
                     .map((post, index) => {
                       let user = users.map((user, index) => {
-                        if (post.username === user.id) return user.username;
-                      });
+                        if (post.username === user.id) return user.username
+                      })
                       return (
                         <Post
                           key={index}
@@ -82,16 +82,15 @@ function Home({ toggle, setToggle }) {
                           post={post}
                           setToggle={setToggle}
                         />
-                      );
+                      )
                     })}
             </div>
           </div>
-          {/* <RightNavbar /> */}
           {<NewRightNavbar />}
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home

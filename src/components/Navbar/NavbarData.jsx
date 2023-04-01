@@ -15,7 +15,8 @@ export const NavbarData = [
   },
   {
     title: "Search",
-    path: "",
+    path: null,
+    type: 'search',
     icon: <BiIcons.BiSearch className="navbar-menu__icon" />,
   },
   {
