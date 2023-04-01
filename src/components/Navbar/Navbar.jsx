@@ -55,7 +55,9 @@ function Navbar({ setToggle, toggle }) {
                     {item.icon}
                     <span className="navbar-menu__text">{item.title}</span>
                   </Link>
-                  {showNewPost && <NewPost onClose={closeNewPost} />}
+                  {showNewPost && (
+                    <NewPost onClose={closeNewPost} setToggle={setToggle} />
+                  )}
                 </React.Fragment>
               );
             }

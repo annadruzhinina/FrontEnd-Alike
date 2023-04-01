@@ -2,12 +2,17 @@
 import React from "react";
 import { PostModal } from "../PostModal/PostModal";
 
-export default function BasicModal({ onClose }) {
+export default function BasicModal({ onClose, setToggle }) {
   const handlePopupClose = () => {
     onClose();
   };
 
   return (
-    <PostModal post={{}} onClose={handlePopupClose} title="Create New Post" />
+    <PostModal
+      post={{}}
+      onClose={handlePopupClose}
+      title="Create New Post"
+      setToggle={setToggle}
+    />
   );
 }
