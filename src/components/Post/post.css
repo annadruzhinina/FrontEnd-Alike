@@ -1,15 +1,33 @@
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.gallery--list {
+  --n: 2;
+  --m: 3;
+  --g: 100px;
+  --f: 1.5;
+  grid-gap: var(--g);
+  display: grid;
+  gap: var(--g);
+  grid-template-columns: repeat(var(--m), auto);
+  height: calc(var(--n) * var(--s) + (var(--n) - 1) * var(--g));
+  /* padding: 0 30px; */
+  width: calc(var(--m) * var(--s) + (var(--m) - 1) * var(--g));
+}
+
 .post-image {
   width: 100%;
-  max-height: 350px;
-  min-height: 350px;
-  min-width: 350px;
+  height: 350px;
+  min-width: auto;
   object-fit: cover;
 }
 .post {
   background-color: white;
-  max-width: 400px;
+  max-width: 320px;
   margin-bottom: var(--space-base-double);
-  min-width: 400px;
+  min-width: 450px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -36,6 +54,7 @@ strong {
   font-size: 20px;
   white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .post_header {
@@ -48,9 +67,15 @@ strong {
   background-color: #fcfcfd;
   background-image: linear-gradient(315deg, #edeff1 0%, #6ca8d8 74%);
 }
+
 .post-avatar_left {
+  align-items: center;
+  font-size: smaller;
   display: flex;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 .post-avatar {
   margin-right: 10px;
 }
@@ -150,10 +175,6 @@ svg {
   box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2),
     0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
   outline: 0;
-}
-
-h4 {
-  font-size: smaller;
 }
 
 .popup-container {
@@ -374,9 +395,8 @@ button:hover {
 
   .post-project__name {
     font-size: 14px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    /* overflow: hidden;
+    white-space: nowrap; */
   }
   h3 {
     font-size: 16px;
@@ -387,8 +407,20 @@ button:hover {
   }
   .gallery--list {
     overflow: hidden;
-    overflow-y: hidden;
   }
+}
+.profile-page .gallery--list {
+  --n: 2;
+  --m: 3;
+  /* --g: 20px; */
+  /* --f: 1.5; */
+  /* grid-gap: var(--g); */
+  /* display: grid; */
+  /* gap: var(--g); */
+  grid-template-columns: repeat(var(--m), auto);
+  height: calc(var(--n) * var(--s) + (var(--n) - 1) * var(--g));
+  /* padding: 0 30px; */
+  width: calc(var(--m) * var(--s) + (var(--m) - 1) * var(--g));
 }
 
 @media screen and (max-width: 640px) {
@@ -423,9 +455,9 @@ button:hover {
 
   .post-project__name {
     font-size: 14px;
-    overflow: hidden;
+    /* overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; */
   }
   h3 {
     font-size: 16px;
