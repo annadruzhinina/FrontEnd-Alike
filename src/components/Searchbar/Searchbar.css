@@ -33,9 +33,6 @@
 
 /*Resize the wrap to see the search bar change!*/
 .search-wrapper {
-  width: 30%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  max-width: 600px;
+  margin: 0 auto;
 }
