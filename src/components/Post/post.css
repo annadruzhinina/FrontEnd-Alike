@@ -1,20 +1,34 @@
+main {
+  display: flex;
+  justify-content: center;
+}
+
 .post-image {
   width: 100%;
-  object-fit: contain;
-  border-top: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
+  height: 350px;
+  min-width: auto;
+  object-fit: cover;
 }
 .post {
   background-color: white;
-  max-width: 470px;
-  border: 1px solid lightgray;
+  max-width: 320px;
   margin-bottom: var(--space-base-double);
-  min-width: 300px;
+  /* min-width: 450px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 500px) {
+  .post {
+    min-width: 450px;
+  }
 }
 
 .post-delete-btn {
   font-weight: bold;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .post-text {
@@ -30,17 +44,30 @@ strong {
 .post-project__name {
   margin-left: 10px;
   font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 .post_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
   padding: 15px 10px 10px 10px;
+  /* background-color: #2d7fc26e; */
+  background-color: #fcfcfd;
+  background-image: linear-gradient(315deg, #edeff1 0%, #6ca8d8 74%);
 }
+
 .post-avatar_left {
+  align-items: center;
+  font-size: smaller;
   display: flex;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 .post-avatar {
   margin-right: 10px;
 }
@@ -56,6 +83,13 @@ strong {
   padding: 0 10px 0 10px;
   overflow: hidden;
   padding-bottom: 10px;
+  background-color: rgb(222 236 254);
+}
+
+.post-bottom-right {
+  display: flex;
+  flex-direction: row;
+  /* border: 2px solid red; */
 }
 
 .post-like-title {
@@ -63,34 +97,29 @@ strong {
   width: 100%;
   justify-content: start;
   align-items: center;
+  padding: 15px 10px 10px 10px;
 }
 .post-navbar-menu__icon {
-  width: var(--icon-size-base);
-  height: var(--icon-size-base);
-  margin-left: 10px;
-}
-.heart-button {
-  cursor: pointer;
-  background: transparent;
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.heart-button-icon {
-  font-size: 24px;
+  justify-content: center;
+  margin-left: 10px;
   cursor: pointer;
-  background: transparent;
-  margin-right: 10px;
 }
 
-.heart-button-icon-liked {
-  color: rgb(226, 19, 23);
+svg {
+  width: 20px !important;
+  height: 20px !important;
 }
 
-.heart-button-heartQty {
-  font-size: 16px;
-  margin-right: 10px;
+.post-top-icons {
+  display: flex;
+}
+
+.heart {
+  background-color: transparent;
+  cursor: pointer;
+  animation: pulse 1s ease-out;
 }
 
 .hearted {
@@ -140,6 +169,281 @@ strong {
   outline: 0;
 }
 
-h4 {
-  font-size: smaller;
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* add a blur effect to the background */
+  backdrop-filter: blur(2px);
+  /* make sure the popup is displayed above the blurred background */
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.8);
+  min-width: 350px;
+}
+
+.popup {
+  background-color: #acd6fc;
+  padding: 20px;
+  z-index: 2;
+  width: 450px;
+  height: 450px;
+  box-shadow: 2px 3px 15px black;
+}
+
+.popup input {
+  border: solid white;
+}
+
+.popup-btns > button {
+  border: 1px solid white;
+  background-color: #fff;
+  padding: 0.5rem;
+  width: 185px;
+  color: #3b91d7;
+  font-weight: 500;
+}
+.popup-btns {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.edit_btns:hover {
+  background-color: #dcf0ff !important;
+  color: black;
+  transition: 0.3s all ease;
+  border: 1px solid white;
+}
+button:hover {
+  background-color: #dcf0ff;
+}
+.popup-container h3 {
+  text-align: center;
+  color: black;
+  font-weight: 900;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.popup label {
+  font-size: small;
+  margin-bottom: 0;
+  color: #3b91d7;
+  font-weight: 500;
+}
+
+.ExitEdit {
+  background-color: transparent;
+}
+
+.ExitEdit:hover {
+  cursor: pointer;
+  transition: all 600ms ease;
+}
+
+.edit_UploadWidget {
+  width: 100%;
+  padding: 12px;
+  margin: 20px 0 20px 0;
+  cursor: pointer;
+  border: 1px solid white;
+  background-color: #ffffff;
+}
+
+.edit_UploadWidget:hover {
+  background-color: #dcf0ff !important;
+  color: black;
+  transition: all 600ms ease;
+  border: 1px solid white;
+}
+
+.popup input:hover {
+  background-color: #dcf0ff !important;
+  color: black;
+  transition: all 600ms ease;
+  cursor: auto;
+}
+
+.edit_exit {
+  color: white;
+  height: 20px;
+  width: 20px;
+  font-weight: 900;
+}
+
+.edit_header {
+  margin-bottom: 20px;
+}
+
+.post-github {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.post-github:hover {
+  transition: all 300ms ease;
+}
+
+.post-update-btn {
+  /* width: 28px;
+  height: 28px; */
+  cursor: pointer;
+}
+.post-update-btn:hover {
+  transition: all 300ms ease;
+}
+.post-like-username {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.post-navbar-menu__icon:hover {
+  color: white;
+}
+
+.edit_btns[disabled] {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+.edit_btns[disabled]:hover {
+  background-color: #ccc;
+}
+
+.right-icons {
+  display: flex;
+  align-items: center;
+}
+.post-hearQty {
+  margin-right: 10px;
+}
+.post-heart {
+  /* width: 50px; */
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 3px;
+  cursor: pointer;
+  background: transparent;
+  animation: pulse 1s ease-out;
+}
+.heart,
+.likeCount {
+  display: inline-block;
+}
+.likeCount {
+  margin-left: 10px;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.3);
+  }
+  28% {
+    transform: scale(1);
+  }
+}
+
+/* media queries for edit popup */
+
+@media screen and (max-width: 390px) {
+  .popup {
+    width: 300px;
+    height: 300px;
+  }
+
+  .popup h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+
+  .popup label {
+    font-size: 12px;
+  }
+
+  .popup input {
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+
+  .edit_UploadWidget {
+    margin: 10px 0px 0px 0px;
+    font-size: 10px;
+  }
+
+  .edit_btns {
+    font-size: 10px;
+    width: 100px !important;
+  }
+
+  .post-project__name {
+    font-size: 14px;
+    /* overflow: hidden;
+    white-space: nowrap; */
+  }
+  h3 {
+    font-size: 16px;
+  }
+
+  .post-project {
+    font-size: 12px;
+  }
+  .gallery--list {
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .popup {
+    width: 300px;
+    height: 300px;
+  }
+
+  .popup h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+
+  .popup label {
+    font-size: 12px;
+  }
+
+  .popup input {
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+
+  .edit_UploadWidget {
+    margin: 10px 0px 0px 0px;
+    font-size: 10px;
+  }
+
+  .edit_btns {
+    font-size: 10px;
+    width: 100px !important;
+  }
+
+  .post-project__name {
+    font-size: 14px;
+    /* overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; */
+  }
+  h3 {
+    font-size: 16px;
+  }
+  .post-project {
+    font-size: 12px;
+  }
+  .gallery--list {
+    overflow: hidden;
+    overflow-y: hidden;
+  }
 }

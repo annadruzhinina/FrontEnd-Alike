@@ -13,14 +13,15 @@ export const NavbarData = [
     type: "home",
     icon: <MdIcons.MdHomeFilled className="navbar-menu__icon" />,
   },
-  {
-    title: "Search",
-    path: "",
-    icon: <BiIcons.BiSearch className="navbar-menu__icon" />,
-  },
+  // {
+  //   title: "Search",
+  //   path: null,
+  //   type: 'search',
+  //   icon: <BiIcons.BiSearch className="navbar-menu__icon" />,
+  // },
   {
     title: "New Post",
-    path: "",
+    path: null,
     type: "popup-new-post",
     icon: <MdIcons.MdOutlinePostAdd className="navbar-menu__icon" />,
   },

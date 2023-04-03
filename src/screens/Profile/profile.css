@@ -1,3 +1,7 @@
+.profile-page .post {
+  min-width: 310px;
+}
+
 .profile-image-png {
   height: 100px;
   width: 100px;
@@ -8,7 +12,6 @@ profile-img {
 }
 
 .profile-container {
-  max-width: 1400px;
   margin: 0 auto;
   padding: 0 230px;
 }
@@ -123,22 +126,20 @@ profile-img {
 .profile-gallery-item {
   position: relative;
   flex: 1 0 352px;
-  margin: 16px a;
+  margin: 16px;
   color: #fff;
   cursor: pointer;
 }
-.gallery--list {
-  --n: 3;
-  --m: 3;
-  --g: 20px;
-  --f: 1.5;
-  grid-gap: var(--g);
-  display: grid;
-  gap: var(--g);
-  grid-template-columns: repeat(var(--m), auto);
-  height: calc(var(--n) * var(--s) + (var(--n) - 1) * var(--g));
-  /* padding: 0 30px; */
-  width: calc(var(--m) * var(--s) + (var(--m) - 1) * var(--g));
+
+.profile-page .container {
+  max-width: fit-content;
+}
+
+/* Gallery for posts on profile page */
+.gallery-list-profile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .container {
@@ -179,11 +180,6 @@ profile-img {
   text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
 }
 
-.fa-clone,
-.fa-comment {
-  transform: rotateY(180deg);
-}
-
 .profile-gallery-image {
   width: 100%;
   height: 100%;
@@ -203,84 +199,66 @@ profile-img {
 }
 
 /* Media Query */
-
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 820px) {
+  .profile-page .profile-image img {
+    border-radius: 50%;
+    margin: 50px 0 0 50px;
+  }
+  .profile-stat-count {
+    font-size: 22px;
+  }
+  .profile-bio {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .main {
+    margin: 0px -230px;
+  }
   .profile {
     display: flex;
     flex-wrap: wrap;
     padding: 64px 0;
   }
-
-  .profile::after {
-    display: none;
+  .profile-container {
+    max-width: 840px;
+    margin: 0 auto;
   }
-
-  .profile-image,
-  .profile-user-settings,
-  .profile-bio,
-  .profile-stats {
-    float: none;
-    width: auto;
-  }
-
-  .profile-image img {
-    width: 123px;
-  }
-
-  .profile-user-settings {
-    flex-basis: calc(100% - 171px);
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 16px;
-  }
-
-  .profile-user-name {
-    font-size: 2.2rem;
-  }
-
-  .profile-edit-btn {
-    order: 1;
+  .profile-container {
+    max-width: 830px;
+    margin: 0 auto;
     padding: 0;
-    text-align: center;
-    margin-top: 35px;
   }
-
-  .profile-edit-btn {
-    margin-left: 0;
+  .container {
+    max-width: 100%;
   }
-
-  .profile-bio {
-    font-size: 22px;
-    margin-top: 24px;
+  .profile-page .gallery-list-profile .gallery--list {
+    max-width: 600px;
+    --n: 1;
+    --m: 2;
+    --g: 30px;
+    --f: 1.5;
+    grid-gap: var(--g);
+    display: grid;
+    gap: var(--g);
+    grid-template-columns: repeat(var(--m), auto);
+    height: calc(var(--n) * var(--s) + (var(--n) - 1) * var(--g));
+    /* padding: 0 30px; */
+    width: calc(var(--m) * var(--s) + (var(--m) - 1) * var(--g));
   }
-
-  .profile-edit-btn,
-  .profile-bio,
-  .profile-stats {
-    flex-basis: 100%;
-  }
-
-  .profile-stats {
-    order: 1;
-    margin-top: 24px;
-  }
-
-  .profile-stats ul {
+  .popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
-    text-align: center;
-    padding: 19px 0;
-    border-top: 1px solid #dadada;
-    border-bottom: 1px solid #dadada;
-  }
-
-  .profile-stats li {
-    font-size: 22px;
-    flex: 1;
-    margin: 0;
-  }
-
-  .profile-stat-count {
-    display: block;
+    justify-content: center;
+    align-items: center;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+    min-width: 350px;
   }
 }
 
@@ -291,15 +269,6 @@ profile-img {
     transform: rotate(360deg);
   }
 }
-
-/*
-
-The following code will only run if your browser supports CSS grid.
-
-Remove or comment-out the code block below to see how the browser will fall-back to flexbox & floated styling.
-
-*/
-
 @supports (display: grid) {
   .profile {
     display: grid;
@@ -329,6 +298,92 @@ Remove or comment-out the code block below to see how the browser will fall-back
     margin: 0;
   }
 
+  @media screen and (max-width: 640px) {
+    .profile {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 64px 0;
+    }
+
+    .profile::after {
+      display: none;
+    }
+
+    .profile-image,
+    .profile-user-settings,
+    .profile-bio,
+    .profile-stats {
+      float: none;
+      width: auto;
+    }
+
+    .profile-image img {
+      width: 123px;
+      border-radius: 50%;
+      margin: 50px 0 0 50px;
+    }
+
+    .profile-user-settings {
+      flex-basis: calc(100% - 171px);
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .profile-user-name {
+      font-size: 2.2rem;
+    }
+
+    .profile-edit-btn {
+      order: 1;
+      padding: 0;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    .profile-edit-btn {
+      margin-left: 0;
+    }
+
+    .profile-bio {
+      font-size: 22px;
+      margin-top: 24px;
+    }
+
+    .profile-edit-btn,
+    .profile-bio,
+    .profile-stats {
+      flex-basis: 100%;
+    }
+
+    .profile-stats {
+      order: 1;
+      margin-top: 24px;
+    }
+
+    .profile-stats ul {
+      display: flex;
+      text-align: center;
+      padding: 19px 0;
+      border-top: 1px solid #dadada;
+      border-bottom: 1px solid #dadada;
+    }
+
+    .profile-stats li {
+      font-size: 22px;
+      flex: 1;
+      margin: 0;
+    }
+
+    .profile-stat-count {
+      display: block;
+    }
+
+    .profile-page .main {
+      margin: 0;
+    }
+  }
+
   @media (max-width: 640px) {
     .profile-gallery-image {
       width: 100%;
@@ -353,6 +408,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
     }
     .profile-bio > p {
       font-size: 18px;
+      padding-top: 20px;
     }
 
     .profile-user-settings {
@@ -361,7 +417,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
       grid-gap: 16px;
     }
     .profile-stats li {
-      font-size: 16px;
+      font-size: 14px;
       flex: 1 1;
       margin: 0;
     }

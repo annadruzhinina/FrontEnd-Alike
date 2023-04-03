@@ -1,158 +1,156 @@
 // Import React
-import { useState } from "react";
-// Import css
-import "./signup.css";
+import React, { useState } from 'react'
 // Import React-Router-Dom
-import { Navigate, useNavigate } from "react-router-dom";
-// Import Context
-import { useAuthContext } from "../../Hooks/useAuthContext.js";
-// Import CSS
-import "./signup.css";
+import { Navigate, useNavigate } from 'react-router-dom'
+import { getUser, registerUser } from '../../services/userApi'
+// Import css
+import './signup.css'
 
 // Sign-in function
-function SignUp() {
-  // Deconstruct useAuthContext to pull dispatch
-  const { dispatch } = useAuthContext();
-
+function SignUp({ setUser, user }) {
+  const [error, setError] = useState('')
+  let navigate = useNavigate()
   // Set useState object
-  const [user, setUser] = useState({
-    username: "",
-    password: "",
-    passwordConfirm: "",
-    valid: "",
-  });
+  const [userData, setUserData] = useState({
+    username: '',
+    email: '',
+    password: '',
+    re_password: '',
+    valid: false
+  })
 
-  // Deconstruct useState
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [valid, setValid] = useState("");
-
-  // Handle Submit
-  const handleSubmit = (e) => {
-    // Prevent Page from Reloading
-    e.preventDefault();
-    // Update User with Values
-    setUser({
-      username,
-      password,
-      passwordConfirm,
-      valid:
-        password === passwordConfirm ? (password !== "" ? true : "") : false,
-    });
-    // Sending payload (username)
-    dispatch({ type: "LOGIN", payload: username });
-
-    // Reset Values to ''
-    setPassword("");
-    setPasswordConfirm("");
-    setValid(null);
-  };
   // Password Validation Function
-  const passwordValidation = (pw) => {
+  const passwordValidation = pw => {
     // Variables for numbers and special characters
-    const specialChar = /[\s~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?()\._]/g;
-    const numChar = /\d/;
+    const specialChar = /[\s~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?()\._]/g
+    const numChar = /\d/
     // Validate the password has the below criteria
-    if (pw.length >= 6 && specialChar.test(pw) && numChar.test(pw)) return true;
-    // If it does not, return false
-    return false;
-  };
-  // Result Function to check for valid passwords
-  const result = (validation) => {
-    if (validation === "") {
-      // Ensure reset of <p> when values are reset after submitting
-      return <p></p>;
-      // If the passwords match...
-    } else if (validation === true) {
-      // Vaidate if they meet the specified criteria and return <p> accordingly
-      if (passwordValidation(user.password) === false) {
-        return (
-          <>
-            <p>"Password Must Contain at least 8 letters"</p>
-            <p>"Password Must Include a Number and Special Character"</p>
-          </>
-        );
-      } else {
-        return <Navigate to="/" replace={true} />;
-      }
-      // Otherwise flag that the passwords do not match
-    } else {
-      return (
-        <div className="sign-up__password">
-          Password incorrect please try again.
-        </div>
-      );
+    if (pw.length >= 6 && specialChar.test(pw) && numChar.test(pw)) {
+      return true
     }
-  };
+    // If it does not, return false
+    setError(
+      'Password must contain at least 6 letters and must include a Number and Special Character'
+    )
+    return false
+  }
 
-  let navigate = useNavigate();
+  const handleSubmit = async e => {
+    e.preventDefault()
+    if (userData.password === '') {
+      setError('Please Enter a valid username and password')
+    } else if (
+      userData.password === userData.re_password &&
+      passwordValidation(userData.password)
+    ) {
+      setUserData(prev => ({
+        ...prev,
+        valid: true
+      }))
+      try {
+        await registerUser(userData)
+        let response = await getUser()
+        setUser(response)
+        window.localStorage.setItem('username', userData.username)
+        navigate('/home')
+      } catch {
+        setError('User or Email Already Exists')
+      }
+    } else if (!passwordValidation(userData.password)) {
+      setError('Password does not meet requirements')
+    } else {
+      setError('Passwords do not match')
+    }
+  }
+
   function handleBackClick() {
-    let path = `/`;
-    navigate(path);
+    let path = `/`
+    navigate(path)
+  }
+  const handleChange = e => {
+    const { name, value } = e.target
+
+    setUserData(prev => ({
+      ...prev,
+      [name]: value
+    }))
   }
 
   return (
     <>
-      <div className="landing-home-header">
+      <div className='landing-home-header'>
         <img
-          className="landing-home-header-image"
-          // src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-          src="./image/logo.png"
+          className='landing-home-header-image'
+          src='./image/logo.png'
+          alt='Alike logo'
         />
         <span>Alike</span>
       </div>
-      <div className="landing">
-        <div className="landig-content">
-          <h2 className="landing-title">
-            Social Me​dia Is Better When You Can Relate{" "}
+      <div className='landing'>
+        <div className='landig-content'>
+          <h2 className='landing-title'>
+            Social Media Is Better When You Can Relate{' '}
           </h2>
-          <form className="form" onSubmit={handleSubmit}>
-            <h1 className="SigninLogo">Sign Up</h1>
+          <form className='form' onSubmit={handleSubmit}>
+            <h1 className='SigninLogo'>Sign Up</h1>
             <input
-              className="username"
-              id="username"
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUserName(e.target.value)}
+              className='username'
+              id='username'
+              type='text'
+              name='username'
+              placeholder='Username'
+              value={userData.username}
+              onChange={handleChange}
             />
             <input
-              id="pw"
-              type="password"
-              placeholder="Password"
-              value={password}
-              minLength="6"
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*?[~`!@#$%\^&*()\-_=+[\]{};:\x27.,\x22\\|/?><]).{8,}"
-              onChange={(e) => setPassword(e.target.value)}
+              className='email'
+              id='email'
+              type='text'
+              name='email'
+              placeholder='Email'
+              value={userData.email}
+              onChange={handleChange}
             />
             <input
-              id="pwConfirm"
-              type="password"
-              placeholder="confirm password"
-              value={passwordConfirm}
-              onChange={(e) => {
-                return setPasswordConfirm(e.target.value);
-              }}
+              id='pw'
+              type='password'
+              name='password'
+              placeholder='Password'
+              value={userData.password}
+              onChange={handleChange}
             />
+            <input
+              id='pwConfirm'
+              type='password'
+              name='re_password'
+              placeholder='Confirm Password'
+              value={userData.re_password}
+              onChange={handleChange}
+            />
+            <p>Password must contain at least:</p>
+            <ul>
+              <li>Six characters</li>
+              <li>One number</li>
+              <li>One special character</li>
+            </ul>
             <button
               onClick={handleBackClick}
-              id="submitCredential"
-              type="submit"
-              value="submit"
+              id='submitCredential'
+              type='submit'
+              value='submit'
             >
               Back
             </button>
 
-            <button id="submitCredentials" type="submit" value="submit">
+            <button id='submitCredentials' type='submit' value='submit'>
               Submit
             </button>
-            <>{result(user.valid)}</>
+            <div className='sign-up__password'>{error}</div>
           </form>
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default SignUp;
+export default SignUp

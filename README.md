@@ -18,6 +18,10 @@ Built by developers - for developers!
 
 ![Add Post](./public/image/github/Home_Page_Screenshot_3.png)
 
+### Edit Post
+
+![Edit Post](./public/image/github/Home_Page_Screenshot_5.png)
+
 ### Profile
 
 ![Profile Page](./public/image/github/Home_Page_Screenshot_4.png)
@@ -34,9 +38,9 @@ Landing Page: https://alike-ga.netlify.app/
 
 The API provided several fields of data used for this project:
 
-- "user": "https://backend-alike.herokuapp.com/user/"
-- "post": "https://backend-alike.herokuapp.com/post/",
-- "comment": "https://backend-alike.herokuapp.com/comment/"
+- All Users: https://backend-alike.herokuapp.com/user/
+- All Posts: https://backend-alike.herokuapp.com/posts/,
+- Single Post: https://backend-alike.herokuapp.com/post/:id
 
 ### Dependencies
 
@@ -48,6 +52,8 @@ The API provided several fields of data used for this project:
 - react-router-dom
 - react-scripts
 - cloudinary-react
+- sweetalert
+- cypress
 - @mui/material
 - @emotion/styled
 - @emotion/react
@@ -137,83 +143,109 @@ Front-End (All)
 
 Goal: Finalized project and prepared for presenting
 
+### Stage 5 - Enhanced Site Features
+
+Back End (Ron, Ryan, Nick, Vasilis, Alex)
+
+- "Like" Feature into Models and Views
+- User Authentication (Knox)
+- "Single Post" view set
+- Sign-up and Sign-in view set 
+
+Front-End (All)
+
+- User Authentication (Knox)
+- Included "Like" button
+- Refactored Edit and Create Modal
+- Refined layout and CSS
+- Implemented Search Bar
+- Tech News API 
+
+Goal: Create a more robust User Experience when using the Alike site.  Additionally, refine and implement features that were discussed in the initial planning stages.
+
+
+
 ## API Endpoints
 
 Home: https://backend-alike.herokuapp.com/
 User: https://backend-alike.herokuapp.com/user
-Post: https://backend-alike.herokuapp.com/post
-Comment: https://backend-alike.herokuapp.com/comment
+Post: https://backend-alike.herokuapp.com/post/:id
+Posts: https://backend-alike.herokuapp.com/posts
 Admin: https://backend-alike.herokuapp.com/admin
-Token Pair: https://backend-alike.herokuapp.com/api/token
-Refresh Token: https://backend-alike.herokuapp.com/api/token/refresh
 
 Snippet of object output:
-API Screenshot
+
+![Django Admin](./public/image/github/Home_Page_Screenshot_6.png)
 
 ## Future Features
 
-Front End
+### **Front End**
 
 Within Reach...
 
-- Like button counter
-- Successful sign up from landing page
-- Adjust preset in Cloudinary to apply padding to images with smaller cropped sizes
 - Comment section with "likes"
-- User Auth with JWT
-- Links to curated tech related articles and resources
-- Ability to edit posts
-- Follow friends' profiles
+- Like button that stores which user has clicked
 - Admin with superuser powers to create advertised posts and oversee the site
 - Pagination for API calls (display ~50 results instead of calling the entire API)
 
-  A bit tricky...
+A bit tricky...
 
-- Like button that stores which user has clicked
+- Follow friends' profiles
 - Archiving your favorite projects
 - Direct messaging between users
 - Targeted advertising in the form of posts
 
-Back End
+### **Back End**
 
 Within Reach...
 
 - Pagination
-- User Auth
-- Aligning our User model with the built in Django User model
 - Adding the relationship for users to follow / friend one another
+
+A bit tricky...
+
 - Make a new table for 'Forums'
-
-  A bit tricky...
-
 - Tracking which user liked which post
+- Direct messaging between users
 
 ## Team
 
 Anna Druzhinina
-[LinkedIn](https://www.linkedin.com/in/anna-druzhinina/)
+
+[LinkedIn](https://www.linkedin.com/in/anna-druzhinina/) |
 [GitHub](https://github.com/annadruzhinina)
 
 Argurjana Olloni
-[LinkedIn](https://www.linkedin.com/in/aolloni/)
+
+[LinkedIn](https://www.linkedin.com/in/aolloni/) |
 [GitHub](https://github.com/argurjanaolloni)
 
 Jose Calderon
-[LinkedIn](https://www.linkedin.com/in/jose-a-calderon-software-engineer/)
+
+[LinkedIn](https://www.linkedin.com/in/jose-a-calderon-software-engineer/) |
 [GitHub](https://github.com/HowzayCalderon)
 
 Ryan Ehrlich (Project Manager)
-[LinkedIn](https://www.linkedin.com/in/ryanehrlich/)
+
+[LinkedIn](https://www.linkedin.com/in/ryanehrlich/) |
 [GitHub](https://github.com/Jagerziel)
 
 Vasilis Myrianthopoulos
-[LinkedIn](https://www.linkedin.com/in/vasilis-myrianthopoulos/)
+
+[LinkedIn](https://www.linkedin.com/in/vasilis-myrianthopoulos/) |
 [GitHub](https://github.com/Vasilis89)
 
 Ron Lanzilotta
-[LinkedIn](https://www.linkedin.com/in/ronlanzilotta/)
+
+[LinkedIn](https://www.linkedin.com/in/ronlanzilotta/) |
 [GitHub](https://github.com/RonLanzilotta)
 
 Nick Fasulo
-[LinkedIn](https://www.linkedin.com/in/nicholas-fasulo/)
+
+[LinkedIn](https://www.linkedin.com/in/nicholas-fasulo/) |
 [GitHub](https://github.com/NickFasulo)
+
+Alex Chang
+
+[LinkedIn](https://www.linkedin.com/in/alexlchang/) |
+[GitHub](https://github.com/individual-ism)

@@ -27,11 +27,10 @@
 .home-footer {
   background-color: aqua;
 }
-
 /* ==================MEDIA QUERIES (MEDIUM DEVICES)==================== */
 
 @media screen and (max-width: 1019px) {
-  .suggestion {
+  .newNavR {
     display: none;
   }
 }

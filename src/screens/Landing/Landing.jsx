@@ -1,90 +1,107 @@
-//Import react
-import React, { useState } from "react";
-//Import css
-import "./landing.css";
+import React, { useState } from 'react'
+import SignUp from '../../components/SignUp/SignUp.jsx'
+import Button from '@mui/material/Button'
+import './landing.css'
 
-//import components
-import SignUp from "../../components/SignUp/SignUp";
-import Button from "@mui/material/Button";
+import { useNavigate } from 'react-router-dom'
+import { loginUser, getUser } from '../../services/userApi'
 
-import { useAuthContext } from "../../Hooks/useAuthContext.js";
-import { useNavigate } from "react-router-dom";
-import { loginUser } from "../../Context/AuthContexts.js";
-
-function Landing() {
-  const { dispatch } = useAuthContext();
-  const [user, setUser] = useState("");
-  const navigate = useNavigate();
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [valid, setValid] = useState("");
+function Landing({ setUser }) {
+  const [error, setError] = useState("");
+  const [userData, setUserData] = useState({
+    username: '',
+    password: null,
+    message: ''
+  })
+  const navigate = useNavigate()
 
   //CHECK MERGE
   function handleSignUpClick() {
-    let path = `/sign-up`;
-    navigate(path);
+    navigate(`/sign-up`)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async e => {
     // Prevent Page from Reloading
-    e.preventDefault();
+    e.preventDefault()
     // Update User with Values
-    console.log(`Username: ${username}, Password: ${password}`);
-    loginUser(username, password);
+    if (userData.password === '') {
+      setError('Password Field Required')
+    } else {
+      try {
+        await loginUser(userData)
+        window.localStorage.setItem('username', userData.username)
+        let response = await getUser()
+        setUser(response)
+        if (
+          window.localStorage.getItem('knox') &&
+          window.localStorage.getItem('knox') !== 'undefined'
+        ) {
+          navigate('/home')
+        }
+      } catch (error) {
+        setError('Username or Password Incorrect')
+      }
+    }
+  }
 
-    //Send payload (username)
-    dispatch({ type: "LOGIN", payload: { username, password } });
-    //Reset values to ''
-    setUserName("");
-    setPassword("");
-    setValid("");
+  const handleChange = e => {
+    const { name, value } = e.target
 
-    navigate("/home");
-  };
+    setUserData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
 
   return (
     <>
-      <div className="landing-home-header">
-        <img className="landing-home-header-image" src="./image/logo.png" />
+      <div className='landing-home-header'>
+        <img
+          className='landing-home-header-image'
+          src='./image/logo.png'
+          alt='Alike logo'
+        />
         <span>Alike</span>
       </div>
-      <div className="landing">
-        <div className="landig-content">
-          <h2 className="landing-title">
-            We believe that motivation is the key to success
+      <div className='landing'>
+        <div className='landig-content'>
+          <h2 className='landing-title'>
+            Innovation. Inspiration.  
           </h2>
-          <form className="form" onSubmit={handleSubmit}>
-            <h1 className="SigninLogo">Sign In</h1>
+          <h2 className='landing-title'>
+            Where Great Minds Think Alike!
+          </h2>
+          <form className='form' onSubmit={handleSubmit}>
+            <h1 className='SigninLogo'>Sign In</h1>
             <input
-              className="username"
-              id="username"
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUserName(e.target.value)}
+              className='username'
+              id='username'
+              type='text'
+              name='username'
+              placeholder='Username'
+              value={userData.username}
+              onChange={handleChange}
             />
             <input
-              id="pw"
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              id='pw'
+              type='password'
+              name='password'
+              placeholder='Password'
+              value={userData.password}
+              onChange={handleChange}
             />
-            <button id="submitCredentials" type="submit" value="submit">
+            <button id='submitCredentials' type='submit' value='submit'>
               Login
             </button>
-            <button
-              onClick={handleSignUpClick}
-              id="submitCredentials"
-              value="submit"
-            >
+            <button onClick={handleSignUpClick} id='submitCredentials'>
               SignUp
             </button>
+            <div className='loginErrorMessage'>{error}</div>
           </form>
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default Landing;
+export default Landing

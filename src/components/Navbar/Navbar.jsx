@@ -1,24 +1,34 @@
 // Home, Search, Message, Profile, LogOut, Report A Problem,... React-icons
+//Import React
 import React, { useState } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+// Import css
 import "./navbar.css";
-import { Link , Navigate , useNavigate } from "react-router-dom";
+// Import Components
 import { NavbarData } from "./NavbarData";
 import NewPost from "../../components/NewPost/NewPost.jsx";
-import { useAuthContext } from "../../Hooks/useAuthContext.js";
+import { signOut } from "../../services/userApi.js";
 
-function Navbar({setToggle}) {
+function Navbar({ setToggle, toggle }) {
   const [showNewPost, setShowNewPost] = useState(false);
   const [open, setOpen] = React.useState(false);
+  // Scroll up when clicking on the logo
   const handleLogoClick = () => {
     window.scrollTo(0, 0);
   };
 
   // Deconstruct useAuthContext to pull dispatch
-  const { dispatch , state } = useAuthContext()
-  const { user } = useAuthContext()
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  let username = window.localStorage.getItem('username')
+  let username = window.localStorage.getItem("username");
+
+  const openNewPost = () => {
+    setShowNewPost(true);
+  };
+
+  const closeNewPost = () => {
+    setShowNewPost(false);
+  };
 
   return (
     <>
@@ -28,6 +38,7 @@ function Navbar({setToggle}) {
             onClick={handleLogoClick}
             className="navbar-logo"
             src="./image/logo.png"
+            alt="Alike Logo"
           />
           <span className="navbar-logo-text">Hello, {username} </span>
         </div>
@@ -35,17 +46,22 @@ function Navbar({setToggle}) {
           {NavbarData.map((item, index) => {
             if (item.type === "popup-new-post") {
               return (
-                <NewPost
-                  key={index}
-                  icon={item.icon}
-                  title={item.title}
-                  className="navbar-menu__item"
-                  setToggle={setToggle}
-                />
+                <React.Fragment key={index}>
+                  <Link
+                    key="new-post"
+                    className="navbar-menu__item"
+                    onClick={openNewPost}
+                  >
+                    {item.icon}
+                    <span className="navbar-menu__text">{item.title}</span>
+                  </Link>
+                  {showNewPost && (
+                    <NewPost onClose={closeNewPost} setToggle={setToggle} />
+                  )}
+                </React.Fragment>
               );
             }
             if (item.type === "home") {
-              console.log(item);
               return (
                 <Link
                   key={index}
@@ -53,7 +69,6 @@ function Navbar({setToggle}) {
                   to={item.path}
                   onClick={() => {
                     if (item.title === "Home") {
-                      // setShowNewPost(!showNewPost);
                       handleLogoClick();
                     }
                   }}
@@ -70,12 +85,10 @@ function Navbar({setToggle}) {
                   to={item.path}
                   onClick={() => {
                     if (item.title === "New Post") {
-                      // setShowNewPost(!showNewPost);
                       setOpen(true);
                     }
                     if (item.title === "Sign Out") {
-                      dispatch({ type: "LOGOUT", payload: null })
-                      console.log("Logged Out")
+                      signOut();
                     }
                   }}
                 >
@@ -92,4 +105,3 @@ function Navbar({setToggle}) {
 }
 
 export default Navbar;
-

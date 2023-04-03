@@ -11,7 +11,6 @@
 }
 
 :root {
-
   --color-bg: rgb(62, 63, 57);
   --color-bg-variant: rgb(222 236 254);
   --color-primary: #1a1b1c;
@@ -27,13 +26,14 @@
   --space-base-double: calc(var(--space-base) * 2);
   --space-base-large: calc(var(--space-base) * 5);
   --space-base-medium: 8px;
-  --space-base-small: calc(var(--space-base-medium) /2);
+  --space-base-small: calc(var(--space-base-medium) / 2);
   --space-base-half: calc(var(--space-base) / 2);
   --navbar-width: 200px;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -72,13 +72,13 @@ h1 {
   /* /* height: 100vh;
 } */
 
-section>h2,
-section>h5 {
+section > h2,
+section > h5 {
   text-align: center;
   color: var(--color-light);
 }
 
-section>h2 {
+section > h2 {
   color: var(--color-primary);
   margin-bottom: 3rem;
 }
@@ -109,7 +109,6 @@ a:hover {
 }
 
 .btn:hover {
-
   color: var(--color-bg);
   background-color: white;
   border-color: #a4c6e4;
@@ -131,7 +130,6 @@ a:hover {
   width: 200px;
   height: 200px;
   object-fit: cover;
-
 }
 
 /* ==================MEDIA QUERIES (MEDIUM DEVICES)==================== */
