@@ -54,7 +54,7 @@ function NewRightNavbar() {
   }, []);
   return (
     <div className="newNavR">
-      <h3>Tech News</h3>
+      <h3>Hackathons</h3>
       <div className="newNavR--scroll">
         <div className="newNavR--list">
           {newsData ? (
