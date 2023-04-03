@@ -301,9 +301,7 @@ button:hover {
   font-size: 14px;
   font-weight: 500;
 }
-/* .post-navbar-menu__icon {
-  color: black;
-} */
+
 .post-navbar-menu__icon:hover {
   color: white;
 }
