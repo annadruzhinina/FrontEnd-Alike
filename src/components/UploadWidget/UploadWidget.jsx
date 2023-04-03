@@ -4,15 +4,19 @@ const UploadWidget = ({ onSelected }) => {
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
   useEffect(() => {
+    let num = 450 / 350
     // initializes an instance of the Cloudinary widget
     cloudinaryRef.current = window.cloudinary;
     widgetRef.current = cloudinaryRef.current.createUploadWidget(
         // Cloudinary presets that disallow multiple uploades and allow for cropping
       {
         cloudName: "dybw1p8nl",
-        uploadPreset: "alike_crop",
+        uploadPreset: "alike_crop4",
         multiple: false,
         cropping: true,
+        showSkipCropButton: false,
+        croppingShowDimensions: true,
+        croppingAspectRatio: num,
         resource_type: 'image'
       },
       // Event handler: call every time when we have any event
