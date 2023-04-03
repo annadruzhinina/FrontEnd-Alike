@@ -4,6 +4,7 @@ Alike is a social media platform where innovative minds collaborate and share id
 
 Built by developers - for developers!
 
+
 ## Screen Shots
 
 ### Landing Page
