@@ -233,17 +233,8 @@ profile-img {
   }
   .profile-page .gallery-list-profile .gallery--list {
     max-width: 600px;
-    --n: 1;
-    --m: 2;
-    --g: 30px;
-    --f: 1.5;
-    grid-gap: var(--g);
-    display: grid;
-    gap: var(--g);
-    grid-template-columns: repeat(var(--m), auto);
-    height: calc(var(--n) * var(--s) + (var(--n) - 1) * var(--g));
-    /* padding: 0 30px; */
-    width: calc(var(--m) * var(--s) + (var(--m) - 1) * var(--g));
+    display: flex;
+    margin: 0 auto;
   }
   .popup-container {
     position: fixed;
