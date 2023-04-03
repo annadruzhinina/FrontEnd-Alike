@@ -1,7 +1,7 @@
 // Import React
 import { useState, useEffect } from "react";
 // Import css
-import "./profile.css";
+
 // Import Material UI
 import Avatar from "@mui/material/Avatar";
 // Import Components
@@ -10,7 +10,8 @@ import Navbar from "../../components/Navbar/Navbar.jsx";
 import { getPosts } from "../../services/postApi.js";
 import { getUsers } from "../../services/userApi.js";
 import Post from "../../components/Post/Post.jsx";
-function Profile( { user, toggle, setToggle } ) {
+import "./profile.css";
+function Profile({ user, toggle, setToggle }) {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
   // const [toggle, setToggle] = useState(false);
@@ -46,9 +47,9 @@ function Profile( { user, toggle, setToggle } ) {
   }
 
   return (
-    <>
+    <div className="profile-page">
       <div className="header">
-        <Navbar toggle={toggle} setToggle={setToggle}/>
+        <Navbar toggle={toggle} setToggle={setToggle} />
         <div className="profile-container">
           <div className="profile">
             <div className="profile-image">
@@ -85,7 +86,7 @@ function Profile( { user, toggle, setToggle } ) {
       </div>
       <div className="main">
         <div className="container">
-          <div className="gallery--list ">
+          <div className="gallery--list gallery-list-profile">
             {posts &&
               users &&
               posts
@@ -109,7 +110,7 @@ function Profile( { user, toggle, setToggle } ) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

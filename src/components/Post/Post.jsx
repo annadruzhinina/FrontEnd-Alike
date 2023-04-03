@@ -71,12 +71,10 @@ export default function Post({ post, user, setToggle }) {
     <>
       <div className="post">
         <div className="demo post_header">
-          <div className="post-avatar_left">
-            <h4>
-              <strong className="post-project">Project:</strong>
-              <span className="post-project__name">{post.project_name}</span>
-            </h4>
-          </div>
+          <h4 className="post-avatar_left">
+            <strong className="post-project">Project:</strong>
+            <span className="post-project__name">{post.project_name}</span>
+          </h4>
           <div className="post-top-icons">
             {activeUser === username ? (
               <IconContext.Provider
