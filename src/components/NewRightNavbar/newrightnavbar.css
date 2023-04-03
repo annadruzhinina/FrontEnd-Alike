@@ -43,6 +43,11 @@
   height: 92vh;
   position: fixed;
   overflow: scroll;
+  width: 100%;
+  display: flex;
+  max-width: 290px;
+  align-items: center;
+  justify-content: center;
 }
 
 .newNavR--list {
@@ -50,10 +55,9 @@
 }
 .NavR--article {
   display: flex;
-  /* align-items: center */
+  /* align-items: center; */
   flex-direction: column;
   justify-content: space-between;
-  /* align-items: center; */
   font-size: 0.7rem;
   /* margin-bottom: 1rem; */
   padding: 1em;

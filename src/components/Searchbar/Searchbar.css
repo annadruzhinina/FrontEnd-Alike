@@ -2,7 +2,6 @@
   width: 100%;
   position: relative;
   display: flex;
-  /* margin-top: 5px; */
 }
 
 .searchTerm {
@@ -18,11 +17,6 @@ textarea:focus,
 input:focus {
   outline: none;
 }
-/* .searchTerm {
-  width: 36px;
-  outline: none;
-  border: 1px solid #6da8d8;
-} */
 
 .searchButton {
   width: 40px;
