@@ -45,3 +45,10 @@ input:focus {
   top: 0;
   background-color: #fafafa;
 }
+
+@media screen and (max-width: 1000px) {
+  .search-wrapper {
+    padding-top: 0px;
+  }
+  
+}
