@@ -3,20 +3,6 @@ main {
   justify-content: center;
 }
 
-.gallery--list {
-  --n: 2;
-  --m: 3;
-  --g: 100px;
-  --f: 1.5;
-  grid-gap: var(--g);
-  display: grid;
-  gap: var(--g);
-  grid-template-columns: repeat(var(--m), auto);
-  height: calc(var(--n) * var(--s) + (var(--n) - 1) * var(--g));
-  /* padding: 0 30px; */
-  width: calc(var(--m) * var(--s) + (var(--m) - 1) * var(--g));
-}
-
 .post-image {
   width: 100%;
   height: 350px;
@@ -27,10 +13,16 @@ main {
   background-color: white;
   max-width: 320px;
   margin-bottom: var(--space-base-double);
-  min-width: 450px;
+  /* min-width: 450px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+@media screen and (min-width: 500px) {
+  .post {
+    min-width: 450px;
+  }
 }
 
 .post-delete-btn {
@@ -408,19 +400,6 @@ button:hover {
   .gallery--list {
     overflow: hidden;
   }
-}
-.profile-page .gallery--list {
-  --n: 2;
-  --m: 3;
-  /* --g: 20px; */
-  /* --f: 1.5; */
-  /* grid-gap: var(--g); */
-  /* display: grid; */
-  /* gap: var(--g); */
-  grid-template-columns: repeat(var(--m), auto);
-  height: calc(var(--n) * var(--s) + (var(--n) - 1) * var(--g));
-  /* padding: 0 30px; */
-  width: calc(var(--m) * var(--s) + (var(--m) - 1) * var(--g));
 }
 
 @media screen and (max-width: 640px) {

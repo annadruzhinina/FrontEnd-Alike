@@ -1,7 +1,7 @@
 // Import React
 import { useState, useEffect } from "react";
 // Import css
-import "./profile.css";
+
 // Import Material UI
 import Avatar from "@mui/material/Avatar";
 // Import Components
@@ -10,6 +10,7 @@ import Navbar from "../../components/Navbar/Navbar.jsx";
 import { getPosts } from "../../services/postApi.js";
 import { getUsers } from "../../services/userApi.js";
 import Post from "../../components/Post/Post.jsx";
+import "./profile.css";
 function Profile({ user, toggle, setToggle }) {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
