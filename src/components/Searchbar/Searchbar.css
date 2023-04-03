@@ -39,5 +39,9 @@ input:focus {
 /*Resize the wrap to see the search bar change!*/
 .search-wrapper {
   max-width: 450px;
+  padding-top: 10px;
   margin: 0 auto;
+  position: sticky;
+  top: 0;
+  background-color: #fafafa;
 }
