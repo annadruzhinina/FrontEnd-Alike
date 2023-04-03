@@ -66,7 +66,10 @@ function Landing({ setUser }) {
       <div className='landing'>
         <div className='landig-content'>
           <h2 className='landing-title'>
-            We believe that motivation is the key to success
+            Innovation. Inspiration.  
+          </h2>
+          <h2 className='landing-title'>
+            Where Great Minds Think Alike!
           </h2>
           <form className='form' onSubmit={handleSubmit}>
             <h1 className='SigninLogo'>Sign In</h1>
