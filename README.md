@@ -38,9 +38,9 @@ Landing Page: https://alike-ga.netlify.app/
 
 The API provided several fields of data used for this project:
 
-- All Users: "https://backend-alike.herokuapp.com/user/"
-- All Posts: "https://backend-alike.herokuapp.com/posts/",
-- Single Post: "https://backend-alike.herokuapp.com/post/:id"
+- All Users: https://backend-alike.herokuapp.com/user/
+- All Posts: https://backend-alike.herokuapp.com/posts/,
+- Single Post: https://backend-alike.herokuapp.com/post/:id
 
 ### Dependencies
 
