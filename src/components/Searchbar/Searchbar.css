@@ -2,37 +2,42 @@
   width: 100%;
   position: relative;
   display: flex;
+  /* margin-top: 5px; */
 }
 
 .searchTerm {
   width: 100%;
-  border: 3px solid #00b4cc;
-  border-right: none;
   padding: 5px;
-  height: 20px;
-  border-radius: 5px 0 0 5px;
+  height: 36px;
   outline: none;
   color: #9dbfaf;
+  border: 1px solid #6da8d8 !important;
 }
 
-.searchTerm:focus {
-  color: #00b4cc;
+textarea:focus,
+input:focus {
+  outline: none;
 }
+/* .searchTerm {
+  width: 36px;
+  outline: none;
+  border: 1px solid #6da8d8;
+} */
 
 .searchButton {
   width: 40px;
   height: 36px;
-  border: 1px solid #00b4cc;
-  background: #00b4cc;
+  border: 1px solid #6da8d8;
+  background: #6da8d8;
   text-align: center;
   color: #fff;
-  border-radius: 0 5px 5px 0;
+  outline: none;
   cursor: pointer;
   font-size: 20px;
 }
 
 /*Resize the wrap to see the search bar change!*/
 .search-wrapper {
-  max-width: 600px;
+  max-width: 450px;
   margin: 0 auto;
 }
