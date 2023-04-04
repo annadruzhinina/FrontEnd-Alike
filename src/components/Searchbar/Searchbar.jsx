@@ -8,12 +8,12 @@ export default function Searchbar({ searchPosts }) {
       <div className='search'>
         <input
           type='text'
-          onChange={e => (searchPosts(e.target.value))}
-          className='searchTerm'
+          onChange={e => searchPosts(e.target.value)}
+          className='search-term'
           placeholder='Search by project title'
         />
-        <div className='searchButton'>
-          <BiIcons.BiSearch className='navbar-menu__icon' />
+        <div className='search-button'>
+          <BiIcons.BiSearch className='search-icon' />
         </div>
       </div>
     </div>

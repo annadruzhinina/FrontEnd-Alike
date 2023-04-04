@@ -17,7 +17,7 @@
 
 .home-content {
   display: flex;
-  margin: var(--space-base);
+  margin-top: 2rem;
 }
 
 .home-footer {

@@ -65,7 +65,7 @@ export default function Post({ post, user, setToggle }) {
   return (
     <>
       <div className='post'>
-        <div className='demo post_header'>
+        <div className='demo post-header'>
           <h4 className='post-avatar_left'>
             <strong className='post-project'>Project:</strong>
             <span className='post-project__name'>{post.project_name}</span>

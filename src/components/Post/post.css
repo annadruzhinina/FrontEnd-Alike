@@ -21,7 +21,7 @@ main {
 
 @media screen and (min-width: 500px) {
   .post {
-    min-width: 450px;
+    min-width: 500px;
   }
 }
 
@@ -51,12 +51,12 @@ strong {
   text-overflow: ellipsis;
 }
 
-.post_header {
+.post-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-  padding: 15px 10px 10px 10px;
+  padding: 0 1rem;
   background-color: #fcfcfd;
   background-image: linear-gradient(315deg, #edeff1 0%, #6ca8d8 74%);
 }
@@ -81,9 +81,8 @@ strong {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10px 0 10px;
+  padding: 0 1rem;
   overflow: hidden;
-  padding-bottom: 10px;
   background-color: rgb(222 236 254);
 }
 
@@ -97,7 +96,6 @@ strong {
   width: 100%;
   justify-content: start;
   align-items: center;
-  padding: 15px 10px 10px 10px;
 }
 
 .post-navbar-menu__icon {
@@ -118,6 +116,7 @@ svg {
 }
 
 .heart {
+  border: none;
   background-color: transparent;
   cursor: pointer;
   animation: pulse 1s ease-out;
