@@ -1,14 +1,12 @@
 .landing {
-  height: calc(
-    100vh - var(--header-height)
-  ); /* Set the height to 100% of the viewport */
-  background-image: url('../../../public/image/bg.png'); /* Change the URL to the location of your background image */
-  background-size: cover; /* Scale the background image to cover the entire div */
-  background-repeat: no-repeat; /* Do not repeat the background image */
-  background-position: center; /* Center the background image */
-  display: flex; /* Display the contents as a flex container */
-  align-items: center; /* Align the contents vertically in the center */
-  justify-content: flex-end; /* Align the contents horizontally in the center */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: calc(100vh - var(--header-height));
+  background-image: url('../../../public/image/bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .landing-form {
@@ -20,11 +18,8 @@
   box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* For Large screen */
-@media screen and (min-width: 960px) {
-  .landing-content {
-    margin-right: 20rem;
-  }
+.landing-form h1 {
+  text-shadow: 1px 1px 1px rgb(53 187 235);
 }
 
 .landing-home-header {
@@ -38,7 +33,8 @@
 }
 
 .landing-content {
-  max-width: 400px;
+  width: 25rem;
+  margin-right: 10rem;
 }
 
 .landing-title {
@@ -76,22 +72,18 @@ label {
   background-color: #0a0b0a;
 }
 
-.SigninLogo {
-  padding-bottom: 10px;
-}
-
 .loginErrorMessage {
   margin-top: 10px;
   color: red;
 }
 
-@media screen and (max-width: 560px) {
-  /* .landing-form {
-    max-width: 360px;
-  } */
-
+@media screen and (max-width: 760px) {
   .landing {
     justify-content: center;
+  }
+
+  .landing-content {
+    margin-right: 0;
   }
 
   .landing-home-header {

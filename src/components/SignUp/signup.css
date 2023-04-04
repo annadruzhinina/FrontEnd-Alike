@@ -58,6 +58,10 @@ label {
   background-color: #0a0b0a;
 }
 
+.signup-form h1 {
+  text-shadow: 1px 1px 1px rgb(53 187 235);
+}
+
 #submitCredentials,
 #submitCredential {
   background-color: #6fbeeb;
@@ -82,10 +86,6 @@ label {
   transition: 0.3s all ease;
 }
 
-.SigninLogo {
-  padding-bottom: 10px;
-}
-
 .sign-up__password {
   margin-top: 10px;
   color: red;
@@ -97,10 +97,12 @@ label {
 
 .pw-requirements p {
   margin: 0 0 0 1.5rem;
+  text-shadow: 1px 1px 1px rgb(53 187 235);
 }
 
 .pw-requirements ul {
   margin-top: 0;
+  text-shadow: 1px 1px 1px rgb(53 187 235);
 }
 
 @media screen and (max-width: 560px) {
