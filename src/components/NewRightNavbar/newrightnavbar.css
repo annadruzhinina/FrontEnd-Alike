@@ -1,38 +1,24 @@
 .newNavR {
-  right: 0px;
-  top: 0px;
+  right: 0;
+  top: 0;
   height: 100vh;
   width: 30vh;
   background-color: #ecf5fd;
   position: fixed;
-  border: solid #deecfe;
+  border: 1px solid #deecfe;
 }
 
 .newNavR h3 {
-  border-bottom: solid #deecfe;
+  border-bottom: 1px solid #deecfe;
   padding: 0.6rem;
-  /* text-align: center; */
   margin-bottom: 0.3em;
+  text-align: center;
 }
 
 .newNavR img {
   max-height: 125px;
   max-width: 190px;
-  /* display: block;
-    margin: 0 auto;
-    min-height: 80px; */
-  /* background: no-repeat center center fixed;
-    background-size: cover; */
   background-color: black;
-  margin-bottom: 10px;
-  padding: 0;
-}
-
-.imgBackground {
-  display: flex;
-  align-items: center;
-  /* height: 80px; */
-  width: 80px;
 }
 
 .NavR--article:hover {
@@ -53,27 +39,24 @@
 .newNavR--list {
   height: 95vh;
 }
+
 .NavR--article {
   display: flex;
-  /* align-items: center; */
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   font-size: 0.7rem;
-  /* margin-bottom: 1rem; */
-  padding: 1em;
-  text-align: justify;
+  padding: 1rem;
+  width: 80%;
+  text-align: center;
 }
 
 .NavR--article p {
-  /* border: 2px solid red; */
   overflow: hidden;
   white-space: wrap;
   text-overflow: ellipsis;
   width: 100%;
-  padding: 0px 0px 0px 6px;
   font-size: 12px;
-  line-height: 16px;
-  max-width: 190px;
 }
 
 .NavR--article a {

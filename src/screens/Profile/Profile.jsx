@@ -61,7 +61,6 @@ function Profile({ user, toggle, setToggle }) {
               />
             </div>
             <div className="profile-user-settings">
-              {/* <h1 className="profile-user-name">{username}</h1> */}
             </div>
             <div className="profile-stats">
               <ul>

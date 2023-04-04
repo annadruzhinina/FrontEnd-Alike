@@ -13,8 +13,6 @@
 .suggestion-title {
   padding: 17px;
   color: var(--color-primary);
-  line-height: 1.7;
-  /* background-color: rgb(53 187 235 / 49%); */
   background-color: #ecf5fd;
   border-bottom: 1px solid rgb(222 236 254);
   font-size: 16px;

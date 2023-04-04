@@ -7,7 +7,7 @@
   width: 100px;
 }
 
-profile-img {
+.profile-img {
   display: block;
 }
 
@@ -31,7 +31,7 @@ profile-img {
 }
 
 .profile::after {
-  content: "";
+  content: '';
   display: block;
   clear: both;
 }
@@ -69,7 +69,6 @@ profile-img {
 
 .profile-edit-btn {
   font-size: 22px;
-  line-height: 1.8;
   border: 1px solid #dbdbdb;
   border-radius: 2px;
   padding: 0 36px;
@@ -88,7 +87,6 @@ profile-img {
 .profile-stats li {
   display: inline-block;
   font-size: 14px;
-  line-height: 1.5;
   margin-right: 64px;
   cursor: pointer;
 }
@@ -100,7 +98,6 @@ profile-img {
 .profile-bio {
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.5;
   margin-top: 36px;
 }
 .profile-bio > p {
@@ -136,6 +133,7 @@ profile-img {
 }
 
 /* Gallery for posts on profile page */
+
 .gallery-list-profile {
   display: flex;
   flex-wrap: wrap;
@@ -199,6 +197,7 @@ profile-img {
 }
 
 /* Media Query */
+
 @media screen and (max-width: 820px) {
   .profile-page .profile-image img {
     border-radius: 50%;
@@ -207,8 +206,7 @@ profile-img {
   .profile-page .post {
     min-width: 200px;
   }
-  
-  
+
   .profile-stat-count {
     font-size: 22px;
   }

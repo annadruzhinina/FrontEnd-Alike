@@ -2,29 +2,31 @@
   height: calc(
     100vh - var(--header-height)
   ); /* Set the height to 100% of the viewport */
-  background-image: url("../../../public/image/bg.png"); /* Change the URL to the location of your background image */
+  background-image: url('../../../public/image/bg.png'); /* Change the URL to the location of your background image */
   background-size: cover; /* Scale the background image to cover the entire div */
   background-repeat: no-repeat; /* Do not repeat the background image */
   background-position: center; /* Center the background image */
   display: flex; /* Display the contents as a flex container */
   align-items: center; /* Align the contents vertically in the center */
   justify-content: flex-end; /* Align the contents horizontally in the center */
-  padding: 20px;
 }
 
-.form {
+.landing-form {
   padding: 20px;
   background-color: rgb(53 187 235 / 43%);
   color: white;
   border: 2px solid white;
   text-align: center;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
 }
+
 /* For Large screen */
 @media screen and (min-width: 960px) {
-  .landig-content {
-    margin-right: 100px;
+  .landing-content {
+    margin-right: 20rem;
   }
 }
+
 .landing-home-header {
   display: flex;
   align-items: center;
@@ -34,65 +36,64 @@
   height: var(--header-height);
   white-space: nowrap;
 }
-.landing-home-header-image {
-  padding: 5px;
-  width: 60px;
-  height: 60px;
-}
-.landig-content {
+
+.landing-content {
   max-width: 400px;
 }
+
 .landing-title {
-  line-height: 1.2;
   margin: 0 0 20px;
   padding: 0;
   text-align: center;
   color: #636363;
 }
+
 label {
   display: block;
   margin-bottom: 10px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
+.landing-form input[type='text'],
+.landing-form input[type='email'],
+.landing-form input[type='password'] {
+  width: 80%;
   padding: 12px 20px;
   margin-bottom: 20px;
   border: 2px solid white;
   cursor: pointer;
 }
 
-input[type="submit"] {
+.landing-form input[type='submit'] {
   width: 100%;
   padding: 12px 20px;
   background-color: #152605;
   color: white;
   border: 1px solid white;
-
   cursor: pointer;
 }
 
-input[type="submit"]:hover {
+.landing-form input[type='submit']:hover {
   background-color: #0a0b0a;
 }
 
 .SigninLogo {
   padding-bottom: 10px;
 }
+
 .loginErrorMessage {
   margin-top: 10px;
   color: red;
 }
 
 @media screen and (max-width: 560px) {
-  .form {
+  /* .landing-form {
     max-width: 360px;
-  }
+  } */
+
   .landing {
     justify-content: center;
   }
+
   .landing-home-header {
     font-size: 12px;
   }

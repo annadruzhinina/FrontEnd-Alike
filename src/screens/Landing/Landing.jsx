@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import SignUp from '../../components/SignUp/SignUp.jsx'
-import Button from '@mui/material/Button'
 import './landing.css'
 
 import { useNavigate } from 'react-router-dom'
@@ -15,7 +13,6 @@ function Landing({ setUser }) {
   })
   const navigate = useNavigate()
 
-  //CHECK MERGE
   function handleSignUpClick() {
     navigate(`/sign-up`)
   }
@@ -64,14 +61,14 @@ function Landing({ setUser }) {
         <span>Alike</span>
       </div>
       <div className='landing'>
-        <div className='landig-content'>
+        <div className='landing-content'>
           <h2 className='landing-title'>
             Innovation. Inspiration.  
           </h2>
           <h2 className='landing-title'>
             Where Great Minds Think Alike!
           </h2>
-          <form className='form' onSubmit={handleSubmit}>
+          <form className='landing-form' onSubmit={handleSubmit}>
             <h1 className='SigninLogo'>Sign In</h1>
             <input
               className='username'

@@ -1,16 +1,11 @@
-// Import React
 import React, { useState } from 'react'
-// Import React-Router-Dom
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { getUser, registerUser } from '../../services/userApi'
-// Import css
 import './signup.css'
 
-// Sign-in function
 function SignUp({ setUser, user }) {
   const [error, setError] = useState('')
   let navigate = useNavigate()
-  // Set useState object
   const [userData, setUserData] = useState({
     username: '',
     email: '',
@@ -19,7 +14,6 @@ function SignUp({ setUser, user }) {
     valid: false
   })
 
-  // Password Validation Function
   const passwordValidation = pw => {
     // Variables for numbers and special characters
     const specialChar = /[\s~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?()\._]/g
@@ -87,11 +81,11 @@ function SignUp({ setUser, user }) {
         <span>Alike</span>
       </div>
       <div className='landing'>
-        <div className='landig-content'>
+        <div className='landing-content'>
           <h2 className='landing-title'>
             Social Media Is Better When You Can Relate{' '}
           </h2>
-          <form className='form' onSubmit={handleSubmit}>
+          <form className='signup-form' onSubmit={handleSubmit}>
             <h1 className='SigninLogo'>Sign Up</h1>
             <input
               className='username'
@@ -127,12 +121,14 @@ function SignUp({ setUser, user }) {
               value={userData.re_password}
               onChange={handleChange}
             />
-            <p>Password must contain at least:</p>
-            <ul>
-              <li>Six characters</li>
-              <li>One number</li>
-              <li>One special character</li>
-            </ul>
+            <div className='pw-requirements'>
+              <p>Password must contain at least:</p>
+              <ul>
+                <li>Six characters</li>
+                <li>One number</li>
+                <li>One special character</li>
+              </ul>
+            </div>
             <button
               onClick={handleBackClick}
               id='submitCredential'
