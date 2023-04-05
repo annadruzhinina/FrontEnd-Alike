@@ -11,17 +11,16 @@ main {
 }
 
 .post {
-  background-color: white;
-  max-width: 320px;
-  margin-bottom: var(--space-base-double);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: white;
+  margin-bottom: var(--space-base-double);
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (max-width: 500px) {
   .post {
-    min-width: 500px;
+    width: 95%;
   }
 }
 
@@ -150,7 +149,7 @@ svg {
   flex-direction: column;
   align-items: center;
   padding: 6px 14px;
-  font-family: system-ui, -apple-system, "Roboto", sans-serif;
+  font-family: system-ui, -apple-system, 'Roboto', sans-serif;
   border-radius: 6px;
   border: none;
   background: #6e6d70;
