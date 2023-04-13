@@ -1,21 +1,10 @@
 import { useEffect, useState, React } from 'react'
 import axios from 'axios'
-import HackerRank from './HackerRank.png'
-import HackerEarth from './hackerEarth.png'
-import TopCoder from './topCoder.png'
-import LeetCode from './leetCode.jpg'
-import Toph from './Toph.png'
-import CodeChef from './codeChef.jpg'
-import CodeForces from './codeForces.png'
-import AtCoder from './atCoder.png'
-import CsAcademy from './csAcademy.png'
-import './newrightnavbar.css'
+import './rightNavbar.css'
 
-function NewRightNavbar() {
-  // useState for storing data retreived from fetch call
+function RightNavbar() {
   const [newsData, setNewsData] = useState([])
 
-  // Function fetching news data from api
   async function getNews() {
     try {
       const response = await axios.get('https://kontests.net/api/v1/all')
@@ -27,15 +16,15 @@ function NewRightNavbar() {
 
   function getImage(title) {
     let url = {
-      HackerRank: HackerRank,
-      CodeChef: CodeChef,
-      TopCoder: TopCoder,
-      LeetCode: LeetCode,
-      Toph: Toph,
-      HackerEarth: HackerEarth,
-      CodeForces: CodeForces,
-      AtCoder: AtCoder,
-      CSAcademy: CsAcademy
+      HackerRank: '/image/HackerRank.png',
+      CodeChef: '/image/codeChef.jpg',
+      TopCoder: '/image/topCoder.png',
+      LeetCode: '/image/leetCode.png',
+      Toph: '/image/Toph.png',
+      HackerEarth: '/image/hackerEarth.png',
+      CodeForces: '/image/codeForces.png',
+      AtCoder: '/image/atCoder.png',
+      CSAcademy: '/image/csAcademy.png'
     }
 
     return <img src={url[title]} alt={title}></img>
@@ -85,4 +74,4 @@ function NewRightNavbar() {
   )
 }
 
-export default NewRightNavbar
+export default RightNavbar

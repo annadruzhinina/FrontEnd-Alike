@@ -129,7 +129,7 @@
 }
 
 .profile-page .container {
-  max-width: fit-content;
+  /* max-width: fit-content; */
 }
 
 /* Gallery for posts on profile page */
@@ -141,9 +141,10 @@
 }
 
 .container {
-  max-width: 800px;
+  /* max-width: 800px; */
   margin: 0 30px 0 330px;
 }
+
 .profile-gallery-item:hover .profile-gallery-item-info,
 .profile-gallery-item:focus .profile-gallery-item-info {
   display: flex;
@@ -210,35 +211,43 @@
   .profile-stat-count {
     font-size: 22px;
   }
+
   .profile-bio {
     font-size: 22px;
     font-weight: bold;
   }
+
   .main {
     margin: 0px -230px;
   }
+
   .profile {
     display: flex;
     flex-wrap: wrap;
     padding: 64px 0;
   }
+
   .profile-container {
     max-width: 840px;
     margin: 0 auto;
   }
+
   .profile-container {
     max-width: 830px;
     margin: 0 auto;
     padding: 0;
   }
+
   .container {
     max-width: 100%;
   }
+
   .profile-page .gallery-list-profile .gallery--list {
     max-width: 600px;
     display: flex;
     margin: 0 auto;
   }
+
   .popup-container {
     position: fixed;
     top: 0;
@@ -263,6 +272,7 @@
     transform: rotate(360deg);
   }
 }
+
 @supports (display: grid) {
   .profile {
     display: grid;
@@ -386,10 +396,12 @@
       display: flex;
       margin: 0 auto;
     }
+
     .container {
       max-width: 420px;
       margin: 0 30px;
     }
+
     .profile {
       grid-template-columns: auto 1fr;
       grid-row-gap: 24px;
@@ -400,6 +412,7 @@
       width: 50px;
       height: 50px;
     }
+
     .profile-bio > p {
       font-size: 18px;
       padding-top: 20px;
@@ -410,11 +423,13 @@
       grid-template-columns: auto 1fr;
       grid-gap: 16px;
     }
+
     .profile-stats li {
       font-size: 14px;
       flex: 1 1;
       margin: 0;
     }
+
     .profile-gallery-image {
       width: 80%;
       height: 80%;
@@ -431,6 +446,7 @@
     .profile-container {
       padding: 0px 44px;
     }
+
     .profile-edit-btn,
     .profile-stats,
     .profile-bio {

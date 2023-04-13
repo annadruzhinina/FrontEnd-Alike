@@ -16,12 +16,7 @@ main {
   justify-content: space-between;
   background-color: white;
   margin-bottom: var(--space-base-double);
-}
-
-@media screen and (max-width: 500px) {
-  .post {
-    width: 95%;
-  }
+  max-width: 500px;
 }
 
 .post-delete-btn {
@@ -196,6 +191,9 @@ svg {
 
 .popup input {
   border: solid white;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  width: 90%;
 }
 
 .popup-btns > button {
@@ -203,7 +201,6 @@ svg {
   background-color: #fff;
   padding: 0.5rem;
   width: 185px;
-  color: #3b91d7;
   font-weight: 500;
 }
 
@@ -214,7 +211,8 @@ svg {
 }
 
 .edit_btns:hover {
-  background-color: #dcf0ff !important;
+  background-color: #dcf0ff;
+  cursor: pointer;
   color: black;
   transition: 0.3s all ease;
   border: 1px solid white;
@@ -316,7 +314,7 @@ button:hover {
 }
 
 .edit_btns[disabled]:hover {
-  background-color: #ccc;
+  background-color: none;
 }
 
 .right-icons {
