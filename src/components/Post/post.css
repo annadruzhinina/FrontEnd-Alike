@@ -16,7 +16,7 @@ main {
   justify-content: space-between;
   background-color: white;
   margin-bottom: var(--space-base-double);
-  max-width: 500px;
+  width: 500px;
 }
 
 .post-delete-btn {
@@ -434,6 +434,11 @@ button:hover {
   .edit_btns {
     font-size: 10px;
     width: 100px !important;
+  }
+
+  .post {
+    width: unset;
+    max-width: 500px;
   }
 
   .post-project__name {
